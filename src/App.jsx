@@ -1,11 +1,11 @@
 import React from 'react';
-import './App.css';
+import './assets/global.css';
 
 function App() {
   return (
-    <p>
-      Cleanedup React App
-    </p>
+    <>
+      <h1 className="a">Cleanedup React App</h1>
+    </>
   );
 }
 
