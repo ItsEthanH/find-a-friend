@@ -29,8 +29,8 @@
 
   --fs-title: 3rem;
   --fs-heading: 2rem;
-  --fs-subheading: ;
-  --fs-body: ;
+  --fs-subheading: 1.5rem;
+  --fs-body: 1;
   --fs-nav: 1.2rem;
 }
 
@@ -83,6 +83,12 @@ a:not([class]) {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/* (PERSONAL CHOICE) - Removes all button styles */
+button {
+  background: transparent;
+  border: none;
 }
 
 /* Make images easier to work with */
