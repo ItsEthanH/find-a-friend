@@ -27,8 +27,8 @@
   --ff-body: 'OpenSans-Regular', sans-serif;
   --ff-accent: 'OpenSans-Light', sans-serif;
 
-  --fs-title: ;
-  --fs-heading: ;
+  --fs-title: 3rem;
+  --fs-heading: 2rem;
   --fs-subheading: ;
   --fs-body: ;
   --fs-nav: 1.2rem;
@@ -107,4 +107,9 @@ svg {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Global Styles */
+.color-accent {
+  color: var(--clr-accent);
 }

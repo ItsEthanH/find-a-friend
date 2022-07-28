@@ -1,0 +1,22 @@
+.body {
+  color: white;
+  padding: 3rem 1rem;
+  background-color: var(--clr-primary-400);
+  text-align: center;
+}
+
+.body h2 {
+  font-size: var(--fs-title);
+  font-family: var(--ff-heading);
+  line-height: 1.1;
+}
+
+.body p {
+  font-size: var(--fs-heading);
+  font-family: var(--ff-accent);
+  margin: 2rem 0;
+}
+
+.search {
+  font-size: var(--fs-heading);
+}
