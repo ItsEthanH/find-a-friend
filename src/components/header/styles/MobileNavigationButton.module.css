@@ -1,0 +1,44 @@
+/* animation for button inspired by https://codepen.io/erikterwan/pen/EVzeRP */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  height: fit-content;
+  width: fit-content;
+}
+
+.hamburger,
+.cross {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.patty {
+  display: block;
+  width: 40px;
+  height: 6px;
+  background-color: white;
+  border-radius: 3px;
+}
+
+.cross .patty {
+  transition: transform 0.3s ease;
+}
+
+.hamburger .patty {
+  transition: all 0.3s ease;
+}
+
+.cross .first {
+  transform: translateY(100%) rotate(45deg);
+}
+
+.cross .second {
+  transform: scale(0);
+}
+
+.cross .third {
+  transform: translateY(-100%) rotate(-45deg);
+}
