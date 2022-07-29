@@ -30,7 +30,7 @@
   --fs-title: 3rem;
   --fs-heading: 2rem;
   --fs-subheading: 1.5rem;
-  --fs-body: 1;
+  --fs-body: 1rem;
   --fs-nav: 1.2rem;
 }
 
@@ -118,4 +118,11 @@ svg {
 /* Global Styles */
 .color-accent {
   color: var(--clr-accent);
+}
+
+--- .swiper-slide {
+  opacity: 0.5;
+}
+.swiper-slide-active {
+  opacity: 1;
 }

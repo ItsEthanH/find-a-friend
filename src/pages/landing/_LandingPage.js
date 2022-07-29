@@ -1,8 +1,9 @@
 import React from 'react';
 
 import Header from '../../components/header/Header';
-import Animals from './animals/Animals';
 import Hero from './hero/Hero';
+import Animals from './animals/Animals';
+import Adoption from './adoption/Adoption';
 
 function LandingPage() {
   return (
@@ -11,6 +12,7 @@ function LandingPage() {
       <main>
         <Hero />
         <Animals />
+        <Adoption />
       </main>
     </>
   );
