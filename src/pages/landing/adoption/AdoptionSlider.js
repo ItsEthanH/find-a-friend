@@ -8,7 +8,13 @@ import 'swiper/css/navigation';
 
 function AdoptionSlider() {
   return (
-    <Swiper modules={[Navigation]} navigation spaceBetween={50} slidesPerView={1}>
+    <Swiper
+      modules={[Navigation]}
+      navigation
+      spaceBetween={20}
+      slidesPerView={1.3}
+      centeredSlides="true"
+    >
       <SwiperSlide>
         <AdoptionCard />
       </SwiperSlide>

@@ -1,6 +1,7 @@
 .adoption h3,
 .adoption > p {
   text-align: center;
+  margin: 0 1.25rem;
 }
 
 .adoption h3 {
@@ -9,6 +10,7 @@
 }
 
 .adoption > p {
+  margin-bottom: 2rem;
   font-family: var(--ff-accent);
   font-size: var(--fs-subheading);
 }

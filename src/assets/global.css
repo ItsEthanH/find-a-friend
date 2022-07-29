@@ -115,14 +115,22 @@ svg {
   }
 }
 
+/* SwiperJS Changes */
+.swiper-slide {
+  transition: 0.3s;
+}
+
+.swiper-backface-hidden .swiper-slide {
+  opacity: 0.25;
+  transform: scaleY(0.8);
+}
+
+.swiper-backface-hidden .swiper-slide-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
 /* Global Styles */
 .color-accent {
   color: var(--clr-accent);
-}
-
---- .swiper-slide {
-  opacity: 0.5;
-}
-.swiper-slide-active {
-  opacity: 1;
 }
