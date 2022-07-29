@@ -1,4 +1,6 @@
 import React from 'react';
+
+import LandingSection from '../../../components/ui/LandingSection';
 import AnimalIcon from './AnimalIcon';
 
 import classes from './styles/Animals.module.css';
@@ -9,7 +11,7 @@ import horse from '../../../assets/images/horse-circle.png';
 
 function Animals() {
   return (
-    <section className={classes.animals}>
+    <LandingSection styles={classes.animals}>
       <h3>
         From <span className="color-accent">Canines</span> to{' '}
         <span className="color-accent">Felines</span>...
@@ -21,7 +23,7 @@ function Animals() {
         <AnimalIcon image={bunny} animal="Bunny" />
         <AnimalIcon image={horse} animal="Horse" />
       </div>
-    </section>
+    </LandingSection>
   );
 }
 
