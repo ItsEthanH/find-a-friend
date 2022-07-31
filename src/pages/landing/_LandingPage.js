@@ -6,6 +6,7 @@ import Animals from './animals/Animals';
 import Adoption from './adoption/Adoption';
 import Successes from './sucesses/Successes';
 import Resources from './resources/Resources';
+import Footer from '../../components/footer/Footer';
 
 function LandingPage() {
   return (
@@ -18,6 +19,7 @@ function LandingPage() {
         <Successes />
         <Resources />
       </main>
+      <Footer />
     </>
   );
 }

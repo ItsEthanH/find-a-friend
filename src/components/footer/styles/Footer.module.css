@@ -1,0 +1,26 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  background-color: var(--clr-primary-400);
+}
+
+.section {
+  margin: 2rem;
+  text-align: center;
+  color: white;
+}
+
+.section h4 {
+  font-size: var(--fs-subheading);
+}
+
+.section p {
+  margin: 1rem 0;
+}
+
+.section li {
+  margin: 0.5rem;
+  list-style: none;
+  font-family: var(--ff-accent);
+}
