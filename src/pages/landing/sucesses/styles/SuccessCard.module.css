@@ -3,23 +3,19 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  width: 80%;
-  margin: 2rem auto;
-  box-shadow: 2px 4px 3px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
-  overflow: hidden;
+  width: 85%;
 }
 
 .text {
   padding: 0.75rem;
 }
 
-.card h4 {
+.text h4 {
   font-family: var(--ff-accent);
   font-size: var(--fs-heading);
   color: var(--clr-accent);
 }
 
-.card p {
+.text p {
   font-size: var(--fs-body);
 }

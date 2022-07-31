@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Card from '../../../components/ui/Card';
 import AdoptionInfo from './AdoptionInfo';
 import AccentButton from '../../../components/ui/AccentButton';
 
@@ -10,7 +11,7 @@ import location from '../../../assets/svgs/location.svg';
 function AdoptionCard() {
   // mobile image size - 300px
   return (
-    <div className={classes.card}>
+    <Card styles={classes.card}>
       <div className={classes.image}>
         <img
           src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/56499165/1/?bust=1659106172&width=300"
@@ -26,7 +27,7 @@ function AdoptionCard() {
         </div>
       </div>
       <AccentButton styles={classes.view}>View Profile</AccentButton>
-    </div>
+    </Card>
   );
 }
 

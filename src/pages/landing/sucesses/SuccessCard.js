@@ -1,11 +1,13 @@
 import React from 'react';
 
+import Card from '../../../components/ui/Card';
+
 import classes from './styles/SuccessCard.module.css';
 import Jet from '../../../assets/images/jet-success.jpg';
 
 function SuccessCard(props) {
   return (
-    <div className={classes.card}>
+    <Card styles={classes.card}>
       <div className={classes.image}>
         <img src={Jet} alt="" />
       </div>
@@ -15,7 +17,7 @@ function SuccessCard(props) {
         </h4>
         <p>{props.description}</p>
       </div>
-    </div>
+    </Card>
   );
 }
 
