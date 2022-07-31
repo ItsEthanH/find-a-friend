@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
-
 import AppContext from '../../context/AppContext';
+
+import MobileNavigationButton from './MobileNavigationButton';
 
 import classes from './styles/MobileNavigationContent.module.css';
 
@@ -14,6 +15,7 @@ function MobileNavigationContent() {
 
   return (
     <nav className={navClasses}>
+      <MobileNavigationButton type="cross" />
       <ul>
         <li>
           <a href="/">Search All</a>

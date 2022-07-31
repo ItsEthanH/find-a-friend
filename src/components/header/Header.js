@@ -8,13 +8,15 @@ import logo from '../../assets/images/header-logo.png';
 
 function Header() {
   return (
-    <header className={classes.header}>
-      <div>
-        <img src={logo} alt="Find-a-Friend" />
-      </div>
-      <MobileNavigationButton />
+    <>
+      <header className={classes.header}>
+        <div>
+          <img src={logo} alt="Find-a-Friend" />
+        </div>
+        <MobileNavigationButton type="hamburger" />
+      </header>
       <MobileNavigationContent />
-    </header>
+    </>
   );
 }
 

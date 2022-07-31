@@ -18,7 +18,7 @@ function Animals() {
         From <span className="color-accent">Canines</span> to
         <span className="color-accent"> Felines</span>...
       </LandingHeading>
-      <LandingSubheading>...and everything in between!</LandingSubheading>
+      <LandingSubheading alignment="center">...and everything in between!</LandingSubheading>
       <div className={classes.icons}>
         <AnimalIcon image={dog} animal="Dog" />
         <AnimalIcon image={cat} animal="Cat" />

@@ -1,6 +1,7 @@
 .card {
   display: grid;
   grid-template-rows: 20rem fit-content;
+  margin: 3rem auto 1rem auto;
 }
 
 .image {

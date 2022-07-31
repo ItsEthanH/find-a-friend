@@ -1,9 +1,10 @@
 .header {
-  position: relative;
+  position: fixed;
   display: flex;
   max-height: 6rem;
   padding: 1rem 2rem;
-  background-color: var(--clr-primary-400);
+  background-color: var(--clr-primary-header);
+  z-index: 2;
 }
 
 .header img {

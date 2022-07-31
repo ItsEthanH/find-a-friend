@@ -5,14 +5,13 @@ import Backdrop from '../ui/Backdrop';
 
 import classes from './styles/MobileNavigationButton.module.css';
 
-function MobileNavigationButton() {
+function MobileNavigationButton(props) {
   const { isMobileNavOpen, toggleMobileNav } = useContext(AppContext);
+  const style = `${classes.button} ${props.type === 'cross' ? classes.cross : classes.hamburger}`;
 
   function navClickHandler() {
     toggleMobileNav();
   }
-
-  const buttonClass = `${isMobileNavOpen ? classes.cross : classes.hamburger}`;
 
   // will stop mobile content from scrolling when the nav is open
   useEffect(() => {
@@ -26,7 +25,7 @@ function MobileNavigationButton() {
   return (
     <>
       {isMobileNavOpen && <Backdrop />}
-      <button className={buttonClass} onClick={navClickHandler}>
+      <button className={style} onClick={navClickHandler}>
         <span className={`${classes.patty} ${classes.first}`}></span>
         <span className={`${classes.patty} ${classes.second}`}></span>
         <span className={`${classes.patty} ${classes.third}`}></span>
