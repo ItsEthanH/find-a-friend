@@ -12,7 +12,7 @@ function AdoptionSlider() {
       modules={[Navigation]}
       navigation
       spaceBetween={20}
-      slidesPerView={1.3}
+      slidesPerView={1.4}
       centeredSlides="true"
     >
       <SwiperSlide>

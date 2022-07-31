@@ -1,6 +1,5 @@
 .card {
   display: grid;
-  grid-template-rows: 20rem fit-content;
   margin: 3rem auto 1rem auto;
 }
 
@@ -33,6 +32,7 @@
   display: flex;
   gap: 0.4rem;
   margin-top: 0.75rem;
+  justify-content: space-around;
 }
 
 .info > * {
