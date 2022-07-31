@@ -3,6 +3,7 @@
   grid-template-rows: 20rem fit-content;
   box-shadow: 2px 4px 3px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
+  margin: 2rem 0;
 }
 
 .image {

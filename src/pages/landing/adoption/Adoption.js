@@ -1,6 +1,5 @@
 import React from 'react';
 
-import LandingSection from '../../../components/ui/LandingSection';
 import AdoptionSlider from './AdoptionSlider';
 
 import classes from './styles/Adoption.module.css';
