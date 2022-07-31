@@ -1,0 +1,28 @@
+.header {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-heading);
+}
+
+.subheading {
+  display: flex;
+  align-items: center;
+  height: 2.5rem;
+}
+
+.subheading p {
+  font-family: var(--ff-accent);
+  font-size: var(--fs-subheading);
+}
+
+.subheading img {
+  display: inline;
+  height: 100%;
+  margin: 0 0.5rem;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 2.5rem 0;
+  gap: 4rem;
+}

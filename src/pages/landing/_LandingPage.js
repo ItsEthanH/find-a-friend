@@ -5,6 +5,7 @@ import Hero from './hero/Hero';
 import Animals from './animals/Animals';
 import Adoption from './adoption/Adoption';
 import Successes from './sucesses/Successes';
+import Resources from './resources/Resources';
 
 function LandingPage() {
   return (
@@ -15,6 +16,7 @@ function LandingPage() {
         <Animals />
         <Adoption />
         <Successes />
+        <Resources />
       </main>
     </>
   );

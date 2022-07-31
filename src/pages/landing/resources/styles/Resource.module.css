@@ -1,0 +1,39 @@
+.resource {
+  display: flex;
+  flex-direction: column;
+}
+
+.left {
+  text-align: left;
+  align-items: start;
+}
+
+.right {
+  text-align: right;
+  align-items: end;
+}
+
+.resource h3 {
+  font-size: var(--fs-heading);
+  font-family: var(--ff-heading);
+}
+
+.resource p {
+  margin: 0.5rem 0;
+}
+
+.resource a {
+  color: var(--clr-petfinder);
+  text-decoration: underline solid var(--clr-petfinder);
+  align-self: start;
+}
+
+.right a {
+  align-self: end;
+}
+
+.highlight {
+  height: 0.5rem;
+  width: 30%;
+  background-color: var(--clr-petfinder);
+}
