@@ -1,18 +1,6 @@
 .animals {
-  text-align: center;
-}
-
-.animals h3 {
   margin-top: 2rem;
-  font-size: var(--fs-heading);
-  font-family: var(--ff-heading);
   text-align: center;
-  line-height: 1.1;
-}
-
-.animals p {
-  margin: 0.5rem 0;
-  font-size: var(--fs-subheading);
 }
 
 .icons {

@@ -1,15 +1,4 @@
 .adoption h3,
 .adoption > p {
-  text-align: center;
   margin: 0 1.25rem;
-}
-
-.adoption h3 {
-  font-family: var(--ff-heading);
-  font-size: var(--fs-heading);
-}
-
-.adoption > p {
-  font-family: var(--ff-accent);
-  font-size: var(--fs-subheading);
 }

@@ -1,0 +1,16 @@
+.subheading {
+  font-family: var(--ff-accent);
+  font-size: var(--fs-subheading);
+}
+
+.left {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}

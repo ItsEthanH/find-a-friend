@@ -1,6 +1,8 @@
 import React from 'react';
 
 import LandingSection from '../../../components/ui/LandingSection';
+import LandingHeading from '../../../components/ui/LandingHeading';
+import LandingSubheading from '../../../components/ui/LandingSubheading';
 import AnimalIcon from './AnimalIcon';
 
 import classes from './styles/Animals.module.css';
@@ -12,11 +14,11 @@ import horse from '../../../assets/images/horse-circle.png';
 function Animals() {
   return (
     <LandingSection styles={classes.animals}>
-      <h3>
-        From <span className="color-accent">Canines</span> to{' '}
-        <span className="color-accent">Felines</span>...
-      </h3>
-      <p>...and everything in between!</p>
+      <LandingHeading alignment="center">
+        From <span className="color-accent">Canines</span> to
+        <span className="color-accent"> Felines</span>...
+      </LandingHeading>
+      <LandingSubheading>...and everything in between!</LandingSubheading>
       <div className={classes.icons}>
         <AnimalIcon image={dog} animal="Dog" />
         <AnimalIcon image={cat} animal="Cat" />

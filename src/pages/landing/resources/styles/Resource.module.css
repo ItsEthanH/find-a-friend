@@ -13,11 +13,6 @@
   align-items: end;
 }
 
-.resource h3 {
-  font-size: var(--fs-heading);
-  font-family: var(--ff-heading);
-}
-
 .resource p {
   margin: 0.5rem 0;
 }

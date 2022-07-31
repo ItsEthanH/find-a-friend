@@ -1,5 +1,7 @@
 import React from 'react';
 
+import LandingHeading from '../../../components/ui/LandingHeading';
+import LandingSubheading from '../../../components/ui/LandingSubheading';
 import LandingSection from '../../../components/ui/LandingSection';
 import Resource from './Resource';
 
@@ -9,9 +11,9 @@ import petfinder from '../../../assets/images/petfinder.png';
 function Resources() {
   return (
     <LandingSection>
-      <h2 className={classes.header}>Resources for New Owners</h2>
+      <LandingHeading>Resources for New Owners</LandingHeading>
       <div className={classes.subheading}>
-        <p>Courtesy of </p>
+        <LandingSubheading>Courtesy of </LandingSubheading>
         <img src={petfinder} alt="Petfinder" />
       </div>
       <div className={classes.wrapper}>

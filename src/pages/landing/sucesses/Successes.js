@@ -1,15 +1,18 @@
 import React from 'react';
 
+import LandingHeading from '../../../components/ui/LandingHeading';
+import LandingSubheading from '../../../components/ui/LandingSubheading';
 import LandingSection from '../../../components/ui/LandingSection';
 
-import classes from './styles/Successes.module.css';
 import SuccessCard from './SuccessCard';
 
 function Successes() {
   return (
-    <LandingSection styles={classes.successes}>
-      <h3 className={classes.heading}>Success Stories</h3>
-      <p className={classes.subheading}>Read about some of our successful rehoming</p>
+    <LandingSection>
+      <LandingHeading alignment="center">Success Stories</LandingHeading>
+      <LandingSubheading alignment="center">
+        Read about some of our successful rehoming
+      </LandingSubheading>
       <SuccessCard
         name="Jet"
         breed="Whippet"

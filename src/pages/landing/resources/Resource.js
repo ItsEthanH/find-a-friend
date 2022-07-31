@@ -1,5 +1,7 @@
 import React from 'react';
 
+import LandingHeading from '../../../components/ui/LandingHeading';
+
 import classes from './styles/Resource.module.css';
 
 function Resource(props) {
@@ -8,7 +10,7 @@ function Resource(props) {
   return (
     <div className={`${classes.resource} ${alignmentStyles}`}>
       <div className={classes.highlight} />
-      <h3>{props.title}</h3>
+      <LandingHeading>{props.title}</LandingHeading>
       <p>{props.body}</p>
       <a href={props.link}>{props.linkText}</a>
     </div>
