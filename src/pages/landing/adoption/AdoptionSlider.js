@@ -16,6 +16,14 @@ function AdoptionSlider() {
     800: {
       slidesPerView: 2.5,
     },
+
+    1000: {
+      slidesPerView: 3,
+    },
+
+    1300: {
+      slidesPerView: 4,
+    },
   };
 
   return (

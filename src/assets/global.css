@@ -148,3 +148,15 @@ svg {
     font-size: 17px;
   }
 }
+
+@media screen and (min-width: 1400px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  html {
+    font-size: 19px;
+  }
+}

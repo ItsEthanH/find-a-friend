@@ -31,3 +31,14 @@
   list-style: none;
   font-family: var(--ff-accent);
 }
+
+@media screen and (min-width: 1000px) {
+  .footer {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .section {
+    width: 25%;
+  }
+}

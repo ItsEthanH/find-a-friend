@@ -7,3 +7,9 @@
     margin: 6rem 2.5rem;
   }
 }
+
+@media screen and (min-width: 1400px) {
+  .section {
+    margin: 10rem 4rem;
+  }
+}

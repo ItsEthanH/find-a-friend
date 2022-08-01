@@ -1,7 +1,16 @@
 .hero {
+  display: flex;
+  align-items: center;
   background-image: url('../../../../assets/images/hero.jpg');
   background-position: center;
   background-size: cover;
   background-color: rgba(0, 0, 0, 0.6);
   background-blend-mode: multiply;
+}
+
+@media screen and (min-width: 1000px) {
+  .hero {
+    text-align: left;
+    height: 90vh;
+  }
 }

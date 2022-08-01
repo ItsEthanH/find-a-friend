@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import AppContext from '../../../context/AppContext';
 
 import LandingHeading from '../../../components/ui/LandingHeading';
 
 import classes from './styles/Resource.module.css';
 
 function Resource(props) {
+  const { windowWidth } = useContext(AppContext);
+
   let alignmentStyles = props.right ? classes.right : classes.left;
+  if (windowWidth >= 1000) {
+    alignmentStyles = props.left;
+  }
 
   return (
     <div className={`${classes.resource} ${alignmentStyles}`}>

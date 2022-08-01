@@ -16,7 +16,7 @@ function DesktopNavigation() {
           <a href="">Dog Breeds</a>
         </li>
         <li>
-          <a href="">Cat Breed</a>
+          <a href="">Cat Breeds</a>
         </li>
       </ul>
     </nav>

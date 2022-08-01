@@ -1,0 +1,24 @@
+.cards {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 1000px) {
+  .cards {
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .cards {
+    flex-direction: column;
+  }
+
+  .cards > :first-child {
+    align-self: start;
+  }
+
+  .cards > :last-child {
+    align-self: end;
+  }
+}

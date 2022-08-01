@@ -1,9 +1,7 @@
 .card {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   align-items: center;
   text-align: center;
-  width: 85%;
   margin: 3rem auto;
 }
 
@@ -20,4 +18,29 @@
 
 .text p {
   font-size: var(--fs-body);
+}
+
+@media screen and (min-width: 1400px) {
+  .card {
+    grid-template-columns: 13rem 40rem;
+    max-width: initial;
+    margin: 3rem 0;
+  }
+
+  .image {
+    height: 100%;
+  }
+
+  .image img {
+    height: 100%;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 0 1rem;
+    text-align: right;
+  }
 }

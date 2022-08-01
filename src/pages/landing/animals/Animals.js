@@ -14,11 +14,13 @@ import horse from '../../../assets/images/horse-circle.png';
 function Animals() {
   return (
     <LandingSection styles={classes.animals}>
-      <LandingHeading alignment="center">
-        From <span className="color-accent">Canines</span> to
-        <span className="color-accent"> Felines</span>...
-      </LandingHeading>
-      <LandingSubheading alignment="center">...and everything in between!</LandingSubheading>
+      <div className={classes.headings}>
+        <LandingHeading alignment="center">
+          From <span className="color-accent">Canines</span> to
+          <span className="color-accent"> Felines</span>...
+        </LandingHeading>
+        <LandingSubheading alignment="center">...and everything in between!</LandingSubheading>
+      </div>
       <div className={classes.icons}>
         <AnimalIcon image={dog} animal="Dog" />
         <AnimalIcon image={cat} animal="Cat" />

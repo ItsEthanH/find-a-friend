@@ -19,3 +19,11 @@
 .search {
   font-size: var(--fs-heading);
 }
+
+@media screen and (min-width: 1000px) {
+  .body {
+    text-align: left;
+    max-width: 70%;
+    margin: 0 2rem;
+  }
+}
