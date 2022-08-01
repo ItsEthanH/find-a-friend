@@ -1,0 +1,16 @@
+.navigation {
+  align-self: center;
+}
+
+.navigation ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-between;
+  color: white;
+  gap: 1rem;
+}
+
+.navigation li {
+  width: max-content;
+  font-size: var(--fs-nav);
+}

@@ -15,7 +15,7 @@
   font-family: var(--ff-accent);
   font-size: var(--fs-heading);
   color: var(--clr-accent);
-  margin: 0.6rem 0;
+  margin-bottom: 0.6rem;
 }
 
 .text p {

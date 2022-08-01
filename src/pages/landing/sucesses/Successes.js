@@ -11,7 +11,7 @@ function Successes() {
     <LandingSection>
       <LandingHeading alignment="center">Success Stories</LandingHeading>
       <LandingSubheading alignment="center">
-        Read about some of our successful rehoming
+        Read about some of our successful rehomings
       </LandingSubheading>
       <SuccessCard
         name="Jet"

@@ -124,7 +124,7 @@ svg {
 
 .swiper-backface-hidden .swiper-slide {
   opacity: 0.25;
-  transform: scaleY(0.8);
+  transform: scale(0.8);
 }
 
 .swiper-backface-hidden .swiper-slide-active {
@@ -140,4 +140,11 @@ svg {
 /* Global Styles */
 .color-accent {
   color: var(--clr-accent);
+}
+
+/* Media Queries */
+@media screen and (min-width: 650px) {
+  html {
+    font-size: 17px;
+  }
 }

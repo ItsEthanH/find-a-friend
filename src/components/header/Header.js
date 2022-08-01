@@ -1,21 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import AppContext from '../../context/AppContext';
 
 import MobileNavigationButton from './MobileNavigationButton';
 import MobileNavigationContent from './MobileNavigationContent';
 
 import classes from './styles/Header.module.css';
 import logo from '../../assets/images/header-logo.png';
+import DesktopNavigation from './DesktopNavigation';
 
 function Header() {
+  const { windowWidth } = useContext(AppContext);
+
   return (
     <>
       <header className={classes.header}>
-        <div>
+        <div className={classes.image}>
           <img src={logo} alt="Find-a-Friend" />
         </div>
-        <MobileNavigationButton type="hamburger" />
+        {windowWidth < 850 && <MobileNavigationButton type="hamburger" />}
+        {windowWidth >= 850 && <DesktopNavigation />}
       </header>
-      <MobileNavigationContent />
+      {windowWidth < 850 && <MobileNavigationContent />}
     </>
   );
 }
