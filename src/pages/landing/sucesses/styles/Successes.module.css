@@ -3,7 +3,7 @@
 }
 
 .pawprints {
-  align-self: center;
+  align-self: end;
   margin: 0 1rem;
 }
 
@@ -23,11 +23,11 @@
     grid-template-columns: auto auto;
   }
 
-  .story:first-of-type {
-    grid-template-columns: 7fr 3fr;
+  .one {
+    grid-template-columns: 6.5fr 3.5fr;
   }
 
-  .story:last-of-type {
-    grid-template-columns: 3fr 7fr;
+  .two {
+    grid-template-columns: 3.5fr 6.5fr;
   }
 }
