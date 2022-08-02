@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import AppContext from '../../context/AppContext';
+import NavData from '../../util/NavData';
 
 import MobileNavigationButton from './MobileNavigationButton';
 
@@ -17,21 +18,11 @@ function MobileNavigationContent() {
     <nav className={navClasses}>
       <MobileNavigationButton type="cross" />
       <ul>
-        <li>
-          <a href="/">Search All</a>
-        </li>
-        <hr />
-        <li>
-          <a href="/">Find by Type</a>
-        </li>
-        <hr />
-        <li>
-          <a href="/">Dog Breeds</a>
-        </li>
-        <hr />
-        <li>
-          <a href="/">Cat Breeds</a>
-        </li>
+        {NavData.map((link) => (
+          <li>
+            <a href="">{link}</a>
+          </li>
+        ))}
       </ul>
     </nav>
   );

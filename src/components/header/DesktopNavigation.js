@@ -1,4 +1,5 @@
 import React from 'react';
+import NavData from '../../util/NavData';
 
 import classes from './styles/DesktopNavigation.module.css';
 
@@ -6,18 +7,11 @@ function DesktopNavigation() {
   return (
     <nav className={classes.navigation}>
       <ul>
-        <li>
-          <a href="">Search Animals</a>
-        </li>
-        <li>
-          <a href="">Search Organisations</a>
-        </li>
-        <li>
-          <a href="">Dog Breeds</a>
-        </li>
-        <li>
-          <a href="">Cat Breeds</a>
-        </li>
+        {NavData.map((link) => (
+          <li>
+            <a href="">{link}</a>
+          </li>
+        ))}
       </ul>
     </nav>
   );
