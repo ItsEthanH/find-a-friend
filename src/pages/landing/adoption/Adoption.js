@@ -8,11 +8,11 @@ import classes from './styles/Adoption.module.css';
 
 function Adoption() {
   return (
-    <section className={classes.adoption}>
+    <section>
       <LandingHeading styles={classes.heading} alignment="center">
         Available for Adoption
       </LandingHeading>
-      <LandingSubheading alignment="center">
+      <LandingSubheading styles={classes.heading} alignment="center">
         Just a pawful of animals looking for a new home
       </LandingSubheading>
       <AdoptionCarousel />

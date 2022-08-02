@@ -1,6 +1,5 @@
 .animals {
   text-align: center;
-  margin-top: 15rem;
 }
 
 .icons {
@@ -12,6 +11,10 @@
 }
 
 @media screen and (min-width: 1000px) {
+  .animals {
+    margin-top: 15rem;
+  }
+
   .animals .headings {
     width: 40rem;
     margin: 0 auto;

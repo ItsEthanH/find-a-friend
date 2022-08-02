@@ -132,7 +132,8 @@ svg {
   transform: scale(1);
 }
 
-.swiper-button {
+.swiper-button-next,
+.swiper-button-prev {
   color: var(--clr-accent);
 }
 
