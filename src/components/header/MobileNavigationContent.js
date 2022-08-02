@@ -16,10 +16,11 @@ function MobileNavigationContent() {
 
   return (
     <nav className={navClasses}>
-      <MobileNavigationButton type="cross" />
+      {/* Close button is only rendered when nav is open, to allow for easier testing */}
+      {isMobileNavOpen && <MobileNavigationButton type="cross" />}
       <ul>
         {NavData.map((link) => (
-          <li>
+          <li key={link}>
             <a href="">{link}</a>
           </li>
         ))}

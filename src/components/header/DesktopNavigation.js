@@ -8,7 +8,7 @@ function DesktopNavigation() {
     <nav className={classes.navigation}>
       <ul>
         {NavData.map((link) => (
-          <li>
+          <li key={link}>
             <a href="">{link}</a>
           </li>
         ))}
