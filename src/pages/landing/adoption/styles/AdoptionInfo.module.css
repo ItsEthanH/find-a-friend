@@ -5,6 +5,7 @@
 }
 
 .info > p {
+  text-align: center;
   width: fit-content;
   font-size: var(--fs-body);
   color: #000;

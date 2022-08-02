@@ -35,3 +35,10 @@
   width: 30%;
   background-color: var(--clr-petfinder);
 }
+
+@media screen and (min-width: 1000px) {
+  .resource a {
+    margin: 0.5rem 0;
+    align-self: end;
+  }
+}

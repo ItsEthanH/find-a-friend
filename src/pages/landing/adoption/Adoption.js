@@ -2,7 +2,7 @@ import React from 'react';
 
 import LandingHeading from '../../../components/ui/LandingHeading';
 import LandingSubheading from '../../../components/ui/LandingSubheading';
-import AdoptionSlider from './AdoptionSlider';
+import AdoptionCarousel from './AdoptionCarousel';
 
 import classes from './styles/Adoption.module.css';
 
@@ -15,7 +15,7 @@ function Adoption() {
       <LandingSubheading alignment="center">
         Just a pawful of animals looking for a new home
       </LandingSubheading>
-      <AdoptionSlider />
+      <AdoptionCarousel />
     </section>
   );
 }

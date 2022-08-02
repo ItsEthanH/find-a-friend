@@ -1,24 +1,33 @@
-.cards {
-  display: flex;
-  flex-direction: column;
+.story {
+  display: grid;
 }
 
-@media screen and (min-width: 1000px) {
-  .cards {
-    flex-direction: row;
-  }
+.pawprints {
+  align-self: center;
+  margin: 0 1rem;
 }
 
-@media screen and (min-width: 1400px) {
-  .cards {
-    flex-direction: column;
+@media screen and (min-width: 1500px) {
+  .headings {
+    position: absolute;
+    right: 0;
+    width: 20%;
+    margin: 0 2rem;
   }
 
-  .cards > :first-child {
-    align-self: start;
+  .headings > * {
+    text-align: right;
   }
 
-  .cards > :last-child {
-    align-self: end;
+  .story {
+    grid-template-columns: auto auto;
+  }
+
+  .story:first-of-type {
+    grid-template-columns: 7fr 3fr;
+  }
+
+  .story:last-of-type {
+    grid-template-columns: 3fr 7fr;
   }
 }

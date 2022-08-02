@@ -117,32 +117,31 @@ svg {
   }
 }
 
-/* SwiperJS Changes */
+/* SwiperJS changes */
 .swiper-slide {
   transition: 0.3s;
 }
 
-.swiper-backface-hidden .swiper-slide {
+.swiper-slide {
   opacity: 0.25;
   transform: scale(0.8);
 }
 
-.swiper-backface-hidden .swiper-slide-active {
+.swiper-slide-active {
   opacity: 1;
   transform: scale(1);
 }
 
-.swiper-button-prev,
-.swiper-button-next {
+.swiper-button {
   color: var(--clr-accent);
 }
 
-/* Global Styles */
+/* Helper styles */
 .color-accent {
   color: var(--clr-accent);
 }
 
-/* Media Queries */
+/* Media queries */
 @media screen and (min-width: 650px) {
   html {
     font-size: 17px;

@@ -6,11 +6,11 @@ import AdoptionCard from './AdoptionCard';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-function AdoptionSlider() {
+function AdoptionCarousel() {
   const sliderBreakpoints = {
-    600: {
-      slidesPerView: 2,
-      spaceBetween: 50,
+    500: {
+      slidesPerView: 1.7,
+      spaceBetween: 40,
     },
 
     800: {
@@ -24,14 +24,19 @@ function AdoptionSlider() {
     1300: {
       slidesPerView: 4,
     },
+
+    1700: {
+      slidesPerView: 5,
+    },
   };
 
   return (
     <Swiper
       modules={[Navigation]}
+      loop="true"
       navigation
       spaceBetween={20}
-      slidesPerView={1.6}
+      slidesPerView={1.2}
       centeredSlides="true"
       breakpoints={sliderBreakpoints}
     >
@@ -51,4 +56,4 @@ function AdoptionSlider() {
   );
 }
 
-export default AdoptionSlider;
+export default AdoptionCarousel;

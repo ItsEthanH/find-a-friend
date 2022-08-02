@@ -1,5 +1,6 @@
 .card {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   text-align: center;
   margin: 3rem auto;
@@ -20,19 +21,16 @@
   font-size: var(--fs-body);
 }
 
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1500px) {
   .card {
-    grid-template-columns: 13rem 40rem;
-    max-width: initial;
+    flex-direction: row;
+    max-width: 60rem;
     margin: 3rem 0;
   }
 
   .image {
     height: 100%;
-  }
-
-  .image img {
-    height: 100%;
+    flex: 1 1.2 auto;
   }
 
   .text {
@@ -40,7 +38,13 @@
     flex-direction: column;
     justify-content: center;
     height: 100%;
-    padding: 0 1rem;
+    padding: 2rem 1rem;
     text-align: right;
+  }
+}
+
+@media screen and (min-width: 1650px) {
+  .image {
+    height: 100%;
   }
 }
