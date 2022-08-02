@@ -27,3 +27,11 @@
     margin: 0 2rem;
   }
 }
+
+@media screen and (min-width: 1600px) {
+  .body {
+    text-align: left;
+    max-width: 50%;
+    margin: 0 2rem;
+  }
+}

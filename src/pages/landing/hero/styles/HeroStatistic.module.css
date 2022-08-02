@@ -1,0 +1,22 @@
+.statistic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.statistic img {
+  height: 4rem;
+}
+
+.stat {
+  font-family: var(--ff-accent);
+  font-size: var(--fs-subheading);
+  line-height: 1;
+  margin-top: 1rem;
+}
+
+.text {
+  font-family: var(--ff-heading);
+  color: var(--clr-accent);
+}

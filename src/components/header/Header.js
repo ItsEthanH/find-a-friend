@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import AppContext from '../../context/AppContext';
 
+import DesktopNavigation from './DesktopNavigation';
 import MobileNavigationButton from './MobileNavigationButton';
 import MobileNavigationContent from './MobileNavigationContent';
 
 import classes from './styles/Header.module.css';
 import logo from '../../assets/images/header-logo.png';
-import DesktopNavigation from './DesktopNavigation';
 
 function Header() {
   const { windowWidth } = useContext(AppContext);
