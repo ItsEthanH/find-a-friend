@@ -8,12 +8,16 @@ import MobileNavigationButton from './MobileNavigationButton';
 import classes from './styles/MobileNavigationContent.module.css';
 
 function MobileNavigationContent() {
-  const { isMobileNavOpen } = useContext(AppContext);
+  const { isMobileNavOpen, toggleMobileNav } = useContext(AppContext);
 
   const navClasses = `
     ${classes.navigation}
     ${isMobileNavOpen ? classes.shown : classes.hidden}
   `;
+
+  function closeNavHandler() {
+    toggleMobileNav();
+  }
 
   return (
     <nav className={navClasses}>
@@ -22,7 +26,9 @@ function MobileNavigationContent() {
       <ul>
         {NavData.map((link) => (
           <li key={link.text}>
-            <NavLink to={link.to}>{link.text}</NavLink>
+            <NavLink to={link.to} onClick={closeNavHandler}>
+              {link.text}
+            </NavLink>
           </li>
         ))}
       </ul>
