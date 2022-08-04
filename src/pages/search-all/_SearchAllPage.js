@@ -1,7 +1,7 @@
 import React from 'react';
 
 function _SearchAllPage() {
-  return <div>_SearchAllPage</div>;
+  return <main>_SearchAllPage</main>;
 }
 
 export default _SearchAllPage;

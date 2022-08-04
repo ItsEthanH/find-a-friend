@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import NavData from '../../util/NavData';
 
 import classes from './styles/DesktopNavigation.module.css';
@@ -8,8 +9,8 @@ function DesktopNavigation() {
     <nav className={classes.navigation}>
       <ul>
         {NavData.map((link) => (
-          <li key={link}>
-            <a href="/">{link}</a>
+          <li key={link.text}>
+            <NavLink to={link.to}>{link.text}</NavLink>
           </li>
         ))}
       </ul>

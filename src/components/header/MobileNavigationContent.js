@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { NavLink } from 'react-router-dom';
 import AppContext from '../../context/AppContext';
 import NavData from '../../util/NavData';
 
@@ -20,8 +21,8 @@ function MobileNavigationContent() {
       {isMobileNavOpen && <MobileNavigationButton type="cross" />}
       <ul>
         {NavData.map((link) => (
-          <li key={link}>
-            <a href="/">{link}</a>
+          <li key={link.text}>
+            <NavLink to={link.to}>{link.text}</NavLink>
           </li>
         ))}
       </ul>

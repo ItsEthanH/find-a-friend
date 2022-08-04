@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import AppContext from '../../context/AppContext';
 
 import DesktopNavigation from './DesktopNavigation';
@@ -14,9 +15,9 @@ function Header() {
   return (
     <>
       <header className={classes.header}>
-        <div className={classes.image}>
+        <Link to="/" className={classes.image}>
           <img src={logo} alt="Find-a-Friend" />
-        </div>
+        </Link>
         {windowWidth < 850 && <MobileNavigationButton type="hamburger" />}
         {windowWidth >= 850 && <DesktopNavigation />}
       </header>

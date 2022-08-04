@@ -10,6 +10,7 @@
 
 .image img {
   height: 100%;
+  cursor: pointer;
 }
 
 .header button {
