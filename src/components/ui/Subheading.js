@@ -1,8 +1,8 @@
 import React from 'react';
 
-import classes from './styles/LandingSubheading.module.css';
+import classes from './styles/Subheading.module.css';
 
-function LandingSubheading(props) {
+function Subheading(props) {
   let styles;
 
   switch (props.alignment) {
@@ -20,4 +20,4 @@ function LandingSubheading(props) {
   return <p className={styles}>{props.children}</p>;
 }
 
-export default LandingSubheading;
+export default Subheading;

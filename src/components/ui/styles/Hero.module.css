@@ -2,12 +2,21 @@
   position: relative;
   display: flex;
   align-items: center;
-  background-image: url('../../../../assets/images/hero.jpg');
   background-position: center;
   background-size: cover;
   background-color: rgba(0, 0, 0, 0.6);
   background-blend-mode: multiply;
   max-width: initial;
+  padding: 10rem 1rem 3rem 1rem;
+  color: white;
+}
+
+.landing {
+  background-image: url('../../../assets/images/landing-hero.jpg');
+}
+
+.searchall {
+  background-image: url('../../../assets/images/search-all.jpg');
 }
 
 @media screen and (min-width: 1000px) {

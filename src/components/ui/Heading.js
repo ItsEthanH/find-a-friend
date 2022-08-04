@@ -1,8 +1,8 @@
 import React from 'react';
 
-import classes from './styles/LandingHeading.module.css';
+import classes from './styles/Heading.module.css';
 
-function LandingHeading(props) {
+function Heading(props) {
   let styles;
 
   switch (props.alignment) {
@@ -20,4 +20,4 @@ function LandingHeading(props) {
   return <h3 className={styles}>{props.children}</h3>;
 }
 
-export default LandingHeading;
+export default Heading;

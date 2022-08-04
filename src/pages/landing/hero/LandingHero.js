@@ -2,7 +2,7 @@ import React from 'react';
 
 import AccentButton from '../../../components/ui/AccentButton';
 
-import classes from './styles/HeroBody.module.css';
+import classes from './styles/LandingHero.module.css';
 
 function HeroBody() {
   return (
