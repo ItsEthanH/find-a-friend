@@ -1,0 +1,31 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: white;
+  border-radius: 15px;
+}
+
+.entry {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.entry input {
+  width: 100%;
+  margin: 0 0.5rem;
+  border: none;
+  outline: none;
+}
+
+.entry img {
+  width: 2rem;
+}
+
+.divider {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
