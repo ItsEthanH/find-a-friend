@@ -1,0 +1,37 @@
+.subheading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 5rem;
+}
+
+.subheading img {
+  display: inline;
+  height: 2.5rem;
+  object-fit: scale-down;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 2.5rem 0;
+  gap: 4rem;
+}
+
+@media screen and (min-width: 400px) {
+  .subheading {
+    flex-direction: row;
+  }
+
+  .subheading img {
+    margin: 0 0.5rem;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .wrapper {
+    margin-top: 5rem;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

@@ -1,0 +1,30 @@
+.animals {
+  text-align: center;
+}
+
+.icons {
+  margin: 2rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+}
+
+@media screen and (min-width: 1000px) {
+  .animals {
+    margin-top: 15rem;
+  }
+
+  .animals .headings {
+    width: 40rem;
+    margin: 0 auto;
+  }
+
+  .headings h3 {
+    text-align: left;
+  }
+
+  .headings p {
+    text-align: right;
+  }
+}

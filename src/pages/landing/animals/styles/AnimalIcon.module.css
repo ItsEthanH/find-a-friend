@@ -1,0 +1,24 @@
+.icon,
+.icon > * {
+  cursor: pointer;
+}
+
+.icon img {
+  height: 7.5rem;
+  width: 7.5rem;
+  margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 650px) {
+  .icon img {
+    height: 9rem;
+    width: 9rem;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .icon img {
+    height: 15rem;
+    width: 15rem;
+  }
+}

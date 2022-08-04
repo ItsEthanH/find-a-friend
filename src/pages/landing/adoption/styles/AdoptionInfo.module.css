@@ -1,0 +1,12 @@
+.info {
+  display: flex;
+  text-align: left;
+  align-items: center;
+}
+
+.info > p {
+  text-align: center;
+  width: fit-content;
+  font-size: var(--fs-body);
+  color: #000;
+}

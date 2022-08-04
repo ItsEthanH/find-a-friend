@@ -1,0 +1,44 @@
+.resource {
+  display: flex;
+  flex-direction: column;
+  max-width: 25rem;
+}
+
+.left {
+  text-align: left;
+  align-self: start;
+  align-items: start;
+}
+
+.right {
+  text-align: right;
+  align-self: end;
+  align-items: end;
+}
+
+.resource p {
+  margin: 0.5rem 0;
+}
+
+.resource a {
+  color: var(--clr-petfinder);
+  text-decoration: underline solid var(--clr-petfinder);
+  align-self: start;
+}
+
+.right a {
+  align-self: end;
+}
+
+.highlight {
+  height: 0.5rem;
+  width: 30%;
+  background-color: var(--clr-petfinder);
+}
+
+@media screen and (min-width: 1000px) {
+  .resource a {
+    margin: 0.5rem 0;
+    align-self: end;
+  }
+}

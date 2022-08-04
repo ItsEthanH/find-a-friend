@@ -18,17 +18,26 @@
 }
 
 :root {
-  --clr-primary-400: #007387;
+  --clr-primary-400: #00869e;
   --clr-primary-300: #38bfd4;
+  --clr-primary-header: #00869ef5;
 
   --clr-accent: #f56d1c;
+  --clr-petfinder: #6907b8;
 
   --ff-heading: 'OpenSans-SemiBold', sans-serif;
   --ff-body: 'OpenSans-Regular', sans-serif;
   --ff-accent: 'OpenSans-Light', sans-serif;
+
+  --fs-title: 3rem;
+  --fs-heading: 2rem;
+  --fs-subheading: 1.5rem;
+  --fs-body: 1rem;
+  --fs-nav: 1.2rem;
 }
 
 /* CSS reset courtesy of Andy Bell https://piccalil.li/blog/a-modern-css-reset */
+/* Personal changes denoted by (PERSONAL CHOICE) */
 /* Box sizing rules */
 *,
 *::before,
@@ -36,7 +45,7 @@
   box-sizing: border-box;
 }
 
-/* Remove default margin and padding*/
+/* (PERSONAL CHOICE) - Remove default margin and padding */
 * {
   margin: 0;
   padding: 0;
@@ -54,6 +63,7 @@ html:focus-within {
   scroll-behavior: smooth;
 }
 
+/* (PERSONAL CHOICE) - Match html & body height and default font to body */
 html,
 body {
   height: 100%;
@@ -69,6 +79,18 @@ body {
 /* A elements that don't have a class get default styles */
 a:not([class]) {
   text-decoration-skip-ink: auto;
+}
+
+/* (PERSONAL CHOICE) - Anchor tags have no colour or underline */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* (PERSONAL CHOICE) - Removes all button styles */
+button {
+  background: transparent;
+  border: none;
 }
 
 /* Make images easier to work with */
@@ -92,5 +114,49 @@ svg {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* SwiperJS changes */
+.swiper-slide {
+  transition: 0.3s;
+}
+
+.swiper-slide {
+  opacity: 0.25;
+  transform: scale(0.8);
+}
+
+.swiper-slide-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--clr-accent);
+}
+
+/* Helper styles */
+.color-accent {
+  color: var(--clr-accent);
+}
+
+/* Media queries */
+@media screen and (min-width: 650px) {
+  html {
+    font-size: 17px;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  html {
+    font-size: 19px;
   }
 }

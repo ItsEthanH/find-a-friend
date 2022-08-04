@@ -1,0 +1,33 @@
+.story {
+  display: grid;
+}
+
+.pawprints {
+  align-self: end;
+  margin: 0 1rem;
+}
+
+@media screen and (min-width: 1500px) {
+  .headings {
+    position: absolute;
+    right: 0;
+    width: 20%;
+    margin: 0 2rem;
+  }
+
+  .headings > * {
+    text-align: right;
+  }
+
+  .story {
+    grid-template-columns: auto auto;
+  }
+
+  .one {
+    grid-template-columns: 6.5fr 3.5fr;
+  }
+
+  .two {
+    grid-template-columns: 3.5fr 6.5fr;
+  }
+}

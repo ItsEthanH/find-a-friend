@@ -1,0 +1,39 @@
+.navigation {
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4rem;
+  background-color: var(--clr-primary-400);
+  padding: 2.5rem 2rem 0 6rem;
+  transition: all 0.5s ease;
+  z-index: 5;
+}
+
+.navigation ul {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  list-style-type: none;
+  color: white;
+  height: 100vh;
+}
+
+.navigation li {
+  text-align: right;
+  font-size: var(--fs-nav);
+}
+
+.navigation hr {
+  color: white;
+  border: 1px solid white;
+}
+
+.hidden {
+  right: -100%;
+}
+
+.shown {
+  right: 0;
+}

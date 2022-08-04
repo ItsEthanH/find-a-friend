@@ -1,0 +1,15 @@
+.section {
+  margin: 6rem 1.25rem;
+}
+
+@media screen and (min-width: 600px) {
+  .section {
+    margin: 6rem 2.5rem;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .section {
+    margin: 10rem 4rem;
+  }
+}
