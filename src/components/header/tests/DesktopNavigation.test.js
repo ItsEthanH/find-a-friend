@@ -2,15 +2,22 @@ import { render, screen } from '@testing-library/react';
 import DesktopNavigation from '../DesktopNavigation';
 
 test('Renders desktop navlinks', () => {
-  render(<DesktopNavigation />);
+  window.innerWidth = 2000;
+  window.dispatchEvent(new Event('resize'));
 
-  const searchAnimals = screen.getByText(/Search Animals/);
-  const searchOrgs = screen.getByText(/Search Organisations/);
-  const searchDogBreeds = screen.getByText(/Dog Breeds/);
-  const searchCatBreeds = screen.getByText(/Cat Breeds/);
+  setTimeout(() => {
+    render(<DesktopNavigation />);
 
-  expect(searchAnimals).toBeInTheDocument();
-  expect(searchOrgs).toBeInTheDocument();
-  expect(searchDogBreeds).toBeInTheDocument();
-  expect(searchCatBreeds).toBeInTheDocument();
+    const navElement = screen.getByRole('navigation');
+    const searchAnimals = screen.getByText(/Search Animals/);
+    const searchOrgs = screen.getByText(/Search Organisations/);
+    const searchDogBreeds = screen.getByText(/Dog Breeds/);
+    const searchCatBreeds = screen.getByText(/Cat Breeds/);
+
+    expect(navElement).toBeInTheDocument();
+    expect(searchAnimals).toBeInTheDocument();
+    expect(searchOrgs).toBeInTheDocument();
+    expect(searchDogBreeds).toBeInTheDocument();
+    expect(searchCatBreeds).toBeInTheDocument();
+  }, 500);
 });
