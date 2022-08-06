@@ -7,6 +7,14 @@
   margin: 0 1rem;
 }
 
+@media screen and (min-width: 1000px) {
+  .successes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 @media screen and (min-width: 1500px) {
   .headings {
     position: absolute;

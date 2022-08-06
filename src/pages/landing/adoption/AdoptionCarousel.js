@@ -8,25 +8,32 @@ import 'swiper/css/navigation';
 
 function AdoptionCarousel() {
   const sliderBreakpoints = {
-    500: {
-      slidesPerView: 1.7,
-      spaceBetween: 40,
+    400: {
+      slidesPerView: 1.5,
     },
 
-    800: {
+    500: {
+      slidesPerView: 2,
+    },
+
+    700: {
       slidesPerView: 2.5,
     },
 
-    1000: {
+    900: {
       slidesPerView: 3,
     },
 
-    1300: {
+    1100: {
       slidesPerView: 4,
     },
 
-    1700: {
+    1300: {
       slidesPerView: 5,
+    },
+
+    1700: {
+      slidesPerView: 6,
     },
   };
 
@@ -35,8 +42,8 @@ function AdoptionCarousel() {
       modules={[Navigation]}
       loop="true"
       navigation
-      spaceBetween={20}
-      slidesPerView={1.2}
+      spaceBetween={30}
+      slidesPerView={1.4}
       centeredSlides="true"
       breakpoints={sliderBreakpoints}
     >

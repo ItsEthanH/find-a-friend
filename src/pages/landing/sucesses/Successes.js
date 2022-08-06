@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import AppContext from '../../../context/AppContext';
 
-import LandingHeading from '../../../components/ui/LandingHeading';
-import LandingSubheading from '../../../components/ui/LandingSubheading';
+import Heading from '../../../components/ui/Heading';
+import Subheading from '../../../components/ui/Subheading';
 import LandingSection from '../../../components/ui/LandingSection';
 import SuccessCard from './SuccessCard';
 
@@ -18,10 +18,8 @@ function Successes() {
   return (
     <LandingSection styles={classes.successes}>
       <div className={classes.headings}>
-        <LandingHeading alignment="center">Success Stories</LandingHeading>
-        <LandingSubheading alignment="center">
-          Read about a couple of our successful rehomings
-        </LandingSubheading>
+        <Heading alignment="center">Success Stories</Heading>
+        <Subheading alignment="center">Read about a couple of our successful rehomings</Subheading>
       </div>
       <div className={`${classes.story} ${classes.one}`}>
         <SuccessCard

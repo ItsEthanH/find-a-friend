@@ -1,7 +1,7 @@
 import React from 'react';
 
-import LandingHeading from '../../../components/ui/LandingHeading';
-import LandingSubheading from '../../../components/ui/LandingSubheading';
+import Heading from '../../../components/ui/Heading';
+import Subheading from '../../../components/ui/Subheading';
 import AdoptionCarousel from './AdoptionCarousel';
 
 import classes from './styles/Adoption.module.css';
@@ -9,12 +9,12 @@ import classes from './styles/Adoption.module.css';
 function Adoption() {
   return (
     <section>
-      <LandingHeading styles={classes.heading} alignment="center">
+      <Heading styles={classes.heading} alignment="center">
         Available for Adoption
-      </LandingHeading>
-      <LandingSubheading styles={classes.heading} alignment="center">
+      </Heading>
+      <Subheading styles={classes.heading} alignment="center">
         Just a pawful of animals looking for a new home
-      </LandingSubheading>
+      </Subheading>
       <AdoptionCarousel />
     </section>
   );

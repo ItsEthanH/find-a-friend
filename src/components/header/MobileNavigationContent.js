@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { NavLink } from 'react-router-dom';
 import AppContext from '../../context/AppContext';
 import NavData from '../../util/NavData';
 
@@ -7,12 +8,16 @@ import MobileNavigationButton from './MobileNavigationButton';
 import classes from './styles/MobileNavigationContent.module.css';
 
 function MobileNavigationContent() {
-  const { isMobileNavOpen } = useContext(AppContext);
+  const { isMobileNavOpen, toggleMobileNav } = useContext(AppContext);
 
   const navClasses = `
     ${classes.navigation}
     ${isMobileNavOpen ? classes.shown : classes.hidden}
   `;
+
+  function closeNavHandler() {
+    toggleMobileNav();
+  }
 
   return (
     <nav className={navClasses}>
@@ -20,8 +25,10 @@ function MobileNavigationContent() {
       {isMobileNavOpen && <MobileNavigationButton type="cross" />}
       <ul>
         {NavData.map((link) => (
-          <li key={link}>
-            <a href="/">{link}</a>
+          <li key={link.text}>
+            <NavLink to={link.to} onClick={closeNavHandler}>
+              {link.text}
+            </NavLink>
           </li>
         ))}
       </ul>

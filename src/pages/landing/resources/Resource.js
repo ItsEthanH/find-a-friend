@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import AppContext from '../../../context/AppContext';
 
-import LandingHeading from '../../../components/ui/LandingHeading';
+import Heading from '../../../components/ui/Heading';
 
 import classes from './styles/Resource.module.css';
 
@@ -16,7 +16,7 @@ function Resource(props) {
   return (
     <div className={`${classes.resource} ${alignmentStyles}`}>
       <div className={classes.highlight} />
-      <LandingHeading>{props.title}</LandingHeading>
+      <Heading>{props.title}</Heading>
       <p>{props.body}</p>
       <a href={props.link}>{props.linkText}</a>
     </div>
