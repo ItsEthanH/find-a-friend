@@ -9,12 +9,12 @@ import classes from './styles/SearchAllHero.module.css';
 function SearchAllHero() {
   return (
     <Hero page="SEARCH_ALL">
-      <div className={classes.body}>
+      <section className={classes.body}>
         <Heading>
           Search all <span className="color-accent">Animals</span>
         </Heading>
         <SearchAllSearchbar />
-      </div>
+      </section>
     </Hero>
   );
 }
