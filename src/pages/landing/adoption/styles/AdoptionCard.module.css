@@ -1,6 +1,7 @@
 .card {
   display: grid;
   margin: 3rem auto 1rem auto;
+  max-width: 15rem;
 }
 
 .image {
@@ -44,11 +45,4 @@
 .view {
   justify-self: center;
   margin: 1rem 0;
-}
-
-@media screen and (min-width: 450px) {
-  .info {
-    flex-direction: row;
-    justify-content: center;
-  }
 }

@@ -6,7 +6,7 @@ import AccentButton from '../../../components/ui/AccentButton';
 
 import classes from './styles/AdoptionCard.module.css';
 import age from '../../../assets/svgs/age.svg';
-import location from '../../../assets/svgs/location.svg';
+import pin from '../../../assets/svgs/location-pin.svg';
 
 function AdoptionCard() {
   // mobile image size - 300px
@@ -23,7 +23,7 @@ function AdoptionCard() {
         <p>American Wirehair</p>
         <div className={classes.info}>
           <AdoptionInfo icon={age} alt="Age" label="Adult" />
-          <AdoptionInfo icon={location} alt="Location" label="Los Angeles, CA" />
+          <AdoptionInfo icon={pin} alt="Location" label="Los Angeles, CA" />
         </div>
       </div>
       <AccentButton styles={classes.view}>View Profile</AccentButton>

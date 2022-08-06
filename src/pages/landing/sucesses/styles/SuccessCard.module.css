@@ -22,7 +22,7 @@
   font-size: var(--fs-body);
 }
 
-@media screen and (min-width: 1500px) {
+@media screen and (min-width: 1000px) {
   .card {
     flex-direction: row;
     max-width: 60rem;
@@ -31,7 +31,7 @@
 
   .image {
     height: 100%;
-    flex: 1 1.2 auto;
+    flex: 1 1.15 auto;
   }
 
   .image img {
