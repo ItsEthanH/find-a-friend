@@ -17,3 +17,15 @@
   color: var(--clr-accent);
   font-family: var(--ff-heading);
 }
+
+@media screen and (min-width: 600px) {
+  .card {
+    width: 15rem;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .card {
+    width: 20rem;
+  }
+}

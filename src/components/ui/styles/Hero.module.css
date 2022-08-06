@@ -17,11 +17,16 @@
 
 .searchall {
   background-image: url('../../../assets/images/search-all.jpg');
+  justify-content: center;
 }
 
 @media screen and (min-width: 1000px) {
   .hero {
     text-align: left;
     height: 90vh;
+  }
+
+  .searchall {
+    height: 75vh;
   }
 }

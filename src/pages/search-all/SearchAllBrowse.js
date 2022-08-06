@@ -16,6 +16,12 @@ function SearchAllBrowse() {
       <div className={classes.cards}>
         <SearchAllBrowseCard name="Dogs" image={dog} available="31,212" />
         <SearchAllBrowseCard name="Cats" image={cat} available="31,212" />
+        <SearchAllBrowseCard name="Dogs" image={dog} available="31,212" />
+        <SearchAllBrowseCard name="Cats" image={cat} available="31,212" />
+        <SearchAllBrowseCard name="Dogs" image={dog} available="31,212" />
+        <SearchAllBrowseCard name="Cats" image={cat} available="31,212" />
+        <SearchAllBrowseCard name="Dogs" image={dog} available="31,212" />
+        <SearchAllBrowseCard name="Cats" image={cat} available="31,212" />
       </div>
     </section>
   );
