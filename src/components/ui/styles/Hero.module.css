@@ -1,23 +1,36 @@
 .hero {
   position: relative;
   display: flex;
+  justify-content: center;
   align-items: center;
   background-position: center;
   background-size: cover;
   background-color: rgba(0, 0, 0, 0.6);
   background-blend-mode: multiply;
   max-width: initial;
-  padding: 10rem 1rem 3rem 1rem;
+  padding: 10rem 2rem 3rem 2rem;
   color: white;
 }
 
 .landing {
   background-image: url('../../../assets/images/landing/hero.jpg');
+  justify-content: start;
 }
 
-.searchall {
-  background-image: url('../../../assets/images/search-all/hero.jpg');
-  justify-content: center;
+.animals {
+  background-image: url('../../../assets/images/animals/hero.jpg');
+}
+
+.organisations {
+  background-image: url('../../../assets/images/organisations/hero.jpg');
+}
+
+.dogs {
+  background-image: url('../../../assets/images/breeds/dog-hero.jpg');
+}
+
+.cats {
+  background-image: url('../../../assets/images/breeds/cat-hero.jpg');
 }
 
 @media screen and (min-width: 1000px) {
@@ -26,7 +39,7 @@
     height: 90vh;
   }
 
-  .searchall {
+  .animals {
     height: 75vh;
   }
 }

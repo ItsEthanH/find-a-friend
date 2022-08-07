@@ -6,7 +6,7 @@
   align-items: flex-end;
   gap: 4rem;
   background-color: var(--clr-primary-400);
-  padding: 2.5rem 2rem 0 6rem;
+  padding: 2rem;
   transition: all 0.5s ease;
   z-index: 5;
 }
@@ -31,9 +31,9 @@
 }
 
 .hidden {
-  right: -100%;
+  right: -200%;
 }
 
 .shown {
-  right: 0;
+  right: 0%;
 }

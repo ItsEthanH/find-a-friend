@@ -13,7 +13,7 @@ function SingleSearchbar(props) {
         id={props.name}
         name={props.name}
         type="text"
-        aria-label={props['aria-label']}
+        aria-label={props.name}
       />
     </form>
   );

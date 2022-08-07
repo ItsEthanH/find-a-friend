@@ -1,19 +1,33 @@
 import classes from './styles/Hero.module.css';
 
+// The hero component used on the navigation pages. Configured using the "page" prop
+// Setting the page via props allows the hero image and (optional) styles to be controlled centrally
 function Hero(props) {
-  let background;
+  let backgroundStyles;
 
   switch (props.page) {
-    case 'SEARCH_ALL':
-      background = classes.searchall;
+    case 'ANIMALS':
+      backgroundStyles = classes.animals;
+      break;
+
+    case 'ORGANISATIONS':
+      backgroundStyles = classes.organisations;
+      break;
+
+    case 'DOGS':
+      backgroundStyles = classes.dogs;
+      break;
+
+    case 'CATS':
+      backgroundStyles = classes.cats;
       break;
 
     default:
-      background = classes.landing;
+      backgroundStyles = classes.landing;
       break;
   }
 
-  let styles = `${classes.hero} ${background}`;
+  let styles = `${classes.hero} ${backgroundStyles}`;
 
   return <section className={styles}>{props.children}</section>;
 }

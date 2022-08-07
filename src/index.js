@@ -6,6 +6,9 @@ import { AppContextProvider } from './context/AppContext';
 import App from './App';
 import LandingPage from './pages/landing/_LandingPage';
 import SearchAnimalsPage from './pages/search-animals/_SearchAnimalsPage';
+import SearchOrgsPage from './pages/search-orgs/_SearchOrgsPage';
+import DogBreedsPage from './pages/dog-breeds/_DogBreedsPage';
+import CatBreedsPage from './pages/cat-breeds/_CatBreedsPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,6 +18,9 @@ root.render(
         <Route path="/" element={<App />}>
           <Route path="/" element={<LandingPage />} />
           <Route path="/search" element={<SearchAnimalsPage />} />
+          <Route path="/organisations" element={<SearchOrgsPage />} />
+          <Route path="/dog-breeds" element={<DogBreedsPage />} />
+          <Route path="/cat-breeds" element={<CatBreedsPage />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
