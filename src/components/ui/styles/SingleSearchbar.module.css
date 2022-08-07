@@ -1,0 +1,21 @@
+.form {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  width: 100%;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: white;
+  border-radius: 15px;
+}
+
+.form input {
+  width: 100%;
+  margin: 0 0.5rem;
+  border: none;
+  outline: none;
+}
+
+.form img {
+  width: 2rem;
+}
