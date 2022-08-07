@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Heading from '../../components/ui/Heading';
-import SearchAllBrowseCard from '../../components/ui/BrowseCard';
+import BrowseCard from '../../components/ui/BrowseCard';
 
 import classes from './styles/SearchAnimalsBrowse.module.css';
 import dog from '../../assets/images/animals/browse-dog.jpg';
@@ -14,14 +14,14 @@ function SearchAllBrowse() {
         <span className="color-accent">Browse</span> by type
       </Heading>
       <div className={classes.cards}>
-        <SearchAllBrowseCard name="Dogs" image={dog} available="31,212" />
-        <SearchAllBrowseCard name="Cats" image={cat} available="31,212" />
-        <SearchAllBrowseCard name="Dogs" image={dog} available="31,212" />
-        <SearchAllBrowseCard name="Cats" image={cat} available="31,212" />
-        <SearchAllBrowseCard name="Dogs" image={dog} available="31,212" />
-        <SearchAllBrowseCard name="Cats" image={cat} available="31,212" />
-        <SearchAllBrowseCard name="Dogs" image={dog} available="31,212" />
-        <SearchAllBrowseCard name="Cats" image={cat} available="31,212" />
+        <BrowseCard name="Dogs" image={dog} available="31,212" />
+        <BrowseCard name="Cats" image={cat} available="31,212" />
+        <BrowseCard name="Dogs" image={dog} available="31,212" />
+        <BrowseCard name="Cats" image={cat} available="31,212" />
+        <BrowseCard name="Dogs" image={dog} available="31,212" />
+        <BrowseCard name="Cats" image={cat} available="31,212" />
+        <BrowseCard name="Dogs" image={dog} available="31,212" />
+        <BrowseCard name="Cats" image={cat} available="31,212" />
       </div>
     </section>
   );

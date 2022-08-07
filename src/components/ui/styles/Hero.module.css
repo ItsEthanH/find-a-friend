@@ -1,6 +1,7 @@
 .hero {
   position: relative;
   display: flex;
+  justify-content: center;
   align-items: center;
   background-position: center;
   background-size: cover;
@@ -13,16 +14,19 @@
 
 .landing {
   background-image: url('../../../assets/images/landing/hero.jpg');
+  justify-content: start;
 }
 
 .animals {
   background-image: url('../../../assets/images/animals/hero.jpg');
-  justify-content: center;
 }
 
 .organisations {
   background-image: url('../../../assets/images/organisations/hero.jpg');
-  justify-content: center;
+}
+
+.dogs {
+  background-image: url('../../../assets/images/dog-breeds/hero.jpg');
 }
 
 @media screen and (min-width: 1000px) {
