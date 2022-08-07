@@ -7,10 +7,10 @@ import LandingSection from '../../../components/ui/LandingSection';
 import SuccessCard from './SuccessCard';
 
 import classes from './styles/Successes.module.css';
-import pawprintsUp from '../../../assets/images/pawprints-up.png';
-import pawprintsDown from '../../../assets/images/pawprints-down.png';
-import Jet from '../../../assets/images/jet-success.jpg';
-import Finn from '../../../assets/images/finn-success.jpg';
+import pawprintsUp from '../../../assets/images/landing/pawprints-up.png';
+import pawprintsDown from '../../../assets/images/landing/pawprints-down.png';
+import Jet from '../../../assets/images/landing/jet-success.jpg';
+import Finn from '../../../assets/images/landing/finn-success.jpg';
 
 function Successes() {
   const { windowWidth } = useContext(AppContext);

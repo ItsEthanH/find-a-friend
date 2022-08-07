@@ -2,7 +2,7 @@ import React from 'react';
 
 import classes from './styles/SearchAllSearchbar.module.css';
 import search from '../../assets/svgs/search.svg';
-import location from '../../assets/svgs/location.svg';
+import location from '../../assets/svgs/location-pin.svg';
 
 function SearchAllSearchbar() {
   return (

@@ -6,10 +6,10 @@ import Subheading from '../../../components/ui/Subheading';
 import AnimalIcon from './AnimalIcon';
 
 import classes from './styles/Animals.module.css';
-import dog from '../../../assets/images/dog-circle.png';
-import cat from '../../../assets/images/cat-circle.png';
-import bunny from '../../../assets/images/bunny-circle.png';
-import horse from '../../../assets/images/horse-circle.png';
+import dog from '../../../assets/images/landing/dog-circle.png';
+import cat from '../../../assets/images/landing/cat-circle.png';
+import bunny from '../../../assets/images/landing/bunny-circle.png';
+import horse from '../../../assets/images/landing/horse-circle.png';
 
 function Animals() {
   return (
