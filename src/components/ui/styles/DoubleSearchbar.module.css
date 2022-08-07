@@ -36,7 +36,7 @@
   }
 
   .entry:first-of-type {
-    flex: 1.5 1 0;
+    flex: 1.3 1 0;
   }
   .entry:last-of-type {
     flex: 1 1 0;

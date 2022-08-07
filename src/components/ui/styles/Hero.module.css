@@ -12,11 +12,11 @@
 }
 
 .landing {
-  background-image: url('../../../assets/images/landing-hero.jpg');
+  background-image: url('../../../assets/images/landing/hero.jpg');
 }
 
 .searchall {
-  background-image: url('../../../assets/images/search-all.jpg');
+  background-image: url('../../../assets/images/search-all/hero.jpg');
   justify-content: center;
 }
 

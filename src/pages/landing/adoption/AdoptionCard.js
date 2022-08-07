@@ -5,7 +5,7 @@ import AdoptionInfo from './AdoptionInfo';
 import AccentButton from '../../../components/ui/AccentButton';
 
 import classes from './styles/AdoptionCard.module.css';
-import age from '../../../assets/svgs/age.svg';
+import age from '../../../assets/svgs/cake.svg';
 import pin from '../../../assets/svgs/location-pin.svg';
 
 function AdoptionCard() {

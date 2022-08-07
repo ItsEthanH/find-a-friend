@@ -5,7 +5,7 @@ import HeroStatistic from './HeroStatistic';
 
 import classes from './styles/HeroStats.module.css';
 import paw from '../../../assets/svgs/paw.svg';
-import shelter from '../../../assets/svgs/shelter.svg';
+import shelter from '../../../assets/svgs/home.svg';
 import animals from '../../../assets/svgs/animals.svg';
 import temp from '../../../assets/svgs/temp.svg';
 

@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Card from '../../components/ui/Card';
+import Card from './Card';
 
-import classes from './styles/SearchAllBrowseCard.module.css';
+import classes from './styles/BrowseCard.module.css';
 
-function SearchAllBrowseCard(props) {
+function BrowseCard(props) {
   return (
     <Card styles={classes.card}>
       <div className={classes.image}>
@@ -18,4 +18,4 @@ function SearchAllBrowseCard(props) {
   );
 }
 
-export default SearchAllBrowseCard;
+export default BrowseCard;

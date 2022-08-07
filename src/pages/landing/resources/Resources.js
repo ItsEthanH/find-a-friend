@@ -6,7 +6,7 @@ import LandingSection from '../../../components/ui/LandingSection';
 import Resource from './Resource';
 
 import classes from './styles/Resources.module.css';
-import petfinder from '../../../assets/images/petfinder.png';
+import petfinder from '../../../assets/images/landing/petfinder.png';
 
 function Resources() {
   return (

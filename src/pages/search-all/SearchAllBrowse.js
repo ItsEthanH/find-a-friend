@@ -1,11 +1,11 @@
 import React from 'react';
 
 import Heading from '../../components/ui/Heading';
-import SearchAllBrowseCard from './SearchAllBrowseCard';
+import SearchAllBrowseCard from '../../components/ui/BrowseCard';
 
 import classes from './styles/SearchAllBrowse.module.css';
-import dog from '../../assets/images/browse-dog.jpg';
-import cat from '../../assets/images/browse-cat.jpg';
+import dog from '../../assets/images/search-all/browse-dog.jpg';
+import cat from '../../assets/images/search-all/browse-cat.jpg';
 
 function SearchAllBrowse() {
   return (
