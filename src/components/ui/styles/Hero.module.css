@@ -7,7 +7,7 @@
   background-color: rgba(0, 0, 0, 0.6);
   background-blend-mode: multiply;
   max-width: initial;
-  padding: 10rem 1rem 3rem 1rem;
+  padding: 10rem 2rem 3rem 2rem;
   color: white;
 }
 
@@ -15,8 +15,13 @@
   background-image: url('../../../assets/images/landing/hero.jpg');
 }
 
-.searchall {
-  background-image: url('../../../assets/images/search-all/hero.jpg');
+.animals {
+  background-image: url('../../../assets/images/animals/hero.jpg');
+  justify-content: center;
+}
+
+.organisations {
+  background-image: url('../../../assets/images/organisations/hero.jpg');
   justify-content: center;
 }
 
@@ -26,7 +31,7 @@
     height: 90vh;
   }
 
-  .searchall {
+  .animals {
     height: 75vh;
   }
 }

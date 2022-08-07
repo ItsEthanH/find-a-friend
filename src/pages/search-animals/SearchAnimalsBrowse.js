@@ -4,8 +4,8 @@ import Heading from '../../components/ui/Heading';
 import SearchAllBrowseCard from '../../components/ui/BrowseCard';
 
 import classes from './styles/SearchAnimalsBrowse.module.css';
-import dog from '../../assets/images/search-all/browse-dog.jpg';
-import cat from '../../assets/images/search-all/browse-cat.jpg';
+import dog from '../../assets/images/animals/browse-dog.jpg';
+import cat from '../../assets/images/animals/browse-cat.jpg';
 
 function SearchAllBrowse() {
   return (

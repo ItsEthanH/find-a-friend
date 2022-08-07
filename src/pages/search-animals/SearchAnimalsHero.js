@@ -10,8 +10,8 @@ import location from '../../assets/svgs/location-pin.svg';
 
 function SearchAllHero() {
   return (
-    <Hero page="SEARCH_ALL">
-      <section className={classes.body}>
+    <Hero page="ANIMALS">
+      <div className={classes.body}>
         <Heading>
           Search all <span className="color-accent">Animals</span>
         </Heading>
@@ -23,7 +23,7 @@ function SearchAllHero() {
           secondary-icon={location}
           secondary-placeholder="Enter a location..."
         />
-      </section>
+      </div>
     </Hero>
   );
 }

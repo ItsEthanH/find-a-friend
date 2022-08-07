@@ -4,8 +4,12 @@ function Hero(props) {
   let background;
 
   switch (props.page) {
-    case 'SEARCH_ALL':
-      background = classes.searchall;
+    case 'ANIMALS':
+      background = classes.animals;
+      break;
+
+    case 'ORGANISATIONS':
+      background = classes.organisations;
       break;
 
     default:
