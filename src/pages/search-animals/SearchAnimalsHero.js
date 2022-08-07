@@ -4,14 +4,13 @@ import Heading from '../../components/ui/Heading';
 import Hero from '../../components/ui/Hero';
 import DoubleSearchbar from '../../components/ui/DoubleSearchbar';
 
-import classes from './styles/SearchAnimalsHero.module.css';
 import search from '../../assets/svgs/search.svg';
 import location from '../../assets/svgs/location-pin.svg';
 
 function SearchAllHero() {
   return (
     <Hero page="ANIMALS">
-      <div className={classes.body}>
+      <div className="hero-body">
         <Heading>
           Search all <span className="color-accent">Animals</span>
         </Heading>

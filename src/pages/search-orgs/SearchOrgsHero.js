@@ -11,7 +11,7 @@ import shelter from '../../assets/svgs/home.svg';
 function SearchOrgsHero() {
   return (
     <Hero page="ORGANISATIONS">
-      <div className={classes.body}>
+      <div className="hero-body">
         <Heading>
           Browse <span className="color-accent">Organisations</span>
         </Heading>
