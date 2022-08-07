@@ -1,7 +1,7 @@
 import React from 'react';
 
-import SearchAllHero from './SearchAllHero';
-import SearchAllBrowse from './SearchAllBrowse';
+import SearchAllHero from './SearchAnimalsHero';
+import SearchAllBrowse from './SearchAnimalsBrowse';
 
 function _SearchAllPage() {
   return (

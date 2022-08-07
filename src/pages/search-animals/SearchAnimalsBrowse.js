@@ -3,7 +3,7 @@ import React from 'react';
 import Heading from '../../components/ui/Heading';
 import SearchAllBrowseCard from '../../components/ui/BrowseCard';
 
-import classes from './styles/SearchAllBrowse.module.css';
+import classes from './styles/SearchAnimalsBrowse.module.css';
 import dog from '../../assets/images/search-all/browse-dog.jpg';
 import cat from '../../assets/images/search-all/browse-cat.jpg';
 

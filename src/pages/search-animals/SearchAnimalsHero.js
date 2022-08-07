@@ -4,7 +4,7 @@ import Heading from '../../components/ui/Heading';
 import Hero from '../../components/ui/Hero';
 import DoubleSearchbar from '../../components/ui/DoubleSearchbar';
 
-import classes from './styles/SearchAllHero.module.css';
+import classes from './styles/SearchAnimalsHero.module.css';
 import search from '../../assets/svgs/search.svg';
 import location from '../../assets/svgs/location-pin.svg';
 
