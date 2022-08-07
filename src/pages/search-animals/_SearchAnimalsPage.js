@@ -1,13 +1,26 @@
 import React from 'react';
 
 import SearchAllHero from './SearchAnimalsHero';
-import SearchAllBrowse from './SearchAnimalsBrowse';
+import BrowseSection from '../../components/ui/BrowseSection';
+
+import dog from '../../assets/images/animals/browse-dog.jpg';
+import cat from '../../assets/images/animals/browse-cat.jpg';
 
 function _SearchAllPage() {
+  const heading = 'Browse by type';
+  const animals = [
+    { name: 'Dogs', image: dog, available: '31,212' },
+    { name: 'Cats', image: cat, available: '31,212' },
+    { name: 'Dogs', image: dog, available: '31,212' },
+    { name: 'Cats', image: cat, available: '31,212' },
+    { name: 'Dogs', image: dog, available: '31,212' },
+    { name: 'Cats', image: cat, available: '31,212' },
+  ];
+
   return (
     <main>
       <SearchAllHero />
-      <SearchAllBrowse />
+      <BrowseSection heading={heading} items={animals} />
     </main>
   );
 }

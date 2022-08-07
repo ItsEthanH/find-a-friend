@@ -1,11 +1,11 @@
 import React from 'react';
 
-import DogBreedsHero from './DogBreedsHero';
+import CatBreedsHero from './CatBreedsHero';
 import BrowseSection from '../../components/ui/BrowseSection';
 
-import placeholder from '../../assets/images/breeds/dog-hero.jpg';
+import placeholder from '../../assets/images/breeds/cat-hero.jpg';
 
-function _DogBreedsPage() {
+function _CatBreedsPage() {
   const heading = 'Browse by type';
   const breeds = [
     { name: 'Test', image: placeholder, available: '31,212' },
@@ -18,10 +18,10 @@ function _DogBreedsPage() {
 
   return (
     <main>
-      <DogBreedsHero />
+      <CatBreedsHero />
       <BrowseSection heading={heading} items={breeds} />
     </main>
   );
 }
 
-export default _DogBreedsPage;
+export default _CatBreedsPage;

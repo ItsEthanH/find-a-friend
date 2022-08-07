@@ -18,6 +18,10 @@ function Hero(props) {
       backgroundStyles = classes.dogs;
       break;
 
+    case 'CATS':
+      backgroundStyles = classes.cats;
+      break;
+
     default:
       backgroundStyles = classes.landing;
       break;

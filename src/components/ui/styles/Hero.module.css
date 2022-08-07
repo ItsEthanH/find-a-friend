@@ -26,7 +26,11 @@
 }
 
 .dogs {
-  background-image: url('../../../assets/images/dog-breeds/hero.jpg');
+  background-image: url('../../../assets/images/breeds/dog-hero.jpg');
+}
+
+.cats {
+  background-image: url('../../../assets/images/breeds/cat-hero.jpg');
 }
 
 @media screen and (min-width: 1000px) {
