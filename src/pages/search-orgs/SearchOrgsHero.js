@@ -4,7 +4,6 @@ import Hero from '../../components/ui/Hero';
 import Heading from '../../components/ui/Heading';
 import DoubleSearchbar from '../../components/ui/DoubleSearchbar';
 
-import classes from './styles/SearchOrgsHero.module.css';
 import location from '../../assets/svgs/location-pin.svg';
 import shelter from '../../assets/svgs/home.svg';
 
