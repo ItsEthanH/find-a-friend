@@ -29,7 +29,11 @@ function Hero(props) {
 
   let styles = `${classes.hero} ${backgroundStyles}`;
 
-  return <section className={styles}>{props.children}</section>;
+  return (
+    <section data-testid="hero" className={styles}>
+      {props.children}
+    </section>
+  );
 }
 
 export default Hero;

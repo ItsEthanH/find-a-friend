@@ -15,6 +15,7 @@ function SearchAllHero() {
           Search all <span className="color-accent">Animals</span>
         </Heading>
         <DoubleSearchbar
+          form-name="Search all animals"
           primary-name="Search All Query"
           primary-icon={search}
           primary-placeholder="Search for pets..."
