@@ -8,7 +8,7 @@ function BrowseCard(props) {
   return (
     <Card styles={classes.card}>
       <div className={classes.image}>
-        <img src={props.image} alt="Dog" />
+        <img src={props.image} alt={props.name} />
       </div>
       <div className={classes.text}>
         <h4>{props.name}</h4>

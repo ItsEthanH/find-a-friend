@@ -1,5 +1,5 @@
 import { screen, render } from '@testing-library/react';
-import Hero from '../Hero';
+import LandingHero from '../LandingHero';
 
 describe('Hero Statistics', () => {
   test('Hero statistics renders on desktop devices', () => {
@@ -7,7 +7,7 @@ describe('Hero Statistics', () => {
     window.dispatchEvent(new Event('resize'));
 
     setTimeout(() => {
-      render(<Hero />);
+      render(<LandingHero />);
       const button = screen.getByRole('button');
 
       expect(button).toBeInTheDocument();
@@ -19,7 +19,7 @@ describe('Hero Statistics', () => {
     window.dispatchEvent(new Event('resize'));
 
     setTimeout(() => {
-      render(<Hero />);
+      render(<LandingHero />);
       const button = screen.getByRole('button');
 
       expect(button).not.toBeInTheDocument();
