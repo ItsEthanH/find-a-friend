@@ -15,6 +15,7 @@ function SearchOrgsHero() {
           Browse <span className="color-accent">Organisations</span>
         </Heading>
         <DoubleSearchbar
+          form-name="Search organisations"
           primary-name="Location"
           primary-placeholder="Enter a Location (city, state or postal code)"
           primary-icon={location}

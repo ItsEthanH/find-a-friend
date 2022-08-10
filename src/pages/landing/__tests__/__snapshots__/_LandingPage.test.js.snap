@@ -1,0 +1,2622 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`landing page snapshots 300px 1`] = `
+<main>
+  <section
+    className="hero landing"
+    data-testid="hero"
+  >
+    <div
+      className="body"
+    >
+      <h2>
+        Your new 
+        <span
+          className="color-accent"
+        >
+          best friend
+        </span>
+         is waiting!
+      </h2>
+      <p>
+        Find the perfect pet to adopt with over 20,000 dogs, cats, rabbits and more!
+      </p>
+      <button
+        className="button "
+        onClick={[Function]}
+      >
+        Search Now!
+      </button>
+    </div>
+  </section>
+  <section
+    className="section animals"
+    data-testid="landing-section"
+  >
+    <div
+      className="headings"
+    >
+      <h3
+        className="center heading undefined"
+      >
+        From 
+        <span
+          className="color-accent"
+        >
+          Canines
+        </span>
+         to
+        <span
+          className="color-accent"
+        >
+           Felines
+        </span>
+        ...
+      </h3>
+      <p
+        className="center subheading undefined"
+      >
+        ...and everything in between!
+      </p>
+    </div>
+    <div
+      className="icons"
+    >
+      <button
+        className="icon"
+      >
+        <img
+          alt="Dog"
+          src="dog-circle.png"
+        />
+        <p
+          className="button"
+        >
+          Find a 
+          Dog
+        </p>
+      </button>
+      <button
+        className="icon"
+      >
+        <img
+          alt="Cat"
+          src="cat-circle.png"
+        />
+        <p
+          className="button"
+        >
+          Find a 
+          Cat
+        </p>
+      </button>
+      <button
+        className="icon"
+      >
+        <img
+          alt="Bunny"
+          src="bunny-circle.png"
+        />
+        <p
+          className="button"
+        >
+          Find a 
+          Bunny
+        </p>
+      </button>
+      <button
+        className="icon"
+      >
+        <img
+          alt="Horse"
+          src="horse-circle.png"
+        />
+        <p
+          className="button"
+        >
+          Find a 
+          Horse
+        </p>
+      </button>
+    </div>
+  </section>
+  <section>
+    <h3
+      className="center heading heading"
+    >
+      Available for Adoption
+    </h3>
+    <p
+      className="center subheading heading"
+    >
+      Just a pawful of animals looking for a new home
+    </p>
+    <div
+      className="swiper-container"
+      modules={
+        Array [
+          Object {
+            "create": [Function],
+            "name": "navigation",
+            "on": Object {
+              "click": [Function],
+              "destroy": [Function],
+              "enable disable": [Function],
+              "fromEdge": [Function],
+              "init": [Function],
+              "toEdge": [Function],
+            },
+            "params": Object {
+              "navigation": Object {
+                "disabledClass": "swiper-button-disabled",
+                "hiddenClass": "swiper-button-hidden",
+                "hideOnClick": false,
+                "lockClass": "swiper-button-lock",
+                "nextEl": null,
+                "prevEl": null,
+              },
+            },
+          },
+        ]
+      }
+    >
+      <div
+        className="swiper-button-prev"
+      />
+      <div
+        className="swiper-button-next"
+      />
+      <div
+        className="swiper-wrapper"
+      >
+        <div
+          className="swiper-slide swiper-slide-duplicate"
+          data-swiper-slide-index={2}
+        >
+          <div
+            className="card card"
+            data-testid="card-component"
+          >
+            <div
+              className="image"
+            >
+              <img
+                alt="placeholder text"
+                src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/56499165/1/?bust=1659106172&width=300"
+              />
+            </div>
+            <div
+              className="text"
+            >
+              <h4>
+                Alexander
+              </h4>
+              <p>
+                American Wirehair
+              </p>
+              <div
+                className="info"
+              >
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Age"
+                    src="cake.svg"
+                  />
+                  <p>
+                    Adult
+                  </p>
+                </div>
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Location"
+                    src="location-pin.svg"
+                  />
+                  <p>
+                    Los Angeles, CA
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              className="button view"
+              onClick={[Function]}
+            >
+              View Profile
+            </button>
+          </div>
+        </div>
+        <div
+          className="swiper-slide swiper-slide-duplicate"
+          data-swiper-slide-index={3}
+        >
+          <div
+            className="card card"
+            data-testid="card-component"
+          >
+            <div
+              className="image"
+            >
+              <img
+                alt="placeholder text"
+                src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/56499165/1/?bust=1659106172&width=300"
+              />
+            </div>
+            <div
+              className="text"
+            >
+              <h4>
+                Alexander
+              </h4>
+              <p>
+                American Wirehair
+              </p>
+              <div
+                className="info"
+              >
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Age"
+                    src="cake.svg"
+                  />
+                  <p>
+                    Adult
+                  </p>
+                </div>
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Location"
+                    src="location-pin.svg"
+                  />
+                  <p>
+                    Los Angeles, CA
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              className="button view"
+              onClick={[Function]}
+            >
+              View Profile
+            </button>
+          </div>
+        </div>
+        <div
+          className="swiper-slide"
+          data-swiper-slide-index={0}
+        >
+          <div
+            className="card card"
+            data-testid="card-component"
+          >
+            <div
+              className="image"
+            >
+              <img
+                alt="placeholder text"
+                src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/56499165/1/?bust=1659106172&width=300"
+              />
+            </div>
+            <div
+              className="text"
+            >
+              <h4>
+                Alexander
+              </h4>
+              <p>
+                American Wirehair
+              </p>
+              <div
+                className="info"
+              >
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Age"
+                    src="cake.svg"
+                  />
+                  <p>
+                    Adult
+                  </p>
+                </div>
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Location"
+                    src="location-pin.svg"
+                  />
+                  <p>
+                    Los Angeles, CA
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              className="button view"
+              onClick={[Function]}
+            >
+              View Profile
+            </button>
+          </div>
+        </div>
+        <div
+          className="swiper-slide"
+          data-swiper-slide-index={1}
+        >
+          <div
+            className="card card"
+            data-testid="card-component"
+          >
+            <div
+              className="image"
+            >
+              <img
+                alt="placeholder text"
+                src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/56499165/1/?bust=1659106172&width=300"
+              />
+            </div>
+            <div
+              className="text"
+            >
+              <h4>
+                Alexander
+              </h4>
+              <p>
+                American Wirehair
+              </p>
+              <div
+                className="info"
+              >
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Age"
+                    src="cake.svg"
+                  />
+                  <p>
+                    Adult
+                  </p>
+                </div>
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Location"
+                    src="location-pin.svg"
+                  />
+                  <p>
+                    Los Angeles, CA
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              className="button view"
+              onClick={[Function]}
+            >
+              View Profile
+            </button>
+          </div>
+        </div>
+        <div
+          className="swiper-slide"
+          data-swiper-slide-index={2}
+        >
+          <div
+            className="card card"
+            data-testid="card-component"
+          >
+            <div
+              className="image"
+            >
+              <img
+                alt="placeholder text"
+                src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/56499165/1/?bust=1659106172&width=300"
+              />
+            </div>
+            <div
+              className="text"
+            >
+              <h4>
+                Alexander
+              </h4>
+              <p>
+                American Wirehair
+              </p>
+              <div
+                className="info"
+              >
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Age"
+                    src="cake.svg"
+                  />
+                  <p>
+                    Adult
+                  </p>
+                </div>
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Location"
+                    src="location-pin.svg"
+                  />
+                  <p>
+                    Los Angeles, CA
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              className="button view"
+              onClick={[Function]}
+            >
+              View Profile
+            </button>
+          </div>
+        </div>
+        <div
+          className="swiper-slide"
+          data-swiper-slide-index={3}
+        >
+          <div
+            className="card card"
+            data-testid="card-component"
+          >
+            <div
+              className="image"
+            >
+              <img
+                alt="placeholder text"
+                src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/56499165/1/?bust=1659106172&width=300"
+              />
+            </div>
+            <div
+              className="text"
+            >
+              <h4>
+                Alexander
+              </h4>
+              <p>
+                American Wirehair
+              </p>
+              <div
+                className="info"
+              >
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Age"
+                    src="cake.svg"
+                  />
+                  <p>
+                    Adult
+                  </p>
+                </div>
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Location"
+                    src="location-pin.svg"
+                  />
+                  <p>
+                    Los Angeles, CA
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              className="button view"
+              onClick={[Function]}
+            >
+              View Profile
+            </button>
+          </div>
+        </div>
+        <div
+          className="swiper-slide swiper-slide-duplicate"
+          data-swiper-slide-index={0}
+        >
+          <div
+            className="card card"
+            data-testid="card-component"
+          >
+            <div
+              className="image"
+            >
+              <img
+                alt="placeholder text"
+                src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/56499165/1/?bust=1659106172&width=300"
+              />
+            </div>
+            <div
+              className="text"
+            >
+              <h4>
+                Alexander
+              </h4>
+              <p>
+                American Wirehair
+              </p>
+              <div
+                className="info"
+              >
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Age"
+                    src="cake.svg"
+                  />
+                  <p>
+                    Adult
+                  </p>
+                </div>
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Location"
+                    src="location-pin.svg"
+                  />
+                  <p>
+                    Los Angeles, CA
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              className="button view"
+              onClick={[Function]}
+            >
+              View Profile
+            </button>
+          </div>
+        </div>
+        <div
+          className="swiper-slide swiper-slide-duplicate"
+          data-swiper-slide-index={1}
+        >
+          <div
+            className="card card"
+            data-testid="card-component"
+          >
+            <div
+              className="image"
+            >
+              <img
+                alt="placeholder text"
+                src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/56499165/1/?bust=1659106172&width=300"
+              />
+            </div>
+            <div
+              className="text"
+            >
+              <h4>
+                Alexander
+              </h4>
+              <p>
+                American Wirehair
+              </p>
+              <div
+                className="info"
+              >
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Age"
+                    src="cake.svg"
+                  />
+                  <p>
+                    Adult
+                  </p>
+                </div>
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Location"
+                    src="location-pin.svg"
+                  />
+                  <p>
+                    Los Angeles, CA
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              className="button view"
+              onClick={[Function]}
+            >
+              View Profile
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    className="section successes"
+    data-testid="landing-section"
+  >
+    <div
+      className="headings"
+    >
+      <h3
+        className="center heading undefined"
+      >
+        Success Stories
+      </h3>
+      <p
+        className="center subheading undefined"
+      >
+        Read about a couple of our successful rehomings
+      </p>
+    </div>
+    <div
+      className="story one"
+    >
+      <div
+        className="card card"
+        data-testid="card-component"
+      >
+        <div
+          className="image"
+        >
+          <img
+            alt=""
+            src="jet-success.jpg"
+          />
+        </div>
+        <div
+          className="text"
+        >
+          <h4>
+            Jet
+             - 
+            Whippet
+          </h4>
+          <p>
+            Having previously lived life as a breeding and bait dog, Jet narrowly avoided being put down by her previous owners. When the vets took her in to the shelters, it wasn’t long before a new family took to her. After making the long trip from Wales to Hampshire, Jet now lives with her fur-brother Finn, spending her days playing and sleeping. Just like she should.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      className="story two"
+    >
+      <div
+        className="card card"
+        data-testid="card-component"
+      >
+        <div
+          className="image"
+        >
+          <img
+            alt=""
+            src="finn-success.jpg"
+          />
+        </div>
+        <div
+          className="text"
+        >
+          <h4>
+            Finn
+             - 
+            Greyhound
+          </h4>
+          <p>
+            With his previous owners having to give him up to look after their new child, Finn had to leave what he thought would be his fur-ever home at the age of 1. Thanks to Find-a-Friend, it was soon before he was united with another family. Surrounded by much older kids, Finn now enjoys his days going on long walks and sleeping with his legs in the air. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    className="section "
+    data-testid="landing-section"
+  >
+    <h3
+      className="left heading undefined"
+    >
+      Resources for New Owners
+    </h3>
+    <div
+      className="subheading"
+    >
+      <p
+        className="left subheading undefined"
+      >
+        Courtesy of 
+      </p>
+      <img
+        alt="Petfinder"
+        src="petfinder.png"
+      />
+    </div>
+    <div
+      className="wrapper"
+    >
+      <div
+        className="resource left"
+      >
+        <div
+          className="highlight"
+        />
+        <h3
+          className="left heading undefined"
+        >
+          About Adoption
+        </h3>
+        <p>
+          Curious about anything to do with pet adoption? Maybe need a hand introducing your new friend?
+        </p>
+        <a
+          href="/"
+        >
+          Click here!
+        </a>
+      </div>
+      <div
+        className="resource right"
+      >
+        <div
+          className="highlight"
+        />
+        <h3
+          className="left heading undefined"
+        >
+          Pet Care
+        </h3>
+        <p>
+          There’s more to keeping a pet than love and attention, though that’s important too!
+        </p>
+        <a
+          href="/"
+        >
+          Find out more!
+        </a>
+      </div>
+      <div
+        className="resource left"
+      >
+        <div
+          className="highlight"
+        />
+        <h3
+          className="left heading undefined"
+        >
+          Helping Pets
+        </h3>
+        <p>
+          Took your own pet in, but still want to do more? From volunteering to fostering, there’s plenty more!
+        </p>
+        <a
+          href="/"
+        >
+          How you can help!
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+`;
+
+exports[`landing page snapshots 1000px 1`] = `
+<main>
+  <section
+    className="hero landing"
+    data-testid="hero"
+  >
+    <div
+      className="body"
+    >
+      <h2>
+        Your new 
+        <span
+          className="color-accent"
+        >
+          best friend
+        </span>
+         is waiting!
+      </h2>
+      <p>
+        Find the perfect pet to adopt with over 20,000 dogs, cats, rabbits and more!
+      </p>
+      <button
+        className="button "
+        onClick={[Function]}
+      >
+        Search Now!
+      </button>
+    </div>
+    <div
+      className="card stats"
+      data-testid="card-component"
+    >
+      <div
+        className="statistic"
+      >
+        <img
+          alt=""
+          src="paw.svg"
+        />
+        <p
+          className="stat"
+        >
+          100,000+
+        </p>
+        <p
+          className="text"
+        >
+          Animals
+        </p>
+      </div>
+      <div
+        className="statistic"
+      >
+        <img
+          alt=""
+          src="home.svg"
+        />
+        <p
+          className="stat"
+        >
+          10,000+
+        </p>
+        <p
+          className="text"
+        >
+          Shelters
+        </p>
+      </div>
+      <div
+        className="statistic"
+      >
+        <img
+          alt=""
+          src="animals.svg"
+        />
+        <p
+          className="stat"
+        >
+          50
+        </p>
+        <p
+          className="text"
+        >
+          Breeds
+        </p>
+      </div>
+      <div
+        className="statistic"
+      >
+        <img
+          alt=""
+          src="temp.svg"
+        />
+        <p
+          className="stat"
+        >
+          10
+        </p>
+        <p
+          className="text"
+        >
+          Varieties
+        </p>
+      </div>
+    </div>
+  </section>
+  <section
+    className="section animals"
+    data-testid="landing-section"
+  >
+    <div
+      className="headings"
+    >
+      <h3
+        className="center heading undefined"
+      >
+        From 
+        <span
+          className="color-accent"
+        >
+          Canines
+        </span>
+         to
+        <span
+          className="color-accent"
+        >
+           Felines
+        </span>
+        ...
+      </h3>
+      <p
+        className="center subheading undefined"
+      >
+        ...and everything in between!
+      </p>
+    </div>
+    <div
+      className="icons"
+    >
+      <button
+        className="icon"
+      >
+        <img
+          alt="Dog"
+          src="dog-circle.png"
+        />
+        <p
+          className="button"
+        >
+          Find a 
+          Dog
+        </p>
+      </button>
+      <button
+        className="icon"
+      >
+        <img
+          alt="Cat"
+          src="cat-circle.png"
+        />
+        <p
+          className="button"
+        >
+          Find a 
+          Cat
+        </p>
+      </button>
+      <button
+        className="icon"
+      >
+        <img
+          alt="Bunny"
+          src="bunny-circle.png"
+        />
+        <p
+          className="button"
+        >
+          Find a 
+          Bunny
+        </p>
+      </button>
+      <button
+        className="icon"
+      >
+        <img
+          alt="Horse"
+          src="horse-circle.png"
+        />
+        <p
+          className="button"
+        >
+          Find a 
+          Horse
+        </p>
+      </button>
+    </div>
+  </section>
+  <section>
+    <h3
+      className="center heading heading"
+    >
+      Available for Adoption
+    </h3>
+    <p
+      className="center subheading heading"
+    >
+      Just a pawful of animals looking for a new home
+    </p>
+    <div
+      className="swiper-container"
+      modules={
+        Array [
+          Object {
+            "create": [Function],
+            "name": "navigation",
+            "on": Object {
+              "click": [Function],
+              "destroy": [Function],
+              "enable disable": [Function],
+              "fromEdge": [Function],
+              "init": [Function],
+              "toEdge": [Function],
+            },
+            "params": Object {
+              "navigation": Object {
+                "disabledClass": "swiper-button-disabled",
+                "hiddenClass": "swiper-button-hidden",
+                "hideOnClick": false,
+                "lockClass": "swiper-button-lock",
+                "nextEl": null,
+                "prevEl": null,
+              },
+            },
+          },
+        ]
+      }
+    >
+      <div
+        className="swiper-button-prev"
+      />
+      <div
+        className="swiper-button-next"
+      />
+      <div
+        className="swiper-wrapper"
+      >
+        <div
+          className="swiper-slide swiper-slide-duplicate"
+          data-swiper-slide-index={2}
+        >
+          <div
+            className="card card"
+            data-testid="card-component"
+          >
+            <div
+              className="image"
+            >
+              <img
+                alt="placeholder text"
+                src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/56499165/1/?bust=1659106172&width=300"
+              />
+            </div>
+            <div
+              className="text"
+            >
+              <h4>
+                Alexander
+              </h4>
+              <p>
+                American Wirehair
+              </p>
+              <div
+                className="info"
+              >
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Age"
+                    src="cake.svg"
+                  />
+                  <p>
+                    Adult
+                  </p>
+                </div>
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Location"
+                    src="location-pin.svg"
+                  />
+                  <p>
+                    Los Angeles, CA
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              className="button view"
+              onClick={[Function]}
+            >
+              View Profile
+            </button>
+          </div>
+        </div>
+        <div
+          className="swiper-slide swiper-slide-duplicate"
+          data-swiper-slide-index={3}
+        >
+          <div
+            className="card card"
+            data-testid="card-component"
+          >
+            <div
+              className="image"
+            >
+              <img
+                alt="placeholder text"
+                src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/56499165/1/?bust=1659106172&width=300"
+              />
+            </div>
+            <div
+              className="text"
+            >
+              <h4>
+                Alexander
+              </h4>
+              <p>
+                American Wirehair
+              </p>
+              <div
+                className="info"
+              >
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Age"
+                    src="cake.svg"
+                  />
+                  <p>
+                    Adult
+                  </p>
+                </div>
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Location"
+                    src="location-pin.svg"
+                  />
+                  <p>
+                    Los Angeles, CA
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              className="button view"
+              onClick={[Function]}
+            >
+              View Profile
+            </button>
+          </div>
+        </div>
+        <div
+          className="swiper-slide"
+          data-swiper-slide-index={0}
+        >
+          <div
+            className="card card"
+            data-testid="card-component"
+          >
+            <div
+              className="image"
+            >
+              <img
+                alt="placeholder text"
+                src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/56499165/1/?bust=1659106172&width=300"
+              />
+            </div>
+            <div
+              className="text"
+            >
+              <h4>
+                Alexander
+              </h4>
+              <p>
+                American Wirehair
+              </p>
+              <div
+                className="info"
+              >
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Age"
+                    src="cake.svg"
+                  />
+                  <p>
+                    Adult
+                  </p>
+                </div>
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Location"
+                    src="location-pin.svg"
+                  />
+                  <p>
+                    Los Angeles, CA
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              className="button view"
+              onClick={[Function]}
+            >
+              View Profile
+            </button>
+          </div>
+        </div>
+        <div
+          className="swiper-slide"
+          data-swiper-slide-index={1}
+        >
+          <div
+            className="card card"
+            data-testid="card-component"
+          >
+            <div
+              className="image"
+            >
+              <img
+                alt="placeholder text"
+                src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/56499165/1/?bust=1659106172&width=300"
+              />
+            </div>
+            <div
+              className="text"
+            >
+              <h4>
+                Alexander
+              </h4>
+              <p>
+                American Wirehair
+              </p>
+              <div
+                className="info"
+              >
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Age"
+                    src="cake.svg"
+                  />
+                  <p>
+                    Adult
+                  </p>
+                </div>
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Location"
+                    src="location-pin.svg"
+                  />
+                  <p>
+                    Los Angeles, CA
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              className="button view"
+              onClick={[Function]}
+            >
+              View Profile
+            </button>
+          </div>
+        </div>
+        <div
+          className="swiper-slide"
+          data-swiper-slide-index={2}
+        >
+          <div
+            className="card card"
+            data-testid="card-component"
+          >
+            <div
+              className="image"
+            >
+              <img
+                alt="placeholder text"
+                src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/56499165/1/?bust=1659106172&width=300"
+              />
+            </div>
+            <div
+              className="text"
+            >
+              <h4>
+                Alexander
+              </h4>
+              <p>
+                American Wirehair
+              </p>
+              <div
+                className="info"
+              >
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Age"
+                    src="cake.svg"
+                  />
+                  <p>
+                    Adult
+                  </p>
+                </div>
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Location"
+                    src="location-pin.svg"
+                  />
+                  <p>
+                    Los Angeles, CA
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              className="button view"
+              onClick={[Function]}
+            >
+              View Profile
+            </button>
+          </div>
+        </div>
+        <div
+          className="swiper-slide"
+          data-swiper-slide-index={3}
+        >
+          <div
+            className="card card"
+            data-testid="card-component"
+          >
+            <div
+              className="image"
+            >
+              <img
+                alt="placeholder text"
+                src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/56499165/1/?bust=1659106172&width=300"
+              />
+            </div>
+            <div
+              className="text"
+            >
+              <h4>
+                Alexander
+              </h4>
+              <p>
+                American Wirehair
+              </p>
+              <div
+                className="info"
+              >
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Age"
+                    src="cake.svg"
+                  />
+                  <p>
+                    Adult
+                  </p>
+                </div>
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Location"
+                    src="location-pin.svg"
+                  />
+                  <p>
+                    Los Angeles, CA
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              className="button view"
+              onClick={[Function]}
+            >
+              View Profile
+            </button>
+          </div>
+        </div>
+        <div
+          className="swiper-slide swiper-slide-duplicate"
+          data-swiper-slide-index={0}
+        >
+          <div
+            className="card card"
+            data-testid="card-component"
+          >
+            <div
+              className="image"
+            >
+              <img
+                alt="placeholder text"
+                src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/56499165/1/?bust=1659106172&width=300"
+              />
+            </div>
+            <div
+              className="text"
+            >
+              <h4>
+                Alexander
+              </h4>
+              <p>
+                American Wirehair
+              </p>
+              <div
+                className="info"
+              >
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Age"
+                    src="cake.svg"
+                  />
+                  <p>
+                    Adult
+                  </p>
+                </div>
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Location"
+                    src="location-pin.svg"
+                  />
+                  <p>
+                    Los Angeles, CA
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              className="button view"
+              onClick={[Function]}
+            >
+              View Profile
+            </button>
+          </div>
+        </div>
+        <div
+          className="swiper-slide swiper-slide-duplicate"
+          data-swiper-slide-index={1}
+        >
+          <div
+            className="card card"
+            data-testid="card-component"
+          >
+            <div
+              className="image"
+            >
+              <img
+                alt="placeholder text"
+                src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/56499165/1/?bust=1659106172&width=300"
+              />
+            </div>
+            <div
+              className="text"
+            >
+              <h4>
+                Alexander
+              </h4>
+              <p>
+                American Wirehair
+              </p>
+              <div
+                className="info"
+              >
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Age"
+                    src="cake.svg"
+                  />
+                  <p>
+                    Adult
+                  </p>
+                </div>
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Location"
+                    src="location-pin.svg"
+                  />
+                  <p>
+                    Los Angeles, CA
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              className="button view"
+              onClick={[Function]}
+            >
+              View Profile
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    className="section successes"
+    data-testid="landing-section"
+  >
+    <div
+      className="headings"
+    >
+      <h3
+        className="center heading undefined"
+      >
+        Success Stories
+      </h3>
+      <p
+        className="center subheading undefined"
+      >
+        Read about a couple of our successful rehomings
+      </p>
+    </div>
+    <div
+      className="story one"
+    >
+      <div
+        className="card card"
+        data-testid="card-component"
+      >
+        <div
+          className="image"
+        >
+          <img
+            alt=""
+            src="jet-success.jpg"
+          />
+        </div>
+        <div
+          className="text"
+        >
+          <h4>
+            Jet
+             - 
+            Whippet
+          </h4>
+          <p>
+            Having previously lived life as a breeding and bait dog, Jet narrowly avoided being put down by her previous owners. When the vets took her in to the shelters, it wasn’t long before a new family took to her. After making the long trip from Wales to Hampshire, Jet now lives with her fur-brother Finn, spending her days playing and sleeping. Just like she should.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      className="story two"
+    >
+      <div
+        className="card card"
+        data-testid="card-component"
+      >
+        <div
+          className="image"
+        >
+          <img
+            alt=""
+            src="finn-success.jpg"
+          />
+        </div>
+        <div
+          className="text"
+        >
+          <h4>
+            Finn
+             - 
+            Greyhound
+          </h4>
+          <p>
+            With his previous owners having to give him up to look after their new child, Finn had to leave what he thought would be his fur-ever home at the age of 1. Thanks to Find-a-Friend, it was soon before he was united with another family. Surrounded by much older kids, Finn now enjoys his days going on long walks and sleeping with his legs in the air. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    className="section "
+    data-testid="landing-section"
+  >
+    <h3
+      className="left heading undefined"
+    >
+      Resources for New Owners
+    </h3>
+    <div
+      className="subheading"
+    >
+      <p
+        className="left subheading undefined"
+      >
+        Courtesy of 
+      </p>
+      <img
+        alt="Petfinder"
+        src="petfinder.png"
+      />
+    </div>
+    <div
+      className="wrapper"
+    >
+      <div
+        className="resource true"
+      >
+        <div
+          className="highlight"
+        />
+        <h3
+          className="left heading undefined"
+        >
+          About Adoption
+        </h3>
+        <p>
+          Curious about anything to do with pet adoption? Maybe need a hand introducing your new friend?
+        </p>
+        <a
+          href="/"
+        >
+          Click here!
+        </a>
+      </div>
+      <div
+        className="resource undefined"
+      >
+        <div
+          className="highlight"
+        />
+        <h3
+          className="left heading undefined"
+        >
+          Pet Care
+        </h3>
+        <p>
+          There’s more to keeping a pet than love and attention, though that’s important too!
+        </p>
+        <a
+          href="/"
+        >
+          Find out more!
+        </a>
+      </div>
+      <div
+        className="resource true"
+      >
+        <div
+          className="highlight"
+        />
+        <h3
+          className="left heading undefined"
+        >
+          Helping Pets
+        </h3>
+        <p>
+          Took your own pet in, but still want to do more? From volunteering to fostering, there’s plenty more!
+        </p>
+        <a
+          href="/"
+        >
+          How you can help!
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+`;
+
+exports[`landing page snapshots 1800px 1`] = `
+<main>
+  <section
+    className="hero landing"
+    data-testid="hero"
+  >
+    <div
+      className="body"
+    >
+      <h2>
+        Your new 
+        <span
+          className="color-accent"
+        >
+          best friend
+        </span>
+         is waiting!
+      </h2>
+      <p>
+        Find the perfect pet to adopt with over 20,000 dogs, cats, rabbits and more!
+      </p>
+      <button
+        className="button "
+        onClick={[Function]}
+      >
+        Search Now!
+      </button>
+    </div>
+    <div
+      className="card stats"
+      data-testid="card-component"
+    >
+      <div
+        className="statistic"
+      >
+        <img
+          alt=""
+          src="paw.svg"
+        />
+        <p
+          className="stat"
+        >
+          100,000+
+        </p>
+        <p
+          className="text"
+        >
+          Animals
+        </p>
+      </div>
+      <div
+        className="statistic"
+      >
+        <img
+          alt=""
+          src="home.svg"
+        />
+        <p
+          className="stat"
+        >
+          10,000+
+        </p>
+        <p
+          className="text"
+        >
+          Shelters
+        </p>
+      </div>
+      <div
+        className="statistic"
+      >
+        <img
+          alt=""
+          src="animals.svg"
+        />
+        <p
+          className="stat"
+        >
+          50
+        </p>
+        <p
+          className="text"
+        >
+          Breeds
+        </p>
+      </div>
+      <div
+        className="statistic"
+      >
+        <img
+          alt=""
+          src="temp.svg"
+        />
+        <p
+          className="stat"
+        >
+          10
+        </p>
+        <p
+          className="text"
+        >
+          Varieties
+        </p>
+      </div>
+    </div>
+  </section>
+  <section
+    className="section animals"
+    data-testid="landing-section"
+  >
+    <div
+      className="headings"
+    >
+      <h3
+        className="center heading undefined"
+      >
+        From 
+        <span
+          className="color-accent"
+        >
+          Canines
+        </span>
+         to
+        <span
+          className="color-accent"
+        >
+           Felines
+        </span>
+        ...
+      </h3>
+      <p
+        className="center subheading undefined"
+      >
+        ...and everything in between!
+      </p>
+    </div>
+    <div
+      className="icons"
+    >
+      <button
+        className="icon"
+      >
+        <img
+          alt="Dog"
+          src="dog-circle.png"
+        />
+        <p
+          className="button"
+        >
+          Find a 
+          Dog
+        </p>
+      </button>
+      <button
+        className="icon"
+      >
+        <img
+          alt="Cat"
+          src="cat-circle.png"
+        />
+        <p
+          className="button"
+        >
+          Find a 
+          Cat
+        </p>
+      </button>
+      <button
+        className="icon"
+      >
+        <img
+          alt="Bunny"
+          src="bunny-circle.png"
+        />
+        <p
+          className="button"
+        >
+          Find a 
+          Bunny
+        </p>
+      </button>
+      <button
+        className="icon"
+      >
+        <img
+          alt="Horse"
+          src="horse-circle.png"
+        />
+        <p
+          className="button"
+        >
+          Find a 
+          Horse
+        </p>
+      </button>
+    </div>
+  </section>
+  <section>
+    <h3
+      className="center heading heading"
+    >
+      Available for Adoption
+    </h3>
+    <p
+      className="center subheading heading"
+    >
+      Just a pawful of animals looking for a new home
+    </p>
+    <div
+      className="swiper-container"
+      modules={
+        Array [
+          Object {
+            "create": [Function],
+            "name": "navigation",
+            "on": Object {
+              "click": [Function],
+              "destroy": [Function],
+              "enable disable": [Function],
+              "fromEdge": [Function],
+              "init": [Function],
+              "toEdge": [Function],
+            },
+            "params": Object {
+              "navigation": Object {
+                "disabledClass": "swiper-button-disabled",
+                "hiddenClass": "swiper-button-hidden",
+                "hideOnClick": false,
+                "lockClass": "swiper-button-lock",
+                "nextEl": null,
+                "prevEl": null,
+              },
+            },
+          },
+        ]
+      }
+    >
+      <div
+        className="swiper-button-prev"
+      />
+      <div
+        className="swiper-button-next"
+      />
+      <div
+        className="swiper-wrapper"
+      >
+        <div
+          className="swiper-slide swiper-slide-duplicate"
+          data-swiper-slide-index={2}
+        >
+          <div
+            className="card card"
+            data-testid="card-component"
+          >
+            <div
+              className="image"
+            >
+              <img
+                alt="placeholder text"
+                src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/56499165/1/?bust=1659106172&width=300"
+              />
+            </div>
+            <div
+              className="text"
+            >
+              <h4>
+                Alexander
+              </h4>
+              <p>
+                American Wirehair
+              </p>
+              <div
+                className="info"
+              >
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Age"
+                    src="cake.svg"
+                  />
+                  <p>
+                    Adult
+                  </p>
+                </div>
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Location"
+                    src="location-pin.svg"
+                  />
+                  <p>
+                    Los Angeles, CA
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              className="button view"
+              onClick={[Function]}
+            >
+              View Profile
+            </button>
+          </div>
+        </div>
+        <div
+          className="swiper-slide swiper-slide-duplicate"
+          data-swiper-slide-index={3}
+        >
+          <div
+            className="card card"
+            data-testid="card-component"
+          >
+            <div
+              className="image"
+            >
+              <img
+                alt="placeholder text"
+                src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/56499165/1/?bust=1659106172&width=300"
+              />
+            </div>
+            <div
+              className="text"
+            >
+              <h4>
+                Alexander
+              </h4>
+              <p>
+                American Wirehair
+              </p>
+              <div
+                className="info"
+              >
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Age"
+                    src="cake.svg"
+                  />
+                  <p>
+                    Adult
+                  </p>
+                </div>
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Location"
+                    src="location-pin.svg"
+                  />
+                  <p>
+                    Los Angeles, CA
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              className="button view"
+              onClick={[Function]}
+            >
+              View Profile
+            </button>
+          </div>
+        </div>
+        <div
+          className="swiper-slide"
+          data-swiper-slide-index={0}
+        >
+          <div
+            className="card card"
+            data-testid="card-component"
+          >
+            <div
+              className="image"
+            >
+              <img
+                alt="placeholder text"
+                src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/56499165/1/?bust=1659106172&width=300"
+              />
+            </div>
+            <div
+              className="text"
+            >
+              <h4>
+                Alexander
+              </h4>
+              <p>
+                American Wirehair
+              </p>
+              <div
+                className="info"
+              >
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Age"
+                    src="cake.svg"
+                  />
+                  <p>
+                    Adult
+                  </p>
+                </div>
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Location"
+                    src="location-pin.svg"
+                  />
+                  <p>
+                    Los Angeles, CA
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              className="button view"
+              onClick={[Function]}
+            >
+              View Profile
+            </button>
+          </div>
+        </div>
+        <div
+          className="swiper-slide"
+          data-swiper-slide-index={1}
+        >
+          <div
+            className="card card"
+            data-testid="card-component"
+          >
+            <div
+              className="image"
+            >
+              <img
+                alt="placeholder text"
+                src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/56499165/1/?bust=1659106172&width=300"
+              />
+            </div>
+            <div
+              className="text"
+            >
+              <h4>
+                Alexander
+              </h4>
+              <p>
+                American Wirehair
+              </p>
+              <div
+                className="info"
+              >
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Age"
+                    src="cake.svg"
+                  />
+                  <p>
+                    Adult
+                  </p>
+                </div>
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Location"
+                    src="location-pin.svg"
+                  />
+                  <p>
+                    Los Angeles, CA
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              className="button view"
+              onClick={[Function]}
+            >
+              View Profile
+            </button>
+          </div>
+        </div>
+        <div
+          className="swiper-slide"
+          data-swiper-slide-index={2}
+        >
+          <div
+            className="card card"
+            data-testid="card-component"
+          >
+            <div
+              className="image"
+            >
+              <img
+                alt="placeholder text"
+                src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/56499165/1/?bust=1659106172&width=300"
+              />
+            </div>
+            <div
+              className="text"
+            >
+              <h4>
+                Alexander
+              </h4>
+              <p>
+                American Wirehair
+              </p>
+              <div
+                className="info"
+              >
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Age"
+                    src="cake.svg"
+                  />
+                  <p>
+                    Adult
+                  </p>
+                </div>
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Location"
+                    src="location-pin.svg"
+                  />
+                  <p>
+                    Los Angeles, CA
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              className="button view"
+              onClick={[Function]}
+            >
+              View Profile
+            </button>
+          </div>
+        </div>
+        <div
+          className="swiper-slide"
+          data-swiper-slide-index={3}
+        >
+          <div
+            className="card card"
+            data-testid="card-component"
+          >
+            <div
+              className="image"
+            >
+              <img
+                alt="placeholder text"
+                src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/56499165/1/?bust=1659106172&width=300"
+              />
+            </div>
+            <div
+              className="text"
+            >
+              <h4>
+                Alexander
+              </h4>
+              <p>
+                American Wirehair
+              </p>
+              <div
+                className="info"
+              >
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Age"
+                    src="cake.svg"
+                  />
+                  <p>
+                    Adult
+                  </p>
+                </div>
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Location"
+                    src="location-pin.svg"
+                  />
+                  <p>
+                    Los Angeles, CA
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              className="button view"
+              onClick={[Function]}
+            >
+              View Profile
+            </button>
+          </div>
+        </div>
+        <div
+          className="swiper-slide swiper-slide-duplicate"
+          data-swiper-slide-index={0}
+        >
+          <div
+            className="card card"
+            data-testid="card-component"
+          >
+            <div
+              className="image"
+            >
+              <img
+                alt="placeholder text"
+                src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/56499165/1/?bust=1659106172&width=300"
+              />
+            </div>
+            <div
+              className="text"
+            >
+              <h4>
+                Alexander
+              </h4>
+              <p>
+                American Wirehair
+              </p>
+              <div
+                className="info"
+              >
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Age"
+                    src="cake.svg"
+                  />
+                  <p>
+                    Adult
+                  </p>
+                </div>
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Location"
+                    src="location-pin.svg"
+                  />
+                  <p>
+                    Los Angeles, CA
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              className="button view"
+              onClick={[Function]}
+            >
+              View Profile
+            </button>
+          </div>
+        </div>
+        <div
+          className="swiper-slide swiper-slide-duplicate"
+          data-swiper-slide-index={1}
+        >
+          <div
+            className="card card"
+            data-testid="card-component"
+          >
+            <div
+              className="image"
+            >
+              <img
+                alt="placeholder text"
+                src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/56499165/1/?bust=1659106172&width=300"
+              />
+            </div>
+            <div
+              className="text"
+            >
+              <h4>
+                Alexander
+              </h4>
+              <p>
+                American Wirehair
+              </p>
+              <div
+                className="info"
+              >
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Age"
+                    src="cake.svg"
+                  />
+                  <p>
+                    Adult
+                  </p>
+                </div>
+                <div
+                  className="info"
+                >
+                  <img
+                    alt="Location"
+                    src="location-pin.svg"
+                  />
+                  <p>
+                    Los Angeles, CA
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              className="button view"
+              onClick={[Function]}
+            >
+              View Profile
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    className="section successes"
+    data-testid="landing-section"
+  >
+    <div
+      className="headings"
+    >
+      <h3
+        className="center heading undefined"
+      >
+        Success Stories
+      </h3>
+      <p
+        className="center subheading undefined"
+      >
+        Read about a couple of our successful rehomings
+      </p>
+    </div>
+    <div
+      className="story one"
+    >
+      <div
+        className="card card"
+        data-testid="card-component"
+      >
+        <div
+          className="image"
+        >
+          <img
+            alt=""
+            src="jet-success.jpg"
+          />
+        </div>
+        <div
+          className="text"
+        >
+          <h4>
+            Jet
+             - 
+            Whippet
+          </h4>
+          <p>
+            Having previously lived life as a breeding and bait dog, Jet narrowly avoided being put down by her previous owners. When the vets took her in to the shelters, it wasn’t long before a new family took to her. After making the long trip from Wales to Hampshire, Jet now lives with her fur-brother Finn, spending her days playing and sleeping. Just like she should.
+          </p>
+        </div>
+      </div>
+      <img
+        alt=""
+        className="pawprints"
+        src="pawprints-down.png"
+      />
+    </div>
+    <div
+      className="story two"
+    >
+      <img
+        alt=""
+        className="pawprints"
+        src="pawprints-up.png"
+      />
+      <div
+        className="card card"
+        data-testid="card-component"
+      >
+        <div
+          className="image"
+        >
+          <img
+            alt=""
+            src="finn-success.jpg"
+          />
+        </div>
+        <div
+          className="text"
+        >
+          <h4>
+            Finn
+             - 
+            Greyhound
+          </h4>
+          <p>
+            With his previous owners having to give him up to look after their new child, Finn had to leave what he thought would be his fur-ever home at the age of 1. Thanks to Find-a-Friend, it was soon before he was united with another family. Surrounded by much older kids, Finn now enjoys his days going on long walks and sleeping with his legs in the air. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    className="section "
+    data-testid="landing-section"
+  >
+    <h3
+      className="left heading undefined"
+    >
+      Resources for New Owners
+    </h3>
+    <div
+      className="subheading"
+    >
+      <p
+        className="left subheading undefined"
+      >
+        Courtesy of 
+      </p>
+      <img
+        alt="Petfinder"
+        src="petfinder.png"
+      />
+    </div>
+    <div
+      className="wrapper"
+    >
+      <div
+        className="resource true"
+      >
+        <div
+          className="highlight"
+        />
+        <h3
+          className="left heading undefined"
+        >
+          About Adoption
+        </h3>
+        <p>
+          Curious about anything to do with pet adoption? Maybe need a hand introducing your new friend?
+        </p>
+        <a
+          href="/"
+        >
+          Click here!
+        </a>
+      </div>
+      <div
+        className="resource undefined"
+      >
+        <div
+          className="highlight"
+        />
+        <h3
+          className="left heading undefined"
+        >
+          Pet Care
+        </h3>
+        <p>
+          There’s more to keeping a pet than love and attention, though that’s important too!
+        </p>
+        <a
+          href="/"
+        >
+          Find out more!
+        </a>
+      </div>
+      <div
+        className="resource true"
+      >
+        <div
+          className="highlight"
+        />
+        <h3
+          className="left heading undefined"
+        >
+          Helping Pets
+        </h3>
+        <p>
+          Took your own pet in, but still want to do more? From volunteering to fostering, there’s plenty more!
+        </p>
+        <a
+          href="/"
+        >
+          How you can help!
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+`;

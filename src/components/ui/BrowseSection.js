@@ -6,8 +6,8 @@ import BrowseCard from '../../components/ui/BrowseCard';
 import classes from './styles/BrowseSection.module.css';
 
 function BrowseSection(props) {
-  const renderedCards = props.items.map((item) => (
-    <BrowseCard name={item.name} image={item.image} available={item.available} />
+  const renderedCards = props.items.map((item, index) => (
+    <BrowseCard key={index} name={item.name} image={item.image} available={item.available} />
   ));
 
   return (
