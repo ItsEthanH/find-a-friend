@@ -56,6 +56,7 @@ function AppContextProvider(props) {
     if (windowTimer) {
       clearTimeout(windowTimer);
     }
+
     windowTimer = setTimeout(() => {
       setWindowWidth(window.innerWidth);
     }, 300);

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 // useFetch is used to make GET requests to the Petfinder API, as long as an endpoint is given
-// the only POST request needed is to get Bearer tokens from the API. this is handled in the AppContext.js file.[]
+// the only POST request needed is to get Bearer tokens from the API. this is handled in the AppContext.js file.
 function useFetch(endpoint) {
   const url = 'https://api.petfinder.com/v2/' + endpoint;
 
