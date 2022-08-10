@@ -26,17 +26,15 @@ describe('app context', () => {
     });
   });
 
-  test('gets a bearer token', () => {
+  test('gets a bearer token', async () => {
     render(
       <AppContextProvider>
         <TestComponent />
       </AppContextProvider>
     );
 
-    act(async () => {
-      const tokenElement = await screen.findByText('mock_access_token');
-      expect(tokenElement).toBeInTheDocument();
-    });
+    const tokenElement = await screen.findByText('mock_access_token');
+    expect(tokenElement).toBeInTheDocument();
   });
 
   test('stores the token in a cookie', () => {

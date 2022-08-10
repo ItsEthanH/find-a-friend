@@ -3,8 +3,8 @@ import { Navigation } from 'swiper';
 
 import AdoptionCard from './AdoptionCard';
 
-import 'swiper/css';
-import 'swiper/css/navigation';
+import 'swiper/swiper-bundle.min.css';
+import 'swiper/swiper.min.css';
 
 function AdoptionCarousel() {
   const sliderBreakpoints = {
