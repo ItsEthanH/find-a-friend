@@ -8,7 +8,7 @@
   background-color: rgba(0, 0, 0, 0.6);
   background-blend-mode: multiply;
   max-width: initial;
-  padding: 10rem 2rem 3rem 2rem;
+  padding: 3rem 2rem;
   color: white;
 }
 
@@ -36,10 +36,10 @@
 @media screen and (min-width: 1000px) {
   .hero {
     text-align: left;
-    height: 90vh;
+    height: 70vh;
   }
 
   .animals {
-    height: 75vh;
+    height: 55vh;
   }
 }
