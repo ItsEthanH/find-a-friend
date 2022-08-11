@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import getCookieValue from '../util/getCookieValue';
 
 const AppContext = React.createContext({
@@ -15,14 +15,10 @@ function AppContextProvider(props) {
 
   const clientId = process.env.REACT_APP_CLIENT_ID;
   const key = process.env.REACT_APP_KEY;
-  let tokenCookie = getCookieValue('bearerToken');
+  let tokenCookieValue = getCookieValue('bearerToken');
   let windowTimer;
 
-  if (!tokenCookie) {
-    tokenCookie = getBearerToken();
-  }
-
-  async function getBearerToken() {
+  const getBearerToken = useCallback(async () => {
     const response = await fetch('https://api.petfinder.com/v2/oauth2/token', {
       body: `grant_type=client_credentials&client_id=${clientId}&client_secret=${key}`,
       headers: {
@@ -37,7 +33,7 @@ function AppContextProvider(props) {
 
     const data = await response.json();
     setBearerToken(data.access_token, data.expires_in);
-  }
+  }, [clientId, key]);
 
   function setBearerToken(token, time) {
     const dateObj = new Date();
@@ -66,6 +62,14 @@ function AppContextProvider(props) {
     window.addEventListener('resize', windowResizeHandler);
     return () => window.removeEventListener('resize', windowResizeHandler);
   });
+
+  useEffect(() => {
+    if (tokenCookieValue) {
+      setToken(tokenCookieValue);
+    } else {
+      getBearerToken();
+    }
+  }, [getBearerToken, tokenCookieValue]);
 
   const contextValue = {
     token,
