@@ -1,6 +1,6 @@
 .form {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: auto;
   gap: 1rem;
   width: 100%;
   margin: 1rem 0;
@@ -9,42 +9,12 @@
   border-radius: 15px;
 }
 
-.entry {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-}
-
-.entry input {
-  width: 100%;
-  margin: 0 0.5rem;
-  border: none;
-  outline: none;
-}
-
-.entry select {
-  width: 100%;
-  background: transparent;
-  border: none;
-}
-
-.entry img {
-  width: 2rem;
-}
-
 .divider {
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgb(202, 202, 202);
 }
 
 @media screen and (min-width: 600px) {
   .form {
-    flex-direction: row;
-  }
-
-  .entry:first-of-type {
-    flex: 0.7 1 0;
-  }
-  .entry:last-of-type {
-    flex: 1 1 0;
+    grid-template-columns: 1fr min-content 1fr;
   }
 }
