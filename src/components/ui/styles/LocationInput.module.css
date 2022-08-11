@@ -10,3 +10,28 @@
   border: none;
   outline: none;
 }
+
+.suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  color: black;
+}
+
+.suggestions ul {
+  list-style: none;
+}
+
+.suggestions li {
+  padding: 0.5rem 1rem;
+}
+
+.suggestions button {
+  text-align: left;
+}
+
+.suggestions hr {
+  border: 1px solid var(--clr-accent);
+  margin: 0 1rem;
+}

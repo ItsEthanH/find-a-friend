@@ -87,10 +87,11 @@ a {
   text-decoration: none;
 }
 
-/* (PERSONAL CHOICE) - Removes all button styles */
+/* (PERSONAL CHOICE) - Removes all button styles and adds a pointer cursor */
 button {
   background: transparent;
   border: none;
+  cursor: pointer;
 }
 
 /* Make images easier to work with */

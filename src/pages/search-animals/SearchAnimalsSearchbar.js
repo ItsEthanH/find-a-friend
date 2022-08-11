@@ -5,7 +5,7 @@ import classes from './styles/SearchAnimalsSearchbar.module.css';
 import location from '../../assets/svgs/location-pin.svg';
 import filter from '../../assets/svgs/filter.svg';
 
-function SearchAnimalsSearchbar(props) {
+function SearchAnimalsSearchbar() {
   function submitHandler(event) {
     event.preventDefault();
   }
