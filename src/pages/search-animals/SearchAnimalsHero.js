@@ -2,9 +2,9 @@ import React from 'react';
 
 import Heading from '../../components/ui/Heading';
 import Hero from '../../components/ui/Hero';
-import DoubleSearchbar from '../../components/ui/DoubleSearchbar';
+import SearchAnimalsSearchbar from './SearchAnimalsSearchbar';
 
-import search from '../../assets/svgs/search.svg';
+import filter from '../../assets/svgs/filter.svg';
 import location from '../../assets/svgs/location-pin.svg';
 
 function SearchAllHero() {
@@ -14,14 +14,14 @@ function SearchAllHero() {
         <Heading>
           Search all <span className="color-accent">Animals</span>
         </Heading>
-        <DoubleSearchbar
-          form-name="Search all animals"
-          primary-name="Search All Query"
-          primary-icon={search}
-          primary-placeholder="Search for pets..."
-          secondary-name="Location"
-          secondary-icon={location}
-          secondary-placeholder="Enter a location..."
+        <SearchAnimalsSearchbar
+          form-name="Search all animals..."
+          search-name="Location"
+          search-icon={location}
+          search-placeholder="Enter a city, state or postal code"
+          filter-name="Filters"
+          filter-icon={filter}
+          filter-placeholder="Click to view filters..."
         />
       </div>
     </Hero>

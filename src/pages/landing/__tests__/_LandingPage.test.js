@@ -1,7 +1,8 @@
+import { AppContextProvider } from '../../../context/AppContext';
+import { BrowserRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
 
 import LandingPage from '../_LandingPage';
-import { AppContextProvider } from '../../../context/AppContext';
 
 jest.useFakeTimers();
 describe('landing page snapshots', () => {
@@ -13,9 +14,11 @@ describe('landing page snapshots', () => {
 
     const tree = renderer
       .create(
-        <AppContextProvider>
-          <LandingPage />
-        </AppContextProvider>
+        <BrowserRouter>
+          <AppContextProvider>
+            <LandingPage />
+          </AppContextProvider>
+        </BrowserRouter>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -27,9 +30,11 @@ describe('landing page snapshots', () => {
 
     const tree = renderer
       .create(
-        <AppContextProvider>
-          <LandingPage />
-        </AppContextProvider>
+        <BrowserRouter>
+          <AppContextProvider>
+            <LandingPage />
+          </AppContextProvider>
+        </BrowserRouter>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -41,9 +46,11 @@ describe('landing page snapshots', () => {
 
     const tree = renderer
       .create(
-        <AppContextProvider>
-          <LandingPage />
-        </AppContextProvider>
+        <BrowserRouter>
+          <AppContextProvider>
+            <LandingPage />
+          </AppContextProvider>
+        </BrowserRouter>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
