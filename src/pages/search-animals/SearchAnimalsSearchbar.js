@@ -1,10 +1,21 @@
-import React from 'react';
+import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import classes from './styles/SearchAnimalsSearchbar.module.css';
 
 function SearchAnimalsSearchbar(props) {
+  const locationRef = useRef();
+  const navigate = useNavigate();
+
+  function submitHandler(event) {
+    event.preventDefault();
+
+    const locationValue = locationRef.current.value.replace(' ', '-');
+    navigate(`/results/animals/location=${locationValue}`);
+  }
+
   return (
-    <form className={classes.form} aria-label={props['form-name']}>
+    <form className={classes.form} onSubmit={submitHandler} aria-label={props['form-name']}>
       <div className={classes.entry}>
         <label htmlFor={props['search-name']}>
           <img src={props['search-icon']} alt={props['search-name']} />
@@ -15,6 +26,7 @@ function SearchAnimalsSearchbar(props) {
           name={props['search-name']}
           type="text"
           aria-label={props['search-placeholder']}
+          ref={locationRef}
         />
       </div>
       <div className={classes.divider} />
