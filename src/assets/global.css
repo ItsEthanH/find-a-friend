@@ -25,6 +25,8 @@
   --clr-accent: #f56d1c;
   --clr-petfinder: #6907b8;
 
+  --clr-grey-400: #818181;
+
   --ff-heading: 'OpenSans-SemiBold', sans-serif;
   --ff-body: 'OpenSans-Regular', sans-serif;
   --ff-accent: 'OpenSans-Light', sans-serif;
@@ -32,9 +34,9 @@
   --fs-title: 3rem;
   --fs-heading: 2rem;
   --fs-subheading: 1.5rem;
+  --fs-nav: 1.2rem;
   --fs-body: 1rem;
   --fs-subbody: 0.9rem;
-  --fs-nav: 1.2rem;
 }
 
 /* CSS reset courtesy of Andy Bell https://piccalil.li/blog/a-modern-css-reset */

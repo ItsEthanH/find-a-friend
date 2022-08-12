@@ -1,5 +1,10 @@
 .results {
+  margin: 1rem;
+}
+
+.cards {
   display: flex;
   flex-flow: wrap row;
   justify-content: center;
+  gap: 2rem;
 }

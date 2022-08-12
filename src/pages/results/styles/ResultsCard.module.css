@@ -2,7 +2,6 @@
   display: grid;
   grid-template-rows: 1fr min-content;
   max-width: 13rem;
-  margin: 1rem;
 }
 
 .image img {
@@ -32,5 +31,5 @@
 }
 
 .location p:first-of-type {
-  border-right: 1px solid gray;
+  border-right: 1px solid var(--clr-grey-400);
 }
