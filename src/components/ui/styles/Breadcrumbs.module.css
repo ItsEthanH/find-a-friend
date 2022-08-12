@@ -4,7 +4,7 @@
 
 .breadcrumbs > * {
   display: inline;
-  font-size: var(--fs-nav);
+  font-size: var(--fs-subbody);
 }
 
 .breadcrumbs a {

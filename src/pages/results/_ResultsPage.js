@@ -50,10 +50,27 @@ function _ResultsPage() {
 
   return (
     <main className={classes.results}>
-      <Breadcrumbs breadcrumbs={breadcrumbs} />
-      <h2>Filters</h2>
-      <h2>Sort</h2>
-      <section className={classes.cards}>{DUMMY_DATA && renderCards()}</section>
+      {DUMMY_DATA && (
+        <>
+          <Breadcrumbs breadcrumbs={breadcrumbs} />
+          <p className={classes.count}>
+            We've found <span className="color-accent">{DUMMY_DATA.pagination.total_count}</span>{' '}
+            results
+          </p>
+          <select name="filters" id="filters">
+            <option value="1">Filters (None Selected)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+
+          <select name="filters" id="filters">
+            <option value="1">Sort by</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+          <section className={classes.cards}>{renderCards()}</section>
+        </>
+      )}
     </main>
   );
 }

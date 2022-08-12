@@ -2,9 +2,21 @@
   margin: 1rem;
 }
 
+.count {
+  font-size: var(--fs-subbody);
+  margin: 0.5rem 0;
+}
+
 .cards {
+  margin: 2rem 0;
   display: flex;
   flex-flow: wrap row;
   justify-content: center;
   gap: 2rem;
+}
+
+.results select {
+  width: fit-content;
+  background: none;
+  border: none;
 }
