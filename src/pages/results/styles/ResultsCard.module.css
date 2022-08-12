@@ -1,0 +1,30 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  max-width: 10rem;
+  margin: 1rem;
+}
+
+.text {
+  text-align: center;
+}
+
+.text h4 {
+  font-size: var(--fs-subheading);
+  color: var(--clr-accent);
+}
+
+.location {
+  display: flex;
+  justify-content: center;
+  font-size: var(--fs-subbody);
+  margin: 0.5rem 0;
+}
+
+.location p {
+  padding: 0 0.3rem;
+}
+
+.location p:first-of-type {
+  border-right: 1px solid gray;
+}

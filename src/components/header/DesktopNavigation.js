@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import NavData from '../../util/NavData';
+import NavData from '../../util/navData';
 
 import classes from './styles/DesktopNavigation.module.css';
 

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import AppContext from '../../context/AppContext';
-import NavData from '../../util/NavData';
+import NavData from '../../util/navData';
 
 import MobileNavigationButton from './MobileNavigationButton';
 
@@ -21,7 +21,7 @@ function MobileNavigationContent() {
 
   return (
     <nav className={navClasses}>
-      {/* Close button is only rendered when nav is open, to allow for easier testing */}
+      {/* Close button is only rendered when nav is open, to allow for easier testing and accessibility */}
       {isMobileNavOpen && <MobileNavigationButton type="cross" />}
       <ul>
         {NavData.map((link) => (
