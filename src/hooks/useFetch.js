@@ -19,13 +19,11 @@ function useFetch(endpoint) {
       const response = await fetch(url, options);
 
       if (!response.ok) {
-        console.log(response);
         throw Error('Something went wrong!');
       }
 
       const data = await response.json();
       setResponse(data);
-      console.log(data);
     }
 
     try {

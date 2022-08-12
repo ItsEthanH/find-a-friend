@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import LocationInput from '../../components/ui/LocationInput';
 import SearchAnimalsFilter from './SearchAnimalsFilter';
+import formatLocationForURL from '../../util/formatLocationForURL';
 
 import classes from './styles/SearchAnimalsSearchbar.module.css';
 import locationIcon from '../../assets/svgs/location-pin.svg';
@@ -10,19 +11,17 @@ import filterIcon from '../../assets/svgs/filter.svg';
 import AccentButton from '../../components/ui/AccentButton';
 
 function SearchAnimalsSearchbar() {
-  const [location, setLocation] = useState('');
+  const [location, setLocation] = useState([]);
   const navigate = useNavigate();
 
-  function locationChangeHandler(loc) {
-    setLocation(loc);
+  function locationSelectionHandler(main, secondary) {
+    setLocation([main, secondary]);
   }
-  console.log(location);
 
   function submitHandler(event) {
-    console.log(event);
     event.preventDefault();
 
-    const urlLocation = location.replace(', ', '-').toLowerCase();
+    const urlLocation = formatLocationForURL(location[0], location[1]);
     navigate(`/results/animals/location=${urlLocation}`);
   }
 
@@ -32,7 +31,7 @@ function SearchAnimalsSearchbar() {
         name="Location"
         icon={locationIcon}
         placeholder="Enter a city, state or postal code"
-        onChange={locationChangeHandler}
+        onSelect={locationSelectionHandler}
       />
       <div className={classes.divider} />
       <SearchAnimalsFilter

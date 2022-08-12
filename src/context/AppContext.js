@@ -27,8 +27,6 @@ function AppContextProvider(props) {
       method: 'POST',
     });
 
-    console.log(response);
-
     if (!response.ok) {
       throw Error('Something went wrong with API authentication!');
     }
