@@ -6,6 +6,7 @@ import ResultsCard from './ResultsCard';
 import classes from './styles/ResultsPage.module.css';
 import DUMMY_DATA from './__DUMMY_DATA__';
 import formatLocationForAPI from '../../util/formatLocationForAPI';
+import noImageFound from '../../assets/images/results/no-image-found.png';
 
 function _ResultsPage() {
   const params = useParams();
@@ -17,7 +18,7 @@ function _ResultsPage() {
   return (
     <main className={classes.results}>
       {DUMMY_DATA.animals.map((pet) => {
-        let photo = 'test';
+        let photo = noImageFound;
 
         if (pet.primary_photo_cropped !== null) {
           photo = pet.primary_photo_cropped.full;

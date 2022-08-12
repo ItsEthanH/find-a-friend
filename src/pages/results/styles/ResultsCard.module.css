@@ -1,12 +1,18 @@
 .card {
-  display: flex;
-  flex-direction: column;
-  max-width: 10rem;
+  display: grid;
+  grid-template-rows: 1fr min-content;
+  max-width: 13rem;
   margin: 1rem;
+}
+
+.image img {
+  object-fit: cover;
+  height: 100%;
 }
 
 .text {
   text-align: center;
+  padding: 0.5rem;
 }
 
 .text h4 {
@@ -22,7 +28,7 @@
 }
 
 .location p {
-  padding: 0 0.3rem;
+  padding: 0 0.5rem;
 }
 
 .location p:first-of-type {
