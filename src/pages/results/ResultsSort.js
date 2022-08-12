@@ -12,30 +12,43 @@ function ResultsSort(props) {
   ];
 
   const [isOpen, setIsOpen] = useState(false);
-  const [buttonText, setButtonText] = useState('Date Posted (Newest)');
+  const [selectedOption, setSelected] = useState(sortOptions[0]);
 
   function toggleOpen() {
     setIsOpen((prevState) => !prevState);
   }
 
-  function selectionHandler(event) {}
+  function selectionHandler(event) {
+    setSelected(event.target.textContent);
+  }
+
+  const renderedOptions = sortOptions.map((option, index) => {
+    console.log(option.id);
+
+    return (
+      <li key={index}>
+        <button
+          key={index}
+          id={index}
+          className={selectedOption === option ? classes.selected : ''}
+          onClick={selectionHandler}
+        >
+          {option}
+        </button>
+      </li>
+    );
+  });
 
   return (
     <div className={classes.sort}>
       <button className={classes.toggle} onClick={toggleOpen}>
-        <p>Sort By: {buttonText}</p>
+        <p>Sort By: {selectedOption}</p>
         {isOpen ? <p>&#11165;</p> : <p>&#11167;</p>}
       </button>
       {isOpen && (
         <ul className={classes.options}>
           <p>Sort by:</p>
-          {sortOptions.map((option, index) => (
-            <li key={index}>
-              <button id={index} onClick={selectionHandler}>
-                {option}
-              </button>
-            </li>
-          ))}
+          {renderedOptions}
         </ul>
       )}
     </div>
