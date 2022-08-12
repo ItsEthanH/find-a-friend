@@ -1,13 +1,14 @@
 import { useParams, useLocation } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 
+import Breadcrumbs from '../../components/ui/Breadcrumbs';
 import ResultsCard from './ResultsCard';
+import ResultsSort from './ResultsSort';
 
 import classes from './styles/ResultsPage.module.css';
 import DUMMY_DATA from './__DUMMY_DATA__';
 import formatLocationForAPI from '../../util/formatLocationForAPI';
 import noImageFound from '../../assets/images/results/no-image-found.png';
-import Breadcrumbs from '../../components/ui/Breadcrumbs';
 
 function _ResultsPage() {
   const params = useParams();
@@ -63,11 +64,7 @@ function _ResultsPage() {
             <option value="3">3</option>
           </select>
 
-          <select name="filters" id="filters">
-            <option value="1">Sort by</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-          </select>
+          <ResultsSort />
           <section className={classes.cards}>{renderCards()}</section>
         </>
       )}

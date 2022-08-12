@@ -1,0 +1,35 @@
+.sort {
+  position: relative;
+  width: 100%;
+}
+
+.toggle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.options {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.25);
+  list-style: none;
+}
+
+.options p {
+  font-family: var(--ff-heading);
+  padding: 0.5rem 1rem;
+}
+
+.options button {
+  width: 100%;
+  padding: 1rem;
+  text-align: left;
+}
+
+.selected,
+.options button:hover {
+  background-color: var(--clr-grey-300);
+}
