@@ -13,10 +13,12 @@
 
 .suggestions {
   position: absolute;
+  width: 100%;
   top: 100%;
   left: 0;
   background: white;
   color: black;
+  z-index: 1;
 }
 
 .suggestions ul {

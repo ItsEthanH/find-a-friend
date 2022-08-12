@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import getCookieValue from '../util/getCookieValue';
 
 const AppContext = React.createContext({
@@ -26,6 +26,8 @@ function AppContextProvider(props) {
       },
       method: 'POST',
     });
+
+    console.log(response);
 
     if (!response.ok) {
       throw Error('Something went wrong with API authentication!');
@@ -64,11 +66,7 @@ function AppContextProvider(props) {
   });
 
   useEffect(() => {
-    if (tokenCookieValue) {
-      setToken(tokenCookieValue);
-    } else {
-      getBearerToken();
-    }
+    tokenCookieValue ? setToken(tokenCookieValue) : getBearerToken();
   }, [getBearerToken, tokenCookieValue]);
 
   const contextValue = {

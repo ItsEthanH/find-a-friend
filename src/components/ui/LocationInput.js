@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import usePlacesAutoComplete from 'use-places-autocomplete';
 
 import Card from './Card';
@@ -19,12 +20,21 @@ function LocationInput(props) {
 
   function locationChangeHandler(event) {
     setValue(event.target.value);
+    props.onChange(event.target.value);
   }
 
   function locationSelectHandler(event) {
     setValue(event.target.textContent, false);
+    props.onChange(event.target.textContent);
     clearSuggestions();
   }
+
+  // useEffect(() => {
+  //   console.log(suggestions);
+  //   for (const location of suggestions.data) {
+  //     console.log(location.structured_formatting);
+  //   }
+  // }, [suggestions]);
 
   return (
     <div className={classes.input}>
