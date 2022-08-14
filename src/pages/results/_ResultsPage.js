@@ -4,6 +4,7 @@ import useFetch from '../../hooks/useFetch';
 import Breadcrumbs from '../../components/ui/Breadcrumbs';
 import ResultsCard from './ResultsCard';
 import ResultsSort from './ResultsSort';
+import ResultsFilter from './filter/ResultsFilter';
 
 import classes from './styles/ResultsPage.module.css';
 import DUMMY_DATA from './__DUMMY_DATA__';
@@ -58,12 +59,8 @@ function _ResultsPage() {
             We've found <span className="color-accent">{DUMMY_DATA.pagination.total_count}</span>{' '}
             results
           </p>
-          <select name="filters" id="filters">
-            <option value="1">Filters (None Selected)</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-          </select>
 
+          <ResultsFilter />
           <ResultsSort />
           <section className={classes.cards}>{renderCards()}</section>
         </>

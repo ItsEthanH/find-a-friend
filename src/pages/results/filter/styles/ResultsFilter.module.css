@@ -1,0 +1,19 @@
+.filter {
+  position: relative;
+  width: 100%;
+  border: 2px solid var(--clr-grey-300);
+  padding: 0.4rem;
+}
+
+.options {
+  z-index: 1;
+  position: absolute;
+  top: 110%;
+  right: 0.05rem;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.25);
+  list-style: none;
+  overflow: hidden;
+  padding: 1rem;
+}

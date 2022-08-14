@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-nav);
+}
+
+.back {
+  font-size: var(--fs-subbody);
+  color: var(--clr-grey-400);
+  font-family: var(--ff-accent);
+  padding: 0;
+}

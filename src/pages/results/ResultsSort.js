@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import classes from './styles/ResultsSort.module.css';
 
-function ResultsSort(props) {
+function ResultsSort() {
   const sortOptions = [
     'Date Posted (Newest)',
     'Date Posted (Oldest)',
@@ -12,19 +12,18 @@ function ResultsSort(props) {
   ];
 
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelected] = useState(sortOptions[0]);
+  const [selectedOption, setSelectedOption] = useState(sortOptions[0]);
 
   function toggleOpen() {
     setIsOpen((prevState) => !prevState);
   }
 
   function selectionHandler(event) {
-    setSelected(event.target.textContent);
+    setSelectedOption(event.target.textContent);
+    setIsOpen(false);
   }
 
   const renderedOptions = sortOptions.map((option, index) => {
-    console.log(option.id);
-
     return (
       <li key={index}>
         <button
@@ -42,7 +41,7 @@ function ResultsSort(props) {
   return (
     <div className={classes.sort}>
       <button className={classes.toggle} onClick={toggleOpen}>
-        <p>Sort By: {selectedOption}</p>
+        <p>{selectedOption}</p>
         {isOpen ? <p>&#11165;</p> : <p>&#11167;</p>}
       </button>
       {isOpen && (
