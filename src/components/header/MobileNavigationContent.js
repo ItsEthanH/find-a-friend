@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { uiActions } from '../../store/ui';
 import { NavLink } from 'react-router-dom';
-import AppContext from '../../context/AppContext';
 import NavData from '../../util/navData';
 
 import MobileNavigationButton from './MobileNavigationButton';
@@ -8,7 +8,8 @@ import MobileNavigationButton from './MobileNavigationButton';
 import classes from './styles/MobileNavigationContent.module.css';
 
 function MobileNavigationContent() {
-  const { isMobileNavOpen, toggleMobileNav } = useContext(AppContext);
+  const dispatch = useDispatch();
+  const isMobileNavOpen = useSelector((state) => state.ui.isMobileNavOpen);
 
   const navClasses = `
     ${classes.navigation}
@@ -16,7 +17,7 @@ function MobileNavigationContent() {
   `;
 
   function closeNavHandler() {
-    toggleMobileNav();
+    dispatch(uiActions.toggleMobileNav());
   }
 
   return (

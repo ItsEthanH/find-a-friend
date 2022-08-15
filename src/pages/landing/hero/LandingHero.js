@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import AppContext from '../../../context/AppContext';
+import { useSelector } from 'react-redux';
 
 import Hero from '../../../components/ui/Hero';
 import HeroStats from '../../../pages/landing/hero/HeroStats';
@@ -10,7 +10,7 @@ import classes from './styles/LandingHero.module.css';
 
 function LandingHero() {
   const navigate = useNavigate();
-  const { windowWidth } = useContext(AppContext);
+  const windowWidth = useSelector((state) => state.ui.windowWidth);
 
   function buttonClickHandler() {
     navigate('/search');

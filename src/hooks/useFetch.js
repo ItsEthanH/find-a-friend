@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext, useMemo } from 'react';
-import AppContext from '../context/AppContext';
+import { useSelector } from 'react-redux';
 
 // useFetch is used to make GET requests to the Petfinder API, as long as an endpoint is given
 // the only POST request needed is to get Bearer tokens from the API. this is handled in the AppContext.js file.
@@ -7,8 +7,8 @@ function useFetch(endpoint) {
   const [response, setResponse] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const token = useSelector((state) => state.auth.token);
 
-  const { token } = useContext(AppContext);
   const url = 'https://api.petfinder.com/v2/' + endpoint;
   const options = useMemo(() => {
     return { headers: { Authorization: `Bearer ${token}` } };
