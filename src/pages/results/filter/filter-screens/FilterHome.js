@@ -7,21 +7,17 @@ import classes from './styles/FilterScreen.module.css';
 
 function FilterHome() {
   const dispatch = useDispatch();
-  const appliedFilters = useSelector((state) => state.filter.filters);
+  const activeFilters = useSelector((state) => state.filter.activeFilters);
 
   const renderedOptions = Object.keys(FILTER_PAGES).map((page) => {
     const pageName = FILTER_PAGES[page];
-    let quantity = '';
 
     // skip the home value as it should not appear in the filter options
     if (pageName === 'Home') {
       return false;
     }
 
-    if (appliedFilters[pageName]) {
-      quantity = appliedFilters[pageName].filterQuantity;
-    }
-
+    let quantity = Object.keys(activeFilters[pageName]).length;
     function selectPageHandler(event) {
       dispatch(filterActions.changePage({ page: event.target.id }));
     }
@@ -31,7 +27,7 @@ function FilterHome() {
         <li key={pageName}>
           <button className={classes.home} id={pageName} onClick={selectPageHandler}>
             {pageName}
-            {quantity && <p className={classes.quantity}>{quantity}</p>}
+            {quantity > 0 && <p className={classes.quantity}>{quantity}</p>}
           </button>
         </li>
         {pageName !== FILTER_PAGES.REQUIREMENTS && <hr />}

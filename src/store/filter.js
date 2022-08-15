@@ -11,7 +11,19 @@ export const FILTER_PAGES = {
   REQUIREMENTS: 'Requirements',
 };
 
-const initialFilterState = { isFiltersOpen: false, pageSelected: FILTER_PAGES.HOME, filters: {} };
+const initialFilterState = {
+  isFiltersOpen: false,
+  pageSelected: FILTER_PAGES.HOME,
+  activeFilters: {
+    [FILTER_PAGES.TYPE]: {},
+    [FILTER_PAGES.BREED]: {},
+    [FILTER_PAGES.DISTANCE]: {},
+    [FILTER_PAGES.GENDER]: {},
+    [FILTER_PAGES.AGE]: {},
+    [FILTER_PAGES.COAT]: {},
+    [FILTER_PAGES.REQUIREMENTS]: {},
+  },
+};
 
 const filterSlice = createSlice({
   name: 'filter',
@@ -26,10 +38,7 @@ const filterSlice = createSlice({
     },
 
     setFilter(state, action) {
-      state.filters[action.payload.filter] = {
-        value: action.payload.value,
-        filterQuantity: action.payload.filterQuantity,
-      };
+      state.activeFilters[action.payload.filter][action.payload.key] = action.payload.value;
     },
   },
 });

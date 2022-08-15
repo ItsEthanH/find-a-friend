@@ -28,7 +28,7 @@ function ResultsFilter() {
   }
 
   useEffect(() => {
-    console.log(selectedFilters.filters);
+    console.log(selectedFilters.activeFilters);
   }, [selectedFilters]);
 
   return (
