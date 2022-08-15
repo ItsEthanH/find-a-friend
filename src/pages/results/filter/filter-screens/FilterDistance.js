@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import useFilter from '../../../../hooks/useFilter';
 import { FILTER_PAGES, filterActions } from '../../../../store/filter';
 
 import OptionWrapper from './OptionWrapper';
@@ -7,28 +8,11 @@ import OptionWrapper from './OptionWrapper';
 import classes from './styles/FilterScreen.module.css';
 
 function FilterDistance() {
-  let initialDistanceValue = 100;
-  const filterValues = useSelector((state) => state.filter.filters);
-
-  if (filterValues[FILTER_PAGES.DISTANCE]) {
-    initialDistanceValue = filterValues[FILTER_PAGES.DISTANCE].value;
-  }
-
-  const dispatch = useDispatch();
-  const [distanceValue, setDistanceValue] = useState(initialDistanceValue);
+  const initialDistanceState = { distance: 100 };
+  const { values, updateValues } = useFilter(FILTER_PAGES.DISTANCE, initialDistanceState);
 
   function rangeChangeHandler(event) {
-    let rangeFilterQuantity = 1;
-    if (event.target.value === '100') rangeFilterQuantity = 0;
-
-    setDistanceValue(event.target.value);
-    dispatch(
-      filterActions.setFilter({
-        filter: FILTER_PAGES.DISTANCE,
-        value: event.target.value,
-        filterQuantity: rangeFilterQuantity,
-      })
-    );
+    updateValues('distance', event.target.value);
   }
 
   return (
@@ -38,7 +22,7 @@ function FilterDistance() {
           type="range"
           id="distance"
           name="distance"
-          value={distanceValue}
+          value={values.distance}
           onChange={rangeChangeHandler}
           min={10}
           max={500}
@@ -46,7 +30,12 @@ function FilterDistance() {
         />
         <p>
           Within{' '}
-          <input type="number" value={distanceValue} onChange={rangeChangeHandler} maxLength="3" />{' '}
+          <input
+            type="number"
+            value={values.distance}
+            onChange={rangeChangeHandler}
+            maxLength="3"
+          />{' '}
           miles
         </p>
       </form>
