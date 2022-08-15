@@ -10,10 +10,11 @@ export const FILTER_PAGES = {
   COAT: 'Coat',
   REQUIREMENTS: 'Requirements',
 };
-const initialFilterState = { isFiltersOpen: false, pageSelected: FILTER_PAGES.HOME };
+
+const initialFilterState = { isFiltersOpen: false, pageSelected: FILTER_PAGES.HOME, filters: {} };
 
 const filterSlice = createSlice({
-  name: 'fitler',
+  name: 'filter',
   initialState: initialFilterState,
   reducers: {
     toggleFilter(state) {
@@ -22,6 +23,13 @@ const filterSlice = createSlice({
 
     changePage(state, action) {
       state.pageSelected = action.payload.page;
+    },
+
+    setFilter(state, action) {
+      state.filters[action.payload.filter] = {
+        value: action.payload.value,
+        filterQuantity: action.payload.filterQuantity,
+      };
     },
   },
 });

@@ -22,7 +22,7 @@ function OptionWrapper(props) {
         <p className={classes.title}>{props.title}</p>
         {!props.home && backButton}
       </div>
-      <ul className={classes.options}>{props.children}</ul>
+      {props.children}
     </>
   );
 }

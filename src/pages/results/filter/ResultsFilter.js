@@ -7,8 +7,10 @@ import FilterGender from './filter-screens/FilterGender';
 import FilterDistance from './filter-screens/FilterDistance';
 
 import classes from './styles/ResultsFilter.module.css';
+import { useEffect } from 'react';
 
 function ResultsFilter() {
+  const selectedFilters = useSelector((state) => state.filter);
   const isFiltersOpen = useSelector((state) => state.filter.isFiltersOpen);
   const pageSelected = useSelector((state) => state.filter.pageSelected);
   let filterPage;
@@ -25,8 +27,9 @@ function ResultsFilter() {
       break;
   }
 
-  if (!isFiltersOpen) {
-  }
+  useEffect(() => {
+    console.log(selectedFilters.filters);
+  }, [selectedFilters]);
 
   return (
     <div className={classes.filter}>
