@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { authActions } from './store/auth';
+import { uiActions } from './store/ui';
 import { Outlet } from 'react-router-dom';
 
 import Header from './components/header/Header';
@@ -15,6 +16,12 @@ function App() {
   useEffect(() => {
     dispatch(authActions.checkTokenInCookie());
   }, [dispatch, token]);
+
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      dispatch(uiActions.windowResizeHandler());
+    });
+  });
 
   return (
     <>

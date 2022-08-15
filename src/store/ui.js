@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialUiState = { isMobileNavOpen: false, windowWidth: window.innerWidth };
-let windowTimer;
 
 const uiSlice = createSlice({
   name: 'ui',
@@ -12,13 +11,7 @@ const uiSlice = createSlice({
     },
 
     windowResizeHandler(state) {
-      if (windowTimer) {
-        clearTimeout(windowTimer);
-      }
-
-      windowTimer = setTimeout(() => {
-        state.windowWidth = window.innerWidth;
-      }, 300);
+      state.windowWidth = window.innerWidth;
     },
   },
 });
