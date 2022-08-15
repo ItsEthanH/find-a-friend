@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
+import store from './store/store';
+
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { AppContextProvider } from './context/AppContext';
 
 import App from './App';
 import LandingPage from './pages/landing/_LandingPage';
@@ -13,7 +15,7 @@ import ResultsPage from './pages/results/_ResultsPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <AppContextProvider>
+  <Provider store={store}>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
@@ -27,5 +29,5 @@ root.render(
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
-  </AppContextProvider>
+  </Provider>
 );

@@ -1,18 +1,20 @@
-import { useState, useEffect, useContext } from 'react';
-import ReactDOM from 'react-dom';
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { uiActions } from '../../store/ui';
 
-import AppContext from '../../context/AppContext';
+import ReactDOM from 'react-dom';
 
 import classes from './styles/Backdrop.module.css';
 
 const backdropPortal = document.getElementById('backdrop-root');
 
 function BackdropElement() {
+  const dispatch = useDispatch();
+
   const [animate, setAnimate] = useState(false);
-  const { toggleMobileNav } = useContext(AppContext);
 
   function backdropClickHandler() {
-    toggleMobileNav();
+    dispatch(uiActions.toggleMobileNav());
   }
 
   useEffect(() => {

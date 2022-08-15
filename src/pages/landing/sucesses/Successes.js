@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import AppContext from '../../../context/AppContext';
+import { useSelector } from 'react-redux';
 
 import Heading from '../../../components/ui/Heading';
 import Subheading from '../../../components/ui/Subheading';
@@ -13,7 +12,7 @@ import Jet from '../../../assets/images/landing/jet-success.jpg';
 import Finn from '../../../assets/images/landing/finn-success.jpg';
 
 function Successes() {
-  const { windowWidth } = useContext(AppContext);
+  const windowWidth = useSelector((state) => state.ui.windowWidth);
 
   return (
     <LandingSection styles={classes.successes}>

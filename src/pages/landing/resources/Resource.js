@@ -1,12 +1,10 @@
-import React, { useContext } from 'react';
-import AppContext from '../../../context/AppContext';
-
+import { useSelector } from 'react-redux';
 import Heading from '../../../components/ui/Heading';
 
 import classes from './styles/Resource.module.css';
 
 function Resource(props) {
-  const { windowWidth } = useContext(AppContext);
+  const windowWidth = useSelector((state) => state.ui.windowWidth);
 
   let alignmentStyles = props.right ? classes.right : classes.left;
   if (windowWidth >= 1000) {
