@@ -9,13 +9,14 @@ import classes from './styles/FilterScreen.module.css';
 
 function FilterDistance() {
   const initialDistanceState = { value: 100 };
-  const { values, updateValues } = useFilter(FILTER_PAGES.DISTANCE, initialDistanceState);
+  const { filterValues, updateFilterValues } = useFilter(
+    FILTER_PAGES.DISTANCE,
+    initialDistanceState
+  );
 
   function rangeChangeHandler(event) {
-    updateValues('value', event.target.value);
+    updateFilterValues('value', +event.target.value);
   }
-
-  const distanceValue = values.value;
 
   return (
     <OptionWrapper title="Distance">
@@ -24,7 +25,7 @@ function FilterDistance() {
           type="range"
           id="distance"
           name="distance"
-          value={+distanceValue}
+          value={filterValues.value}
           onChange={rangeChangeHandler}
           min={10}
           max={500}
@@ -32,7 +33,12 @@ function FilterDistance() {
         />
         <p>
           Within{' '}
-          <input type="number" value={+distanceValue} onChange={rangeChangeHandler} maxLength="3" />{' '}
+          <input
+            type="number"
+            value={filterValues.value}
+            onChange={rangeChangeHandler}
+            maxLength="3"
+          />{' '}
           miles
         </p>
       </form>
