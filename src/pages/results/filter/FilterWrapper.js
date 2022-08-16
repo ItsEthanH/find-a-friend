@@ -1,9 +1,9 @@
 import { useDispatch } from 'react-redux';
-import { FILTER_PAGES, filterActions } from '../../../../store/filter';
+import { FILTER_PAGES, filterActions } from '../../../store/filter';
 
-import classes from './styles/OptionWrapper.module.css';
+import classes from './styles/FilterWrapper.module.css';
 
-function OptionWrapper(props) {
+function FilterWrapper(props) {
   const dispatch = useDispatch();
 
   function backClickHandler() {
@@ -27,4 +27,4 @@ function OptionWrapper(props) {
   );
 }
 
-export default OptionWrapper;
+export default FilterWrapper;

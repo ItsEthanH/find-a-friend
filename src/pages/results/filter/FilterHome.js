@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { FILTER_PAGES, filterActions } from '../../../../store/filter';
+import { FILTER_PAGES, filterActions } from '../../../store/filter';
 
-import OptionWrapper from './OptionWrapper';
+import OptionWrapper from './FilterWrapper';
 
-import classes from './styles/FilterScreen.module.css';
+import classes from './styles/Filter.module.css';
 
 function FilterHome() {
   const dispatch = useDispatch();
@@ -29,8 +29,8 @@ function FilterHome() {
             {pageName}
             {quantity > 0 && <p className={classes.quantity}>{quantity}</p>}
           </button>
+          {pageName !== FILTER_PAGES.REQUIREMENTS && <hr />}
         </li>
-        {pageName !== FILTER_PAGES.REQUIREMENTS && <hr />}
       </>
     );
   });
