@@ -15,7 +15,7 @@ import useFetch from '../../../hooks/useFetch';
 
 function ResultsFilter() {
   let filterPage;
-  let breedRef = useRef();
+  const breedRef = useRef(null);
   const coatRef = useRef();
   const dropdownOpen = useSelector((state) => state.ui.resultsDropdownOpen);
   const pageSelected = useSelector((state) => state.filter.pageSelected);
@@ -51,10 +51,6 @@ function ResultsFilter() {
       }
     }
   }, [activeType, pageSelected, response]);
-
-  useEffect(() => {
-    console.log(activeFilters);
-  }, [activeFilters]);
 
   switch (pageSelected) {
     case FILTER_PAGES.TYPE:

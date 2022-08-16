@@ -1,6 +1,7 @@
 .options {
   font-size: var(--fs-nav);
   list-style: none;
+  margin: 1rem;
 }
 
 .options hr {
@@ -56,4 +57,9 @@
   border: none;
   outline: none;
   border-bottom: 1px solid var(--clr-grey-300);
+}
+
+.none {
+  text-align: center;
+  font-size: var(--fs-subbody);
 }

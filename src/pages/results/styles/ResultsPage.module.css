@@ -7,6 +7,13 @@
   margin: 0.5rem 0;
 }
 
+.dropdowns {
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: center;
+  align-items: center;
+}
+
 .cards {
   margin: 2rem 0;
   display: flex;

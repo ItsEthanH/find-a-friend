@@ -3,7 +3,8 @@
   width: 100%;
   border: 2px solid var(--clr-grey-200);
   padding: 0.4rem;
-  margin: 0.5rem 0;
+  margin: 0.5rem 2rem;
+  max-width: 20rem;
 }
 
 .toggle {

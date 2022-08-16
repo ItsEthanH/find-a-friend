@@ -49,12 +49,21 @@ function FilterCheckbox(props) {
     );
   });
 
+  console.log(renderedOptions);
+
   return (
     <OptionWrapper title={pageSelected}>
       {props.breed && breedSearchBar}
       {props.isLoading && <p>Loading...</p>}
       {props.initialState && (
-        <ul className={`${classes.options} ${classes.checkbox}`}>{renderedOptions}</ul>
+        <ul className={`${classes.options} ${classes.checkbox}`}>
+          {renderedOptions.length === 0 && (
+            <p className={classes.none}>
+              You cannot apply this filter with the selected animal type
+            </p>
+          )}
+          {renderedOptions}
+        </ul>
       )}
     </OptionWrapper>
   );

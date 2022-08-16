@@ -60,8 +60,10 @@ function _ResultsPage() {
             results
           </p>
 
-          <ResultsFilter />
-          <ResultsSort />
+          <div className={classes.dropdowns}>
+            <ResultsFilter />
+            <ResultsSort />
+          </div>
           <section className={classes.cards}>{renderCards()}</section>
         </>
       )}
