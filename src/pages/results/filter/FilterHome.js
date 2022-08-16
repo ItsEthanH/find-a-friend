@@ -8,39 +8,53 @@ import classes from './styles/Filter.module.css';
 function FilterHome() {
   const dispatch = useDispatch();
   const activeFilters = useSelector((state) => state.filter.activeFilters);
+  const options = Object.keys(FILTER_PAGES);
+  const areOptionsUnlocked = Object.keys(activeFilters[FILTER_PAGES.TYPE]).length !== 0;
 
-  const renderedOptions = Object.keys(FILTER_PAGES).map((page) => {
-    const pageName = FILTER_PAGES[page];
+  function selectPageHandler(event) {
+    dispatch(filterActions.changePage({ page: event.target.id }));
+  }
 
-    // skip the home value as it should not appear in the filter options
-    if (pageName === 'Home') {
-      return false;
-    }
+  const typeName = FILTER_PAGES.TYPE;
+  const quantity = Object.keys(activeFilters[typeName]).length;
+  const typeOption = (
+    <li key={typeName}>
+      <button className={classes.home} id={typeName} onClick={selectPageHandler}>
+        {typeName}
+        {quantity > 0 && <p className={classes.quantity}>{quantity}</p>}
+      </button>
+      {typeName !== FILTER_PAGES.REQUIREMENTS && <hr />}
+    </li>
+  );
 
-    let quantity = Object.keys(activeFilters[pageName]).length;
-    function selectPageHandler(event) {
-      dispatch(filterActions.changePage({ page: event.target.id }));
-    }
+  const otherOptions = options.map((option) => {
+    const optionId = FILTER_PAGES[option];
+    if (optionId === FILTER_PAGES.TYPE || optionId === FILTER_PAGES.HOME) return false;
+    const quantity = Object.keys(activeFilters[optionId]).length;
 
     return (
-      <>
-        <li key={pageName}>
-          <button className={classes.home} id={pageName} onClick={selectPageHandler}>
-            {pageName}
-            {quantity > 0 && <p className={classes.quantity}>{quantity}</p>}
-          </button>
-          {pageName !== FILTER_PAGES.REQUIREMENTS && <hr />}
-        </li>
-      </>
+      <li key={optionId}>
+        <button
+          disabled={!areOptionsUnlocked}
+          className={classes.home}
+          id={optionId}
+          onClick={selectPageHandler}
+        >
+          {optionId}
+          {quantity > 0 && <p className={classes.quantity}>{quantity}</p>}
+        </button>
+        {optionId !== FILTER_PAGES.REQUIREMENTS && <hr />}
+      </li>
     );
   });
 
   return (
-    <>
-      <OptionWrapper title="Filters" home>
-        <ul className={classes.options}>{renderedOptions}</ul>
-      </OptionWrapper>
-    </>
+    <OptionWrapper title="Filters" home>
+      <ul className={classes.options}>
+        {typeOption}
+        {otherOptions}
+      </ul>
+    </OptionWrapper>
   );
 }
 

@@ -1,7 +1,7 @@
 .sort {
   position: relative;
   width: 100%;
-  border: 2px solid var(--clr-grey-300);
+  border: 2px solid var(--clr-grey-200);
   padding: 0.4rem;
   margin: 0.5rem 0;
 }
@@ -46,5 +46,5 @@
 
 .selected,
 .options button:hover {
-  background-color: var(--clr-grey-300);
+  background-color: var(--clr-grey-200);
 }

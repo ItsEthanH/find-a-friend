@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { uiActions } from '../../store/ui';
 
 import classes from './styles/ResultsSort.module.css';
 
@@ -11,16 +13,17 @@ function ResultsSort() {
     'Random',
   ];
 
-  const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
+  const dropdownOpen = useSelector((state) => state.ui.resultsDropdownOpen);
   const [selectedOption, setSelectedOption] = useState(sortOptions[0]);
 
-  function toggleOpen() {
-    setIsOpen((prevState) => !prevState);
+  function sortButtonHandler() {
+    dispatch(uiActions.selectResultsDropdown({ dropdown: 'SORT' }));
   }
 
   function selectionHandler(event) {
     setSelectedOption(event.target.textContent);
-    setIsOpen(false);
+    dispatch(uiActions.selectResultsDropdown({ dropdown: null }));
   }
 
   const renderedOptions = sortOptions.map((option, index) => {
@@ -40,11 +43,11 @@ function ResultsSort() {
 
   return (
     <div className={classes.sort}>
-      <button className={classes.toggle} onClick={toggleOpen}>
+      <button className={classes.toggle} onClick={sortButtonHandler}>
         <p>{selectedOption}</p>
-        {isOpen ? <p>&#11165;</p> : <p>&#11167;</p>}
+        {dropdownOpen === 'SORT' ? <p>&#11165;</p> : <p>&#11167;</p>}
       </button>
-      {isOpen && (
+      {dropdownOpen === 'SORT' && (
         <ul className={classes.options}>
           <p>Sort by:</p>
           {renderedOptions}

@@ -29,10 +29,6 @@ const filterSlice = createSlice({
   name: 'filter',
   initialState: initialFilterState,
   reducers: {
-    toggleFilter(state) {
-      state.isFiltersOpen = !state.isFiltersOpen;
-    },
-
     changePage(state, action) {
       state.pageSelected = action.payload.page;
     },

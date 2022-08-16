@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { filterActions } from '../../../store/filter';
+import { uiActions } from '../../../store/ui';
 
 import classes from './styles/ResultsFilterButton.module.css';
 
 function ResultsFilterButton() {
   const [quantity, setQuantity] = useState(0);
   const activeFilters = useSelector((state) => state.filter.activeFilters);
-  const isFiltersOpen = useSelector((state) => state.filter.isFiltersOpen);
+  const dropdownOpen = useSelector((state) => state.ui.resultsDropdownOpen);
   const dispatch = useDispatch();
 
   function filterButtonHandler() {
-    dispatch(filterActions.toggleFilter());
+    dispatch(uiActions.selectResultsDropdown({ dropdown: 'FILTER' }));
   }
 
   useEffect(() => {
@@ -28,7 +28,7 @@ function ResultsFilterButton() {
     <button className={classes.toggle} onClick={filterButtonHandler}>
       {quantity === 0 && <p>Filters</p>}
       {quantity > 0 && <p>Filters ({quantity} selected)</p>}
-      {isFiltersOpen ? <p>&#11165;</p> : <p>&#11167;</p>}
+      {dropdownOpen === 'FILTER' ? <p>&#11165;</p> : <p>&#11167;</p>}
     </button>
   );
 }

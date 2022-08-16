@@ -2,18 +2,16 @@ import { useSelector } from 'react-redux';
 import { FILTER_PAGES } from '../../../store/filter';
 
 import ResultsFilterButton from './ResultsFilterButton';
-import FilterCheckbox from './FilterCheckbox';
-import FilterRange from './FilterRange';
 
 import FilterHome from './FilterHome';
-// import FilterGender from './filter-screens/FilterGender';
-// import FilterDistance from './filter-screens/FilterDistance';
-// import FilterAge from './filter-screens/FilterAge';
+import FilterType from './FilterType';
+import FilterRange from './FilterRange';
+import FilterCheckbox from './FilterCheckbox';
 
 import classes from './styles/ResultsFilter.module.css';
 
 function ResultsFilter() {
-  const isFiltersOpen = useSelector((state) => state.filter.isFiltersOpen);
+  const dropdownOpen = useSelector((state) => state.ui.resultsDropdownOpen);
   const pageSelected = useSelector((state) => state.filter.pageSelected);
   let filterPage;
   // initial states for each filter - each object gets mapped to a template filter where all state can be handled
@@ -36,6 +34,9 @@ function ResultsFilter() {
   };
 
   switch (pageSelected) {
+    case FILTER_PAGES.TYPE:
+      filterPage = <FilterType />;
+      break;
     case FILTER_PAGES.DISTANCE:
       filterPage = <FilterRange initialState={distanceInitialState} min={10} max={500} />;
       break;
@@ -60,7 +61,7 @@ function ResultsFilter() {
   return (
     <div className={classes.filter}>
       <ResultsFilterButton />
-      {isFiltersOpen && <div className={classes.dropdown}>{filterPage}</div>}
+      {dropdownOpen === 'FILTER' && <div className={classes.dropdown}>{filterPage}</div>}
     </div>
   );
 }

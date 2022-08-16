@@ -22,8 +22,8 @@ function FilterCheckbox(props) {
       <li>
         <label htmlFor={option}>{title}</label>
         <input
-          checked={displayedValues[option]}
           type="checkbox"
+          checked={displayedValues[option]}
           id={option}
           name={option}
           onChange={filterChangeHandler}

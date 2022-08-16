@@ -6,7 +6,7 @@
 .options hr {
   margin: 1rem 0;
   border: none;
-  border-top: 1px solid var(--clr-grey-300);
+  border-top: 1px solid var(--clr-grey-200);
 }
 
 .home {

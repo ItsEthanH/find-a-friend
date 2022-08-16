@@ -1,7 +1,7 @@
 .filter {
   position: relative;
   width: 100%;
-  border: 2px solid var(--clr-grey-300);
+  border: 2px solid var(--clr-grey-200);
   padding: 0.4rem;
 }
 

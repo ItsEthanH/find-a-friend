@@ -26,7 +26,8 @@
   --clr-petfinder: #6907b8;
 
   --clr-grey-400: #818181;
-  --clr-grey-300: #efefef;
+  --clr-grey-300: #c3c3c3;
+  --clr-grey-200: #efefef;
 
   --ff-heading: 'OpenSans-SemiBold', sans-serif;
   --ff-body: 'OpenSans-Regular', sans-serif;
@@ -96,6 +97,12 @@ button {
   background: transparent;
   border: none;
   cursor: pointer;
+}
+
+/* (PERSONAL CHOICE) - Custom disabled button styling */
+button:disabled {
+  cursor: not-allowed;
+  color: var(--clr-grey-300);
 }
 
 /* Make images easier to work with */
