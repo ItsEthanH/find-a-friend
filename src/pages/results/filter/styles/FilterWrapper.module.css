@@ -9,11 +9,18 @@
   font-size: var(--fs-nav);
 }
 
-.back {
-  font-size: var(--fs-subbody);
-  color: var(--clr-grey-400);
+.button {
   font-family: var(--ff-accent);
+  font-size: var(--fs-subbody);
   padding: 0;
+}
+
+.back {
+  color: var(--clr-grey-400);
+}
+
+.clear {
+  color: var(--clr-accent);
 }
 
 .options {

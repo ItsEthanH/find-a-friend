@@ -6,13 +6,23 @@ import classes from './styles/FilterWrapper.module.css';
 function FilterWrapper(props) {
   const dispatch = useDispatch();
 
+  function clearClickHandler() {
+    dispatch(filterActions.deleteAllFilters());
+  }
+
   function backClickHandler() {
     dispatch(filterActions.changePage(FILTER_PAGES.HOME));
   }
 
   const backButton = (
-    <button className={classes.back} onClick={backClickHandler}>
+    <button className={`${classes.button} ${classes.back}`} onClick={backClickHandler}>
       Back
+    </button>
+  );
+
+  const clearButton = (
+    <button className={`${classes.button} ${classes.clear}`} onClick={clearClickHandler}>
+      Clear all filters
     </button>
   );
 
@@ -20,7 +30,7 @@ function FilterWrapper(props) {
     <>
       <div className={classes.header}>
         <p className={classes.title}>{props.title}</p>
-        {!props.home && backButton}
+        {props.home ? clearButton : backButton}
       </div>
       {props.children}
     </>

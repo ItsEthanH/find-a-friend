@@ -21,7 +21,6 @@ function useFilter(filter, initialState) {
   // takes a key and a value, and updates both stores accordingly
   function updateFilterValues(key, value) {
     // if the value is not a default, save it
-    console.log(value);
     if (value !== initialState[key]) {
       dispatch(filterActions.setFilter({ filter, key, value }));
     }

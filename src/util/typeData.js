@@ -1,19 +1,19 @@
 const typeData = {
   dog: {
     name: 'Dog',
-    coats: ['Hairless', 'Short', 'Medium', 'Long', 'Wire', 'Curly'],
+    coats: { hairless: false, short: false, medium: false, long: false, wire: false, curly: false },
   },
   cat: {
     name: 'Cat',
-    coats: ['Hairless', 'Short', 'Medium', 'Long'],
+    coats: { hairless: false, short: false, medium: false, long: false },
   },
   rabbit: {
     name: 'Rabbit',
-    coats: ['Short', 'Long'],
+    coats: { short: false, long: false },
   },
   small: {
     name: 'Small & Furry',
-    coats: ['Hairless', 'Short', 'Long'],
+    coats: { hairless: false, short: false, long: false },
   },
   horse: {
     name: 'Horse',
@@ -29,7 +29,7 @@ const typeData = {
   },
   barnyard: {
     name: 'Barnyard',
-    coats: ['Short', 'Long'],
+    coats: { short: false, long: false },
   },
 };
 

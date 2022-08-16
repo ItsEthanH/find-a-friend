@@ -50,3 +50,10 @@
 .checkbox input {
   transform: scale(1.5);
 }
+
+.breed {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--clr-grey-300);
+}

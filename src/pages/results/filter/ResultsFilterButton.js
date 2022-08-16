@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { uiActions } from '../../../store/ui';
+import { filterActions } from '../../../store/filter';
+import { FILTER_PAGES } from '../../../store/filter';
 
 import classes from './styles/ResultsFilterButton.module.css';
 
@@ -23,6 +25,14 @@ function ResultsFilterButton() {
       setQuantity((prevQty) => prevQty + fitlersActive);
     }
   }, [activeFilters]);
+
+  useEffect(() => {
+    return () => {
+      if (!dropdownOpen) {
+        dispatch(filterActions.changePage(FILTER_PAGES.HOME));
+      }
+    };
+  }, [dispatch, dropdownOpen]);
 
   return (
     <button className={classes.toggle} onClick={filterButtonHandler}>

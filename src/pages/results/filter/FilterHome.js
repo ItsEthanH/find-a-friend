@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { FILTER_PAGES, filterActions } from '../../../store/filter';
 
-import OptionWrapper from './FilterWrapper';
+import FilterWrapper from './FilterWrapper';
 
 import classes from './styles/Filter.module.css';
 
@@ -49,12 +49,12 @@ function FilterHome() {
   });
 
   return (
-    <OptionWrapper title="Filters" home>
+    <FilterWrapper title="Filters" home>
       <ul className={classes.options}>
         {typeOption}
         {otherOptions}
       </ul>
-    </OptionWrapper>
+    </FilterWrapper>
   );
 }
 

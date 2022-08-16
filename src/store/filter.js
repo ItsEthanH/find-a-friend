@@ -40,6 +40,10 @@ const filterSlice = createSlice({
     deleteSingleFilter(state, action) {
       delete state.activeFilters[action.payload.filter][action.payload.key];
     },
+
+    deleteAllFilters(state) {
+      state.activeFilters = initialFilterState.activeFilters;
+    },
   },
 });
 

@@ -1,3 +1,5 @@
+import { useDispatch } from 'react-redux';
+import { filterActions } from '../../../store/filter';
 import useFilter from '../../../hooks/useFilter';
 
 import { FILTER_PAGES } from '../../../store/filter';
@@ -7,11 +9,13 @@ import classes from './styles/Filter.module.css';
 import typeData from '../../../util/typeData';
 
 function FilterType() {
+  const dispatch = useDispatch();
   const types = Object.keys(typeData);
   const initialTypeState = { value: 'all' };
   const { displayedValues, updateFilterValues } = useFilter(FILTER_PAGES.TYPE, initialTypeState);
 
   function optionSelectHandler(event) {
+    dispatch(filterActions.deleteAllFilters());
     updateFilterValues('value', event.target.id);
   }
 
