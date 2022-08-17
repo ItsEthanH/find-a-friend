@@ -1,14 +1,14 @@
 import { useDispatch } from 'react-redux';
-import { filterActions } from '../../../store/filter';
-import useFilter from '../../../hooks/useFilter';
+import useFilter from '../../hooks/useFilter';
 
-import { FILTER_PAGES } from '../../../store/filter';
-import OptionWrapper from './FilterWrapper';
+import FilterDropdownWrapper from './FilterDropdownWrapper';
 
-import classes from './styles/Filter.module.css';
-import typeData from '../../../util/typeData';
+import classes from './styles/FilterDropdown.module.css';
+import { FILTER_PAGES } from '../../store/filter';
+import { filterActions } from '../../store/filter';
+import typeData from '../../util/typeData';
 
-function FilterType() {
+function FilterDropdownType() {
   const dispatch = useDispatch();
   const types = Object.keys(typeData);
   const initialTypeState = { value: 'all' };
@@ -23,7 +23,7 @@ function FilterType() {
     const isChecked = displayedValues.value === type ? true : false;
 
     return (
-      <li>
+      <li key={type}>
         <label htmlFor={type}>{typeData[type].name}</label>
         <input
           type="checkbox"
@@ -52,13 +52,13 @@ function FilterType() {
   );
 
   return (
-    <OptionWrapper title="Type">
+    <FilterDropdownWrapper title="Type">
       <ul className={`${classes.options} ${classes.checkbox}`}>
         {allOption}
         {renderedOptions}
       </ul>
-    </OptionWrapper>
+    </FilterDropdownWrapper>
   );
 }
 
-export default FilterType;
+export default FilterDropdownType;

@@ -1,19 +1,18 @@
 import { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
-import { FILTER_PAGES } from '../../../store/filter';
+import useFetch from '../../hooks/useFetch';
 
-import ResultsFilterButton from './ResultsFilterButton';
+import FilterDropdownHome from './FilterDropdownHome';
+import FilterDropdownType from './FilterDropdownType';
+import FilterTemplateRange from './FilterTemplateRange';
+import FilterTemplateCheckbox from './FilterTemplateCheckbox';
+import FilterButton from './FilterButton';
 
-import FilterHome from './FilterHome';
-import FilterType from './FilterType';
-import FilterRange from './FilterRange';
-import FilterCheckbox from './FilterCheckbox';
+import classes from './styles/Filter.module.css';
+import typeData from '../../util/typeData';
+import { FILTER_PAGES } from '../../store/filter';
 
-import classes from './styles/ResultsFilter.module.css';
-import typeData from '../../../util/typeData';
-import useFetch from '../../../hooks/useFetch';
-
-function ResultsFilter() {
+function Filter() {
   let filterPage;
   const breedRef = useRef(null);
   const coatRef = useRef();
@@ -54,38 +53,40 @@ function ResultsFilter() {
 
   switch (pageSelected) {
     case FILTER_PAGES.TYPE:
-      filterPage = <FilterType />;
+      filterPage = <FilterDropdownType />;
       break;
     case FILTER_PAGES.BREED:
-      filterPage = <FilterCheckbox initialState={breedRef.current} isLoading={isLoading} breed />;
+      filterPage = (
+        <FilterTemplateCheckbox initialState={breedRef.current} isLoading={isLoading} breed />
+      );
       break;
     case FILTER_PAGES.DISTANCE:
-      filterPage = <FilterRange initialState={distanceInitialState} min={10} max={500} />;
+      filterPage = <FilterTemplateRange initialState={distanceInitialState} min={10} max={500} />;
       break;
     case FILTER_PAGES.GENDER:
-      filterPage = <FilterCheckbox initialState={genderInitialState} />;
+      filterPage = <FilterTemplateCheckbox initialState={genderInitialState} />;
       break;
     case FILTER_PAGES.AGE:
-      filterPage = <FilterCheckbox initialState={ageInitialState} />;
+      filterPage = <FilterTemplateCheckbox initialState={ageInitialState} />;
       break;
     case FILTER_PAGES.COAT:
-      filterPage = <FilterCheckbox initialState={coatInitialState} />;
+      filterPage = <FilterTemplateCheckbox initialState={coatInitialState} />;
       break;
     case FILTER_PAGES.REQUIREMENTS:
-      filterPage = <FilterCheckbox initialState={requirementsInitialState} />;
+      filterPage = <FilterTemplateCheckbox initialState={requirementsInitialState} />;
       break;
 
     default:
-      filterPage = <FilterHome />;
+      filterPage = <FilterDropdownHome />;
       break;
   }
 
   return (
     <div className={classes.filter}>
-      <ResultsFilterButton />
+      <FilterButton />
       {dropdownOpen === 'FILTER' && <div className={classes.dropdown}>{filterPage}</div>}
     </div>
   );
 }
 
-export default ResultsFilter;
+export default Filter;

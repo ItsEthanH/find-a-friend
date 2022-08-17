@@ -2,9 +2,9 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import Hero from '../../../components/ui/Hero';
+import Hero from '../../../components/cards-and-sections/Hero';
 import HeroStats from '../../../pages/landing/hero/HeroStats';
-import AccentButton from '../../../components/ui/AccentButton';
+import AccentButton from '../../../components/buttons-and-inputs/AccentButton';
 
 import classes from './styles/LandingHero.module.css';
 

@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 
-import Heading from '../../../components/ui/Heading';
-import Subheading from '../../../components/ui/Subheading';
-import LandingSection from '../../../components/ui/LandingSection';
+import Heading from '../../../components/text/Heading';
+import Subheading from '../../../components/text/Subheading';
+import LandingSection from '../../../components/cards-and-sections/LandingSection';
 import SuccessCard from './SuccessCard';
 
 import classes from './styles/Successes.module.css';

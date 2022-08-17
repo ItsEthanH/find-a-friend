@@ -1,10 +1,10 @@
 import { useParams, useLocation } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 
-import Breadcrumbs from '../../components/ui/Breadcrumbs';
+import Breadcrumbs from '../../components/text/Breadcrumbs';
 import ResultsCard from './ResultsCard';
 import ResultsSort from './ResultsSort';
-import ResultsFilter from './filter/ResultsFilter';
+import Filter from '../../components/filter/Filter';
 
 import classes from './styles/ResultsPage.module.css';
 import DUMMY_DATA from './__DUMMY_DATA__';
@@ -61,7 +61,7 @@ function _ResultsPage() {
           </p>
 
           <div className={classes.dropdowns}>
-            <ResultsFilter />
+            <Filter />
             <ResultsSort />
           </div>
           <section className={classes.cards}>{renderCards()}</section>

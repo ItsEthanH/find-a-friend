@@ -1,8 +1,8 @@
 import React from 'react';
 
-import LandingSection from '../../../components/ui/LandingSection';
-import Heading from '../../../components/ui/Heading';
-import Subheading from '../../../components/ui/Subheading';
+import LandingSection from '../../../components/cards-and-sections/LandingSection';
+import Heading from '../../../components/text/Heading';
+import Subheading from '../../../components/text/Subheading';
 import AnimalIcon from './AnimalIcon';
 
 import classes from './styles/Animals.module.css';

@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import useFilter from '../../../hooks/useFilter';
+import useFilter from '../../hooks/useFilter';
 
-import OptionWrapper from './FilterWrapper';
+import FilterDropdownWrapper from './FilterDropdownWrapper';
 
-import classes from './styles/Filter.module.css';
+import classes from './styles/FilterDropdown.module.css';
 
 function FilterCheckbox(props) {
   const pageSelected = useSelector((state) => state.filter.pageSelected);
@@ -36,7 +36,7 @@ function FilterCheckbox(props) {
     const title = `${option[0].toUpperCase()}${option.slice(1, option.length)}`;
 
     return (
-      <li>
+      <li key={option}>
         <label htmlFor={option}>{title}</label>
         <input
           type="checkbox"
@@ -52,7 +52,7 @@ function FilterCheckbox(props) {
   console.log(renderedOptions);
 
   return (
-    <OptionWrapper title={pageSelected}>
+    <FilterDropdownWrapper title={pageSelected}>
       {props.breed && breedSearchBar}
       {props.isLoading && <p>Loading...</p>}
       {props.initialState && (
@@ -65,7 +65,7 @@ function FilterCheckbox(props) {
           {renderedOptions}
         </ul>
       )}
-    </OptionWrapper>
+    </FilterDropdownWrapper>
   );
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import SearchAllHero from './SearchAnimalsHero';
-import BrowseSection from '../../components/ui/BrowseSection';
+import BrowseSection from '../../components/cards-and-sections/BrowseSection';
 
 import dog from '../../assets/images/animals/browse-dog.jpg';
 import cat from '../../assets/images/animals/browse-cat.jpg';

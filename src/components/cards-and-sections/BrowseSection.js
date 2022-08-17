@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Heading from '../../components/ui/Heading';
-import BrowseCard from '../../components/ui/BrowseCard';
+import Heading from '../../components/text/Heading';
+import BrowseCard from '../../components/cards-and-sections/BrowseCard';
 
 import classes from './styles/BrowseSection.module.css';
 

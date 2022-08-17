@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import Heading from '../../../components/ui/Heading';
+import Heading from '../../../components/text/Heading';
 
 import classes from './styles/Resource.module.css';
 

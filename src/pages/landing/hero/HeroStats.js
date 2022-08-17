@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Card from '../../../components/ui/Card';
+import Card from '../../../components/cards-and-sections/Card';
 import HeroStatistic from './HeroStatistic';
 
 import classes from './styles/HeroStats.module.css';

@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { FILTER_PAGES, filterActions } from '../../../store/filter';
 
-import FilterWrapper from './FilterWrapper';
+import FilterDropdownWrapper from './FilterDropdownWrapper';
 
-import classes from './styles/Filter.module.css';
+import classes from './styles/FilterDropdown.module.css';
+import { FILTER_PAGES, filterActions } from '../../store/filter';
 
-function FilterHome() {
+function FilterDropdownHome() {
   const dispatch = useDispatch();
   const activeFilters = useSelector((state) => state.filter.activeFilters);
   const options = Object.keys(FILTER_PAGES);
@@ -49,13 +49,13 @@ function FilterHome() {
   });
 
   return (
-    <FilterWrapper title="Filters" home>
+    <FilterDropdownWrapper title="Filters" home>
       <ul className={classes.options}>
         {typeOption}
         {otherOptions}
       </ul>
-    </FilterWrapper>
+    </FilterDropdownWrapper>
   );
 }
 
-export default FilterHome;
+export default FilterDropdownHome;

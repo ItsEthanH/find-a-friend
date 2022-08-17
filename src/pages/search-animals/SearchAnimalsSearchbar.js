@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import LocationInput from '../../components/ui/LocationInput';
+import LocationInput from '../../components/buttons-and-inputs/LocationInput';
 import SearchAnimalsFilter from './SearchAnimalsFilter';
 import formatLocationForURL from '../../util/formatLocationForURL';
 
 import classes from './styles/SearchAnimalsSearchbar.module.css';
 import locationIcon from '../../assets/svgs/location-pin.svg';
 import filterIcon from '../../assets/svgs/filter.svg';
-import AccentButton from '../../components/ui/AccentButton';
+import AccentButton from '../../components/buttons-and-inputs/AccentButton';
 
 function SearchAnimalsSearchbar() {
   const [location, setLocation] = useState([]);

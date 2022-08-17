@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Heading from '../../components/ui/Heading';
-import Hero from '../../components/ui/Hero';
+import Heading from '../../components/text/Heading';
+import Hero from '../../components/cards-and-sections/Hero';
 import SearchAnimalsSearchbar from './SearchAnimalsSearchbar';
 
 function SearchAllHero() {

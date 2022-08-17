@@ -1,7 +1,7 @@
 import React from 'react';
 
 import classes from './styles/SearchOrgsResults.module.css';
-import Heading from '../../components/ui/Heading';
+import Heading from '../../components/text/Heading';
 
 function SearchOrgsResults() {
   return (

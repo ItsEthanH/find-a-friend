@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { uiActions } from '../../store/ui';
 
-import Backdrop from '../ui/Backdrop';
+import Backdrop from '../cards-and-sections/Backdrop';
 
 import classes from './styles/MobileNavigationButton.module.css';
 

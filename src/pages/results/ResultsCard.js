@@ -1,4 +1,4 @@
-import Card from '../../components/ui/Card';
+import Card from '../../components/cards-and-sections/Card';
 
 import classes from './styles/ResultsCard.module.css';
 

@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
-import useFilter from '../../../hooks/useFilter';
+import useFilter from '../../hooks/useFilter';
 
-import OptionWrapper from './FilterWrapper';
+import FilterDropdownWrapper from './FilterDropdownWrapper';
 
-import classes from './styles/Filter.module.css';
+import classes from './styles/FilterDropdown.module.css';
 
 function FilterRange(props) {
   const pageSelected = useSelector((state) => state.filter.pageSelected);
@@ -44,9 +44,9 @@ function FilterRange(props) {
   });
 
   return (
-    <OptionWrapper title={pageSelected}>
+    <FilterDropdownWrapper title={pageSelected}>
       <ul className={`${classes.options} ${classes.range}`}>{renderedOptions}</ul>
-    </OptionWrapper>
+    </FilterDropdownWrapper>
   );
 }
 

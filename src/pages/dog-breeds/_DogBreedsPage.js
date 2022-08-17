@@ -1,7 +1,7 @@
 import React from 'react';
 
 import DogBreedsHero from './DogBreedsHero';
-import BrowseSection from '../../components/ui/BrowseSection';
+import BrowseSection from '../../components/cards-and-sections/BrowseSection';
 
 import placeholder from '../../assets/images/breeds/dog-hero.jpg';
 

@@ -1,9 +1,9 @@
 import { useDispatch } from 'react-redux';
-import { FILTER_PAGES, filterActions } from '../../../store/filter';
+import { FILTER_PAGES, filterActions } from '../../store/filter';
 
-import classes from './styles/FilterWrapper.module.css';
+import classes from './styles/FilterDropdownWrapper.module.css';
 
-function FilterWrapper(props) {
+function FilterDropdownWrapper(props) {
   const dispatch = useDispatch();
 
   function clearClickHandler() {
@@ -37,4 +37,4 @@ function FilterWrapper(props) {
   );
 }
 
-export default FilterWrapper;
+export default FilterDropdownWrapper;

@@ -1,6 +1,6 @@
 import usePlacesAutoComplete from 'use-places-autocomplete';
 
-import Card from './Card';
+import Card from '../cards-and-sections/Card';
 
 import classes from './styles/LocationInput.module.css';
 
@@ -55,11 +55,11 @@ function LocationInput(props) {
             suggestions.data.map((item, index) => (
               <>
                 <li key={item.place_id}>
-                  <button id={item.place_id} onClick={locationSelectHandler}>
+                  <button key={item.place_id} id={item.place_id} onClick={locationSelectHandler}>
                     {item.description}
                   </button>
+                  {index === suggestions.data.length - 1 || <hr key={index} />}
                 </li>
-                {index === suggestions.data.length - 1 || <hr key={index} />}
               </>
             ))}
         </ul>

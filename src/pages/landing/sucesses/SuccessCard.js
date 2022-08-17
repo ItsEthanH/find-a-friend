@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Card from '../../../components/ui/Card';
+import Card from '../../../components/cards-and-sections/Card';
 
 import classes from './styles/SuccessCard.module.css';
 

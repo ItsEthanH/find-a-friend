@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { uiActions } from '../../../store/ui';
-import { filterActions } from '../../../store/filter';
-import { FILTER_PAGES } from '../../../store/filter';
 
-import classes from './styles/ResultsFilterButton.module.css';
+import classes from './styles/FilterButton.module.css';
+import { FILTER_PAGES } from '../../store/filter';
+import { filterActions } from '../../store/filter';
+import { uiActions } from '../../store/ui';
 
-function ResultsFilterButton() {
+function FilterButton() {
   const [quantity, setQuantity] = useState(0);
   const activeFilters = useSelector((state) => state.filter.activeFilters);
   const dropdownOpen = useSelector((state) => state.ui.resultsDropdownOpen);
@@ -43,4 +43,4 @@ function ResultsFilterButton() {
   );
 }
 
-export default ResultsFilterButton;
+export default FilterButton;

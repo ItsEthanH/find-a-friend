@@ -53,7 +53,8 @@
 }
 
 .breed {
-  width: 100%;
+  width: 90%;
+  margin: 0 1rem;
   border: none;
   outline: none;
   border-bottom: 1px solid var(--clr-grey-300);
