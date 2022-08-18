@@ -4,7 +4,8 @@ import { uiActions } from '../../store/ui';
 
 import classes from './styles/ResultsSort.module.css';
 
-function ResultsSort() {
+function ResultsSort(props) {
+  const { isDesktop } = props;
   const sortOptions = [
     'Date Posted (Newest)',
     'Date Posted (Oldest)',
@@ -41,19 +42,24 @@ function ResultsSort() {
     );
   });
 
+  const styles = `${classes.sort} ${isDesktop && classes.desktop}`;
+
   return (
-    <div className={classes.sort}>
-      <button className={classes.toggle} onClick={sortButtonHandler}>
-        <p>{selectedOption}</p>
-        {dropdownOpen === 'SORT' ? <p>&#11165;</p> : <p>&#11167;</p>}
-      </button>
-      {dropdownOpen === 'SORT' && (
-        <ul className={classes.options}>
-          <p>Sort by:</p>
-          {renderedOptions}
-        </ul>
-      )}
-    </div>
+    <>
+      <div className={styles}>
+        <button className={classes.toggle} onClick={sortButtonHandler}>
+          <p>{selectedOption}</p>
+          {dropdownOpen === 'SORT' ? <p>-</p> : <p>+</p>}
+        </button>
+        {dropdownOpen === 'SORT' && (
+          <ul className={classes.options}>
+            <p>Sort by:</p>
+            {renderedOptions}
+          </ul>
+        )}
+      </div>
+      {isDesktop && <p className={classes.heading}>Sort</p>}
+    </>
   );
 }
 

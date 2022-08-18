@@ -11,8 +11,12 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
+.toggle p:last-of-type {
+  font-size: var(--fs-subheading);
+}
 .options {
   position: absolute;
   top: 110%;
@@ -48,4 +52,23 @@
 .selected,
 .options button:hover {
   background-color: var(--clr-grey-200);
+}
+
+.desktop.sort {
+  margin: 0;
+  padding: 0;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  border: none;
+  text-align: left;
+}
+
+.desktop .toggle {
+  padding: 0.5rem 1rem;
+}
+
+.heading {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-body);
+  margin: 0.5rem 0;
 }

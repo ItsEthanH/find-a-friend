@@ -25,7 +25,7 @@ function FilterCheckbox(props) {
 
   const breedSearchBar = (
     <input
-      className={classes.breed}
+      className={`${classes.search} ${isDesktop ? classes.desktop : ''}`}
       onChange={breedChangeHandler}
       type="text"
       placeholder="Search for breeds..."
@@ -35,13 +35,15 @@ function FilterCheckbox(props) {
 
   const renderedOptions = filterOptions.map((option) => {
     const title = `${option[0].toUpperCase()}${option.slice(1, option.length)}`;
+    const isChecked = displayedValues[option];
+    const listStyle = `${classes.option} ${isChecked && isDesktop ? classes.selected : ''}`;
 
     return (
-      <li key={option}>
+      <li key={option} className={listStyle}>
         <label htmlFor={option}>{title}</label>
         <input
           type="checkbox"
-          checked={displayedValues[option]}
+          checked={isChecked}
           id={option}
           name={option}
           onChange={filterChangeHandler}
@@ -50,15 +52,19 @@ function FilterCheckbox(props) {
     );
   });
 
+  const styles = `${classes['option-list']} ${classes.checkbox} ${
+    isDesktop ? classes.desktop : ''
+  }`;
+
   return (
     <>
       {!isDesktop && <FilterDropdownMobileHeader title={pageSelected} />}
       {props.page === 'Breed' && breedSearchBar}
       {props.initialState && (
-        <ul className={`${classes.options} ${classes.checkbox}`}>
+        <ul className={styles}>
           {renderedOptions.length === 0 && (
             <p className={classes.none}>
-              You cannot apply this filter with the selected animal type
+              There are no results for this filter. Please try again with different filters.
             </p>
           )}
           {renderedOptions}

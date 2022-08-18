@@ -31,7 +31,7 @@
 .desktop {
   display: grid;
   grid-template-rows: min-content auto;
-  grid-template-columns: fit-content auto;
+  grid-template-columns: 1fr 4fr;
   grid-template-areas:
     'information information'
     'filters cards';
@@ -42,11 +42,12 @@
 }
 
 .desktop .dropdowns {
-  flex-flow: wrap column;
+  flex-flow: wrap column-reverse;
   justify-content: start;
   align-items: flex-start;
 }
 
 .desktop .cards {
   grid-area: cards;
+  margin-left: 2rem;
 }

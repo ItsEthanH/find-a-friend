@@ -66,7 +66,7 @@ function _ResultsPage(props) {
 
           <div className={classes.dropdowns}>
             <Filter isDesktop={isDesktop} />
-            <ResultsSort />
+            <ResultsSort isDesktop={isDesktop} />
           </div>
           <section className={classes.cards}>{renderedCards}</section>
         </>

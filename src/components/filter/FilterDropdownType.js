@@ -26,9 +26,10 @@ function FilterDropdownType(props) {
 
   const renderedOptions = types.map((type) => {
     const isChecked = displayedValues.value === type ? true : false;
+    const optionStyle = `${classes.option} ${isChecked && classes.selected}`;
 
     return (
-      <li key={type}>
+      <li key={type} className={optionStyle}>
         <label htmlFor={type}>{typeData[type].name}</label>
         <input
           type="checkbox"
@@ -41,8 +42,9 @@ function FilterDropdownType(props) {
     );
   });
 
-  const styles = `${classes.options} ${classes.checkbox} ${isDesktop ? classes.desktop : ''}`;
-
+  const styles = `${classes['option-list']} ${classes.checkbox} ${
+    isDesktop ? classes.desktop : ''
+  }`;
   return (
     <>
       {!props.isDesktop && <FilterDropdownMobileHeader title="Type" />}

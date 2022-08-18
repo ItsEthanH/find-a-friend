@@ -20,7 +20,7 @@ function FilterRange(props) {
 
   const renderedOptions = filterOptions.map((option) => {
     return (
-      <li>
+      <li className={classes.option}>
         <input
           type="range"
           id={option}
@@ -48,10 +48,11 @@ function FilterRange(props) {
     );
   });
 
+  const styles = `${classes['option-list']} ${classes.range} ${isDesktop ? classes.desktop : ''}`;
   return (
     <>
       {!isDesktop && <FilterDropdownMobileHeader title={pageSelected} />}
-      <ul className={`${classes.options} ${classes.range}`}>{renderedOptions}</ul>
+      <ul className={styles}>{renderedOptions}</ul>
     </>
   );
 }

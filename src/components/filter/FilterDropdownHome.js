@@ -16,47 +16,34 @@ function FilterDropdownHome(props) {
     dispatch(filterActions.changePage({ page: event.target.id }));
   }
 
-  const typeName = FILTER_PAGES.TYPE;
-  const quantity = Object.keys(activeFilters[typeName]).length;
-  const typeOption = (
-    <li key={typeName}>
-      <button className={classes.home} id={typeName} onClick={selectPageHandler}>
-        {typeName}
-        {quantity > 0 && <p className={classes.quantity}>{quantity}</p>}
-      </button>
-      {typeName !== FILTER_PAGES.REQUIREMENTS && <hr />}
-    </li>
-  );
+  const renderedOptions = options.map((option) => {
+    const optionName = FILTER_PAGES[option];
+    if (optionName === FILTER_PAGES.HOME) return <></>;
 
-  const otherOptions = options.map((option) => {
-    const optionId = FILTER_PAGES[option];
-    if (optionId === FILTER_PAGES.TYPE || optionId === FILTER_PAGES.HOME) return false;
-    const quantity = Object.keys(activeFilters[optionId]).length;
+    const quantity = Object.keys(activeFilters[optionName]).length;
+    const isDisabled = optionName !== FILTER_PAGES.TYPE && !areOptionsUnlocked;
 
     return (
-      <li key={optionId}>
+      <li key={optionName}>
         <button
-          disabled={!areOptionsUnlocked}
-          className={classes.home}
-          id={optionId}
+          disabled={isDisabled}
+          id={optionName}
+          className={classes.option}
           onClick={selectPageHandler}
         >
-          {optionId}
+          {optionName}
           {quantity > 0 && <p className={classes.quantity}>{quantity}</p>}
         </button>
-        {optionId !== FILTER_PAGES.REQUIREMENTS && <hr />}
+        {optionName !== FILTER_PAGES.REQUIREMENTS && <hr />}
       </li>
     );
   });
 
-  const styles = `${classes.options} ${isDesktop ? classes.desktop : ''}`;
+  const styles = `${classes['option-list']} ${isDesktop ? classes.desktop : ''}`;
   return (
     <>
-      <FilterDropdownMobileHeader title="Filters" home isDesktop={isDesktop} />
-      <ul className={styles}>
-        {typeOption}
-        {otherOptions}
-      </ul>
+      <FilterDropdownMobileHeader title="Filters" isDesktop={isDesktop} home />
+      <ul className={styles}>{renderedOptions}</ul>
     </>
   );
 }

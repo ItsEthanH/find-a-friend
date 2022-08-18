@@ -37,8 +37,16 @@ function FilterButtonDesktop(props) {
     <div className={classes.wrapper}>
       <p className={classes.heading}>{props.filter}</p>
       <div className={classes.button}>
-        <button onClick={filterButtonHandler}>{buttonText}</button>
-        {pageSelected === props.filter ? props.children : ''}
+        <button onClick={filterButtonHandler}>
+          <p>{buttonText}</p>
+          {pageSelected === props.filter ? <p>-</p> : <p>+</p>}
+        </button>
+        {pageSelected === props.filter && (
+          <>
+            <hr />
+            {props.children}
+          </>
+        )}
       </div>
     </div>
   );

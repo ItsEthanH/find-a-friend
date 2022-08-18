@@ -1,71 +1,79 @@
-.options {
+.option-list {
   font-size: var(--fs-nav);
   list-style: none;
-  margin: 1rem;
 }
 
-.options hr {
-  margin: 1rem 0;
+.option-list hr {
   border: none;
   border-top: 1px solid var(--clr-grey-200);
 }
 
-.home {
+.option {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem;
   width: 100%;
-  padding-right: 2rem;
+  text-align: left;
+  gap: 2rem;
 }
 
-.home .quantity {
+.option input[type='checkbox'] {
+  cursor: pointer;
+  transform: scale(1.5);
+}
+
+.option label {
+  cursor: pointer;
+}
+
+.option label,
+.option p {
+  font-size: var(--fs-nav);
+}
+
+.selected,
+.option:hover {
+  background: var(--clr-grey-200);
+}
+
+.quantity {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--clr-primary-400);
   width: 1.5rem;
   height: 1.5rem;
+  font-size: var(--fs-subbody);
+  background: var(--clr-primary-400);
   border-radius: 50%;
   color: white;
-  font-size: var(--fs-subbody);
 }
 
-.range {
-  text-align: center;
+.search {
+  width: 90%;
+  margin: 1rem;
+  margin-bottom: 0;
+  outline: none;
+  border: none;
 }
 
-.checkbox li {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin: 1rem 0;
+.range .option {
+  flex-direction: column;
 }
 
-.range p > input {
+.range .option input[type='number'] {
   width: 4rem;
   border: none;
   outline: none;
   color: var(--clr-accent);
 }
 
-.checkbox input {
-  transform: scale(1.5);
-}
-
-.breed {
-  width: 90%;
-  margin: 0 1rem;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid var(--clr-grey-300);
-}
-
 .none {
   text-align: center;
-  font-size: var(--fs-subbody);
+  margin: 1rem;
 }
 
-.desktop {
-  margin: 0;
-  padding: 0;
+.desktop.option-list {
+  max-height: 70vh;
+  overflow-y: auto;
 }
