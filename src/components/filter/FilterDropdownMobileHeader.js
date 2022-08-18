@@ -1,9 +1,9 @@
 import { useDispatch } from 'react-redux';
 import { FILTER_PAGES, filterActions } from '../../store/filter';
 
-import classes from './styles/FilterDropdownWrapper.module.css';
+import classes from './styles/FilterDropdownMobileHeader.module.css';
 
-function FilterDropdownWrapper(props) {
+function FilterDropdownMobileHeader(props) {
   const dispatch = useDispatch();
 
   function clearClickHandler() {
@@ -11,7 +11,7 @@ function FilterDropdownWrapper(props) {
   }
 
   function backClickHandler() {
-    dispatch(filterActions.changePage(FILTER_PAGES.HOME));
+    dispatch(filterActions.changePage({ page: FILTER_PAGES.HOME }));
   }
 
   const backButton = (
@@ -26,15 +26,14 @@ function FilterDropdownWrapper(props) {
     </button>
   );
 
+  const isDesktop = props.isDesktop;
+  const styles = `${classes.header} ${isDesktop ? classes.desktop : ''}`;
   return (
-    <>
-      <div className={classes.header}>
-        <p className={classes.title}>{props.title}</p>
-        {props.home ? clearButton : backButton}
-      </div>
-      {props.children}
-    </>
+    <div className={styles}>
+      <p className={classes.title}>{props.title}</p>
+      {props.home ? clearButton : backButton}
+    </div>
   );
 }
 
-export default FilterDropdownWrapper;
+export default FilterDropdownMobileHeader;

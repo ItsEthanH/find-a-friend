@@ -8,6 +8,7 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 
 import './assets/global.css';
+import { filterActions } from './store/filter';
 
 function App() {
   const token = useSelector((state) => state.auth.token);

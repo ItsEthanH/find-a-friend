@@ -27,3 +27,26 @@
   background: none;
   border: none;
 }
+
+.desktop {
+  display: grid;
+  grid-template-rows: min-content auto;
+  grid-template-columns: fit-content auto;
+  grid-template-areas:
+    'information information'
+    'filters cards';
+}
+
+.desktop .information {
+  grid-area: information;
+}
+
+.desktop .dropdowns {
+  flex-flow: wrap column;
+  justify-content: start;
+  align-items: flex-start;
+}
+
+.desktop .cards {
+  grid-area: cards;
+}

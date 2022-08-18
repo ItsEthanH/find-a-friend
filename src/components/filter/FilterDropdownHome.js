@@ -1,15 +1,16 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import FilterDropdownWrapper from './FilterDropdownWrapper';
+import FilterDropdownMobileHeader from './FilterDropdownMobileHeader';
 
 import classes from './styles/FilterDropdown.module.css';
 import { FILTER_PAGES, filterActions } from '../../store/filter';
 
-function FilterDropdownHome() {
+function FilterDropdownHome(props) {
   const dispatch = useDispatch();
   const activeFilters = useSelector((state) => state.filter.activeFilters);
   const options = Object.keys(FILTER_PAGES);
   const areOptionsUnlocked = Object.keys(activeFilters[FILTER_PAGES.TYPE]).length !== 0;
+  const isDesktop = props.isDesktop;
 
   function selectPageHandler(event) {
     dispatch(filterActions.changePage({ page: event.target.id }));
@@ -48,13 +49,15 @@ function FilterDropdownHome() {
     );
   });
 
+  const styles = `${classes.options} ${isDesktop ? classes.desktop : ''}`;
   return (
-    <FilterDropdownWrapper title="Filters" home>
-      <ul className={classes.options}>
+    <>
+      <FilterDropdownMobileHeader title="Filters" home isDesktop={isDesktop} />
+      <ul className={styles}>
         {typeOption}
         {otherOptions}
       </ul>
-    </FilterDropdownWrapper>
+    </>
   );
 }
 

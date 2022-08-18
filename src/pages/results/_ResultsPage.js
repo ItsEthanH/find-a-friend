@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import { useParams, useLocation } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 
@@ -11,10 +12,18 @@ import DUMMY_DATA from './__DUMMY_DATA__';
 import formatLocationForAPI from '../../util/formatLocationForAPI';
 import noImageFound from '../../assets/images/results/no-image-found.png';
 
-function _ResultsPage() {
+function _ResultsPage(props) {
   const params = useParams();
   const location = useLocation();
   const address = formatLocationForAPI(params.queryParams);
+
+  const requestEndpoint = `${params.category}?${address}`;
+  // const { response, isLoading, error } = useFetch(requestEndpoint);
+
+  // allows the responsive rendering of the filters in the results page only.
+  // controls the 'desktop' prop on the filter, which internally handles the styling through the addition of '.desktop' classes
+  const windowWidth = useSelector((state) => state.ui.windowWidth);
+  const isDesktop = windowWidth >= 1200;
 
   const breadcrumbs = [
     { link: '/', text: 'Home' },
@@ -22,49 +31,44 @@ function _ResultsPage() {
     { link: location.pathname, text: 'Results' },
   ];
 
-  const requestEndpoint = `${params.category}?${address}`;
-  // const { response, isLoading, error } = useFetch(requestEndpoint);
-
-  function renderCards() {
+  const renderedCards = DUMMY_DATA.animals.map((pet) => {
     let photo = noImageFound;
+    if (pet.primary_photo_cropped !== null) {
+      photo = pet.primary_photo_cropped.full;
+    }
 
-    const cards = DUMMY_DATA.animals.map((pet) => {
-      if (pet.primary_photo_cropped !== null) {
-        photo = pet.primary_photo_cropped.full;
-      }
+    return (
+      <ResultsCard
+        key={pet.id}
+        id={pet.id}
+        name={pet.name}
+        image={photo}
+        breed={pet.breeds.primary}
+        distance={pet.distance.toFixed(0)}
+        city={pet.contact.address.city}
+        state={pet.contact.address.state}
+      />
+    );
+  });
 
-      return (
-        <ResultsCard
-          key={pet.id}
-          id={pet.id}
-          name={pet.name}
-          image={photo}
-          breed={pet.breeds.primary}
-          distance={pet.distance.toFixed(0)}
-          city={pet.contact.address.city}
-          state={pet.contact.address.state}
-        />
-      );
-    });
-
-    return cards;
-  }
-
+  const styles = `${classes.results} ${isDesktop ? classes.desktop : ''}`;
   return (
-    <main className={classes.results}>
+    <main className={styles}>
       {DUMMY_DATA && (
         <>
-          <Breadcrumbs breadcrumbs={breadcrumbs} />
-          <p className={classes.count}>
-            We've found <span className="color-accent">{DUMMY_DATA.pagination.total_count}</span>{' '}
-            results
-          </p>
+          <div className={classes.information}>
+            <Breadcrumbs breadcrumbs={breadcrumbs} />
+            <p className={classes.count}>
+              We've found <span className="color-accent">{DUMMY_DATA.pagination.total_count}</span>{' '}
+              results
+            </p>
+          </div>
 
           <div className={classes.dropdowns}>
-            <Filter />
+            <Filter isDesktop={isDesktop} />
             <ResultsSort />
           </div>
-          <section className={classes.cards}>{renderCards()}</section>
+          <section className={classes.cards}>{renderedCards}</section>
         </>
       )}
     </main>

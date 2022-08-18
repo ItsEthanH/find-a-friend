@@ -1,14 +1,15 @@
 import { useDispatch } from 'react-redux';
 import useFilter from '../../hooks/useFilter';
 
-import FilterDropdownWrapper from './FilterDropdownWrapper';
+import FilterDropdownMobileHeader from './FilterDropdownMobileHeader';
 
 import classes from './styles/FilterDropdown.module.css';
 import { FILTER_PAGES } from '../../store/filter';
 import { filterActions } from '../../store/filter';
 import typeData from '../../util/typeData';
 
-function FilterDropdownType() {
+function FilterDropdownType(props) {
+  const isDesktop = props.isDesktop;
   const dispatch = useDispatch();
   const types = Object.keys(typeData);
   const initialTypeState = { value: 'all' };
@@ -16,7 +17,11 @@ function FilterDropdownType() {
 
   function optionSelectHandler(event) {
     dispatch(filterActions.deleteAllFilters());
-    updateFilterValues('value', event.target.id);
+    if (!event.target.checked) {
+      updateFilterValues('value', 'all');
+    } else {
+      updateFilterValues('value', event.target.id);
+    }
   }
 
   const renderedOptions = types.map((type) => {
@@ -36,28 +41,13 @@ function FilterDropdownType() {
     );
   });
 
-  // creating a separate option for all animals to act as the default
-  const isAllChecked = displayedValues.value === 'all' ? true : false;
-  const allOption = (
-    <li>
-      <label htmlFor="all">All Animals</label>
-      <input
-        type="checkbox"
-        checked={isAllChecked}
-        id="all"
-        name="all"
-        onChange={optionSelectHandler}
-      />
-    </li>
-  );
+  const styles = `${classes.options} ${classes.checkbox} ${isDesktop ? classes.desktop : ''}`;
 
   return (
-    <FilterDropdownWrapper title="Type">
-      <ul className={`${classes.options} ${classes.checkbox}`}>
-        {allOption}
-        {renderedOptions}
-      </ul>
-    </FilterDropdownWrapper>
+    <>
+      {!props.isDesktop && <FilterDropdownMobileHeader title="Type" />}
+      <ul className={styles}>{renderedOptions}</ul>
+    </>
   );
 }
 

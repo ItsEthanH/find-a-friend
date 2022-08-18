@@ -2,11 +2,12 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import useFilter from '../../hooks/useFilter';
 
-import FilterDropdownWrapper from './FilterDropdownWrapper';
+import FilterDropdownMobileHeader from './FilterDropdownMobileHeader';
 
 import classes from './styles/FilterDropdown.module.css';
 
 function FilterCheckbox(props) {
+  const isDesktop = props.isDesktop;
   const pageSelected = useSelector((state) => state.filter.pageSelected);
   const initialKeys = Object.keys(props.initialState);
   const [filterOptions, setFilterOptions] = useState(initialKeys);
@@ -49,12 +50,10 @@ function FilterCheckbox(props) {
     );
   });
 
-  console.log(renderedOptions);
-
   return (
-    <FilterDropdownWrapper title={pageSelected}>
-      {props.breed && breedSearchBar}
-      {props.isLoading && <p>Loading...</p>}
+    <>
+      {!isDesktop && <FilterDropdownMobileHeader title={pageSelected} />}
+      {props.page === 'Breed' && breedSearchBar}
       {props.initialState && (
         <ul className={`${classes.options} ${classes.checkbox}`}>
           {renderedOptions.length === 0 && (
@@ -65,7 +64,7 @@ function FilterCheckbox(props) {
           {renderedOptions}
         </ul>
       )}
-    </FilterDropdownWrapper>
+    </>
   );
 }
 

@@ -28,3 +28,7 @@
 .options {
   list-style: none;
 }
+
+.desktop {
+  padding: 0;
+}

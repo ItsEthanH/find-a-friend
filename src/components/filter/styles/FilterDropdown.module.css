@@ -64,3 +64,8 @@
   text-align: center;
   font-size: var(--fs-subbody);
 }
+
+.desktop {
+  margin: 0;
+  padding: 0;
+}
