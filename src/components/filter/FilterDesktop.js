@@ -11,13 +11,21 @@ import FilterButtonDesktop from './FilterButtonDesktop';
 
 function FilterDesktop(props) {
   const pageSelected = useSelector((state) => state.filter.pageSelected);
+  const activeFilters = useSelector((state) => state.filter.activeFilters);
 
   const filterList = Object.values(FILTER_PAGES);
   const initialStates = props.initialStates;
 
   const renderedFilters = filterList.map((filter) => {
+    const isDisabled =
+      filter !== FILTER_PAGES.TYPE && Object.keys(activeFilters[FILTER_PAGES.TYPE]).length <= 0;
+
     function createFilter(givenFilter) {
-      return <FilterButtonDesktop filter={filter}>{givenFilter}</FilterButtonDesktop>;
+      return (
+        <FilterButtonDesktop isDisabled={isDisabled} filter={filter}>
+          {givenFilter}
+        </FilterButtonDesktop>
+      );
     }
 
     switch (filter) {
@@ -27,7 +35,12 @@ function FilterDesktop(props) {
         return createFilter(<FilterDropdownType isDesktop />);
       case FILTER_PAGES.DISTANCE:
         return createFilter(
-          <FilterTemplateRange initialState={initialStates.Distance} min={10} max={500} isDesktop />
+          <FilterTemplateRange
+            initialState={initialStates[FILTER_PAGES.DISTANCE]}
+            min={10}
+            max={500}
+            isDesktop
+          />
         );
       default:
         return createFilter(
@@ -39,6 +52,7 @@ function FilterDesktop(props) {
         );
     }
   });
+
   return renderedFilters;
 }
 

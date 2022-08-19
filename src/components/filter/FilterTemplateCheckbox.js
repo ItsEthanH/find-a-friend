@@ -60,16 +60,15 @@ function FilterCheckbox(props) {
     <>
       {!isDesktop && <FilterDropdownMobileHeader title={pageSelected} />}
       {props.page === 'Breed' && breedSearchBar}
-      {props.initialState && (
-        <ul className={styles}>
-          {renderedOptions.length === 0 && (
-            <p className={classes.none}>
-              There are no results for this filter. Please try again with different filters.
-            </p>
-          )}
-          {renderedOptions}
-        </ul>
-      )}
+
+      <ul className={styles}>
+        {renderedOptions.length === 0 && (
+          <p className={classes.none}>
+            There are no results for this filter. Please try again with different filters.
+          </p>
+        )}
+        {renderedOptions}
+      </ul>
     </>
   );
 }

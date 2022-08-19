@@ -1,16 +1,22 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { filterActions, FILTER_PAGES } from '../../store/filter';
+import { uiActions } from '../../store/ui';
 import classes from './styles/FilterButtonDesktop.module.css';
 
 function FilterButtonDesktop(props) {
   const dispatch = useDispatch();
+  const dropdownOpen = useSelector((state) => state.ui.resultsDropdownOpen);
   const activeFilter = useSelector((state) => state.filter.activeFilters[props.filter]);
   const pageSelected = useSelector((state) => state.filter.pageSelected);
 
   function filterButtonHandler() {
-    props.filter === pageSelected
-      ? dispatch(filterActions.changePage({ page: null })) // if page is already open, close the page
-      : dispatch(filterActions.changePage({ page: props.filter })); // else open it
+    if (props.filter === pageSelected && dropdownOpen === 'FILTER') {
+      dispatch(uiActions.selectResultsDropdown({ dropdown: null }));
+      dispatch(filterActions.changePage({ page: null }));
+    } else {
+      dispatch(uiActions.selectResultsDropdown({ dropdown: 'FILTER' }));
+      dispatch(filterActions.changePage({ page: props.filter }));
+    }
   }
 
   // updates the text of the filter button whenever a filter is changed.
@@ -33,15 +39,17 @@ function FilterButtonDesktop(props) {
 
   const buttonText = createButtonText();
 
+  console.log(props.isDisabled);
+
   return (
     <div className={classes.wrapper}>
       <p className={classes.heading}>{props.filter}</p>
       <div className={classes.button}>
-        <button onClick={filterButtonHandler}>
+        <button disabled={props.isDisabled} onClick={filterButtonHandler}>
           <p>{buttonText}</p>
           {pageSelected === props.filter ? <p>-</p> : <p>+</p>}
         </button>
-        {pageSelected === props.filter && (
+        {pageSelected === props.filter && dropdownOpen === 'FILTER' && (
           <>
             <hr />
             {props.children}

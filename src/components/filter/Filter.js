@@ -17,8 +17,8 @@ function Filter(props) {
   let filterPage;
   const isDesktop = props.isDesktop;
 
-  const breedRef = useRef();
-  const coatRef = useRef();
+  const breedRef = useRef({});
+  const coatRef = useRef({});
   const dropdownOpen = useSelector((state) => state.ui.resultsDropdownOpen);
   const pageSelected = useSelector((state) => state.filter.pageSelected);
 

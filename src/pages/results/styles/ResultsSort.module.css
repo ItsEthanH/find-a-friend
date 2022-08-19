@@ -1,74 +1,70 @@
+.heading {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-body);
+  margin: 0.5rem 0;
+}
+
 .sort {
-  position: relative;
   width: 100%;
-  border: 2px solid var(--clr-grey-200);
-  padding: 0.4rem;
-  margin: 0.5rem 2rem;
   max-width: 20rem;
 }
 
-.toggle {
-  width: 100%;
+.button {
+  position: relative;
+  border: 2px solid var(--clr-grey-200);
+}
+
+.button > button {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  padding: 0.4rem;
 }
 
-.toggle p:last-of-type {
+.handle {
   font-size: var(--fs-subheading);
 }
-.options {
+
+.dropdown {
   position: absolute;
+  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.25);
   top: 110%;
-  right: 0.05rem;
   width: 100%;
   background-color: white;
-  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.25);
   list-style: none;
   overflow: hidden;
 }
 
-.shown {
-  max-height: 100rem;
-  transition: max-height 1s ease;
-}
-
-.hide {
-  max-height: 0;
-  transition: max-height 1s ease;
-}
-
-.options p {
-  font-family: var(--ff-heading);
-  padding: 0.5rem 1rem;
-}
-
-.options button {
+.option button {
   width: 100%;
-  padding: 1rem;
   text-align: left;
+  padding: 1rem;
 }
 
 .selected,
-.options button:hover {
+.option button:hover {
   background-color: var(--clr-grey-200);
 }
 
-.desktop.sort {
-  margin: 0;
-  padding: 0;
+.desktop .button {
+  position: static;
   border-radius: 10px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
   border: none;
   text-align: left;
 }
 
-.desktop .toggle {
+.desktop .button > button {
   padding: 0.5rem 1rem;
 }
 
-.heading {
-  font-family: var(--ff-heading);
-  font-size: var(--fs-body);
-  margin: 0.5rem 0;
+.desktop .button hr {
+  border: none;
+  border: 1px solid var(--clr-grey-200);
+}
+
+.desktop .dropdown {
+  position: static;
+  box-shadow: none;
 }

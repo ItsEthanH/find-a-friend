@@ -17,6 +17,7 @@ function FilterDropdownType(props) {
 
   function optionSelectHandler(event) {
     dispatch(filterActions.deleteAllFilters());
+
     if (!event.target.checked) {
       updateFilterValues('value', 'all');
     } else {

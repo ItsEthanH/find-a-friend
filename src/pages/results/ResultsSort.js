@@ -29,11 +29,11 @@ function ResultsSort(props) {
 
   const renderedOptions = sortOptions.map((option, index) => {
     return (
-      <li key={index}>
+      <li key={index} className={classes.option}>
         <button
           key={index}
           id={index}
-          className={selectedOption === option ? classes.selected : ''}
+          className={selectedOption === option && classes.selected}
           onClick={selectionHandler}
         >
           {option}
@@ -42,25 +42,39 @@ function ResultsSort(props) {
     );
   });
 
+  const handle = dropdownOpen === 'SORT' ? '-' : '+';
   const styles = `${classes.sort} ${isDesktop && classes.desktop}`;
-
   return (
-    <>
-      <div className={styles}>
-        <button className={classes.toggle} onClick={sortButtonHandler}>
-          <p>{selectedOption}</p>
-          {dropdownOpen === 'SORT' ? <p>-</p> : <p>+</p>}
-        </button>
-        {dropdownOpen === 'SORT' && (
-          <ul className={classes.options}>
-            <p>Sort by:</p>
-            {renderedOptions}
-          </ul>
-        )}
-      </div>
+    <div className={styles}>
       {isDesktop && <p className={classes.heading}>Sort</p>}
-    </>
+
+      <div className={classes.button}>
+        <button onClick={sortButtonHandler}>
+          <p className={classes['button-text']}>{selectedOption}</p>
+          <p className={classes.handle}>{handle}</p>
+        </button>
+        {isDesktop && dropdownOpen === 'SORT' && <hr />}
+        {dropdownOpen === 'SORT' && <ul className={classes.dropdown}>{renderedOptions}</ul>}
+      </div>
+    </div>
   );
+
+  // return (
+  //   <>
+  //     <div className={styles}>
+  //       <button className={classes.toggle} onClick={sortButtonHandler}>
+  //         <p>{selectedOption}</p>
+  //         {dropdownOpen === 'SORT' ? <p>-</p> : <p>+</p>}
+  //       </button>
+  //       {dropdownOpen === 'SORT' && (
+  //         <ul className={classes.options}>
+  //           <p>Sort by:</p>
+  //           {renderedOptions}
+  //         </ul>
+  //       )}
+  //     </div>
+  //   </>
+  // );
 }
 
 export default ResultsSort;
