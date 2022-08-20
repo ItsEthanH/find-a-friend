@@ -19,7 +19,11 @@ function ResultsSort(props) {
   const [selectedOption, setSelectedOption] = useState(sortOptions[0]);
 
   function sortButtonHandler() {
-    dispatch(uiActions.selectResultsDropdown({ dropdown: 'SORT' }));
+    if (dropdownOpen === 'SORT') {
+      dispatch(uiActions.selectResultsDropdown({ dropdown: null }));
+    } else {
+      dispatch(uiActions.selectResultsDropdown({ dropdown: 'SORT' }));
+    }
   }
 
   function selectionHandler(event) {
@@ -33,7 +37,7 @@ function ResultsSort(props) {
         <button
           key={index}
           id={index}
-          className={selectedOption === option && classes.selected}
+          className={selectedOption === option ? classes.selected : undefined}
           onClick={selectionHandler}
         >
           {option}

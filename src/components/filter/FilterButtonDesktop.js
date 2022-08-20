@@ -1,6 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { filterActions, FILTER_PAGES } from '../../store/filter';
+import { filterActions } from '../../store/filter';
 import { uiActions } from '../../store/ui';
+
+import typeData from '../../util/typeData';
+
 import classes from './styles/FilterButtonDesktop.module.css';
 
 function FilterButtonDesktop(props) {
@@ -9,8 +12,10 @@ function FilterButtonDesktop(props) {
   const activeFilter = useSelector((state) => state.filter.activeFilters[props.filter]);
   const pageSelected = useSelector((state) => state.filter.pageSelected);
 
+  const buttonSelected = props.filter === pageSelected && dropdownOpen === 'FILTER';
+
   function filterButtonHandler() {
-    if (props.filter === pageSelected && dropdownOpen === 'FILTER') {
+    if (buttonSelected) {
       dispatch(uiActions.selectResultsDropdown({ dropdown: null }));
       dispatch(filterActions.changePage({ page: null }));
     } else {
@@ -28,18 +33,18 @@ function FilterButtonDesktop(props) {
     if (typeof activeFilter[keys[0]] === 'number') return `Within ${activeFilter[keys]} miles`;
     if (typeof activeFilter[keys[0]] === 'boolean') {
       let returnedFilter = '';
+
       keys.forEach((filter, index) => {
         returnedFilter += filter.charAt(0).toUpperCase() + filter.substring(1);
         if (index !== keys.length - 1) returnedFilter += ', ';
       });
+
       return returnedFilter;
     }
-    return activeFilter[keys].charAt(0).toUpperCase() + activeFilter[keys].substring(1);
+    return typeData[activeFilter[keys]].name;
   }
 
   const buttonText = createButtonText();
-
-  console.log(props.isDisabled);
 
   return (
     <div className={classes.wrapper}>
@@ -47,9 +52,9 @@ function FilterButtonDesktop(props) {
       <div className={classes.button}>
         <button disabled={props.isDisabled} onClick={filterButtonHandler}>
           <p>{buttonText}</p>
-          {pageSelected === props.filter ? <p>-</p> : <p>+</p>}
+          {buttonSelected ? <p>-</p> : <p>+</p>}
         </button>
-        {pageSelected === props.filter && dropdownOpen === 'FILTER' && (
+        {buttonSelected && (
           <>
             <hr />
             {props.children}

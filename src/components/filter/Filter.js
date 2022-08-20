@@ -1,4 +1,4 @@
-import { useEffect, useRef, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import useFetch from '../../hooks/useFetch';
 
@@ -17,24 +17,22 @@ function Filter(props) {
   let filterPage;
   const isDesktop = props.isDesktop;
 
-  const breedRef = useRef({});
-  const coatRef = useRef({});
+  const [breeds, setBreeds] = useState();
+  const [coats, setCoats] = useState();
+
   const dropdownOpen = useSelector((state) => state.ui.resultsDropdownOpen);
   const pageSelected = useSelector((state) => state.filter.pageSelected);
 
-  const activeFilters = useSelector((state) => state.filter.activeFilters);
-  const activeType = useMemo(() => {
-    if (activeFilters[FILTER_PAGES.TYPE].value) return activeFilters[FILTER_PAGES.TYPE];
-    return { value: 'Dog' };
-  }, [activeFilters]);
+  const filterState = useSelector((state) => state.filter);
+  const activeType = filterState.activeFilters[FILTER_PAGES.TYPE].value;
 
   // initial states for each filter - each object gets mapped to a template filter where all state can be handled
   const initialStates = {
-    Breed: breedRef.current,
+    Breed: breeds,
     Distance: { value: 100 },
     Gender: { male: false, female: false },
     Age: { baby: false, young: false, adult: false, senior: false },
-    Coat: coatRef.current,
+    Coat: coats,
     Requirements: {
       'child friendly': false,
       'dog friendly': false,
@@ -44,19 +42,19 @@ function Filter(props) {
     },
   };
 
-  const { response } = useFetch(`types/${activeType.value}/breeds`);
+  const { response } = useFetch(`types/${activeType}/breeds`);
 
-  // updates the coat and breed initial states whenever a new type is selected
   useEffect(() => {
     if (response) {
-      breedRef.current = {};
+      let newBreeds = {};
       for (const breed of response.breeds) {
-        breedRef.current[breed.name] = false;
+        newBreeds[breed.name] = false;
       }
+
+      setBreeds(newBreeds);
     }
 
-    const type = activeType.value.toLowerCase();
-    coatRef.current = typeData[type].coats;
+    if (activeType) setCoats(typeData[activeType].coats);
   }, [activeType, response]);
 
   switch (pageSelected) {

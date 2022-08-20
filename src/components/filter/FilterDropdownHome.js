@@ -18,7 +18,7 @@ function FilterDropdownHome(props) {
 
   const renderedOptions = options.map((option) => {
     const optionName = FILTER_PAGES[option];
-    if (optionName === FILTER_PAGES.HOME) return <></>;
+    if (optionName === FILTER_PAGES.HOME) return null;
 
     const quantity = Object.keys(activeFilters[optionName]).length;
     const isDisabled = optionName !== FILTER_PAGES.TYPE && !areOptionsUnlocked;

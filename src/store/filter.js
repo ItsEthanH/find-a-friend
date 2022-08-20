@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { useEffect } from 'react';
 
 export const FILTER_PAGES = {
   HOME: 'Home',
@@ -15,6 +14,7 @@ export const FILTER_PAGES = {
 const initialFilterState = {
   isFiltersOpen: false,
   pageSelected: FILTER_PAGES.HOME,
+  location: '',
   activeFilters: {
     [FILTER_PAGES.TYPE]: {},
     [FILTER_PAGES.BREED]: {},
@@ -43,6 +43,7 @@ const filterSlice = createSlice({
     },
 
     deleteAllFilters(state) {
+      state.pageSelected = FILTER_PAGES.HOME;
       state.activeFilters = initialFilterState.activeFilters;
     },
   },

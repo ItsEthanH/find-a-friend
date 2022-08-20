@@ -19,11 +19,7 @@ const uiSlice = createSlice({
     },
 
     selectResultsDropdown(state, action) {
-      if (state.resultsDropdownOpen === action.payload.dropdown) {
-        state.resultsDropdownOpen = null;
-      } else {
-        state.resultsDropdownOpen = action.payload.dropdown;
-      }
+      state.resultsDropdownOpen = action.payload.dropdown;
     },
   },
 });

@@ -1,6 +1,9 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useLocation } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
+import { filterActions, FILTER_PAGES } from '../../store/filter';
+import { uiActions } from '../../store/ui';
 
 import Breadcrumbs from '../../components/text/Breadcrumbs';
 import ResultsCard from './ResultsCard';
@@ -12,7 +15,7 @@ import DUMMY_DATA from './__DUMMY_DATA__';
 import formatLocationForAPI from '../../util/formatLocationForAPI';
 import noImageFound from '../../assets/images/results/no-image-found.png';
 
-function _ResultsPage(props) {
+function _ResultsPage() {
   const params = useParams();
   const location = useLocation();
   const address = formatLocationForAPI(params.queryParams);
@@ -22,8 +25,15 @@ function _ResultsPage(props) {
 
   // allows the responsive rendering of the filters in the results page only.
   // controls the 'desktop' prop on the filter, which internally handles the styling through the addition of '.desktop' classes
+  const dispatch = useDispatch();
   const windowWidth = useSelector((state) => state.ui.windowWidth);
   const isDesktop = windowWidth >= 1200;
+
+  useEffect(() => {
+    dispatch(filterActions.deleteAllFilters());
+    dispatch(uiActions.selectResultsDropdown({ dropdown: null }));
+    dispatch(filterActions.changePage({ page: null }));
+  }, [dispatch, isDesktop]);
 
   const breadcrumbs = [
     { link: '/', text: 'Home' },

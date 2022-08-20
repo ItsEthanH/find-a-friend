@@ -12,6 +12,7 @@ import { filterActions } from './store/filter';
 
 function App() {
   const token = useSelector((state) => state.auth.token);
+  const windowWidth = useSelector((state) => state.ui.windowWidth);
   const dispatch = useDispatch();
 
   useEffect(() => {

@@ -16,6 +16,7 @@ function useFetch(endpoint) {
 
   useEffect(() => {
     async function sendRequest() {
+      if (endpoint.includes('undefined')) return;
       const response = await fetch(url, options);
 
       if (!response.ok) {
@@ -27,15 +28,15 @@ function useFetch(endpoint) {
     }
 
     try {
+      setResponse(null);
       sendRequest();
     } catch (err) {
       setError(err.message);
       console.log(err);
-      return;
     } finally {
       setIsLoading(false);
     }
-  }, [url, options]);
+  }, [url, options, endpoint]);
 
   return { response, isLoading, error };
 }

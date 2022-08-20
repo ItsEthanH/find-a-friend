@@ -5,7 +5,7 @@ import FilterDropdownMobileHeader from './FilterDropdownMobileHeader';
 
 import classes from './styles/FilterDropdown.module.css';
 
-function FilterRange(props) {
+function FilterTemplateRange(props) {
   const isDesktop = props.isDesktop;
   const pageSelected = useSelector((state) => state.filter.pageSelected);
   const filterOptions = Object.keys(props.initialState);
@@ -20,7 +20,7 @@ function FilterRange(props) {
 
   const renderedOptions = filterOptions.map((option) => {
     return (
-      <li className={classes.option}>
+      <li key={option} className={classes.option}>
         <input
           type="range"
           id={option}
@@ -57,4 +57,4 @@ function FilterRange(props) {
   );
 }
 
-export default FilterRange;
+export default FilterTemplateRange;

@@ -4,10 +4,8 @@ import classes from './styles/Breadcrumbs.module.css';
 
 function Breadcrumbs(props) {
   const renderedBreadcrumbs = props.breadcrumbs.map((item, index) => (
-    <div className={classes.breadcrumbs} aria-label="breadcrumbs">
-      <Link key={item.link} to={item.link}>
-        {item.text}
-      </Link>
+    <div key={item.link} className={classes.breadcrumbs} aria-label="breadcrumbs">
+      <Link to={item.link}>{item.text}</Link>
       {index === props.breadcrumbs.length - 1 ? '' : <p> &gt; </p>}
     </div>
   ));

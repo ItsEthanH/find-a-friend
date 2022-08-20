@@ -6,17 +6,21 @@ import FilterDropdownMobileHeader from './FilterDropdownMobileHeader';
 import classes from './styles/FilterDropdown.module.css';
 import { FILTER_PAGES } from '../../store/filter';
 import { filterActions } from '../../store/filter';
+import { uiActions } from '../../store/ui';
 import typeData from '../../util/typeData';
 
 function FilterDropdownType(props) {
   const isDesktop = props.isDesktop;
   const dispatch = useDispatch();
   const types = Object.keys(typeData);
+
   const initialTypeState = { value: 'all' };
   const { displayedValues, updateFilterValues } = useFilter(FILTER_PAGES.TYPE, initialTypeState);
 
   function optionSelectHandler(event) {
     dispatch(filterActions.deleteAllFilters());
+    dispatch(filterActions.changePage({ page: null }));
+    dispatch(uiActions.selectResultsDropdown({ dropdown: null }));
 
     if (!event.target.checked) {
       updateFilterValues('value', 'all');

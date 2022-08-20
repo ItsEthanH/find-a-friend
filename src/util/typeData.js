@@ -11,21 +11,21 @@ const typeData = {
     name: 'Rabbit',
     coats: { short: false, long: false },
   },
-  small: {
+  'small-furry': {
     name: 'Small & Furry',
     coats: { hairless: false, short: false, long: false },
   },
   horse: {
     name: 'Horse',
-    coats: [],
+    coats: {},
   },
   bird: {
     name: 'Bird',
-    coats: [],
+    coats: {},
   },
-  other: {
+  'scales-fins-other': {
     name: 'Scales, Fins & Other',
-    coats: [],
+    coats: {},
   },
   barnyard: {
     name: 'Barnyard',
