@@ -74,8 +74,9 @@ function Filter(props) {
       break;
   }
 
+  const mobileStyles = `${classes.mobile} ${props.searchbar ? classes.searchbar : undefined}`;
   const mobileFilter = (
-    <div className={classes.mobile}>
+    <div className={mobileStyles}>
       <FilterButtonMobile />
       {dropdownOpen === 'FILTER' && <div className={classes.dropdown}>{filterPage}</div>}
     </div>

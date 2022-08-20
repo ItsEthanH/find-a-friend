@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import LocationInput from '../../components/buttons-and-inputs/LocationInput';
+import Filter from '../../components/filter/Filter';
 import SearchAnimalsFilter from './SearchAnimalsFilter';
 import formatLocationForURL from '../../util/formatLocationForURL';
 
@@ -34,11 +35,10 @@ function SearchAnimalsSearchbar() {
         onSelect={locationSelectionHandler}
       />
       <div className={classes.divider} />
-      <SearchAnimalsFilter
-        name="Filters"
-        icon={filterIcon}
-        placeholder="Click to view filters..."
-      />
+      <div className={classes.filter}>
+        <img src={filterIcon} alt="Filters" />
+        <Filter isDesktop={false} searchbar />
+      </div>
       <AccentButton styles={classes.submit}>Search</AccentButton>
     </form>
   );

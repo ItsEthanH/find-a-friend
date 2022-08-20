@@ -9,6 +9,10 @@
   z-index: 2;
 }
 
+.header a {
+  width: fit-content;
+}
+
 .image img {
   height: 100%;
   cursor: pointer;
