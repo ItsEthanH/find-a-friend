@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { filterActions } from '../../store/filter';
+import { filterActions, FILTER_PAGES } from '../../store/filter';
 import { uiActions } from '../../store/ui';
 
 import typeData from '../../util/typeData';
@@ -17,7 +17,7 @@ function FilterButtonDesktop(props) {
   function filterButtonHandler() {
     if (buttonSelected) {
       dispatch(uiActions.selectResultsDropdown({ dropdown: null }));
-      dispatch(filterActions.changePage({ page: null }));
+      dispatch(filterActions.changePage({ page: FILTER_PAGES.HOME }));
     } else {
       dispatch(uiActions.selectResultsDropdown({ dropdown: 'FILTER' }));
       dispatch(filterActions.changePage({ page: props.filter }));

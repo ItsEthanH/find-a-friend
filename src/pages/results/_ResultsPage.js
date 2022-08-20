@@ -32,7 +32,7 @@ function _ResultsPage() {
   useEffect(() => {
     dispatch(filterActions.deleteAllFilters());
     dispatch(uiActions.selectResultsDropdown({ dropdown: null }));
-    dispatch(filterActions.changePage({ page: null }));
+    dispatch(filterActions.changePage({ page: FILTER_PAGES.HOME }));
   }, [dispatch, isDesktop]);
 
   const breadcrumbs = [

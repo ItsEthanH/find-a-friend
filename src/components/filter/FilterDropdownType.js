@@ -19,8 +19,8 @@ function FilterDropdownType(props) {
 
   function optionSelectHandler(event) {
     dispatch(filterActions.deleteAllFilters());
-    dispatch(filterActions.changePage({ page: null }));
-    dispatch(uiActions.selectResultsDropdown({ dropdown: null }));
+    dispatch(filterActions.changePage({ page: FILTER_PAGES.HOME }));
+    if (isDesktop) dispatch(uiActions.selectResultsDropdown({ dropdown: null }));
 
     if (!event.target.checked) {
       updateFilterValues('value', 'all');

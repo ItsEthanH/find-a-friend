@@ -13,7 +13,11 @@ function FilterButtonMobile(props) {
   const dispatch = useDispatch();
 
   function filterButtonHandler() {
-    dispatch(uiActions.selectResultsDropdown({ dropdown: 'FILTER' }));
+    if (dropdownOpen === 'FILTER') {
+      dispatch(uiActions.selectResultsDropdown({ dropdown: null }));
+    } else {
+      dispatch(uiActions.selectResultsDropdown({ dropdown: 'FILTER' }));
+    }
   }
 
   useEffect(() => {
