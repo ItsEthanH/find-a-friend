@@ -66,18 +66,18 @@ function _ResultsPage() {
     <main className={styles}>
       {DUMMY_DATA && (
         <>
-          <div className={classes.information}>
+          <section className={classes.information}>
             <Breadcrumbs breadcrumbs={breadcrumbs} />
             <p className={classes.count}>
               We've found <span className="color-accent">{DUMMY_DATA.pagination.total_count}</span>{' '}
               results
             </p>
-          </div>
+          </section>
 
-          <div className={classes.dropdowns}>
+          <section className={classes.dropdowns}>
             <Filter isDesktop={isDesktop} />
             <ResultsSort isDesktop={isDesktop} />
-          </div>
+          </section>
           <section className={classes.cards}>{renderedCards}</section>
         </>
       )}

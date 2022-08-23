@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import useFetch from '../../hooks/useFetch';
 
+import FilterDesktop from './FilterDesktop';
 import FilterDropdownHome from './FilterDropdownHome';
 import FilterDropdownType from './FilterDropdownType';
 import FilterTemplateRange from './FilterTemplateRange';
@@ -10,52 +11,27 @@ import FilterButtonMobile from './FilterButtonMobile';
 
 import classes from './styles/Filter.module.css';
 import typeData from '../../util/typeData';
-import { FILTER_PAGES } from '../../store/filter';
-import FilterDesktop from './FilterDesktop';
+import { filterActions, FILTER_PAGES } from '../../store/filter';
 
 function Filter(props) {
   let filterPage;
-  const isDesktop = props.isDesktop;
-
-  const [breeds, setBreeds] = useState();
-  const [coats, setCoats] = useState();
+  const dispatch = useDispatch();
+  const { isDesktop, searchbar } = props;
 
   const dropdownOpen = useSelector((state) => state.ui.resultsDropdownOpen);
   const pageSelected = useSelector((state) => state.filter.pageSelected);
 
   const filterState = useSelector((state) => state.filter);
   const activeType = filterState.activeFilters[FILTER_PAGES.TYPE].value;
-
-  // initial states for each filter - each object gets mapped to a template filter where all state can be handled
-  const initialStates = {
-    Breed: breeds,
-    Distance: { value: 100 },
-    Gender: { male: false, female: false },
-    Age: { baby: false, young: false, adult: false, senior: false },
-    Coat: coats,
-    Requirements: {
-      'child friendly': false,
-      'dog friendly': false,
-      'cat friendly': false,
-      'house trained': false,
-      'special needs': false,
-    },
-  };
-
-  const { response } = useFetch(`types/${activeType}/breeds`);
+  const { response, isLoading } = useFetch(`types/${activeType}/breeds`);
 
   useEffect(() => {
-    if (response) {
-      let newBreeds = {};
-      for (const breed of response.breeds) {
-        newBreeds[breed.name] = false;
-      }
+    if (!response || !activeType) return;
 
-      setBreeds(newBreeds);
-    }
-
-    if (activeType) setCoats(typeData[activeType].coats);
-  }, [activeType, response]);
+    dispatch(
+      filterActions.changeAnimalType({ breeds: response.breeds, coats: typeData[activeType].coats })
+    );
+  }, [response, activeType, dispatch]);
 
   switch (pageSelected) {
     case FILTER_PAGES.HOME:
@@ -65,16 +41,14 @@ function Filter(props) {
       filterPage = <FilterDropdownType />;
       break;
     case FILTER_PAGES.DISTANCE:
-      filterPage = <FilterTemplateRange initialState={initialStates.Distance} min={10} max={500} />;
+      filterPage = <FilterTemplateRange min={10} max={500} />;
       break;
     default:
-      filterPage = (
-        <FilterTemplateCheckbox initialState={initialStates[pageSelected]} page={pageSelected} />
-      );
+      filterPage = <FilterTemplateCheckbox isLoading={isLoading} />;
       break;
   }
 
-  const mobileStyles = `${classes.mobile} ${props.searchbar ? classes.searchbar : undefined}`;
+  const mobileStyles = `${classes.mobile} ${searchbar ? classes.searchbar : undefined}`;
   const mobileFilter = (
     <div className={mobileStyles}>
       <FilterButtonMobile />
@@ -84,7 +58,7 @@ function Filter(props) {
 
   const desktopFilter = (
     <div className={classes.desktop}>
-      <FilterDesktop initialStates={initialStates} />
+      <FilterDesktop isLoading={isLoading} />
     </div>
   );
 

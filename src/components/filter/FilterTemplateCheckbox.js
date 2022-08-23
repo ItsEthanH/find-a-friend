@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import useFilter from '../../hooks/useFilter';
@@ -7,13 +8,12 @@ import FilterDropdownMobileHeader from './FilterDropdownMobileHeader';
 import classes from './styles/FilterDropdown.module.css';
 
 function FilterTemplateCheckbox(props) {
-  const isDesktop = props.isDesktop;
+  const { isDesktop, isLoading } = props;
+
   const pageSelected = useSelector((state) => state.filter.pageSelected);
-
-  const initialKeys = Object.keys(props.initialState);
-  const [filterOptions, setFilterOptions] = useState(initialKeys);
-
-  const { displayedValues, updateFilterValues } = useFilter(pageSelected, props.initialState);
+  const initialState = useSelector((state) => state.filter.initialStates[pageSelected]);
+  const [filterOptions, setFilterOptions] = useState(Object.keys(initialState));
+  const { displayedValues, updateFilterValues } = useFilter(pageSelected);
 
   function filterChangeHandler(event) {
     updateFilterValues(event.target.id, event.target.checked);
@@ -21,7 +21,9 @@ function FilterTemplateCheckbox(props) {
 
   function breedChangeHandler(event) {
     const text = event.target.value;
-    setFilterOptions(initialKeys.filter((breed) => breed.toLowerCase().includes(text)));
+    setFilterOptions((prevState) =>
+      prevState.filter((breed) => breed.toLowerCase().includes(text))
+    );
   }
 
   const breedSearchBar = (
@@ -34,32 +36,34 @@ function FilterTemplateCheckbox(props) {
     />
   );
 
-  let renderedOptions;
-  if (!filterOptions || initialKeys.length === 0)
-    renderedOptions = (
-      <p className={classes.none}>
-        There are no results for this filter. Please try again with different filters.
-      </p>
-    );
-  else
-    renderedOptions = filterOptions.map((option) => {
-      const title = `${option[0].toUpperCase()}${option.slice(1, option.length)}`;
-      const isChecked = displayedValues[option];
-      const listStyle = `${classes.option} ${isChecked && isDesktop ? classes.selected : ''}`;
+  useEffect(() => {
+    setFilterOptions(Object.keys(initialState));
+  }, [initialState]);
 
-      return (
-        <li key={option} className={listStyle}>
-          <label htmlFor={option}>{title}</label>
-          <input
-            type="checkbox"
-            checked={isChecked}
-            id={option}
-            name={option}
-            onChange={filterChangeHandler}
-          />
-        </li>
-      );
-    });
+  const renderedOptions = filterOptions.map((option) => {
+    const title = `${option[0].toUpperCase()}${option.slice(1, option.length)}`;
+    const isChecked = displayedValues[option];
+    const listStyle = `${classes.option} ${isChecked && isDesktop ? classes.selected : ''}`;
+
+    return (
+      <li key={option} className={listStyle}>
+        <label htmlFor={option}>{title}</label>
+        <input
+          type="checkbox"
+          checked={isChecked}
+          id={option}
+          name={option}
+          onChange={filterChangeHandler}
+        />
+      </li>
+    );
+  });
+
+  const noResults = (
+    <p className={classes.info}>
+      There are no results for this filter. Please try again with different filters.
+    </p>
+  );
 
   const styles = `${classes['option-list']} ${classes.checkbox} ${
     isDesktop ? classes.desktop : ''
@@ -68,8 +72,10 @@ function FilterTemplateCheckbox(props) {
   return (
     <>
       {!isDesktop && <FilterDropdownMobileHeader title={pageSelected} />}
-      {props.page === 'Breed' && breedSearchBar}
-      <ul className={styles}>{renderedOptions}</ul>
+      {pageSelected === 'Breed' && breedSearchBar}
+      {isLoading && <p className={classes.info}>Loading...</p>}
+      {!isLoading && filterOptions.length === 0 && noResults}
+      {!isLoading && <ul className={styles}>{renderedOptions}</ul>}
     </>
   );
 }

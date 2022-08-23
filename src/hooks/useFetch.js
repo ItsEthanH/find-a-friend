@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 // the only POST request needed is to get Bearer tokens from the API. this is handled in the AppContext.js file.
 function useFetch(endpoint) {
   const [response, setResponse] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(null);
   const [error, setError] = useState(null);
   const token = useSelector((state) => state.auth.token);
 
@@ -16,6 +16,9 @@ function useFetch(endpoint) {
 
   useEffect(() => {
     async function sendRequest() {
+      setResponse(null);
+      setIsLoading(true);
+
       if (endpoint.includes('undefined')) return;
       const response = await fetch(url, options);
 
@@ -24,17 +27,16 @@ function useFetch(endpoint) {
       }
 
       const data = await response.json();
+
       setResponse(data);
+      setIsLoading(false);
     }
 
     try {
-      setResponse(null);
       sendRequest();
     } catch (err) {
       setError(err.message);
       console.log(err);
-    } finally {
-      setIsLoading(false);
     }
   }, [url, options, endpoint]);
 

@@ -12,6 +12,7 @@
   flex-flow: wrap row;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
 }
 
 .cards {
@@ -45,6 +46,8 @@
   flex-flow: wrap column-reverse;
   justify-content: start;
   align-items: flex-start;
+  gap: 0;
+  min-width: 0;
 }
 
 .desktop .cards {

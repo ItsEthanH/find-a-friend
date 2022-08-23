@@ -6,11 +6,13 @@ import FilterDropdownMobileHeader from './FilterDropdownMobileHeader';
 import classes from './styles/FilterDropdown.module.css';
 
 function FilterTemplateRange(props) {
-  const isDesktop = props.isDesktop;
-  const pageSelected = useSelector((state) => state.filter.pageSelected);
-  const filterOptions = Object.keys(props.initialState);
+  const { isDesktop, min, max } = props;
 
-  const { displayedValues, updateFilterValues } = useFilter(pageSelected, props.initialState);
+  const pageSelected = useSelector((state) => state.filter.pageSelected);
+  const initialState = useSelector((state) => state.filter.initialStates[pageSelected]);
+  const filterOptions = Object.keys(initialState);
+
+  const { displayedValues, updateFilterValues } = useFilter(pageSelected);
 
   function filterChangeHandler(event) {
     event.target.value > 500
@@ -27,8 +29,8 @@ function FilterTemplateRange(props) {
           name={option}
           value={displayedValues[option]}
           onChange={filterChangeHandler}
-          min={props.min}
-          max={props.max}
+          min={min}
+          max={max}
         />
         <p>
           Within{' '}
@@ -39,8 +41,8 @@ function FilterTemplateRange(props) {
             value={displayedValues[option]}
             onChange={filterChangeHandler}
             maxLength={3}
-            min={props.min}
-            max={props.max}
+            min={min}
+            max={max}
           />{' '}
           miles
         </p>

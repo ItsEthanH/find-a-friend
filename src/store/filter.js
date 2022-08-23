@@ -15,6 +15,21 @@ const initialFilterState = {
   isFiltersOpen: false,
   pageSelected: FILTER_PAGES.HOME,
   location: '',
+  initialStates: {
+    [FILTER_PAGES.TYPE]: { value: 'all' },
+    [FILTER_PAGES.BREED]: { default: null },
+    [FILTER_PAGES.DISTANCE]: { value: 100 },
+    [FILTER_PAGES.GENDER]: { male: false, female: false },
+    [FILTER_PAGES.AGE]: { baby: false, young: false, adult: false, senior: false },
+    [FILTER_PAGES.COAT]: { default: null },
+    [FILTER_PAGES.REQUIREMENTS]: {
+      'child friendly': false,
+      'dog friendly': false,
+      'cat friendly': false,
+      'house trained': false,
+      'special needs': false,
+    },
+  },
   activeFilters: {
     [FILTER_PAGES.TYPE]: {},
     [FILTER_PAGES.BREED]: {},
@@ -36,6 +51,20 @@ const filterSlice = createSlice({
 
     setFilter(state, action) {
       state.activeFilters[action.payload.filter][action.payload.key] = action.payload.value;
+    },
+
+    changeAnimalType(state, action) {
+      let newBreeds = {};
+
+      for (const breed of action.payload.breeds) {
+        newBreeds[breed.name] = false;
+      }
+
+      state.initialStates.Breed = newBreeds;
+
+      if (state.activeFilters[FILTER_PAGES.TYPE].value !== 'all') {
+        state.initialStates.Coat = action.payload.coats;
+      }
     },
 
     deleteSingleFilter(state, action) {

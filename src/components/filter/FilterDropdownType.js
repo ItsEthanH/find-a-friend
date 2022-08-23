@@ -10,23 +10,19 @@ import { uiActions } from '../../store/ui';
 import typeData from '../../util/typeData';
 
 function FilterDropdownType(props) {
-  const isDesktop = props.isDesktop;
+  const { isDesktop } = props;
   const dispatch = useDispatch();
   const types = Object.keys(typeData);
 
-  const initialTypeState = { value: 'all' };
-  const { displayedValues, updateFilterValues } = useFilter(FILTER_PAGES.TYPE, initialTypeState);
+  const { displayedValues, updateFilterValues } = useFilter(FILTER_PAGES.TYPE);
 
   function optionSelectHandler(event) {
+    if (isDesktop) dispatch(uiActions.selectResultsDropdown({ dropdown: null }));
     dispatch(filterActions.deleteAllFilters());
     dispatch(filterActions.changePage({ page: FILTER_PAGES.HOME }));
-    if (isDesktop) dispatch(uiActions.selectResultsDropdown({ dropdown: null }));
 
-    if (!event.target.checked) {
-      updateFilterValues('value', 'all');
-    } else {
-      updateFilterValues('value', event.target.id);
-    }
+    if (!event.target.checked) updateFilterValues('value', 'all');
+    else updateFilterValues('value', event.target.id);
   }
 
   const renderedOptions = types.map((type) => {
@@ -50,9 +46,10 @@ function FilterDropdownType(props) {
   const styles = `${classes['option-list']} ${classes.checkbox} ${
     isDesktop ? classes.desktop : ''
   }`;
+
   return (
     <>
-      {!props.isDesktop && <FilterDropdownMobileHeader title="Type" />}
+      {!isDesktop && <FilterDropdownMobileHeader title="Type" />}
       <ul className={styles}>{renderedOptions}</ul>
     </>
   );

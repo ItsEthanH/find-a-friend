@@ -11,8 +11,9 @@ import { filterActions } from '../store/filter';
  * @returns - **updateFilterValues**: Pass a key and a value to update the filter. Defaults will be reset in the Redux as needed
  */
 
-function useFilter(filter, initialState) {
+function useFilter(filter) {
   const dispatch = useDispatch();
+  const initialState = useSelector((state) => state.filter.initialStates[filter]);
   // savedFilters is a link to the Redux store. if a user enters a default value, based on initialState, that key/value pair will not be stored here.
   const savedFilters = useSelector((state) => state.filter.activeFilters[filter]);
   // a 'middleman' between savedFilters and what the user enters. initialised with the default values, but can be updated with the useEffect() call
