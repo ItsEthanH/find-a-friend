@@ -14,7 +14,7 @@ export const FILTER_PAGES = {
 const initialFilterState = {
   isFiltersOpen: false,
   pageSelected: FILTER_PAGES.HOME,
-  location: '',
+  location: [],
   filterUrl: '',
   initialStates: {
     [FILTER_PAGES.TYPE]: { value: 'all' },
@@ -52,6 +52,15 @@ const filterSlice = createSlice({
 
     setFilter(state, action) {
       state.activeFilters[action.payload.filter][action.payload.key] = action.payload.value;
+    },
+
+    setLocation(state, action) {
+      state.location = action.payload.location;
+    },
+
+    clearAfterSearch(state) {
+      state.location = [];
+      state.filterUrl = '';
     },
 
     changeAnimalType(state, action) {

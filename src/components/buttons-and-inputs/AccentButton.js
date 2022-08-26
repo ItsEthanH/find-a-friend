@@ -11,7 +11,7 @@ function AccentButton(props) {
   }
 
   return (
-    <button className={styles} onClick={clickHandler}>
+    <button className={styles} onClick={clickHandler} disabled={props.disabled}>
       {props.children}
     </button>
   );

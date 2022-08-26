@@ -10,6 +10,7 @@ function useFetch(endpoint) {
   const token = useSelector((state) => state.auth.token);
 
   const url = 'https://api.petfinder.com/v2/' + endpoint;
+  console.log(url);
   const options = useMemo(() => {
     return { headers: { Authorization: `Bearer ${token}` } };
   }, [token]);
