@@ -12,18 +12,17 @@ import filterIcon from '../../assets/svgs/filter.svg';
 import AccentButton from '../../components/buttons-and-inputs/AccentButton';
 
 function SearchAnimalsSearchbar() {
-  const [location, setLocation] = useState([]);
+  const [location, setLocation] = useState('');
   const navigate = useNavigate();
 
   function locationSelectionHandler(main, secondary) {
-    setLocation([main, secondary]);
+    setLocation(formatLocationForURL(main, secondary));
   }
 
   function submitHandler(event) {
     event.preventDefault();
 
-    const urlLocation = formatLocationForURL(location[0], location[1]);
-    navigate(`/results/animals/location=${urlLocation}`);
+    navigate(`/results/${location}`);
   }
 
   return (

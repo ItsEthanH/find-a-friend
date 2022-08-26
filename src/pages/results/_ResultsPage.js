@@ -18,7 +18,7 @@ import noImageFound from '../../assets/images/results/no-image-found.png';
 function _ResultsPage() {
   const params = useParams();
   const location = useLocation();
-  const address = formatLocationForAPI(params.queryParams);
+  const address = formatLocationForAPI(params.location);
 
   const requestEndpoint = `${params.category}?${address}`;
   // const { response, isLoading, error } = useFetch(requestEndpoint);
