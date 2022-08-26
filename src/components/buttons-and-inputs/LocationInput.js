@@ -53,14 +53,17 @@ function LocationInput(props) {
         <ul>
           {suggestions.status === 'OK' &&
             suggestions.data.map((item, index) => (
-              <>
-                <li key={item.place_id}>
-                  <button key={item.place_id} id={item.place_id} onClick={locationSelectHandler}>
-                    {item.description}
-                  </button>
-                  {index === suggestions.data.length - 1 || <hr key={index} />}
-                </li>
-              </>
+              <li key={item.place_id}>
+                <button
+                  type="button"
+                  key={item.place_id}
+                  id={item.place_id}
+                  onClick={locationSelectHandler}
+                >
+                  {item.description}
+                </button>
+                {index === suggestions.data.length - 1 || <hr key={index} />}
+              </li>
             ))}
         </ul>
       </Card>

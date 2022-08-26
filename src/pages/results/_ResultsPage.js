@@ -20,7 +20,7 @@ function _ResultsPage() {
   const location = useLocation();
   const address = formatLocationForAPI(params.location);
 
-  const requestEndpoint = `${params.category}?${address}`;
+  // const requestEndpoint = `location?${address}`;
   // const { response, isLoading, error } = useFetch(requestEndpoint);
 
   // allows the responsive rendering of the filters in the results page only.

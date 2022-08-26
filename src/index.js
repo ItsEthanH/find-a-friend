@@ -25,6 +25,7 @@ root.render(
           <Route path="/dog-breeds" element={<DogBreedsPage />} />
           <Route path="/cat-breeds" element={<CatBreedsPage />} />
           <Route path="/results/:location" element={<ResultsPage />} />
+          <Route path="/results/:location/:filters" element={<ResultsPage />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

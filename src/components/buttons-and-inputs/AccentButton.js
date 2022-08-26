@@ -6,11 +6,8 @@ function AccentButton(props) {
   const styles = `${classes.button} ${props.styles ? props.styles : ''}`;
 
   function clickHandler() {
-    if (props.onClick) {
-      props.onClick();
-    } else {
-      return;
-    }
+    if (!props.onClick) return;
+    props.onClick();
   }
 
   return (

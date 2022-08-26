@@ -15,6 +15,7 @@ const initialFilterState = {
   isFiltersOpen: false,
   pageSelected: FILTER_PAGES.HOME,
   location: '',
+  filterUrl: '',
   initialStates: {
     [FILTER_PAGES.TYPE]: { value: 'all' },
     [FILTER_PAGES.BREED]: { default: null },
@@ -74,6 +75,27 @@ const filterSlice = createSlice({
     deleteAllFilters(state) {
       state.pageSelected = FILTER_PAGES.HOME;
       state.activeFilters = initialFilterState.activeFilters;
+    },
+
+    applyFilters(state) {
+      let urlFragment = '';
+      for (const filter in state.activeFilters) {
+        const keys = Object.keys(state.activeFilters[filter]);
+        const values = Object.values(state.activeFilters[filter]);
+
+        if (values.length === 0) continue;
+        let urlParameter = `${filter.toLowerCase()}=`;
+
+        if (keys[0] === 'value') {
+          urlParameter += values[0];
+        } else {
+          urlParameter += keys.join(',').toLowerCase().replace(' ', '_');
+        }
+
+        urlFragment += urlParameter + '&';
+      }
+
+      state.filterUrl = urlFragment.slice(0, -1);
     },
   },
 });

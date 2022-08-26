@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import useFetch from '../../hooks/useFetch';
 
@@ -12,9 +12,11 @@ import FilterButtonMobile from './FilterButtonMobile';
 import classes from './styles/Filter.module.css';
 import typeData from '../../util/typeData';
 import { filterActions, FILTER_PAGES } from '../../store/filter';
+import { uiActions } from '../../store/ui';
 
 function Filter(props) {
   let filterPage;
+  const mobileDropdownRef = useRef();
   const dispatch = useDispatch();
   const { isDesktop, searchbar } = props;
 
@@ -24,6 +26,19 @@ function Filter(props) {
   const filterState = useSelector((state) => state.filter);
   const activeType = filterState.activeFilters[FILTER_PAGES.TYPE].value;
   const { response, isLoading } = useFetch(`types/${activeType}/breeds`);
+
+  function handleClickOutside(event) {
+    if (!mobileDropdownRef.current.contains(event.target)) {
+      dispatch(uiActions.selectResultsDropdown({ dropdown: null }));
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside, true);
+    return () => {
+      document.removeEventListener('click', handleClickOutside, true);
+    };
+  });
 
   useEffect(() => {
     if (!response || !activeType) return;
@@ -50,7 +65,7 @@ function Filter(props) {
 
   const mobileStyles = `${classes.mobile} ${searchbar ? classes.searchbar : undefined}`;
   const mobileFilter = (
-    <div className={mobileStyles}>
+    <div ref={mobileDropdownRef} className={mobileStyles}>
       <FilterButtonMobile />
       {dropdownOpen === 'FILTER' && <div className={classes.dropdown}>{filterPage}</div>}
     </div>

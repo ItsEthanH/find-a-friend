@@ -41,7 +41,7 @@ function FilterButtonMobile(props) {
   return (
     <>
       {!props.desktop && (
-        <button className={classes.toggle} onClick={filterButtonHandler}>
+        <button type="button" className={classes.toggle} onClick={filterButtonHandler}>
           {quantity === 0 && <p>Filters</p>}
           {quantity > 0 && <p>Filters ({quantity} selected)</p>}
           <p className={classes.handle}>{dropdownOpen === 'FILTER' ? '-' : '+'}</p>
