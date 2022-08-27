@@ -26,6 +26,7 @@ function FilterDropdownHome(props) {
     return (
       <li key={optionName}>
         <button
+          type="button"
           disabled={isDisabled}
           id={optionName}
           className={classes.option}

@@ -98,7 +98,7 @@ const filterSlice = createSlice({
         if (keys[0] === 'value') {
           urlParameter += values[0];
         } else {
-          urlParameter += keys.join(',').toLowerCase().replace(' ', '_');
+          urlParameter += keys.join(',').toLowerCase().replaceAll(' ', '-');
         }
 
         urlFragment += urlParameter + '&';

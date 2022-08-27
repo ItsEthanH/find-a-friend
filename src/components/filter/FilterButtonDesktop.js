@@ -41,6 +41,7 @@ function FilterButtonDesktop(props) {
 
       return returnedFilter;
     }
+    console.log(activeFilter);
     return typeData[activeFilter[keys]].name;
   }
 

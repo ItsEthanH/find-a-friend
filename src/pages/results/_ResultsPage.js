@@ -26,10 +26,10 @@ function _ResultsPage() {
     apiLocation = loc.substring(0, index) + ', ' + loc.substring(index + 1);
   }
 
-  let filters = params.filters ? `&${params.filters}` : '';
+  let filters = params.filters ? `&${params.filters.replaceAll('-', ' ')}` : '';
 
-  const requestEndpoint = `location=${apiLocation}${filters}`;
-  const { response, isLoading, error } = useFetch(`animals?${requestEndpoint}`);
+  // const requestEndpoint = `location=${apiLocation}${filters}`;
+  // const { response, isLoading, error } = useFetch(`animals?${requestEndpoint}`);
 
   // allows the responsive rendering of the filters in the results page only.
   // controls the 'desktop' prop on the filter, which internally handles the styling through the addition of '.desktop' classes
@@ -43,6 +43,29 @@ function _ResultsPage() {
     dispatch(filterActions.changePage({ page: FILTER_PAGES.HOME }));
   }, [dispatch, isDesktop]);
 
+  // a very unflattering way of taking the filters from the url and setting them in redux and on the page
+  useEffect(() => {
+    const filtersArray = filters.split('&');
+    filtersArray.shift();
+
+    for (const i of filtersArray) {
+      const filterPair = i.split('=');
+      const filterName =
+        filterPair[0].substring(0, 1).toUpperCase() +
+        filterPair[0].substring(1, filterPair[0].length);
+      const values = filterPair[1].split(',');
+
+      if (filterName === 'Type' || filterName === 'Distance') {
+        dispatch(filterActions.setFilter({ filter: filterName, key: 'value', value: values[0] }));
+        continue;
+      }
+
+      for (const value of values) {
+        dispatch(filterActions.setFilter({ filter: filterName, key: value, value: true }));
+      }
+    }
+  }, []);
+
   const breadcrumbs = [
     { link: '/', text: 'Home' },
     { link: '/search', text: 'Search Animals' },
@@ -50,8 +73,8 @@ function _ResultsPage() {
   ];
 
   const renderedCards =
-    response &&
-    response.animals.map((pet) => {
+    DUMMY_DATA &&
+    DUMMY_DATA.animals.map((pet) => {
       let photo = noImageFound;
       if (pet.primary_photo_cropped !== null) {
         photo = pet.primary_photo_cropped.full;

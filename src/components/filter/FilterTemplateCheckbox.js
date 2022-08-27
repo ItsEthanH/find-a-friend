@@ -12,7 +12,9 @@ function FilterTemplateCheckbox(props) {
 
   const pageSelected = useSelector((state) => state.filter.pageSelected);
   const initialState = useSelector((state) => state.filter.initialStates[pageSelected]);
-  const [filterOptions, setFilterOptions] = useState(Object.keys(initialState));
+
+  const initialOptions = Object.keys(initialState);
+  const [filterOptions, setFilterOptions] = useState(initialOptions);
   const { displayedValues, updateFilterValues } = useFilter(pageSelected);
 
   function filterChangeHandler(event) {
@@ -21,9 +23,9 @@ function FilterTemplateCheckbox(props) {
 
   function breedChangeHandler(event) {
     const text = event.target.value;
-    setFilterOptions((prevState) =>
-      prevState.filter((breed) => breed.toLowerCase().includes(text))
-    );
+
+    console.log(text);
+    setFilterOptions(() => initialOptions.filter((breed) => breed.toLowerCase().includes(text)));
   }
 
   const breedSearchBar = (
@@ -74,7 +76,7 @@ function FilterTemplateCheckbox(props) {
       {!isDesktop && <FilterDropdownMobileHeader title={pageSelected} />}
       {pageSelected === 'Breed' && breedSearchBar}
       {isLoading && <p className={classes.info}>Loading...</p>}
-      {!isLoading && filterOptions.length === 0 && noResults}
+      {!isLoading && initialOptions.length === 0 && noResults}
       {!isLoading && <ul className={styles}>{renderedOptions}</ul>}
     </>
   );

@@ -15,13 +15,21 @@ function FilterDropdownMobileHeader(props) {
   }
 
   const backButton = (
-    <button className={`${classes.button} ${classes.back}`} onClick={backClickHandler}>
+    <button
+      type="button"
+      className={`${classes.button} ${classes.back}`}
+      onClick={backClickHandler}
+    >
       Back
     </button>
   );
 
   const clearButton = (
-    <button className={`${classes.button} ${classes.clear}`} onClick={clearClickHandler}>
+    <button
+      type="button"
+      className={`${classes.button} ${classes.clear}`}
+      onClick={clearClickHandler}
+    >
       Clear all filters
     </button>
   );
