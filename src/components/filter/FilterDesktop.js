@@ -11,10 +11,12 @@ import classes from './styles/FilterDesktop.module.css';
 
 function FilterDesktop(props) {
   const { isLoading } = props;
-  const pageSelected = useSelector((state) => state.filter.pageSelected);
-  const activeFilters = useSelector((state) => state.filter.activeFilters);
-  const hasTypeBeenChosen = Object.keys(activeFilters[FILTER_PAGES.TYPE]).length <= 0;
+
   const filterList = Object.values(FILTER_PAGES);
+  const pageSelected = useSelector((state) => state.filter.pageSelected);
+  const hasTypeBeenChosen = useSelector(
+    (state) => state.filter.activeFilters[FILTER_PAGES.TYPE].value
+  );
 
   const renderedFilters = filterList.map((filter) => {
     const isDisabled = filter !== FILTER_PAGES.TYPE && hasTypeBeenChosen;
@@ -50,7 +52,7 @@ function FilterDesktop(props) {
     props.onApply();
   }
 
-  function clearFilters() {
+  function clearFilterHandler() {
     props.onClear();
   }
 
@@ -59,7 +61,7 @@ function FilterDesktop(props) {
       {renderedFilters}
       <div className={classes.buttons}>
         <button onClick={applyFilterHandler}>Apply</button>
-        <button onClick={clearFilters}>Clear</button>
+        <button onClick={clearFilterHandler}>Clear</button>
       </div>
     </>
   );

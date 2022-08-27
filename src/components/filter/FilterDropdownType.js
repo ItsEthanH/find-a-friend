@@ -18,6 +18,7 @@ function FilterDropdownType(props) {
 
   function optionSelectHandler(event) {
     if (isDesktop) dispatch(uiActions.selectResultsDropdown({ dropdown: null }));
+
     dispatch(filterActions.deleteAllFilters());
     dispatch(filterActions.changePage({ page: FILTER_PAGES.HOME }));
 

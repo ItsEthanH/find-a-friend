@@ -21,13 +21,13 @@ function FilterButtonMobile(props) {
   }
 
   useEffect(() => {
-    setQuantity(0);
-    const filterCategories = Object.keys(activeFilters);
+    let total = 0;
 
-    for (const filter of filterCategories) {
-      const fitlersActive = Object.keys(activeFilters[filter]).length;
-      setQuantity((prevQty) => prevQty + fitlersActive);
+    for (const filter of Object.keys(activeFilters)) {
+      total += Object.keys(activeFilters[filter]).length;
     }
+
+    setQuantity(total);
   }, [activeFilters]);
 
   useEffect(() => {

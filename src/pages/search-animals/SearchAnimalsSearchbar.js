@@ -17,8 +17,8 @@ function SearchAnimalsSearchbar() {
   const createUrl = useFilterUrl();
 
   const [error, setError] = useState('');
+  const [location, setLocation] = useState([]);
 
-  const location = useSelector((state) => state.filter.location);
   const areFiltersApplied = useSelector(
     (state) => state.filter.activeFilters[FILTER_PAGES.TYPE].value
   );
@@ -45,6 +45,7 @@ function SearchAnimalsSearchbar() {
         name="Location"
         icon={locationIcon}
         placeholder="Enter a city, state or postal code"
+        setLocation={setLocation}
       />
       <div className={classes.divider} />
       <div className={classes.filter}>

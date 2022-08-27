@@ -24,7 +24,6 @@ function FilterTemplateCheckbox(props) {
   function breedChangeHandler(event) {
     const text = event.target.value;
 
-    console.log(text);
     setFilterOptions(() => initialOptions.filter((breed) => breed.toLowerCase().includes(text)));
   }
 

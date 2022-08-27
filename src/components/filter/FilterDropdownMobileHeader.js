@@ -4,6 +4,8 @@ import { FILTER_PAGES, filterActions } from '../../store/filter';
 import classes from './styles/FilterDropdownMobileHeader.module.css';
 
 function FilterDropdownMobileHeader(props) {
+  const { title, home, isDesktop } = props;
+
   const dispatch = useDispatch();
 
   function clearClickHandler() {
@@ -34,12 +36,11 @@ function FilterDropdownMobileHeader(props) {
     </button>
   );
 
-  const isDesktop = props.isDesktop;
   const styles = `${classes.header} ${isDesktop ? classes.desktop : ''}`;
   return (
     <div className={styles}>
-      <p className={classes.title}>{props.title}</p>
-      {props.home ? clearButton : backButton}
+      <p className={classes.title}>{title}</p>
+      {home ? clearButton : backButton}
     </div>
   );
 }

@@ -1,13 +1,10 @@
 import usePlacesAutoComplete from 'use-places-autocomplete';
-import { useDispatch } from 'react-redux';
-import { filterActions } from '../../store/filter';
 
 import Card from '../cards-and-sections/Card';
 
 import classes from './styles/LocationInput.module.css';
 
 function LocationInput(props) {
-  const dispatch = useDispatch();
   const paramterOptions = {
     requestOptions: {
       types: ['(regions)'],
@@ -41,9 +38,9 @@ function LocationInput(props) {
         .substring(0, secondaryText.lastIndexOf(','))
         .toLowerCase();
 
-      dispatch(filterActions.setLocation({ location: [mainText, formattedSecondaryText] }));
+      props.setLocation([mainText, formattedSecondaryText]);
     } else {
-      dispatch(filterActions.setLocation({ location: [mainText] }));
+      props.setLocation([mainText]);
     }
 
     clearSuggestions();

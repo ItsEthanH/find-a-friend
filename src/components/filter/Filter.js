@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
-import { useNavigate } from 'react-router-dom';
 
 import FilterDesktop from './FilterDesktop';
 import FilterDropdownHome from './FilterDropdownHome';
@@ -17,24 +17,19 @@ import { uiActions } from '../../store/ui';
 import useFilterUrl from '../../hooks/useFilterUrl';
 
 function Filter(props) {
-  const createUrl = useFilterUrl();
-
   const { isDesktop, searchbar } = props;
   let filterPage;
 
   const mobileDropdownRef = useRef();
+  const params = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const createUrl = useFilterUrl();
 
   const dropdownOpen = useSelector((state) => state.ui.resultsDropdownOpen);
   const pageSelected = useSelector((state) => state.filter.pageSelected);
-  const filterState = useSelector((state) => state.filter);
-  const location = useSelector((state) => state.filter.location);
-  const areFiltersApplied = useSelector(
-    (state) => state.filter.activeFilters[FILTER_PAGES.TYPE].value
-  );
+  const activeType = useSelector((state) => state.filter.activeFilters[FILTER_PAGES.TYPE].value);
 
-  const activeType = filterState.activeFilters[FILTER_PAGES.TYPE].value;
   const { response, isLoading } = useFetch(`types/${activeType}/breeds`);
 
   function handleClickOutside(event) {
@@ -44,13 +39,16 @@ function Filter(props) {
   }
 
   function applyFilters() {
-    if (!areFiltersApplied) return;
+    if (!activeType) return;
 
     const url = createUrl();
-    navigate(`/results/${location.join('-')}/${url}`);
+    navigate(`/results/${params.location}/${url}`);
   }
 
-  function clearFilters() {}
+  function clearFilters() {
+    dispatch(filterActions.deleteAllFilters());
+    navigate(`/results/${params.location}`);
+  }
 
   useEffect(() => {
     document.addEventListener('click', handleClickOutside, true);

@@ -64,6 +64,7 @@ function _ResultsPage() {
         dispatch(filterActions.setFilter({ filter: filterName, key: value, value: true }));
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const breadcrumbs = [

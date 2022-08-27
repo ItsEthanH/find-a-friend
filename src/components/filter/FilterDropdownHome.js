@@ -6,36 +6,33 @@ import classes from './styles/FilterDropdown.module.css';
 import { FILTER_PAGES, filterActions } from '../../store/filter';
 
 function FilterDropdownHome(props) {
+  const { isDesktop } = props;
+
   const dispatch = useDispatch();
   const activeFilters = useSelector((state) => state.filter.activeFilters);
-  const options = Object.keys(FILTER_PAGES);
-  const areOptionsUnlocked = Object.keys(activeFilters[FILTER_PAGES.TYPE]).length !== 0;
-  const isDesktop = props.isDesktop;
+  const areOptionsUnlocked = activeFilters[FILTER_PAGES.TYPE].value;
 
   function selectPageHandler(event) {
     dispatch(filterActions.changePage({ page: event.target.id }));
   }
 
-  const renderedOptions = options.map((option) => {
-    const optionName = FILTER_PAGES[option];
-    if (optionName === FILTER_PAGES.HOME) return null;
-
-    const quantity = Object.keys(activeFilters[optionName]).length;
-    const isDisabled = optionName !== FILTER_PAGES.TYPE && !areOptionsUnlocked;
+  const renderedOptions = Object.keys(activeFilters).map((option) => {
+    const quantity = Object.keys(activeFilters[option]).length;
+    const isDisabled = option !== FILTER_PAGES.TYPE && !areOptionsUnlocked;
 
     return (
-      <li key={optionName}>
+      <li key={option}>
         <button
           type="button"
           disabled={isDisabled}
-          id={optionName}
+          id={option}
           className={classes.option}
           onClick={selectPageHandler}
         >
-          {optionName}
+          {option}
           {quantity > 0 && <p className={classes.quantity}>{quantity}</p>}
         </button>
-        {optionName !== FILTER_PAGES.REQUIREMENTS && <hr />}
+        {option !== FILTER_PAGES.REQUIREMENTS && <hr />}
       </li>
     );
   });
