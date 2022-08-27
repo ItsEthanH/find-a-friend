@@ -7,6 +7,8 @@ import FilterTemplateCheckbox from './FilterTemplateCheckbox';
 import { FILTER_PAGES } from '../../store/filter';
 import FilterButtonDesktop from './FilterButtonDesktop';
 
+import classes from './styles/FilterDesktop.module.css';
+
 function FilterDesktop(props) {
   const { isLoading } = props;
   const pageSelected = useSelector((state) => state.filter.pageSelected);
@@ -44,32 +46,21 @@ function FilterDesktop(props) {
     }
   });
 
-  function applyFilters() {
-    let urlFragment = '';
-    for (const filter in activeFilters) {
-      const keys = Object.keys(activeFilters[filter]);
-      const values = Object.values(activeFilters[filter]);
+  function applyFilterHandler() {
+    props.onApply();
+  }
 
-      if (values.length === 0) continue;
-      let urlParameter = `${filter.toLowerCase()}=`;
-
-      if (keys[0] === 'value') {
-        urlParameter += values[0];
-      } else {
-        urlParameter += keys.join(',').toLowerCase().replace(' ', '_');
-      }
-
-      urlFragment += urlParameter + '&';
-    }
-
-    urlFragment = urlFragment.slice(0, -1);
-    console.log(urlFragment);
+  function clearFilters() {
+    props.onClear();
   }
 
   return (
     <>
       {renderedFilters}
-      <button onClick={applyFilters}>Click me!</button>
+      <div className={classes.buttons}>
+        <button onClick={applyFilterHandler}>Apply</button>
+        <button onClick={clearFilters}>Clear</button>
+      </div>
     </>
   );
 }

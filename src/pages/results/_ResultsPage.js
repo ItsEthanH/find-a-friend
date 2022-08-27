@@ -28,7 +28,7 @@ function _ResultsPage() {
 
   let filters = params.filters ? `&${params.filters.replaceAll('-', ' ')}` : '';
 
-  // const requestEndpoint = `location=${apiLocation}${filters}`;
+  const requestEndpoint = `location=${apiLocation}${filters}`;
   // const { response, isLoading, error } = useFetch(`animals?${requestEndpoint}`);
 
   // allows the responsive rendering of the filters in the results page only.

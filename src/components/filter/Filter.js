@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import useFetch from '../../hooks/useFetch';
+import { useNavigate } from 'react-router-dom';
 
 import FilterDesktop from './FilterDesktop';
 import FilterDropdownHome from './FilterDropdownHome';
@@ -13,17 +14,26 @@ import classes from './styles/Filter.module.css';
 import typeData from '../../util/typeData';
 import { filterActions, FILTER_PAGES } from '../../store/filter';
 import { uiActions } from '../../store/ui';
+import useFilterUrl from '../../hooks/useFilterUrl';
 
 function Filter(props) {
+  const createUrl = useFilterUrl();
+
+  const { isDesktop, searchbar } = props;
   let filterPage;
+
   const mobileDropdownRef = useRef();
   const dispatch = useDispatch();
-  const { isDesktop, searchbar } = props;
+  const navigate = useNavigate();
 
   const dropdownOpen = useSelector((state) => state.ui.resultsDropdownOpen);
   const pageSelected = useSelector((state) => state.filter.pageSelected);
-
   const filterState = useSelector((state) => state.filter);
+  const location = useSelector((state) => state.filter.location);
+  const areFiltersApplied = useSelector(
+    (state) => state.filter.activeFilters[FILTER_PAGES.TYPE].value
+  );
+
   const activeType = filterState.activeFilters[FILTER_PAGES.TYPE].value;
   const { response, isLoading } = useFetch(`types/${activeType}/breeds`);
 
@@ -32,6 +42,15 @@ function Filter(props) {
       dispatch(uiActions.selectResultsDropdown({ dropdown: null }));
     }
   }
+
+  function applyFilters() {
+    if (!areFiltersApplied) return;
+
+    const url = createUrl();
+    navigate(`/results/${location.join('-')}/${url}`);
+  }
+
+  function clearFilters() {}
 
   useEffect(() => {
     document.addEventListener('click', handleClickOutside, true);
@@ -73,7 +92,7 @@ function Filter(props) {
 
   const desktopFilter = (
     <div className={classes.desktop}>
-      <FilterDesktop isLoading={isLoading} />
+      <FilterDesktop isLoading={isLoading} onApply={applyFilters} onClear={clearFilters} />
     </div>
   );
 
