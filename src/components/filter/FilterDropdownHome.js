@@ -12,6 +12,10 @@ function FilterDropdownHome(props) {
   const activeFilters = useSelector((state) => state.filter.activeFilters);
   const areOptionsUnlocked = activeFilters[FILTER_PAGES.TYPE].value;
 
+  function applyClickHandler() {
+    props.onApply();
+  }
+
   function selectPageHandler(event) {
     dispatch(filterActions.changePage({ page: event.target.id }));
   }
@@ -40,7 +44,13 @@ function FilterDropdownHome(props) {
   const styles = `${classes['option-list']} ${isDesktop ? classes.desktop : ''}`;
   return (
     <>
-      <FilterDropdownMobileHeader title="Filters" isDesktop={isDesktop} home />
+      <FilterDropdownMobileHeader
+        title="Filters"
+        isDesktop={isDesktop}
+        onApply={applyClickHandler}
+        searchbar={props.searchbar}
+        home
+      />
       <ul className={styles}>{renderedOptions}</ul>
     </>
   );

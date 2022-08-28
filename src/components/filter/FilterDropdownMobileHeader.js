@@ -8,6 +8,10 @@ function FilterDropdownMobileHeader(props) {
 
   const dispatch = useDispatch();
 
+  function applyClickHandler() {
+    props.onApply();
+  }
+
   function clearClickHandler() {
     dispatch(filterActions.deleteAllFilters());
   }
@@ -15,6 +19,16 @@ function FilterDropdownMobileHeader(props) {
   function backClickHandler() {
     dispatch(filterActions.changePage({ page: FILTER_PAGES.HOME }));
   }
+
+  const applyButton = (
+    <button
+      type="button"
+      className={`${classes.button} ${classes.apply}`}
+      onClick={applyClickHandler}
+    >
+      Apply
+    </button>
+  );
 
   const backButton = (
     <button
@@ -32,7 +46,7 @@ function FilterDropdownMobileHeader(props) {
       className={`${classes.button} ${classes.clear}`}
       onClick={clearClickHandler}
     >
-      Clear all filters
+      Clear
     </button>
   );
 
@@ -40,7 +54,11 @@ function FilterDropdownMobileHeader(props) {
   return (
     <div className={styles}>
       <p className={classes.title}>{title}</p>
-      {home ? clearButton : backButton}
+      <div className={classes.controls}>
+        {home && !props.searchbar && applyButton}
+        {home && clearButton}
+      </div>
+      {!home && backButton}
     </div>
   );
 }

@@ -11,7 +11,7 @@ import ResultsSort from './ResultsSort';
 import Filter from '../../components/filter/Filter';
 
 import classes from './styles/ResultsPage.module.css';
-import DUMMY_DATA from './__DUMMY_DATA__';
+import loading from '../../assets/svgs/loading.svg';
 import noImageFound from '../../assets/images/results/no-image-found.png';
 
 function _ResultsPage() {
@@ -29,7 +29,7 @@ function _ResultsPage() {
   let filters = params.filters ? `&${params.filters.replaceAll('-', ' ')}` : '';
 
   const requestEndpoint = `location=${apiLocation}${filters}`;
-  // const { response, isLoading, error } = useFetch(`animals?${requestEndpoint}`);
+  const { response, isLoading, error } = useFetch(`animals?${requestEndpoint}`);
 
   // allows the responsive rendering of the filters in the results page only.
   // controls the 'desktop' prop on the filter, which internally handles the styling through the addition of '.desktop' classes
@@ -74,8 +74,8 @@ function _ResultsPage() {
   ];
 
   const renderedCards =
-    DUMMY_DATA &&
-    DUMMY_DATA.animals.map((pet) => {
+    response &&
+    response.animals.map((pet) => {
       let photo = noImageFound;
       if (pet.primary_photo_cropped !== null) {
         photo = pet.primary_photo_cropped.full;
@@ -98,23 +98,34 @@ function _ResultsPage() {
   const styles = `${classes.results} ${isDesktop ? classes.desktop : ''}`;
   return (
     <main className={styles}>
-      {DUMMY_DATA && (
-        <>
-          <section className={classes.information}>
-            <Breadcrumbs breadcrumbs={breadcrumbs} />
-            <p className={classes.count}>
-              We've found <span className="color-accent">{DUMMY_DATA.pagination.total_count}</span>{' '}
-              results
-            </p>
-          </section>
+      <section className={classes.information}>
+        <Breadcrumbs breadcrumbs={breadcrumbs} />
+        <p className={classes.count}>
+          We've found{' '}
+          <span className="color-accent">{response && response.pagination.total_count}</span>{' '}
+          results
+        </p>
+      </section>
 
-          <section className={classes.dropdowns}>
-            <Filter isDesktop={isDesktop} />
-            <ResultsSort isDesktop={isDesktop} />
-          </section>
-          <section className={classes.cards}>{renderedCards}</section>
-        </>
-      )}
+      <section className={classes.dropdowns}>
+        <Filter isDesktop={isDesktop} />
+        <ResultsSort isDesktop={isDesktop} />
+      </section>
+      <section className={classes.cards}>
+        {renderedCards}
+        {isLoading && <img src={loading} alt="Loading..." className={classes.info} />}
+        {!isLoading && response && response.animals.length === 0 && (
+          <p className={classes.info}>
+            We could not find any results. Please try changing the location, or modifying the
+            filters, and try again.
+          </p>
+        )}
+        {!isLoading && error && (
+          <p className={classes.info}>
+            {error} - An error has occurred. Please contact the site admins.
+          </p>
+        )}
+      </section>
     </main>
   );
 }

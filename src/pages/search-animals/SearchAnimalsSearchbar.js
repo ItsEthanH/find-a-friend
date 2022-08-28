@@ -27,7 +27,7 @@ function SearchAnimalsSearchbar() {
     event.preventDefault();
 
     if (location.length === 0) {
-      setError('Please enter a location!');
+      setError('Please select a location from the dropdown!');
       return;
     }
 
@@ -37,6 +37,7 @@ function SearchAnimalsSearchbar() {
     } else {
       navigate(`/results/${location.join('-')}`);
     }
+    setLocation([]);
   }
 
   return (

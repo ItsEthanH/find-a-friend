@@ -1,12 +1,14 @@
 .card {
   display: grid;
-  grid-template-rows: 1fr min-content;
+  grid-template-rows: 15rem auto;
   max-width: 13rem;
+  height: fit-content;
 }
 
 .image img {
   object-fit: cover;
   height: 100%;
+  width: 100%;
 }
 
 .text {

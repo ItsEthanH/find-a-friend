@@ -10,6 +10,11 @@
   font-size: var(--fs-nav);
 }
 
+.controls {
+  display: flex;
+  gap: 2rem;
+}
+
 .button {
   font-family: var(--ff-accent);
   font-size: var(--fs-subbody);
@@ -22,6 +27,13 @@
 
 .clear {
   color: var(--clr-accent);
+}
+
+.apply {
+  background-color: var(--clr-accent);
+  color: white;
+  padding: 0 0.75rem;
+  border-radius: 99px;
 }
 
 .options {

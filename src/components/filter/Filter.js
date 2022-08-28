@@ -67,7 +67,7 @@ function Filter(props) {
 
   switch (pageSelected) {
     case FILTER_PAGES.HOME:
-      filterPage = <FilterDropdownHome />;
+      filterPage = <FilterDropdownHome onApply={applyFilters} searchbar={props.searchbar} />;
       break;
     case FILTER_PAGES.TYPE:
       filterPage = <FilterDropdownType />;

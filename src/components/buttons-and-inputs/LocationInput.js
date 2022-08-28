@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import usePlacesAutoComplete from 'use-places-autocomplete';
 
 import Card from '../cards-and-sections/Card';
@@ -5,6 +6,7 @@ import Card from '../cards-and-sections/Card';
 import classes from './styles/LocationInput.module.css';
 
 function LocationInput(props) {
+  const dropdownRef = useRef();
   const paramterOptions = {
     requestOptions: {
       types: ['(regions)'],
@@ -46,17 +48,45 @@ function LocationInput(props) {
     clearSuggestions();
   }
 
-  const renderedSuggestions = suggestions.data.map((item, index) => (
-    <li key={item.place_id}>
-      <button type="button" key={item.place_id} id={item.place_id} onClick={locationSelectHandler}>
-        {item.description}
-      </button>
-      {index === suggestions.data.length - 1 || <hr key={index} />}
-    </li>
-  ));
+  function handleClickOutside(event) {
+    if (!dropdownRef.current.contains(event.target)) {
+      clearSuggestions();
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside, true);
+    return () => {
+      document.removeEventListener('click', handleClickOutside, true);
+    };
+  });
+
+  const renderedSuggestions = suggestions.data.map((item) => {
+    const splitText = item.description.split(new RegExp(`(${value})`, 'gi'));
+    const description = splitText.map((part) =>
+      part.toLowerCase() === value.toLowerCase() ? (
+        <span className={classes.highlight}>{part}</span>
+      ) : (
+        part
+      )
+    );
+
+    return (
+      <li key={item.place_id}>
+        <button
+          type="button"
+          key={item.place_id}
+          id={item.place_id}
+          onClick={locationSelectHandler}
+        >
+          {description}
+        </button>
+      </li>
+    );
+  });
 
   return (
-    <div className={classes.input}>
+    <div className={classes.input} ref={dropdownRef}>
       <label htmlFor={props.name}>
         <img src={props.icon} alt={props.name} />
       </label>

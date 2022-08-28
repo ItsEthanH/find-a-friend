@@ -15,7 +15,7 @@ function FilterDesktop(props) {
   const filterList = Object.values(FILTER_PAGES);
   const pageSelected = useSelector((state) => state.filter.pageSelected);
   const hasTypeBeenChosen = useSelector(
-    (state) => state.filter.activeFilters[FILTER_PAGES.TYPE].value
+    (state) => state.filter.activeFilters[FILTER_PAGES.TYPE].value === undefined
   );
 
   const renderedFilters = filterList.map((filter) => {

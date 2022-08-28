@@ -26,7 +26,13 @@
 }
 
 .suggestions li {
+  font-size: var();
   padding: 0.5rem 1rem;
+}
+
+.suggestions li:hover {
+  background-color: var(--clr-grey-200);
+  cursor: pointer;
 }
 
 .suggestions button {
@@ -36,4 +42,8 @@
 .suggestions hr {
   border: 1px solid var(--clr-accent);
   margin: 0 1rem;
+}
+
+.highlight {
+  font-weight: bold;
 }

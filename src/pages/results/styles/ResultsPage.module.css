@@ -54,3 +54,9 @@
   grid-area: cards;
   margin-left: 2rem;
 }
+
+.info {
+  justify-self: start;
+  align-self: start;
+  font-size: var(--fs-nav);
+}
