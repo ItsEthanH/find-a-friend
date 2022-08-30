@@ -33,7 +33,7 @@ function Filter(props) {
   const { response, isLoading } = useFetch(`types/${activeType}/breeds`);
 
   function handleClickOutside(event) {
-    if (!mobileDropdownRef.current.contains(event.target)) {
+    if (mobileDropdownRef.current && !mobileDropdownRef.current.contains(event.target)) {
       dispatch(uiActions.selectResultsDropdown({ dropdown: null }));
     }
   }
@@ -42,12 +42,12 @@ function Filter(props) {
     if (!activeType) return;
 
     const url = createUrl();
-    navigate(`/results/${params.location}/${url}`);
+    navigate(`/results/${params.location}/${params.page}/${url}`);
   }
 
   function clearFilters() {
     dispatch(filterActions.deleteAllFilters());
-    navigate(`/results/${params.location}`);
+    navigate(`/results/${params.location}/${params.page}`);
   }
 
   useEffect(() => {

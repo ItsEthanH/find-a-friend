@@ -1,0 +1,8 @@
+.information {
+  grid-area: information;
+}
+
+.count {
+  font-size: var(--fs-subbody);
+  margin: 0.5rem 0;
+}

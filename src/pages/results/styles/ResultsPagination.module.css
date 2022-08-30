@@ -1,0 +1,11 @@
+.pages {
+  grid-area: pagination;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+.pages button {
+  color: var(--clr-accent);
+}

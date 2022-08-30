@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
+
 import { filterActions, FILTER_PAGES } from '../../store/filter';
 import { uiActions } from '../../store/ui';
 
-import Breadcrumbs from '../../components/text/Breadcrumbs';
 import ResultsCard from './ResultsCard';
 import ResultsSort from './ResultsSort';
 import Filter from '../../components/filter/Filter';
@@ -13,10 +13,14 @@ import Filter from '../../components/filter/Filter';
 import classes from './styles/ResultsPage.module.css';
 import loading from '../../assets/svgs/loading.svg';
 import noImageFound from '../../assets/images/results/no-image-found.png';
+import ResultsInformation from './ResultsInformation';
+import ResultsPagination from './ResultsPagination';
 
 function _ResultsPage() {
   const params = useParams();
-  const path = useLocation();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [totalCount, setTotalCount] = useState(0);
 
   // the next 6 lines turn the location from the {city-state} url format to the {city, state} api format
   let apiLocation = params.location;
@@ -26,10 +30,11 @@ function _ResultsPage() {
     apiLocation = loc.substring(0, index) + ', ' + loc.substring(index + 1);
   }
 
+  let pageNumber = params.page;
   let filters = params.filters ? `&${params.filters.replaceAll('-', ' ')}` : '';
 
-  const requestEndpoint = `location=${apiLocation}${filters}`;
-  const { response, isLoading, error } = useFetch(`animals?${requestEndpoint}`);
+  const requestEndpoint = `page=${pageNumber}&location=${apiLocation}${filters}`;
+  const { response, isLoading } = useFetch(`animals?${requestEndpoint}`);
 
   // allows the responsive rendering of the filters in the results page only.
   // controls the 'desktop' prop on the filter, which internally handles the styling through the addition of '.desktop' classes
@@ -42,6 +47,22 @@ function _ResultsPage() {
     dispatch(uiActions.selectResultsDropdown({ dropdown: null }));
     dispatch(filterActions.changePage({ page: FILTER_PAGES.HOME }));
   }, [dispatch, isDesktop]);
+
+  // page and count information is stored in state. whenever a response is received, compare it to the value in state. change if needed
+  // prevents page and count numbers jumping all over the place when the page/filters are changed
+  useEffect(() => {
+    if (response && response.pagination.current_page !== currentPage) {
+      setCurrentPage(response.pagination.current_page);
+    }
+
+    if (response && response.pagination.total_pages !== totalPages) {
+      setTotalPages(response.pagination.total_pages);
+    }
+
+    if (response && response.pagination.total_count !== totalCount) {
+      setTotalCount(response.pagination.total_count);
+    }
+  }, [response, currentPage, totalPages, totalCount]);
 
   // a very unflattering way of taking the filters from the url and setting them in redux and on the page
   useEffect(() => {
@@ -67,12 +88,6 @@ function _ResultsPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const breadcrumbs = [
-    { link: '/', text: 'Home' },
-    { link: '/search', text: 'Search Animals' },
-    { link: path.pathname, text: 'Results' },
-  ];
-
   const renderedCards =
     response &&
     response.animals.map((pet) => {
@@ -96,36 +111,35 @@ function _ResultsPage() {
     });
 
   const styles = `${classes.results} ${isDesktop ? classes.desktop : ''}`;
+
   return (
     <main className={styles}>
-      <section className={classes.information}>
-        <Breadcrumbs breadcrumbs={breadcrumbs} />
-        <p className={classes.count}>
-          We've found{' '}
-          <span className="color-accent">{response && response.pagination.total_count}</span>{' '}
-          results
-        </p>
-      </section>
+      <ResultsInformation count={totalCount} />
 
       <section className={classes.dropdowns}>
         <Filter isDesktop={isDesktop} />
         <ResultsSort isDesktop={isDesktop} />
       </section>
+
       <section className={classes.cards}>
         {renderedCards}
-        {isLoading && <img src={loading} alt="Loading..." className={classes.info} />}
+
+        {isLoading && <img src={loading} alt="Loading..." className={classes.placeholders} />}
+
         {!isLoading && response && response.animals.length === 0 && (
-          <p className={classes.info}>
+          <p className={classes.placeholders}>
             We could not find any results. Please try changing the location, or modifying the
             filters, and try again.
           </p>
         )}
-        {!isLoading && error && (
-          <p className={classes.info}>
-            {error} - An error has occurred. Please contact the site admins.
+        {!isLoading && !response && (
+          <p className={classes.placeholders}>
+            An error has occurred. Please try changing the location. If the error still persists,
+            please contact the website admins. Thank you
           </p>
         )}
       </section>
+      <ResultsPagination currentPage={currentPage} totalPages={totalPages} />
     </main>
   );
 }

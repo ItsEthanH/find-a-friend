@@ -9,7 +9,7 @@ function LocationInput(props) {
   const dropdownRef = useRef();
   const paramterOptions = {
     requestOptions: {
-      types: ['(regions)'],
+      types: ['(cities)'],
       componentRestrictions: {
         country: ['us', 'ca', 'mx'],
       },
@@ -60,6 +60,8 @@ function LocationInput(props) {
       document.removeEventListener('click', handleClickOutside, true);
     };
   });
+
+  console.log(suggestions);
 
   const renderedSuggestions = suggestions.data.map((item) => {
     const splitText = item.description.split(new RegExp(`(${value})`, 'gi'));

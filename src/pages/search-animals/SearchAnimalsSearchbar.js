@@ -33,9 +33,9 @@ function SearchAnimalsSearchbar() {
 
     if (areFiltersApplied) {
       const url = createUrl();
-      navigate(`/results/${location.join('-')}/${url}`);
+      navigate(`/results/${location.join('-')}/1/${url}`);
     } else {
-      navigate(`/results/${location.join('-')}`);
+      navigate(`/results/${location.join('-')}/1`);
     }
     setLocation([]);
   }

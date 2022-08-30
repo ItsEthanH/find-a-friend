@@ -7,6 +7,7 @@ function useFetch(endpoint) {
   const [response, setResponse] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
   const [error, setError] = useState(null);
+
   const token = useSelector((state) => state.auth.token);
 
   const url = 'https://api.petfinder.com/v2/' + endpoint;
@@ -23,6 +24,7 @@ function useFetch(endpoint) {
       const response = await fetch(url, options);
 
       if (!response.ok) {
+        setIsLoading(false);
         throw Error('Something went wrong!');
       }
 
@@ -30,7 +32,6 @@ function useFetch(endpoint) {
 
       setResponse(data);
       setIsLoading(false);
-      console.log(data);
     }
 
     try {

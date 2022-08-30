@@ -2,11 +2,6 @@
   margin: 1rem;
 }
 
-.count {
-  font-size: var(--fs-subbody);
-  margin: 0.5rem 0;
-}
-
 .dropdowns {
   display: flex;
   flex-flow: wrap row;
@@ -35,11 +30,8 @@
   grid-template-columns: 1fr 4fr;
   grid-template-areas:
     'information information'
-    'filters cards';
-}
-
-.desktop .information {
-  grid-area: information;
+    'filters cards'
+    'filters pagination';
 }
 
 .desktop .dropdowns {
@@ -55,8 +47,10 @@
   margin-left: 2rem;
 }
 
-.info {
+.placeholders {
+  font-size: var(--fs-nav);
   justify-self: start;
   align-self: start;
-  font-size: var(--fs-nav);
+  text-align: center;
+  max-width: 50rem;
 }
