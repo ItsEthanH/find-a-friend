@@ -60,8 +60,8 @@ function FilterDesktop(props) {
     <>
       {renderedFilters}
       <div className={classes.buttons}>
-        <button onClick={applyFilterHandler}>Apply</button>
-        <button onClick={clearFilterHandler}>Clear</button>
+        <button onClick={applyFilterHandler}>Apply Filters</button>
+        <button onClick={clearFilterHandler}>Clear Filters</button>
       </div>
     </>
   );

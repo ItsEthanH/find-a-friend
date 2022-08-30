@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 
 import { filterActions, FILTER_PAGES } from '../../store/filter';
@@ -16,8 +16,19 @@ import noImageFound from '../../assets/images/results/no-image-found.png';
 import ResultsInformation from './ResultsInformation';
 import ResultsPagination from './ResultsPagination';
 
+const sortOptions = {
+  recent: 'Date Posted (Newest)',
+  '-recent': 'Date Posted (Oldest)',
+  distance: 'Distance (Closest)',
+  '-distance': 'Distance (Furthest)',
+  random: 'Random',
+};
+
 function _ResultsPage() {
+  // imports
   const params = useParams();
+  const navigate = useNavigate();
+
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
@@ -30,10 +41,9 @@ function _ResultsPage() {
     apiLocation = loc.substring(0, index) + ', ' + loc.substring(index + 1);
   }
 
-  let pageNumber = params.page;
-  let filters = params.filters ? `&${params.filters.replaceAll('-', ' ')}` : '';
+  let filters = params.filters ? `${params.filters.replaceAll('-', ' ')}` : '';
 
-  const requestEndpoint = `page=${pageNumber}&location=${apiLocation}${filters}`;
+  const requestEndpoint = `location=${apiLocation}&page=${params.page}&sort=${params.sort}&${filters}`;
   const { response, isLoading } = useFetch(`animals?${requestEndpoint}`);
 
   // allows the responsive rendering of the filters in the results page only.
@@ -41,6 +51,11 @@ function _ResultsPage() {
   const dispatch = useDispatch();
   const windowWidth = useSelector((state) => state.ui.windowWidth);
   const isDesktop = windowWidth >= 1200;
+
+  // sort logic is handled here, due to the other parameters that are needed for a search
+  function sortChangeHandler(sortId) {
+    navigate(`/results/${params.location}/${params.page}/${sortId}/${filters}`);
+  }
 
   useEffect(() => {
     dispatch(filterActions.deleteAllFilters());
@@ -88,6 +103,7 @@ function _ResultsPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // rendering cards and popups here to (try to) keep the function return leaner
   const renderedCards =
     response &&
     response.animals.map((pet) => {
@@ -110,35 +126,46 @@ function _ResultsPage() {
       );
     });
 
-  const styles = `${classes.results} ${isDesktop ? classes.desktop : ''}`;
+  const loadingPlaceholder = isLoading && (
+    <img src={loading} alt="Loading..." className={classes.placeholders} />
+  );
 
+  const noResults = !isLoading && response && response.animals.length === 0 && (
+    <p className={classes.placeholders}>
+      We could not find any results. Please try changing the location, or modifying the filters, and
+      try again.
+    </p>
+  );
+
+  const errorReturned = !isLoading && !response && (
+    <p className={classes.placeholders}>
+      An error has occurred. Please try changing the location. If the error still persists, please
+      contact the website admins. Thank you
+    </p>
+  );
+
+  const styles = `${classes.results} ${isDesktop ? classes.desktop : ''}`;
   return (
     <main className={styles}>
       <ResultsInformation count={totalCount} />
 
       <section className={classes.dropdowns}>
         <Filter isDesktop={isDesktop} />
-        <ResultsSort isDesktop={isDesktop} />
+        <ResultsSort
+          isDesktop={isDesktop}
+          sortOptions={sortOptions}
+          sort={params.sort}
+          setSort={sortChangeHandler}
+        />
       </section>
 
       <section className={classes.cards}>
+        {loadingPlaceholder}
         {renderedCards}
-
-        {isLoading && <img src={loading} alt="Loading..." className={classes.placeholders} />}
-
-        {!isLoading && response && response.animals.length === 0 && (
-          <p className={classes.placeholders}>
-            We could not find any results. Please try changing the location, or modifying the
-            filters, and try again.
-          </p>
-        )}
-        {!isLoading && !response && (
-          <p className={classes.placeholders}>
-            An error has occurred. Please try changing the location. If the error still persists,
-            please contact the website admins. Thank you
-          </p>
-        )}
+        {noResults}
+        {errorReturned}
       </section>
+
       <ResultsPagination currentPage={currentPage} totalPages={totalPages} />
     </main>
   );

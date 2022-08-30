@@ -32,10 +32,10 @@ function SearchAnimalsSearchbar() {
     }
 
     if (areFiltersApplied) {
-      const url = createUrl();
-      navigate(`/results/${location.join('-')}/1/${url}`);
+      const filterFragment = createUrl();
+      navigate(`/results/${location.join('-')}/1/recent/${filterFragment}`);
     } else {
-      navigate(`/results/${location.join('-')}/1`);
+      navigate(`/results/${location.join('-')}/1/recent`);
     }
     setLocation([]);
   }

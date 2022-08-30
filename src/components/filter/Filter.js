@@ -42,12 +42,13 @@ function Filter(props) {
     if (!activeType) return;
 
     const url = createUrl();
-    navigate(`/results/${params.location}/${params.page}/${url}`);
+    console.log(params.sort);
+    navigate(`/results/${params.location}/${params.page}/${params.sort}/${url}`);
   }
 
   function clearFilters() {
     dispatch(filterActions.deleteAllFilters());
-    navigate(`/results/${params.location}/${params.page}`);
+    navigate(`/results/${params.location}/${params.page}/${params.sort}`);
   }
 
   useEffect(() => {

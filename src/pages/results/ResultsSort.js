@@ -5,18 +5,10 @@ import { uiActions } from '../../store/ui';
 import classes from './styles/ResultsSort.module.css';
 
 function ResultsSort(props) {
-  const { isDesktop } = props;
-  const sortOptions = [
-    'Date Posted (Newest)',
-    'Date Posted (Oldest)',
-    'Distance (Closest)',
-    'Distance (Furthest)',
-    'Random',
-  ];
+  const { isDesktop, sortOptions, sort, setSort } = props;
 
   const dispatch = useDispatch();
   const dropdownOpen = useSelector((state) => state.ui.resultsDropdownOpen);
-  const [selectedOption, setSelectedOption] = useState(sortOptions[0]);
 
   function sortButtonHandler() {
     if (dropdownOpen === 'SORT') {
@@ -27,20 +19,19 @@ function ResultsSort(props) {
   }
 
   function selectionHandler(event) {
-    setSelectedOption(event.target.textContent);
+    setSort(event.target.id);
     dispatch(uiActions.selectResultsDropdown({ dropdown: null }));
   }
 
-  const renderedOptions = sortOptions.map((option, index) => {
+  const renderedOptions = Object.keys(sortOptions).map((option) => {
     return (
-      <li key={index} className={classes.option}>
+      <li key={option} className={classes.option}>
         <button
-          key={index}
-          id={index}
-          className={selectedOption === option ? classes.selected : undefined}
+          id={option}
+          className={sort === sortOptions[option] ? classes.selected : undefined}
           onClick={selectionHandler}
         >
-          {option}
+          {sortOptions[option]}
         </button>
       </li>
     );
@@ -54,7 +45,7 @@ function ResultsSort(props) {
 
       <div className={classes.button}>
         <button onClick={sortButtonHandler}>
-          <p className={classes['button-text']}>{selectedOption}</p>
+          <p className={classes['button-text']}>{sortOptions[sort]}</p>
           <p className={classes.handle}>{handle}</p>
         </button>
         {isDesktop && dropdownOpen === 'SORT' && <hr />}
@@ -62,23 +53,6 @@ function ResultsSort(props) {
       </div>
     </div>
   );
-
-  // return (
-  //   <>
-  //     <div className={styles}>
-  //       <button className={classes.toggle} onClick={sortButtonHandler}>
-  //         <p>{selectedOption}</p>
-  //         {dropdownOpen === 'SORT' ? <p>-</p> : <p>+</p>}
-  //       </button>
-  //       {dropdownOpen === 'SORT' && (
-  //         <ul className={classes.options}>
-  //           <p>Sort by:</p>
-  //           {renderedOptions}
-  //         </ul>
-  //       )}
-  //     </div>
-  //   </>
-  // );
 }
 
 export default ResultsSort;

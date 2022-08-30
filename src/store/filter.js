@@ -8,7 +8,6 @@ export const FILTER_PAGES = {
   GENDER: 'Gender',
   AGE: 'Age',
   COAT: 'Coat',
-  REQUIREMENTS: 'Requirements',
 };
 
 const initialFilterState = {
@@ -21,13 +20,6 @@ const initialFilterState = {
     [FILTER_PAGES.GENDER]: { male: false, female: false },
     [FILTER_PAGES.AGE]: { baby: false, young: false, adult: false, senior: false },
     [FILTER_PAGES.COAT]: { default: null },
-    [FILTER_PAGES.REQUIREMENTS]: {
-      'child friendly': false,
-      'dog friendly': false,
-      'cat friendly': false,
-      'house trained': false,
-      'special needs': false,
-    },
   },
   activeFilters: {
     [FILTER_PAGES.TYPE]: {},
@@ -36,7 +28,6 @@ const initialFilterState = {
     [FILTER_PAGES.GENDER]: {},
     [FILTER_PAGES.AGE]: {},
     [FILTER_PAGES.COAT]: {},
-    [FILTER_PAGES.REQUIREMENTS]: {},
   },
 };
 
