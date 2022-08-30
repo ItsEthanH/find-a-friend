@@ -9,6 +9,10 @@
   color: black;
 }
 
+.mobile ul button {
+  padding: 1.5rem 1rem;
+}
+
 .dropdown {
   z-index: 1;
   position: absolute;

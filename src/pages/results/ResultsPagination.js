@@ -10,12 +10,12 @@ function ResultsPagination(props) {
 
   function changePage(event) {
     let newPage = currentPage;
-    const filterParams = params.filters ? `/${params.filters}` : `/`;
+    const filterParams = params.filters ? `${params.filters}` : '';
 
     if (event.target.id === 'next' && currentPage !== totalPages) newPage += 1;
     if (event.target.id === 'prev' && currentPage !== 1) newPage = newPage -= 1;
 
-    navigate(`/results/${params.location}/${newPage}${filterParams}`);
+    navigate(`/results/${params.location}/${newPage}/${params.sort}/${filterParams}`);
   }
 
   return (

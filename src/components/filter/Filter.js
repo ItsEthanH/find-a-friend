@@ -43,12 +43,12 @@ function Filter(props) {
 
     const url = createUrl();
     console.log(params.sort);
-    navigate(`/results/${params.location}/${params.page}/${params.sort}/${url}`);
+    navigate(`/results/${params.location}/1/${params.sort}/${url}`);
   }
 
   function clearFilters() {
     dispatch(filterActions.deleteAllFilters());
-    navigate(`/results/${params.location}/${params.page}/${params.sort}`);
+    navigate(`/results/${params.location}/1/${params.sort}`);
   }
 
   useEffect(() => {

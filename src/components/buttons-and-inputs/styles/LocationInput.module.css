@@ -27,7 +27,6 @@
 
 .suggestions li {
   font-size: var();
-  padding: 0.5rem 1rem;
 }
 
 .suggestions li:hover {
@@ -36,7 +35,9 @@
 }
 
 .suggestions button {
+  width: 100%;
   text-align: left;
+  padding: 1.5rem 1rem;
 }
 
 .suggestions hr {
@@ -46,4 +47,10 @@
 
 .highlight {
   font-weight: bold;
+}
+
+@media screen and (min-width: 1000px) {
+  .suggestions li {
+    padding: 1rem 1rem;
+  }
 }

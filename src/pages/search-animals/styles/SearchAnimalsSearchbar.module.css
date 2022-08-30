@@ -44,7 +44,7 @@
     grid-template-columns: 1fr min-content 1fr;
   }
 
-  .form button {
+  .form > button {
     margin: 0.5rem 0;
   }
 }

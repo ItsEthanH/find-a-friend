@@ -54,7 +54,7 @@ function _ResultsPage() {
 
   // sort logic is handled here, due to the other parameters that are needed for a search
   function sortChangeHandler(sortId) {
-    navigate(`/results/${params.location}/${params.page}/${sortId}/${filters}`);
+    navigate(`/results/${params.location}/1/${sortId}/${filters}`);
   }
 
   useEffect(() => {
@@ -80,6 +80,7 @@ function _ResultsPage() {
   }, [response, currentPage, totalPages, totalCount]);
 
   // a very unflattering way of taking the filters from the url and setting them in redux and on the page
+  // filters are cleared from state when the page is changed, too
   useEffect(() => {
     const filtersArray = filters.split('&');
     filtersArray.shift();
@@ -100,6 +101,10 @@ function _ResultsPage() {
         dispatch(filterActions.setFilter({ filter: filterName, key: value, value: true }));
       }
     }
+
+    return () => {
+      dispatch(filterActions.deleteAllFilters());
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
