@@ -24,6 +24,8 @@ function FilterDropdownHome(props) {
     const quantity = Object.keys(activeFilters[option]).length;
     const isDisabled = option !== FILTER_PAGES.TYPE && !areOptionsUnlocked;
 
+    console.log(option);
+
     return (
       <li key={option}>
         <button
@@ -51,7 +53,9 @@ function FilterDropdownHome(props) {
         searchbar={props.searchbar}
         home
       />
-      <ul className={styles}>{renderedOptions}</ul>
+      <ul className={styles} data-testid="filter-home">
+        {renderedOptions}
+      </ul>
     </>
   );
 }

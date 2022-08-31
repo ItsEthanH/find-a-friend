@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
+import useFilterUrl from '../../hooks/useFilterUrl';
 
 import FilterDesktop from './FilterDesktop';
 import FilterDropdownHome from './FilterDropdownHome';
@@ -14,7 +15,6 @@ import classes from './styles/Filter.module.css';
 import typeData from '../../util/typeData';
 import { filterActions, FILTER_PAGES } from '../../store/filter';
 import { uiActions } from '../../store/ui';
-import useFilterUrl from '../../hooks/useFilterUrl';
 
 function Filter(props) {
   const { isDesktop, searchbar } = props;
@@ -42,7 +42,9 @@ function Filter(props) {
     if (!activeType) return;
 
     const url = createUrl();
-    console.log(params.sort);
+
+    dispatch(uiActions.selectResultsDropdown({ dropdown: null }));
+    dispatch(filterActions.changePage({ page: FILTER_PAGES.HOME }));
     navigate(`/results/${params.location}/1/${params.sort}/${url}`);
   }
 
@@ -83,14 +85,14 @@ function Filter(props) {
 
   const mobileStyles = `${classes.mobile} ${searchbar ? classes.searchbar : undefined}`;
   const mobileFilter = (
-    <div ref={mobileDropdownRef} className={mobileStyles}>
+    <div data-testid="mobile-filter" ref={mobileDropdownRef} className={mobileStyles}>
       <FilterButtonMobile />
       {dropdownOpen === 'FILTER' && <div className={classes.dropdown}>{filterPage}</div>}
     </div>
   );
 
   const desktopFilter = (
-    <div className={classes.desktop}>
+    <div data-testid="desktop-filter" className={classes.desktop}>
       <FilterDesktop isLoading={isLoading} onApply={applyFilters} onClear={clearFilters} />
     </div>
   );

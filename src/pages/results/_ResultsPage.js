@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 
 import { filterActions, FILTER_PAGES } from '../../store/filter';
@@ -28,6 +28,9 @@ function _ResultsPage() {
   // imports
   const params = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  console.log(location.pathname);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);

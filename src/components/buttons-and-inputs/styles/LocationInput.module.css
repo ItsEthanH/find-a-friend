@@ -48,9 +48,3 @@
 .highlight {
   font-weight: bold;
 }
-
-@media screen and (min-width: 1000px) {
-  .suggestions li {
-    padding: 1rem 1rem;
-  }
-}

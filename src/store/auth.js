@@ -43,7 +43,7 @@ const authSlice = createSlice({
       const dateTime = dateObj.getTime();
       const expiry = new Date(dateTime + action.time * 1000);
 
-      document.cookie = `bearerToken=${action.token}; expires=${expiry}}`;
+      document.cookie = `bearerToken=${action.token};expires=${expiry}};path=/`;
       state.token = action.token;
     },
   },
