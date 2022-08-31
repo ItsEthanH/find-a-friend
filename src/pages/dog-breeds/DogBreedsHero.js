@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Hero from '../../components/ui/Hero';
-import Heading from '../../components/ui/Heading';
-import SingleSearchbar from '../../components/ui/SingleSearchbar';
+import Hero from '../../components/cards-and-sections/Hero';
+import Heading from '../../components/text/Heading';
+import SingleSearchbar from '../../components/buttons-and-inputs/SingleSearchbar';
 
 import search from '../../assets/svgs/search.svg';
 

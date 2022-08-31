@@ -28,6 +28,83 @@ exports[`landing page snapshots 300px 1`] = `
         Search Now!
       </button>
     </div>
+    <div
+      className="card stats"
+      data-testid="card-component"
+    >
+      <div
+        className="statistic"
+      >
+        <img
+          alt=""
+          src="paw.svg"
+        />
+        <p
+          className="stat"
+        >
+          100,000+
+        </p>
+        <p
+          className="text"
+        >
+          Animals
+        </p>
+      </div>
+      <div
+        className="statistic"
+      >
+        <img
+          alt=""
+          src="home.svg"
+        />
+        <p
+          className="stat"
+        >
+          10,000+
+        </p>
+        <p
+          className="text"
+        >
+          Shelters
+        </p>
+      </div>
+      <div
+        className="statistic"
+      >
+        <img
+          alt=""
+          src="animals.svg"
+        />
+        <p
+          className="stat"
+        >
+          50
+        </p>
+        <p
+          className="text"
+        >
+          Breeds
+        </p>
+      </div>
+      <div
+        className="statistic"
+      >
+        <img
+          alt=""
+          src="temp.svg"
+        />
+        <p
+          className="stat"
+        >
+          10
+        </p>
+        <p
+          className="text"
+        >
+          Varieties
+        </p>
+      </div>
+    </div>
   </section>
   <section
     className="section animals"
@@ -755,7 +832,7 @@ exports[`landing page snapshots 300px 1`] = `
       className="wrapper"
     >
       <div
-        className="resource left"
+        className="resource true"
       >
         <div
           className="highlight"
@@ -775,7 +852,7 @@ exports[`landing page snapshots 300px 1`] = `
         </a>
       </div>
       <div
-        className="resource right"
+        className="resource undefined"
       >
         <div
           className="highlight"
@@ -795,7 +872,7 @@ exports[`landing page snapshots 300px 1`] = `
         </a>
       </div>
       <div
-        className="resource left"
+        className="resource true"
       >
         <div
           className="highlight"
@@ -2490,20 +2567,10 @@ exports[`landing page snapshots 1800px 1`] = `
           </p>
         </div>
       </div>
-      <img
-        alt=""
-        className="pawprints"
-        src="pawprints-down.png"
-      />
     </div>
     <div
       className="story two"
     >
-      <img
-        alt=""
-        className="pawprints"
-        src="pawprints-up.png"
-      />
       <div
         className="card card"
         data-testid="card-component"

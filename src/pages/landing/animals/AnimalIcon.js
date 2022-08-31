@@ -1,7 +1,7 @@
 import React from 'react';
 
 import classes from './styles/AnimalIcon.module.css';
-import buttonClasses from '../../../components/ui/styles/AccentButton.module.css';
+import buttonClasses from '../../../components/buttons-and-inputs/styles/AccentButton.module.css';
 
 function AnimalIcon(props) {
   return (

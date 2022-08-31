@@ -1,0 +1,32 @@
+.wrapper {
+  margin: 1.5rem 0;
+  width: 100%;
+}
+
+.heading {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-body);
+  margin: 0.5rem 0;
+}
+
+.button {
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.button > button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  width: 100%;
+  padding: 0.5rem 1rem;
+}
+.button > button > p:last-of-type {
+  font-size: var(--fs-subheading);
+}
+
+.button hr {
+  border: none;
+  border: 1px solid var(--clr-grey-200);
+}

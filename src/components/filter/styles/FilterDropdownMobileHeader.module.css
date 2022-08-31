@@ -1,0 +1,45 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--clr-grey-300);
+  padding: 1rem;
+}
+
+.title {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-nav);
+}
+
+.controls {
+  display: flex;
+  gap: 2rem;
+}
+
+.button {
+  font-family: var(--ff-accent);
+  font-size: var(--fs-subbody);
+  padding: 0;
+}
+
+.back {
+  color: var(--clr-grey-400);
+}
+
+.clear {
+  color: var(--clr-accent);
+}
+
+.apply {
+  background-color: var(--clr-accent);
+  color: white;
+  padding: 0 0.75rem;
+  border-radius: 99px;
+}
+
+.options {
+  list-style: none;
+}
+
+.desktop {
+  padding: 0;
+}

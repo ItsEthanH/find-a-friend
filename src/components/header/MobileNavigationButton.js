@@ -1,16 +1,18 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { uiActions } from '../../store/ui';
 
-import AppContext from '../../context/AppContext';
-import Backdrop from '../ui/Backdrop';
+import Backdrop from '../cards-and-sections/Backdrop';
 
 import classes from './styles/MobileNavigationButton.module.css';
 
 function MobileNavigationButton(props) {
-  const { isMobileNavOpen, toggleMobileNav } = useContext(AppContext);
+  const dispatch = useDispatch();
+  const isMobileNavOpen = useSelector((state) => state.ui.isMobileNavOpen);
   const style = `${classes.button} ${props.type === 'cross' ? classes.cross : classes.hamburger}`;
 
   function navClickHandler() {
-    toggleMobileNav();
+    dispatch(uiActions.toggleMobileNav());
   }
 
   // will stop mobile content from scrolling when the nav is open

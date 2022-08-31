@@ -1,0 +1,13 @@
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  width: 100%;
+}
+
+.filter select {
+  width: 100%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}

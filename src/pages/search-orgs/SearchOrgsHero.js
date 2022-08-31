@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Hero from '../../components/ui/Hero';
-import Heading from '../../components/ui/Heading';
-import DoubleSearchbar from '../../components/ui/DoubleSearchbar';
+import Hero from '../../components/cards-and-sections/Hero';
+import Heading from '../../components/text/Heading';
+import DoubleSearchbar from '../../components/buttons-and-inputs/DoubleSearchbar';
 
 import location from '../../assets/svgs/location-pin.svg';
 import shelter from '../../assets/svgs/home.svg';

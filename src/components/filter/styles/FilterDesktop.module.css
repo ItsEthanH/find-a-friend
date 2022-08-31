@@ -1,0 +1,22 @@
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.buttons button {
+  border: 2px solid var(--clr-accent);
+  width: 100%;
+  border-radius: 999px;
+  font-size: var(--fs-subbody);
+  padding: 0.5rem 1rem;
+}
+
+.buttons button:first-child {
+  background-color: var(--clr-accent);
+  color: white;
+}
+
+.buttons button:hover {
+  transform: scale(1.1);
+}

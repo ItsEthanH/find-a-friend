@@ -1,0 +1,50 @@
+.input {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.input input {
+  width: 100%;
+  margin: 0 0.5rem;
+  border: none;
+  outline: none;
+}
+
+.suggestions {
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  background: white;
+  color: black;
+  z-index: 1;
+}
+
+.suggestions ul {
+  list-style: none;
+}
+
+.suggestions li {
+  font-size: var();
+}
+
+.suggestions li:hover {
+  background-color: var(--clr-grey-200);
+  cursor: pointer;
+}
+
+.suggestions button {
+  width: 100%;
+  text-align: left;
+  padding: 1.5rem 1rem;
+}
+
+.suggestions hr {
+  border: 1px solid var(--clr-accent);
+  margin: 0 1rem;
+}
+
+.highlight {
+  font-weight: bold;
+}

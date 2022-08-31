@@ -1,0 +1,56 @@
+.results {
+  margin: 1rem;
+}
+
+.dropdowns {
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cards {
+  margin: 2rem 0;
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.results select {
+  width: fit-content;
+  background: none;
+  border: none;
+}
+
+.desktop {
+  display: grid;
+  grid-template-rows: min-content auto;
+  grid-template-columns: 1fr 4fr;
+  grid-template-areas:
+    'information information'
+    'filters cards'
+    'filters pagination';
+}
+
+.desktop .dropdowns {
+  flex-flow: wrap column-reverse;
+  justify-content: start;
+  align-items: flex-start;
+  gap: 0;
+  min-width: 0;
+}
+
+.desktop .cards {
+  grid-area: cards;
+  margin-left: 2rem;
+}
+
+.placeholders {
+  font-size: var(--fs-nav);
+  justify-self: start;
+  align-self: start;
+  text-align: center;
+  max-width: 50rem;
+}

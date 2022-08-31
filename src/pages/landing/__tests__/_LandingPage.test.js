@@ -1,7 +1,9 @@
 import renderer from 'react-test-renderer';
 
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from '../../../store/store';
 import LandingPage from '../_LandingPage';
-import { AppContextProvider } from '../../../context/AppContext';
 
 jest.useFakeTimers();
 describe('landing page snapshots', () => {
@@ -13,9 +15,11 @@ describe('landing page snapshots', () => {
 
     const tree = renderer
       .create(
-        <AppContextProvider>
-          <LandingPage />
-        </AppContextProvider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <LandingPage />
+          </Provider>
+        </BrowserRouter>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -27,9 +31,11 @@ describe('landing page snapshots', () => {
 
     const tree = renderer
       .create(
-        <AppContextProvider>
-          <LandingPage />
-        </AppContextProvider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <LandingPage />
+          </Provider>
+        </BrowserRouter>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -41,9 +47,11 @@ describe('landing page snapshots', () => {
 
     const tree = renderer
       .create(
-        <AppContextProvider>
-          <LandingPage />
-        </AppContextProvider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <LandingPage />
+          </Provider>
+        </BrowserRouter>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

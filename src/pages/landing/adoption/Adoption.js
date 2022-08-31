@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Heading from '../../../components/ui/Heading';
-import Subheading from '../../../components/ui/Subheading';
+import Heading from '../../../components/text/Heading';
+import Subheading from '../../../components/text/Subheading';
 import AdoptionCarousel from './AdoptionCarousel';
 
 import classes from './styles/Adoption.module.css';

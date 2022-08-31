@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux/es/exports';
 import { Link } from 'react-router-dom';
-import AppContext from '../../context/AppContext';
 
 import DesktopNavigation from './DesktopNavigation';
 import MobileNavigationButton from './MobileNavigationButton';
@@ -10,7 +10,7 @@ import classes from './styles/Header.module.css';
 import logo from '../../assets/images/header-logo.png';
 
 function Header() {
-  const { windowWidth } = useContext(AppContext);
+  const windowWidth = useSelector((state) => state.ui.windowWidth);
 
   return (
     <>

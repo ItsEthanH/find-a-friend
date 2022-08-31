@@ -1,0 +1,12 @@
+.breadcrumbs {
+  width: 100%;
+}
+
+.breadcrumbs > * {
+  display: inline;
+  font-size: var(--fs-subbody);
+}
+
+.breadcrumbs a {
+  color: var(--clr-accent);
+}

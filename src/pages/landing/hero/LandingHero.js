@@ -1,14 +1,20 @@
-import React, { useContext } from 'react';
-import AppContext from '../../../context/AppContext';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-import Hero from '../../../components/ui/Hero';
+import Hero from '../../../components/cards-and-sections/Hero';
 import HeroStats from '../../../pages/landing/hero/HeroStats';
-import AccentButton from '../../../components/ui/AccentButton';
+import AccentButton from '../../../components/buttons-and-inputs/AccentButton';
 
 import classes from './styles/LandingHero.module.css';
 
 function LandingHero() {
-  const { windowWidth } = useContext(AppContext);
+  const navigate = useNavigate();
+  const windowWidth = useSelector((state) => state.ui.windowWidth);
+
+  function buttonClickHandler() {
+    navigate('/search');
+  }
 
   return (
     <Hero page="LANDING">
@@ -17,7 +23,7 @@ function LandingHero() {
           Your new <span className="color-accent">best friend</span> is waiting!
         </h2>
         <p>Find the perfect pet to adopt with over 20,000 dogs, cats, rabbits and more!</p>
-        <AccentButton inheritedClasses={classes.search}>Search Now!</AccentButton>
+        <AccentButton onClick={buttonClickHandler}>Search Now!</AccentButton>
       </div>
       {windowWidth >= 1000 && <HeroStats />}
     </Hero>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import CatBreedsHero from './CatBreedsHero';
-import BrowseSection from '../../components/ui/BrowseSection';
+import BrowseSection from '../../components/cards-and-sections/BrowseSection';
 
 import placeholder from '../../assets/images/breeds/cat-hero.jpg';
 

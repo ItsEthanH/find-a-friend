@@ -25,6 +25,10 @@
   --clr-accent: #f56d1c;
   --clr-petfinder: #6907b8;
 
+  --clr-grey-400: #818181;
+  --clr-grey-300: #c3c3c3;
+  --clr-grey-200: #efefef;
+
   --ff-heading: 'OpenSans-SemiBold', sans-serif;
   --ff-body: 'OpenSans-Regular', sans-serif;
   --ff-accent: 'OpenSans-Light', sans-serif;
@@ -32,8 +36,9 @@
   --fs-title: 3rem;
   --fs-heading: 2rem;
   --fs-subheading: 1.5rem;
-  --fs-body: 1rem;
   --fs-nav: 1.2rem;
+  --fs-body: 1rem;
+  --fs-subbody: 0.9rem;
 }
 
 /* CSS reset courtesy of Andy Bell https://piccalil.li/blog/a-modern-css-reset */
@@ -87,10 +92,17 @@ a {
   text-decoration: none;
 }
 
-/* (PERSONAL CHOICE) - Removes all button styles */
+/* (PERSONAL CHOICE) - Removes all button styles and adds a pointer cursor */
 button {
   background: transparent;
   border: none;
+  cursor: pointer;
+}
+
+/* (PERSONAL CHOICE) - Custom disabled button styling */
+button:disabled {
+  cursor: not-allowed;
+  color: var(--clr-grey-300);
 }
 
 /* Make images easier to work with */

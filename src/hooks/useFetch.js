@@ -1,24 +1,36 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
+import { useSelector } from 'react-redux';
 
 // useFetch is used to make GET requests to the Petfinder API, as long as an endpoint is given
 // the only POST request needed is to get Bearer tokens from the API. this is handled in the AppContext.js file.
 function useFetch(endpoint) {
-  const url = 'https://api.petfinder.com/v2/' + endpoint;
-
   const [response, setResponse] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(null);
   const [error, setError] = useState(null);
+
+  const token = useSelector((state) => state.auth.token);
+
+  const url = 'https://api.petfinder.com/v2/' + endpoint;
 
   useEffect(() => {
     async function sendRequest() {
-      const response = await fetch(url);
+      if (endpoint.includes('undefined')) return;
+
+      setResponse(null);
+      setIsLoading(true);
+
+      const options = { headers: { Authorization: `Bearer ${token}` } };
+      const response = await fetch(url, options);
 
       if (!response.ok) {
+        setIsLoading(false);
         throw Error('Something went wrong!');
       }
 
       const data = await response.json();
+
       setResponse(data);
+      setIsLoading(false);
     }
 
     try {
@@ -26,11 +38,8 @@ function useFetch(endpoint) {
     } catch (err) {
       setError(err.message);
       console.log(err);
-      return;
-    } finally {
-      setIsLoading(false);
     }
-  }, [url]);
+  }, [url, endpoint, token]);
 
   return { response, isLoading, error };
 }
