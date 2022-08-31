@@ -8,24 +8,25 @@ import classes from './styles/AdoptionCard.module.css';
 import age from '../../../assets/svgs/cake.svg';
 import pin from '../../../assets/svgs/location-pin.svg';
 
-function AdoptionCard() {
+function AdoptionCard({ pet }) {
+  const location = `${pet.contact.address.city}, ${pet.contact.address.state}`;
+
   // mobile image size - 300px
   return (
     <Card styles={classes.card}>
       <div className={classes.image}>
-        <img
-          src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/56499165/1/?bust=1659106172&width=300"
-          alt="placeholder text"
-        />
+        <img src={pet.primary_photo_cropped.small} alt={pet.name} />
       </div>
+
       <div className={classes.text}>
-        <h4>Alexander</h4>
-        <p>American Wirehair</p>
+        <h4>{pet.name}</h4>
+        <p>{pet.breeds.primary}</p>
         <div className={classes.info}>
-          <AdoptionInfo icon={age} alt="Age" label="Adult" />
-          <AdoptionInfo icon={pin} alt="Location" label="Los Angeles, CA" />
+          <AdoptionInfo icon={age} alt="Age" label={pet.age} />
+          <AdoptionInfo icon={pin} alt="Location" label={location} />
         </div>
       </div>
+
       <AccentButton styles={classes.view}>View Profile</AccentButton>
     </Card>
   );

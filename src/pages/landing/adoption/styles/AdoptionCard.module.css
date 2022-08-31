@@ -1,15 +1,14 @@
 .card {
   display: grid;
+  grid-template-rows: 15rem auto auto;
   margin: 3rem auto 1rem auto;
   max-width: 15rem;
 }
 
-.image {
-  object-fit: cover;
-}
-
 .image img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 10px 10px 0 0;
 }
 
@@ -34,7 +33,6 @@
   flex-direction: column;
   align-items: center;
   gap: 0.4rem;
-  margin-top: 0.75rem;
   justify-content: space-around;
 }
 
@@ -44,5 +42,5 @@
 
 .view {
   justify-self: center;
-  margin: 1rem 0;
+  margin-bottom: 1rem;
 }
