@@ -30,8 +30,6 @@ function _ResultsPage() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  console.log(location.pathname);
-
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [totalCount, setTotalCount] = useState(0);

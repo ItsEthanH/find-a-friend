@@ -61,8 +61,6 @@ function LocationInput(props) {
     };
   });
 
-  console.log(suggestions);
-
   const renderedSuggestions = suggestions.data.map((item) => {
     const splitText = item.description.split(new RegExp(`(${value})`, 'gi'));
     const description = splitText.map((part) =>

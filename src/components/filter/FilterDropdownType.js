@@ -7,7 +7,7 @@ import classes from './styles/FilterDropdown.module.css';
 import { FILTER_PAGES } from '../../store/filter';
 import { filterActions } from '../../store/filter';
 import { uiActions } from '../../store/ui';
-import typeData from '../../util/typeData';
+import typeData from '../../data/typeData';
 
 function FilterDropdownType(props) {
   const { isDesktop } = props;

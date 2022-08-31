@@ -12,7 +12,7 @@ import FilterTemplateCheckbox from './FilterTemplateCheckbox';
 import FilterButtonMobile from './FilterButtonMobile';
 
 import classes from './styles/Filter.module.css';
-import typeData from '../../util/typeData';
+import typeData from '../../data/typeData';
 import { filterActions, FILTER_PAGES } from '../../store/filter';
 import { uiActions } from '../../store/ui';
 

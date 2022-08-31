@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { filterActions, FILTER_PAGES } from '../../store/filter';
 import { uiActions } from '../../store/ui';
 
-import typeData from '../../util/typeData';
+import typeData from '../../data/typeData';
 
 import classes from './styles/FilterButtonDesktop.module.css';
 

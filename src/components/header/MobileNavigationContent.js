@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { uiActions } from '../../store/ui';
 import { NavLink } from 'react-router-dom';
-import NavData from '../../util/navData';
+import NavData from '../../data/navData';
 
 import MobileNavigationButton from './MobileNavigationButton';
 
