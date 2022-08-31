@@ -11,16 +11,15 @@ function useFetch(endpoint) {
   const token = useSelector((state) => state.auth.token);
 
   const url = 'https://api.petfinder.com/v2/' + endpoint;
-  const options = useMemo(() => {
-    return { headers: { Authorization: `Bearer ${token}` } };
-  }, [token]);
 
   useEffect(() => {
     async function sendRequest() {
+      if (endpoint.includes('undefined')) return;
+
       setResponse(null);
       setIsLoading(true);
 
-      if (endpoint.includes('undefined')) return;
+      const options = { headers: { Authorization: `Bearer ${token}` } };
       const response = await fetch(url, options);
 
       if (!response.ok) {
@@ -40,7 +39,7 @@ function useFetch(endpoint) {
       setError(err.message);
       console.log(err);
     }
-  }, [url, options, endpoint]);
+  }, [url, endpoint, token]);
 
   return { response, isLoading, error };
 }

@@ -9,10 +9,11 @@ const authSlice = createSlice({
   reducers: {
     checkTokenInCookie(state) {
       let tokenCookieValue = getCookieValue('bearerToken');
-      if (tokenCookieValue) {
-        state.token = tokenCookieValue;
-      } else {
+
+      if (!tokenCookieValue) {
         authSlice.caseReducers.getBearerToken(state);
+      } else {
+        state.token = tokenCookieValue;
       }
     },
 
