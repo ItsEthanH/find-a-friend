@@ -84,7 +84,6 @@ function _ResultsPage() {
   // filters are cleared from state when the page is changed, too
   useEffect(() => {
     const filtersArray = filters.split('&');
-    filtersArray.shift();
 
     for (const i of filtersArray) {
       const filterPair = i.split('=');

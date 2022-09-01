@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import LandingSection from '../../../components/cards-and-sections/LandingSection';
 import Heading from '../../../components/text/Heading';
@@ -8,10 +9,17 @@ import AnimalIcon from './AnimalIcon';
 import classes from './styles/Animals.module.css';
 import dog from '../../../assets/images/landing/dog-circle.png';
 import cat from '../../../assets/images/landing/cat-circle.png';
-import bunny from '../../../assets/images/landing/bunny-circle.png';
+import rabbit from '../../../assets/images/landing/rabbit-circle.png';
 import horse from '../../../assets/images/landing/horse-circle.png';
 
 function Animals() {
+  const navigate = useNavigate();
+
+  function iconClickHandler(event) {
+    console.log(event.target);
+    navigate(`/results/new-york-ny/1/recent/type=${event.target.id}`);
+  }
+
   return (
     <LandingSection styles={classes.animals}>
       <div className={classes.headings}>
@@ -22,10 +30,10 @@ function Animals() {
         <Subheading alignment="center">...and everything in between!</Subheading>
       </div>
       <div className={classes.icons}>
-        <AnimalIcon image={dog} animal="Dog" />
-        <AnimalIcon image={cat} animal="Cat" />
-        <AnimalIcon image={bunny} animal="Bunny" />
-        <AnimalIcon image={horse} animal="Horse" />
+        <AnimalIcon id="dog" image={dog} animal="Dog" onClick={iconClickHandler} />
+        <AnimalIcon id="cat" image={cat} animal="Cat" onClick={iconClickHandler} />
+        <AnimalIcon id="rabbit" image={rabbit} animal="Rabbit" onClick={iconClickHandler} />
+        <AnimalIcon id="horse" image={horse} animal="Horse" onClick={iconClickHandler} />
       </div>
     </LandingSection>
   );
