@@ -44,6 +44,8 @@ function useFilter(filter) {
   // only calls mountFilter() on mount, hence the lack of dependencies
   useEffect(() => {
     mountFilter();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return { displayedValues, updateFilterValues };
