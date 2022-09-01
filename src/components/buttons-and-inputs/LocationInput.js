@@ -63,6 +63,7 @@ function LocationInput(props) {
 
   const renderedSuggestions = suggestions.data.map((item) => {
     const splitText = item.description.split(new RegExp(`(${value})`, 'gi'));
+
     const description = splitText.map((part) =>
       part.toLowerCase() === value.toLowerCase() ? (
         <span className={classes.highlight}>{part}</span>

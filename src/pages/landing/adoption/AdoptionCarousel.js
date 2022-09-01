@@ -18,7 +18,7 @@ function AdoptionCarousel() {
       if (!pet.primary_photo_cropped) return <></>;
 
       return (
-        <SwiperSlide>
+        <SwiperSlide key={pet.id}>
           <AdoptionCard pet={pet} />
         </SwiperSlide>
       );
