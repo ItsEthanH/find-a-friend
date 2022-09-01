@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import store from './store/store';
 
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-
 import App from './App';
+
 import LandingPage from './pages/landing/_LandingPage';
 import SearchAnimalsPage from './pages/search-animals/_SearchAnimalsPage';
 import SearchOrgsPage from './pages/search-orgs/_SearchOrgsPage';

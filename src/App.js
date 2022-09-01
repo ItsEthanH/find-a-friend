@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { authActions } from './store/auth';
 import { uiActions } from './store/ui';
 import { Outlet } from 'react-router-dom';
+import useScroll from './hooks/useScroll';
 
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
@@ -11,6 +12,7 @@ import Footer from './components/footer/Footer';
 import './assets/global.css';
 
 function App() {
+  useScroll();
   const dispatch = useDispatch();
   const location = useLocation();
   const token = useSelector((state) => state.auth.token);
