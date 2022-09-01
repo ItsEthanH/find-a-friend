@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, useNavigate, useLocation } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 
 import { filterActions, FILTER_PAGES } from '../../store/filter';
@@ -28,7 +28,6 @@ function _ResultsPage() {
   // imports
   const params = useParams();
   const navigate = useNavigate();
-  const location = useLocation();
 
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -45,7 +44,7 @@ function _ResultsPage() {
   let filters = params.filters ? `${params.filters.replaceAll('-', ' ')}` : '';
 
   const requestEndpoint = `location=${apiLocation}&page=${params.page}&sort=${params.sort}&${filters}`;
-  const { response, isLoading } = useFetch(`animals?${requestEndpoint}`);
+  const { response, isLoading, error } = useFetch(`animals?${requestEndpoint}`);
 
   // allows the responsive rendering of the filters in the results page only.
   // controls the 'desktop' prop on the filter, which internally handles the styling through the addition of '.desktop' classes
@@ -83,6 +82,7 @@ function _ResultsPage() {
   // a very unflattering way of taking the filters from the url and setting them in redux and on the page
   // filters are cleared from state when the page is changed, too
   useEffect(() => {
+    if (!filters) return;
     const filtersArray = filters.split('&');
 
     for (const i of filtersArray) {
@@ -142,7 +142,7 @@ function _ResultsPage() {
     </p>
   );
 
-  const errorReturned = !isLoading && !response && (
+  const errorReturned = error && !isLoading && (
     <p className={classes.placeholders}>
       An error has occurred. Please try changing the location. If the error still persists, please
       contact the website admins. Thank you

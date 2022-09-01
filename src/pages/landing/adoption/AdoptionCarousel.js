@@ -71,6 +71,12 @@ function AdoptionCarousel() {
       )}
 
       {isLoading && <img style={{ margin: 'auto' }} src={loading} alt="Loading..." />}
+      {error && !isLoading && (
+        <p style={{ textAlign: 'center', margin: '2rem' }}>
+          There was an error fetching our featured pets. We apologise on behalf of all of the
+          animals of Find-a-Friend
+        </p>
+      )}
     </>
   );
 }
