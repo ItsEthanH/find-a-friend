@@ -1,12 +1,29 @@
+import useFetch from '../../../hooks/useFetch';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
 
 import AdoptionCard from './AdoptionCard';
 
-import 'swiper/swiper-bundle.min.css';
-import 'swiper/swiper.min.css';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import loading from '../../../assets/svgs/loading.svg';
 
 function AdoptionCarousel() {
+  const { response, isLoading, error } = useFetch('animals?limit=30');
+
+  const renderedCards =
+    response &&
+    response.animals.map((pet) => {
+      if (!pet.primary_photo_cropped) return <></>;
+
+      return (
+        <SwiperSlide key={pet.id}>
+          <AdoptionCard pet={pet} />
+        </SwiperSlide>
+      );
+    });
+
   const sliderBreakpoints = {
     400: {
       slidesPerView: 1.5,
@@ -38,28 +55,29 @@ function AdoptionCarousel() {
   };
 
   return (
-    <Swiper
-      modules={[Navigation]}
-      loop="true"
-      navigation
-      spaceBetween={30}
-      slidesPerView={1.4}
-      centeredSlides="true"
-      breakpoints={sliderBreakpoints}
-    >
-      <SwiperSlide>
-        <AdoptionCard />
-      </SwiperSlide>
-      <SwiperSlide>
-        <AdoptionCard />
-      </SwiperSlide>
-      <SwiperSlide>
-        <AdoptionCard />
-      </SwiperSlide>
-      <SwiperSlide>
-        <AdoptionCard />
-      </SwiperSlide>
-    </Swiper>
+    <>
+      {response && (
+        <Swiper
+          modules={[Navigation]}
+          loop="true"
+          navigation
+          spaceBetween={30}
+          slidesPerView={1.4}
+          centeredSlides="true"
+          breakpoints={sliderBreakpoints}
+        >
+          {renderedCards}
+        </Swiper>
+      )}
+
+      {isLoading && <img style={{ margin: 'auto' }} src={loading} alt="Loading..." />}
+      {error && !isLoading && (
+        <p style={{ textAlign: 'center', margin: '2rem' }}>
+          There was an error fetching our featured pets. We apologise on behalf of all of the
+          animals of Find-a-Friend
+        </p>
+      )}
+    </>
   );
 }
 

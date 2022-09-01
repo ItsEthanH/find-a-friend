@@ -4,10 +4,18 @@ import classes from './styles/AnimalIcon.module.css';
 import buttonClasses from '../../../components/buttons-and-inputs/styles/AccentButton.module.css';
 
 function AnimalIcon(props) {
+  const { id, animal, image, onClick } = props;
+
+  function buttonClickHandler(event) {
+    onClick(event);
+  }
+
   return (
-    <button className={classes.icon}>
-      <img src={props.image} alt={props.animal} />
-      <p className={buttonClasses.button}>Find a {props.animal}</p>
+    <button className={classes.icon} onClick={buttonClickHandler}>
+      <img id={id} src={image} alt={animal} />
+      <p id={id} className={buttonClasses.button}>
+        Find a {animal}
+      </p>
     </button>
   );
 }

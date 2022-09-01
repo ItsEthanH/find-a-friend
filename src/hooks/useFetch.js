@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 // useFetch is used to make GET requests to the Petfinder API, as long as an endpoint is given
@@ -24,21 +24,23 @@ function useFetch(endpoint) {
 
       if (!response.ok) {
         setIsLoading(false);
-        throw Error('Something went wrong!');
+        setResponse(null);
+        setError(response);
+
+        console.group('Fetch Error');
+        console.log(response);
+        console.groupEnd();
+        return;
       }
 
       const data = await response.json();
 
       setResponse(data);
       setIsLoading(false);
+      setError(null);
     }
 
-    try {
-      sendRequest();
-    } catch (err) {
-      setError(err.message);
-      console.log(err);
-    }
+    sendRequest();
   }, [url, endpoint, token]);
 
   return { response, isLoading, error };

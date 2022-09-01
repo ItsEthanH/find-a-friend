@@ -3,13 +3,13 @@
   top: 0;
   display: flex;
   width: 100%;
-  max-height: 5rem;
   padding: 0.5rem 2rem;
   background-color: var(--clr-primary-header);
   z-index: 2;
 }
 
 .header a {
+  height: 5rem;
   width: fit-content;
 }
 

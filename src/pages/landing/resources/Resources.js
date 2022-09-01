@@ -20,21 +20,21 @@ function Resources() {
         <Resource
           title="About Adoption"
           body="Curious about anything to do with pet adoption? Maybe need a hand introducing your new friend?"
-          link="/"
+          link="https://www.petfinder.com/pet-adoption/"
           linkText="Click here!"
           left
         />
         <Resource
           title="Pet Care"
           body="There’s more to keeping a pet than love and attention, though that’s important too!"
-          link="/"
+          link="https://www.petfinder.com/pet-care/"
           linkText="Find out more!"
           right
         />
         <Resource
           title="Helping Pets"
           body="Took your own pet in, but still want to do more? From volunteering to fostering, there’s plenty more!"
-          link="/"
+          link="https://www.petfinder.com/helping-pets/"
           linkText="How you can help!"
           left
         />
