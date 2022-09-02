@@ -25,7 +25,7 @@ const sortOptions = {
 };
 
 function _ResultsPage() {
-  // imports
+  // hooks
   const params = useParams();
   const navigate = useNavigate();
 

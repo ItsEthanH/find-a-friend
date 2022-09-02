@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SearchAllHero from './SearchAnimalsHero';
+import SearchAnimalsHero from './SearchAnimalsHero';
 import BrowseSection from '../../components/cards-and-sections/BrowseSection';
 
 import dog from '../../assets/images/animals/browse-dog.jpg';
@@ -19,7 +19,7 @@ function _SearchAllPage() {
 
   return (
     <main>
-      <SearchAllHero />
+      <SearchAnimalsHero />
       <BrowseSection heading={heading} items={animals} />
     </main>
   );
