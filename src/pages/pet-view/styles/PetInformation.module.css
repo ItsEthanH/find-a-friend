@@ -1,0 +1,53 @@
+.card {
+  border-radius: 10px;
+  padding: 1.5rem;
+  padding-top: 0;
+}
+
+.name {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-title);
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.detail {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.detail img {
+  height: 2.5rem;
+}
+
+.description {
+  font-family: var(--ff-accent);
+  font-size: var(--fs-nav);
+  margin: 2rem 0;
+}
+
+.status {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.status .adoption {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-subheading);
+}
+
+.status .update {
+  font-size: var(--fs-subbody);
+}
+
+.adoptable {
+  color: #00980f;
+}

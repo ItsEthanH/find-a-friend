@@ -1,0 +1,28 @@
+.detail {
+  display: grid;
+  grid-template-columns: 4.375rem max-content;
+  grid-template-rows: min-content;
+  grid-template-areas: 'icon title' 'icon text';
+}
+
+.image {
+  display: flex;
+  grid-area: icon;
+  justify-content: center;
+  align-items: center;
+  background-color: #ff9f66;
+  padding: 0.25rem 0.1rem;
+  border-radius: 0.75rem;
+  margin-right: 0.75rem;
+  height: 3.75rem;
+  width: 3.75rem;
+}
+
+.title {
+  grid-area: title;
+  font-family: var(--ff-heading);
+}
+
+.text {
+  grid-area: text;
+}

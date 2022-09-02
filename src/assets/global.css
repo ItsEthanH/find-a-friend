@@ -131,11 +131,9 @@ svg {
 
 /* SwiperJS changes */
 .swiper-slide {
-  transition: 0.3s;
-}
-
-.swiper-slide {
+  height: auto !important; /*normally, i'd NEVER use !important. the exception is for 3rd party libraries. there's no other way here :(*/
   opacity: 0.25;
+  transition: 0.3s;
   transform: scale(0.8);
 }
 

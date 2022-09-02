@@ -1,0 +1,15 @@
+.slider {
+  margin: 1rem 0;
+}
+
+.slider img {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.number {
+  text-align: center;
+  font-family: var(--ff-heading);
+}
