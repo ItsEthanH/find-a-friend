@@ -20,6 +20,7 @@ function App() {
   const dispatch = useDispatch();
   const location = useLocation();
 
+  // recieves a token and expiry, formats the expiry date to an hour ahead of the current time, and saves the info into a cookie and redux
   const handleBearerToken = useCallback(
     (token, expiry) => {
       const dateObj = new Date();
@@ -32,6 +33,7 @@ function App() {
     [dispatch]
   );
 
+  // gets the bearer token from petfinder, then pass the details to handlerBearerToken
   const getBearerToken = useCallback(async () => {
     const clientId = process.env.REACT_APP_CLIENT_ID;
     const key = process.env.REACT_APP_KEY;
@@ -49,6 +51,8 @@ function App() {
     handleBearerToken(data.access_token, data.expires_in);
   }, [handleBearerToken]);
 
+  // whenever the location path changes, check the cookie store. if there's a token, move it to redux store
+  // else, start the token fetching process
   useEffect(() => {
     let tokenCookieValue = getCookieValue('bearerToken');
 
