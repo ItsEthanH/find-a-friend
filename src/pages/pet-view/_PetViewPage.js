@@ -1,4 +1,5 @@
-import { useLocation } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
+import useFetch from '../../hooks/useFetch';
 
 import Breadcrumbs from '../../components/text/Breadcrumbs';
 import PetImages from './PetImages';
@@ -24,6 +25,12 @@ import addressIcon from '../../assets/svgs/pet-view/address.svg';
 
 function _PetViewPage(props) {
   const location = useLocation();
+  const { id } = useParams();
+
+  const { response, isLoading, error } = useFetch(`animals/${id}`);
+  console.log(response);
+
+  // const addressArray = [response.animal];
 
   const breadcrumbs = [
     { link: '/', text: 'Home' },
@@ -32,25 +39,43 @@ function _PetViewPage(props) {
     { link: location.pathname, text: 'Pet' },
   ];
 
-  const healthDetails = [
-    { icon: neuteredIcon, title: 'Spayed/Neutered', text: 'Yes' },
-    { icon: houseTrainedIcon, title: 'House Trained', text: 'Yes' },
-    { icon: declawedIcon, title: 'Declawed', text: 'No' },
-    { icon: specialNeedsIcon, title: 'Special Needs', text: 'No' },
-    { icon: vaccinatedIcon, title: 'Vaccinated', text: 'Yes' },
+  const healthDetails = response && [
+    {
+      icon: neuteredIcon,
+      title: 'Spayed/Neutered',
+      text: response.animal.attributes.spayed_neutered,
+    },
+    {
+      icon: houseTrainedIcon,
+      title: 'House Trained',
+      text: response.animal.attributes.house_trained,
+    },
+    { icon: declawedIcon, title: 'Declawed', text: response.animal.attributes.declawed },
+    {
+      icon: specialNeedsIcon,
+      title: 'Special Needs',
+      text: response.animal.attributes.special_needs,
+    },
+    { icon: vaccinatedIcon, title: 'Vaccinated', text: response.animal.attributes.shots_current },
   ];
-  const livingDetails = [
-    { icon: childrenIcon, title: 'Can I live with children?', text: 'Yes' },
-    { icon: dogsIcon, title: 'Can I live with dogs?', text: 'Yes' },
-    { icon: catsIcon, title: 'Can I live with cats?', text: 'No' },
+
+  const livingDetails = response && [
+    {
+      icon: childrenIcon,
+      title: 'Can I live with children?',
+      text: response.animal.environment.children,
+    },
+    { icon: dogsIcon, title: 'Can I live with dogs?', text: response.animal.environment.dogs },
+    { icon: catsIcon, title: 'Can I live with cats?', text: response.animal.environment.cats },
   ];
-  const contactDetails = [
-    { icon: emailIcon, title: 'Email', text: 'sample-email@gmail.com' },
-    { icon: phoneIcon, title: 'Phone Number', text: '555-555-5555' },
+
+  const contactDetails = response && [
+    { icon: emailIcon, title: 'Email', text: response.animal.contact.email },
+    { icon: phoneIcon, title: 'Phone Number', text: response.animal.attributes.phone },
     {
       icon: addressIcon,
       title: 'Address',
-      text: ['Address Line 1,', 'Address Line 2,', 'City, State', 'Postcode'],
+      text: response.animal.contact.address,
     },
   ];
 
@@ -63,8 +88,8 @@ function _PetViewPage(props) {
           <PetInformation />
         </section>
         <section className={classes.details}>
-          <PetDetails title="Health" detailArray={healthDetails} />
-          <PetDetails title="Living" detailArray={livingDetails} />
+          <PetDetails title="Health" detailArray={healthDetails} boolean={true} />
+          <PetDetails title="Living" detailArray={livingDetails} boolean={true} />
         </section>
         <section className={classes.details}>
           <PetDetails title="Contact" detailArray={contactDetails} />

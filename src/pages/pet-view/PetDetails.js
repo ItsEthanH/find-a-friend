@@ -2,13 +2,15 @@ import PetDetail from './PetDetail';
 
 import classes from './styles/PetDetails.module.css';
 
-function PetDetails({ title, detailArray }) {
-  const renderedDetails = detailArray.map((detail) => (
-    <>
-      <PetDetail icon={detail.icon} title={detail.title} text={detail.text} />
-      <div className={classes.divider} />
-    </>
-  ));
+function PetDetails({ title, detailArray, boolean }) {
+  const renderedDetails =
+    detailArray &&
+    detailArray.map((detail) => (
+      <>
+        <PetDetail icon={detail.icon} title={detail.title} text={detail.text} boolean={boolean} />
+        <div className={classes.divider} />
+      </>
+    ));
 
   return (
     <section className={classes.section}>

@@ -1,10 +1,19 @@
+import { useNavigate } from 'react-router-dom';
+
 import Card from '../../components/cards-and-sections/Card';
+import AccentButton from '../../components/buttons-and-inputs/AccentButton';
 
 import classes from './styles/ResultsCard.module.css';
 
 function ResultsCard(props) {
+  const navigate = useNavigate();
+
+  function buttonClickHandler() {
+    navigate(`/animal/${props.id}`);
+  }
+
   return (
-    <Card styles={classes.card}>
+    <Card key={props.id} styles={classes.card}>
       <div className={classes.image}>
         <img src={props.image} alt="" />
       </div>
@@ -18,6 +27,9 @@ function ResultsCard(props) {
           </p>
         </div>
       </div>
+      <AccentButton styles={classes.button} onClick={buttonClickHandler}>
+        View my Profile!
+      </AccentButton>
     </Card>
   );
 }

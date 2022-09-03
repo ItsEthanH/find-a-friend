@@ -1,6 +1,6 @@
 .card {
   display: grid;
-  grid-template-rows: 15rem auto;
+  grid-template-rows: 15rem auto min-content;
   max-width: 13rem;
   height: fit-content;
 }
@@ -34,4 +34,10 @@
 
 .location p:first-of-type {
   border-right: 1px solid var(--clr-grey-400);
+}
+
+.button {
+  justify-self: center;
+  margin: 0.5rem 0;
+  padding: 0.2rem 1rem;
 }
