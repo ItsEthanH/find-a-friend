@@ -25,6 +25,7 @@ function PetImages() {
   return (
     <div className={classes.slider}>
       <Swiper
+        autoHeight={true}
         modules={[Navigation, Pagination]}
         navigation
         pagination

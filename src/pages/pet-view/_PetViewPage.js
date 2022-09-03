@@ -1,7 +1,8 @@
 import { useLocation } from 'react-router-dom';
 
 import Breadcrumbs from '../../components/text/Breadcrumbs';
-import PetOverview from './PetOverview';
+import PetImages from './PetImages';
+import PetInformation from './PetInformation';
 import PetDetails from './PetDetails';
 import PetAdoption from './PetAdoption';
 
@@ -57,11 +58,18 @@ function _PetViewPage(props) {
     <>
       <Breadcrumbs breadcrumbs={breadcrumbs} />
       <main className={classes.main}>
-        <PetOverview />
-        <PetDetails title="Health" detailArray={healthDetails} />
-        <PetDetails title="Living" detailArray={livingDetails} />
-        <PetDetails title="Contact" detailArray={contactDetails} />
-        <PetAdoption />
+        <section className={classes.overview}>
+          <PetImages />
+          <PetInformation />
+        </section>
+        <section className={classes.details}>
+          <PetDetails title="Health" detailArray={healthDetails} />
+          <PetDetails title="Living" detailArray={livingDetails} />
+        </section>
+        <section className={classes.details}>
+          <PetDetails title="Contact" detailArray={contactDetails} />
+          <PetAdoption />
+        </section>
       </main>
     </>
   );
