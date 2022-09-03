@@ -18,8 +18,6 @@ function PetImages() {
     setImage(event.activeIndex + 1);
   }
 
-  console.log(totalImages);
-
   function slideChangeHandler(event) {
     setImage(event.activeIndex + 1);
   }

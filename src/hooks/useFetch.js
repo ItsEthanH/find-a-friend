@@ -9,12 +9,11 @@ function useFetch(endpoint) {
   const [error, setError] = useState(null);
 
   const token = useSelector((state) => state.auth.token);
-
   const url = 'https://api.petfinder.com/v2/' + endpoint;
 
   useEffect(() => {
     async function sendRequest() {
-      if (endpoint.includes('undefined')) return;
+      if (endpoint.includes('undefined') || !token) return;
 
       setResponse(null);
       setIsLoading(true);
