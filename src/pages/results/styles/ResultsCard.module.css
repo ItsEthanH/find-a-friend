@@ -42,8 +42,8 @@
   padding: 0 0.5rem;
 }
 
-.location p:first-of-type {
-  border-right: 1px solid var(--clr-grey-400);
+.divider {
+  border-right: 1px solid black;
 }
 
 .button {

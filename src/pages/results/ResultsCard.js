@@ -22,7 +22,12 @@ function ResultsCard(props) {
         <h4>{props.name}</h4>
         <p>{props.breed}</p>
         <div className={classes.location}>
-          <p>{props.distance} miles</p>
+          {props.distance && (
+            <>
+              <p>{props.distance} miles</p>
+              <div className={classes.divider} />
+            </>
+          )}
           <p>
             {props.city}, {props.state}
           </p>

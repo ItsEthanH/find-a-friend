@@ -34,16 +34,20 @@ function _ResultsPage() {
   const [totalCount, setTotalCount] = useState(0);
 
   // the next 6 lines turn the location from the {city-state} url format to the {city, state} api format
-  let apiLocation = params.location;
-  if (isNaN(params.location)) {
+  // postcodes are allowed as they are
+  let locationParameter = params.location;
+  if (isNaN(params.location) && params.location !== 'global') {
     const loc = params.location.replaceAll('-', ' ');
     const index = loc.lastIndexOf(' ');
-    apiLocation = loc.substring(0, index) + ', ' + loc.substring(index + 1);
+    locationParameter = loc.substring(0, index) + ', ' + loc.substring(index + 1);
   }
 
-  let filters = params.filters ? `${params.filters.replaceAll('-', ' ')}` : '';
+  let filters = params.filters;
+  // ? `${params.filters.replaceAll('-', ' ')}` : '';
 
-  const requestEndpoint = `location=${apiLocation}&page=${params.page}&sort=${params.sort}&${filters}`;
+  const requestEndpoint = `${
+    locationParameter !== 'global' && `location=${locationParameter}`
+  }&page=${params.page}&sort=${params.sort}&${filters}`;
   const { response, isLoading, error } = useFetch(`animals?${requestEndpoint}`);
 
   // allows the responsive rendering of the filters in the results page only.
@@ -108,6 +112,8 @@ function _ResultsPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  console.log(response);
+
   // rendering cards and popups here to (try to) keep the function return leaner
   const renderedCards =
     response &&
@@ -124,7 +130,7 @@ function _ResultsPage() {
           name={pet.name}
           image={photo}
           breed={pet.breeds.primary}
-          distance={pet.distance.toFixed(0)}
+          distance={pet.distance ? pet.distance.toFixed(0) : ''}
           city={pet.contact.address.city}
           state={pet.contact.address.state}
         />

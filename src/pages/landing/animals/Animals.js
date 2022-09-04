@@ -16,7 +16,7 @@ function Animals() {
   const navigate = useNavigate();
 
   function iconClickHandler(event) {
-    navigate(`/results/new-york-ny/1/recent/type=${event.target.id}`);
+    navigate(`/results/global/1/recent/type=${event.target.id}`);
   }
 
   return (

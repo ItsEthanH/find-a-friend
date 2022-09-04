@@ -1,26 +1,29 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import SearchAnimalsHero from './SearchAnimalsHero';
 import BrowseSection from '../../components/cards-and-sections/BrowseSection';
-
-import dog from '../../assets/images/animals/browse-dog.jpg';
-import cat from '../../assets/images/animals/browse-cat.jpg';
+import animalTypeData from '../../data/animalTypeData';
 
 function _SearchAllPage() {
+  const navigate = useNavigate();
+
   const heading = 'Browse by type';
-  const animals = [
-    { name: 'Dogs', image: dog, available: '31,212' },
-    { name: 'Cats', image: cat, available: '31,212' },
-    { name: 'Dogs', image: dog, available: '31,212' },
-    { name: 'Cats', image: cat, available: '31,212' },
-    { name: 'Dogs', image: dog, available: '31,212' },
-    { name: 'Cats', image: cat, available: '31,212' },
-  ];
+
+  const animals = Object.keys(animalTypeData).map((animal) => ({
+    name: animalTypeData[animal].name,
+    image: animalTypeData[animal].image,
+    id: animal,
+  }));
+
+  function cardClickHandler(id) {
+    navigate(`/results/global/1/recent/type=${id}`);
+  }
 
   return (
     <main>
       <SearchAnimalsHero />
-      <BrowseSection heading={heading} items={animals} />
+      <BrowseSection heading={heading} items={animals} onClick={cardClickHandler} />
     </main>
   );
 }

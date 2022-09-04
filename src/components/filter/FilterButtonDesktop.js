@@ -3,7 +3,7 @@ import { filterActions, FILTER_PAGES } from '../../store/filter';
 import { uiActions } from '../../store/ui';
 
 import classes from './styles/FilterButtonDesktop.module.css';
-import breedCoats from '../../data/breedCoats';
+import animalTypeData from '../../data/animalTypeData';
 
 function FilterButtonDesktop(props) {
   const dispatch = useDispatch();
@@ -50,8 +50,8 @@ function FilterButtonDesktop(props) {
       return returnedFilter;
     }
 
-    // if none of the above apply, it's the type filter. return the formatted name from the breedCoats data structure
-    return breedCoats[text].name;
+    // if none of the above apply, it's the type filter. return the formatted name from the animalTypeData data structure
+    return animalTypeData[text].name;
   }
 
   const buttonText = createButtonText();
