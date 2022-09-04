@@ -39,7 +39,7 @@ function FilterButtonDesktop(props) {
       let returnedFilter = '';
 
       keys.forEach((filter, index) => {
-        const words = filter.split(' ');
+        const words = filter.includes('-') ? filter.split('-') : filter.split(' ');
         let formattedWord = '';
         words.forEach((word) => (formattedWord += word[0].toUpperCase() + word.substring(1) + ' '));
 

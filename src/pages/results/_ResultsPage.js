@@ -42,12 +42,16 @@ function _ResultsPage() {
     locationParameter = loc.substring(0, index) + ', ' + loc.substring(index + 1);
   }
 
-  let filters = params.filters;
+  let filters = params.filters || '';
+
+  console.log(locationParameter);
 
   const requestEndpoint = `${
     locationParameter !== 'global' && `location=${locationParameter}`
   }&page=${params.page}&sort=${params.sort}&${filters}`;
   const { response, isLoading, error } = useFetch(`animals?${requestEndpoint}`);
+
+  console.log(requestEndpoint);
 
   // allows the responsive rendering of the filters in the results page only.
   // controls the 'desktop' prop on the filter, which internally handles the styling through the addition of '.desktop' classes
