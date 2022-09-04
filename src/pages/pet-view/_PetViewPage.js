@@ -8,6 +8,8 @@ import PetDetails from './PetDetails';
 import PetAdoption from './PetAdoption';
 
 import classes from './styles/PetViewPage.module.css';
+import noImageFound from '../../assets/images/pet-view/no-images-found.png';
+import loadingSpinner from '../../assets/svgs/loading.svg';
 
 import neuteredIcon from '../../assets/svgs/pet-view/neutered.svg';
 import houseTrainedIcon from '../../assets/svgs/pet-view/house-trained.svg';
@@ -23,14 +25,11 @@ import emailIcon from '../../assets/svgs/pet-view/email.svg';
 import phoneIcon from '../../assets/svgs/pet-view/phone.svg';
 import addressIcon from '../../assets/svgs/pet-view/address.svg';
 
-function _PetViewPage(props) {
+function _PetViewPage() {
   const location = useLocation();
   const { id } = useParams();
 
   const { response, isLoading, error } = useFetch(`animals/${id}`);
-  console.log(response);
-
-  // const addressArray = [response.animal];
 
   const breadcrumbs = [
     { link: '/', text: 'Home' },
@@ -38,6 +37,22 @@ function _PetViewPage(props) {
     { link: '', text: 'Results' },
     { link: location.pathname, text: 'Pet' },
   ];
+
+  // organises the address fields into the preferred formatted array. falsey values are filtered before being passed to the details components
+  const addressSelector = response && response.animal.contact.address;
+  const addressArray = response && [
+    addressSelector.address1,
+    addressSelector.address2,
+    `${addressSelector.city}, ${addressSelector.state}`,
+    addressSelector.postcode,
+  ];
+
+  // if there's no photos, pass on the no image found picture. else, render received images
+  let photos = [{ full: noImageFound }];
+
+  if (response && response.animal.photos) {
+    photos = response.animal.photos;
+  }
 
   const healthDetails = response && [
     {
@@ -71,30 +86,51 @@ function _PetViewPage(props) {
 
   const contactDetails = response && [
     { icon: emailIcon, title: 'Email', text: response.animal.contact.email },
-    { icon: phoneIcon, title: 'Phone Number', text: response.animal.attributes.phone },
+    { icon: phoneIcon, title: 'Phone Number', text: response.animal.contact.phone },
     {
       icon: addressIcon,
       title: 'Address',
-      text: response.animal.contact.address,
+      text: addressArray.filter((line) => line),
     },
   ];
+
+  const petView = response && (
+    <>
+      <section className={classes.overview}>
+        <PetImages photos={photos} />
+        <PetInformation
+          name={response.animal.name}
+          breed={response.animal.breeds.primary}
+          age={response.animal.age}
+          gender={response.animal.gender}
+          location={`${response.animal.contact.address.city}, ${response.animal.contact.address.state}`}
+          description={response.animal.description}
+          status={response.animal.status}
+          updated={response.animal.status_changed_at.slice(0, 10)}
+        />
+      </section>
+      <section className={classes.details}>
+        <PetDetails title="Health" detailArray={healthDetails} />
+        <PetDetails title="Living" detailArray={livingDetails} />
+      </section>
+      <section className={classes.details}>
+        <PetDetails title="Contact" detailArray={contactDetails} />
+        <PetAdoption />
+      </section>
+    </>
+  );
+
+  const loadingView = isLoading && <img src={loadingSpinner} alt="" />;
+
+  const errorView = <p>{error}</p>;
 
   return (
     <>
       <Breadcrumbs breadcrumbs={breadcrumbs} />
       <main className={classes.main}>
-        <section className={classes.overview}>
-          <PetImages />
-          <PetInformation />
-        </section>
-        <section className={classes.details}>
-          <PetDetails title="Health" detailArray={healthDetails} boolean={true} />
-          <PetDetails title="Living" detailArray={livingDetails} boolean={true} />
-        </section>
-        <section className={classes.details}>
-          <PetDetails title="Contact" detailArray={contactDetails} />
-          <PetAdoption />
-        </section>
+        {petView}
+        {loadingView}
+        {errorView}
       </main>
     </>
   );

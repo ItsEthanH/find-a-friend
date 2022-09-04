@@ -1,26 +1,27 @@
 import classes from './styles/PetDetail.module.css';
 
-function PetDetail({ icon, title, text, boolean }) {
+function PetDetail({ icon, title, text }) {
   let renderedText;
 
-  // if {text} is an array, then render it to be an address over multiple lines
-  // else, just render it as a <p>
-  if (!text) {
-    renderedText = <p></p>;
-  } else if (typeof text === 'object') {
+  // if the value is a boolean, return yes/no
+  // if the value is a string or number, return the face value
+  // if the value is an array, it must be the address field, which has been formatted in PetViewPage. render each line as a paragraph
+  // otherwise, who knows? render unknown
+
+  if (typeof text === 'boolean') {
+    renderedText = text ? <p>Yes</p> : <p>Yes</p>;
+  } else if (typeof text === 'string' || typeof text === 'number') {
+    renderedText = <p>{text}</p>;
+  } else if (Array.isArray(text)) {
     renderedText = (
-      <div className={classes.text}>
-        {Object.keys(text).map((line) => {
-          if (!text[line]) return <></>;
-          console.log(line);
-          return <p key={line}>{text[line]}</p>;
-        })}
+      <div>
+        {text.map((line) => (
+          <p>{line}</p>
+        ))}
       </div>
     );
-  } else if (boolean) {
-    renderedText = <p className={classes.text}>{text ? 'Yes' : 'No'}</p>;
   } else {
-    renderedText = <p className={classes.text}>{text}</p>;
+    renderedText = <p>Unknown</p>;
   }
 
   return (

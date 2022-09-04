@@ -7,38 +7,40 @@ import maleIcon from '../../assets/svgs/pet-view/male.svg';
 // import femaleIcon from '../../assets/svgs/pet-view/female.svg';
 import locationIcon from '../../assets/svgs/pet-view/location.svg';
 
-function PetInformation(props) {
+function PetInformation({ name, breed, age, gender, location, description, status, updated }) {
+  // green if adoptable, red if adopted
+  const adoptionStyles = `${classes.adoption} ${status === 'adoptable' ? classes.adoptable : ''} ${
+    status === 'adopted' ? classes.adopted : ''
+  }`;
+
   return (
     <Card styles={classes.card}>
-      <h3 className={classes.name}>Styx</h3>
+      <h3 className={classes.name}>{name}</h3>
 
       <div className={classes.details}>
         <div className={classes.detail}>
           <img src={breedIcon} alt="Breed" />
-          <p>Domestic Shorthair</p>
+          <p>{breed}</p>
         </div>
         <div className={classes.detail}>
           <img src={ageIcon} alt="Age" />
-          <p>Baby</p>
+          <p>{age}</p>
         </div>
         <div className={classes.detail}>
           <img src={maleIcon} alt="Gender" />
-          <p>Female</p>
+          <p>{gender}</p>
         </div>
         <div className={classes.detail}>
           <img src={locationIcon} alt="Location" />
-          <p>Oceanside, CA</p>
+          <p>{location}</p>
         </div>
       </div>
 
-      <p className={classes.description}>
-        How this pet arrived: Styx was brought in by a Good Samaritan on August 27, 2022. Why this
-        pet is the...
-      </p>
+      <p className={classes.description}>{description}</p>
 
       <div className={classes.status}>
-        <p className={`${classes.adoption} ${classes.adoptable}`}>Adoptable</p>
-        <p className={classes.update}>Last Updated: 2022-09-01</p>
+        <p className={adoptionStyles}>{status[0].toUpperCase() + status.slice(1, status.length)}</p>
+        <p className={classes.update}>Last Updated: {updated}</p>
       </div>
     </Card>
   );

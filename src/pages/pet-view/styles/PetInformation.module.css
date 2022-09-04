@@ -52,3 +52,7 @@
 .adoptable {
   color: #00980f;
 }
+
+.adopted {
+  color: #b80000;
+}
