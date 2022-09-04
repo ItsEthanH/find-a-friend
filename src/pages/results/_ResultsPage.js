@@ -43,7 +43,6 @@ function _ResultsPage() {
   }
 
   let filters = params.filters;
-  // ? `${params.filters.replaceAll('-', ' ')}` : '';
 
   const requestEndpoint = `${
     locationParameter !== 'global' && `location=${locationParameter}`
