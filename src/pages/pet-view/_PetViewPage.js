@@ -31,12 +31,19 @@ function _PetViewPage() {
 
   const { response, isLoading, error } = useFetch(`animals/${id}`);
 
-  const breadcrumbs = [
+  const fromSearchBreadcrumbs = [
     { link: '/', text: 'Home' },
     { link: '/search', text: 'Search Animals' },
-    { link: location.state.path, text: 'Results' },
+    { link: location.state ? location.state.path : '/', text: 'Results' },
     { link: location.pathname, text: 'Pet' },
   ];
+
+  const fromHomeBreadcrumbs = [
+    { link: '/', text: 'Home' },
+    { link: location.pathname, text: 'Pet' },
+  ];
+
+  const breadcrumbs = location.state ? fromSearchBreadcrumbs : fromHomeBreadcrumbs;
 
   // organises the address fields into the preferred formatted array. falsey values are filtered before being passed to the details components
   const addressSelector = response && response.animal.contact.address;
