@@ -7,7 +7,7 @@ import SearchAnimalsSearchbar from './SearchAnimalsSearchbar';
 function SearchAnimalsHero() {
   return (
     <Hero page="ANIMALS">
-      <div>
+      <div className="hero-body">
         <Heading>
           Search all <span className="color-accent">Animals</span>
         </Heading>

@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import Card from '../../components/cards-and-sections/Card';
 import AccentButton from '../../components/buttons-and-inputs/AccentButton';
@@ -6,10 +6,11 @@ import AccentButton from '../../components/buttons-and-inputs/AccentButton';
 import classes from './styles/ResultsCard.module.css';
 
 function ResultsCard(props) {
+  const location = useLocation();
   const navigate = useNavigate();
 
   function buttonClickHandler() {
-    navigate(`/animal/${props.id}`);
+    navigate(`/animal/${props.id}`, { state: { path: location.pathname } });
   }
 
   return (

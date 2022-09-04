@@ -1,4 +1,9 @@
-const typeData = {
+// an object containing all the possible coat options for each animal
+
+// the key is the petfinder identifier for that animal type. the value is an object
+// containing the coat options, and the properly formatted name for display around the Filter component
+
+const typeCoats = {
   dog: {
     name: 'Dog',
     coats: { hairless: false, short: false, medium: false, long: false, wire: false, curly: false },
@@ -33,4 +38,4 @@ const typeData = {
   },
 };
 
-export default typeData;
+export default typeCoats;

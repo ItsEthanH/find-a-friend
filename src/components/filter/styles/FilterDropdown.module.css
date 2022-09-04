@@ -50,15 +50,23 @@
 }
 
 .search {
+  font-size: var(--fs-nav);
   width: 90%;
   margin: 1rem;
-  margin-bottom: 0;
+  margin-bottom: 0.5rem;
   outline: none;
   border: none;
 }
 
 .range .option {
   flex-direction: column;
+  align-items: initial;
+  width: initial;
+  margin: 1rem;
+}
+
+.range .option:hover {
+  background-color: transparent;
 }
 
 .range .option input[type='number'] {

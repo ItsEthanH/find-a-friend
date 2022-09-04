@@ -34,7 +34,7 @@ function _PetViewPage() {
   const breadcrumbs = [
     { link: '/', text: 'Home' },
     { link: '/search', text: 'Search Animals' },
-    { link: '', text: 'Results' },
+    { link: location.state.path, text: 'Results' },
     { link: location.pathname, text: 'Pet' },
   ];
 
@@ -43,14 +43,14 @@ function _PetViewPage() {
   const addressArray = response && [
     addressSelector.address1,
     addressSelector.address2,
-    `${addressSelector.city}, ${addressSelector.state}`,
+    `${addressSelector.city + ','} ${addressSelector.state}`,
     addressSelector.postcode,
   ];
 
   // if there's no photos, pass on the no image found picture. else, render received images
   let photos = [{ full: noImageFound }];
 
-  if (response && response.animal.photos) {
+  if (response && response.animal.photos[0]) {
     photos = response.animal.photos;
   }
 
@@ -110,24 +110,26 @@ function _PetViewPage() {
         />
       </section>
       <section className={classes.details}>
-        <PetDetails title="Health" detailArray={healthDetails} />
-        <PetDetails title="Living" detailArray={livingDetails} />
-      </section>
-      <section className={classes.details}>
-        <PetDetails title="Contact" detailArray={contactDetails} />
-        <PetAdoption />
+        <PetDetails styles={classes.health} title="Health" detailArray={healthDetails} />
+        <PetDetails styles={classes.living} title="Living" detailArray={livingDetails} />
+        <PetDetails styles={classes.contact} title="Contact" detailArray={contactDetails} />
+        <PetAdoption styles={classes.adoption} url={response.animal.url} />
       </section>
     </>
   );
 
-  const loadingView = isLoading && <img src={loadingSpinner} alt="" />;
+  const loadingView = isLoading && <img className={classes.loading} src={loadingSpinner} alt="" />;
 
-  const errorView = <p>{error}</p>;
+  const errorView = error && (
+    <p className={classes.error}>
+      Sorry, but this pet could not be found at the moment. Please check back later!
+    </p>
+  );
 
   return (
     <>
-      <Breadcrumbs breadcrumbs={breadcrumbs} />
       <main className={classes.main}>
+        {<Breadcrumbs breadcrumbs={breadcrumbs} />}
         {petView}
         {loadingView}
         {errorView}

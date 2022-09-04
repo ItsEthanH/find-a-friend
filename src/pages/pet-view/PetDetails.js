@@ -2,7 +2,7 @@ import PetDetail from './PetDetail';
 
 import classes from './styles/PetDetails.module.css';
 
-function PetDetails({ title, detailArray }) {
+function PetDetails({ title, detailArray, styles }) {
   const renderedDetails =
     detailArray &&
     detailArray.map((detail) => (
@@ -12,8 +12,10 @@ function PetDetails({ title, detailArray }) {
       </>
     ));
 
+  const sectionStyles = `${classes.section} ${styles}`;
+
   return (
-    <section className={classes.section}>
+    <section className={sectionStyles}>
       <h4 className={classes.title}>{title}</h4>
       <div className={classes.details}>{renderedDetails}</div>
     </section>

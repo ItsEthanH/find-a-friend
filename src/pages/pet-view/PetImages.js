@@ -2,10 +2,6 @@ import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper';
 
-import placeholder1 from '../../assets/images/organisations/hero.jpg';
-import placeholder2 from '../../assets/images/breeds/cat-hero.jpg';
-import placeholder3 from '../../assets/images/breeds/dog-hero.jpg';
-
 import classes from './styles/PetImages.module.css';
 import 'swiper/css';
 

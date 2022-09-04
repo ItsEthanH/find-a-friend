@@ -7,7 +7,6 @@ function AnimalIcon(props) {
   const { id, animal, image, onClick } = props;
 
   function buttonClickHandler(event) {
-    console.log(event);
     onClick(event);
   }
 

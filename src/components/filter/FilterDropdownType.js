@@ -7,12 +7,12 @@ import classes from './styles/FilterDropdown.module.css';
 import { FILTER_PAGES } from '../../store/filter';
 import { filterActions } from '../../store/filter';
 import { uiActions } from '../../store/ui';
-import typeData from '../../data/typeData';
+import breedCoats from '../../data/breedCoats';
 
 function FilterDropdownType(props) {
   const { isDesktop } = props;
   const dispatch = useDispatch();
-  const types = Object.keys(typeData);
+  const types = Object.keys(breedCoats);
 
   const { displayedValues, updateFilterValues } = useFilter(FILTER_PAGES.TYPE);
 
@@ -32,7 +32,7 @@ function FilterDropdownType(props) {
 
     return (
       <li key={type} className={optionStyle}>
-        <label htmlFor={type}>{typeData[type].name}</label>
+        <label htmlFor={type}>{breedCoats[type].name}</label>
         <input
           type="checkbox"
           checked={isChecked}

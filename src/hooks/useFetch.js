@@ -24,7 +24,7 @@ function useFetch(endpoint) {
       if (!response.ok) {
         setIsLoading(false);
         setResponse(null);
-        setError(response);
+        setError(response.statusText);
 
         console.group('Fetch Error');
         console.log(response);

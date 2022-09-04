@@ -36,7 +36,10 @@ function PetInformation({ name, breed, age, gender, location, description, statu
         </div>
       </div>
 
-      <p className={classes.description}>{description}</p>
+      <p className={classes.description}>
+        {description ||
+          `The owners of this pet have not provided a description. Get in touch today to find out more!`}
+      </p>
 
       <div className={classes.status}>
         <p className={adoptionStyles}>{status[0].toUpperCase() + status.slice(1, status.length)}</p>
