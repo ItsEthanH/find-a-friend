@@ -10,7 +10,7 @@ function Breadcrumbs(props) {
       <div key={item.link} className={classes.breadcrumbs} aria-label="breadcrumbs">
         {isLastRendered && <p>{item.text}</p>}
         {!isLastRendered && <Link to={item.link}>{item.text}</Link>}
-        {isLastRendered ? '' : <p> &gt; </p>}
+        {isLastRendered ? '' : <p className={classes.arrow}> &gt; </p>}
       </div>
     );
   });
