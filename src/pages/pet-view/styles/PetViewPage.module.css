@@ -13,7 +13,7 @@
 }
 
 .main > * {
-  max-width: 400px;
+  max-width: 300px;
 }
 
 .details {
@@ -29,6 +29,12 @@
   font-size: var(--fs-heading);
   text-align: center;
   width: 50%;
+}
+
+@media screen and (min-width: 450px) {
+  .main > * {
+    max-width: 400px;
+  }
 }
 
 @media screen and (min-width: 1000px) {
