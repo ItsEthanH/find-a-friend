@@ -55,7 +55,6 @@ function _DogBreedsPage() {
 
       const data = await response.json();
 
-      console.log(data);
       let formattedBreedArray = [];
       for (const breed of data) {
         formattedBreedArray.push({

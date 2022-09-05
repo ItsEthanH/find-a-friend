@@ -44,14 +44,10 @@ function _ResultsPage() {
 
   let filters = params.filters || '';
 
-  console.log(locationParameter);
-
   const requestEndpoint = `${
     locationParameter !== 'global' && `location=${locationParameter}`
   }&page=${params.page}&sort=${params.sort}&${filters}`;
   const { response, isLoading, error } = useFetch(`animals?${requestEndpoint}`);
-
-  console.log(requestEndpoint);
 
   // allows the responsive rendering of the filters in the results page only.
   // controls the 'desktop' prop on the filter, which internally handles the styling through the addition of '.desktop' classes
@@ -114,8 +110,6 @@ function _ResultsPage() {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  console.log(response);
 
   // rendering cards and popups here to (try to) keep the function return leaner
   const renderedCards =
