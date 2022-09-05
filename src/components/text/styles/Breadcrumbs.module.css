@@ -1,12 +1,17 @@
 .breadcrumbs {
   width: 100%;
+  margin-bottom: 1rem;
 }
 
 .breadcrumbs > * {
   display: inline;
-  font-size: var(--fs-subbody);
+  font-size: var(--fs-nav);
 }
 
 .breadcrumbs a {
   color: var(--clr-accent);
+}
+
+.arrow {
+  margin: 0 0.25rem;
 }

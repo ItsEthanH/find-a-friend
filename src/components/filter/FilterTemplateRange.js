@@ -15,6 +15,7 @@ function FilterTemplateRange(props) {
   const { displayedValues, updateFilterValues } = useFilter(pageSelected);
 
   function filterChangeHandler(event) {
+    if (!parseInt(event.target.value)) return;
     event.target.value > 500
       ? updateFilterValues(event.target.id, 500)
       : updateFilterValues(event.target.id, +event.target.value);

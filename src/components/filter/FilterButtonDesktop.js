@@ -2,9 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { filterActions, FILTER_PAGES } from '../../store/filter';
 import { uiActions } from '../../store/ui';
 
-import typeData from '../../data/typeData';
-
 import classes from './styles/FilterButtonDesktop.module.css';
+import animalTypeData from '../../data/animalTypeData';
 
 function FilterButtonDesktop(props) {
   const dispatch = useDispatch();
@@ -25,23 +24,34 @@ function FilterButtonDesktop(props) {
   }
 
   // updates the text of the filter button whenever a filter is changed.
-  // seperates a list by a comma and sets uppercase characters where neede
   function createButtonText() {
     const keys = Object.keys(activeFilter);
+    const text = activeFilter[keys[0]];
 
+    // if nothing is selected, show 'All'
     if (keys.length <= 0) return 'All';
-    if (typeof activeFilter[keys[0]] === 'number') return `Within ${activeFilter[keys]} miles`;
-    if (typeof activeFilter[keys[0]] === 'boolean') {
+
+    // if its a number, it is the distance filter, format appropriately
+    if (parseInt(text)) return `Within ${activeFilter[keys]} miles`;
+
+    // if its a boolean, take the key name, capitalise it and return a comma seperated string of the values
+    if (typeof text === 'boolean') {
       let returnedFilter = '';
 
       keys.forEach((filter, index) => {
-        returnedFilter += filter.charAt(0).toUpperCase() + filter.substring(1);
+        const words = filter.includes('-') ? filter.split('-') : filter.split(' ');
+        let formattedWord = '';
+        words.forEach((word) => (formattedWord += word[0].toUpperCase() + word.substring(1) + ' '));
+
+        returnedFilter += formattedWord.trim();
         if (index !== keys.length - 1) returnedFilter += ', ';
       });
 
       return returnedFilter;
     }
-    return typeData[activeFilter[keys]].name;
+
+    // if none of the above apply, it's the type filter. return the formatted name from the animalTypeData data structure
+    return animalTypeData[text].name;
   }
 
   const buttonText = createButtonText();

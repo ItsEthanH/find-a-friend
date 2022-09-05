@@ -25,7 +25,7 @@ const sortOptions = {
 };
 
 function _ResultsPage() {
-  // imports
+  // hooks
   const params = useParams();
   const navigate = useNavigate();
 
@@ -34,17 +34,24 @@ function _ResultsPage() {
   const [totalCount, setTotalCount] = useState(0);
 
   // the next 6 lines turn the location from the {city-state} url format to the {city, state} api format
-  let apiLocation = params.location;
-  if (isNaN(params.location)) {
+  // postcodes are allowed as they are
+  let locationParameter = params.location;
+  if (isNaN(params.location) && params.location !== 'global') {
     const loc = params.location.replaceAll('-', ' ');
     const index = loc.lastIndexOf(' ');
-    apiLocation = loc.substring(0, index) + ', ' + loc.substring(index + 1);
+    locationParameter = loc.substring(0, index) + ', ' + loc.substring(index + 1);
   }
 
-  let filters = params.filters ? `${params.filters.replaceAll('-', ' ')}` : '';
+  let filters = params.filters || '';
 
-  const requestEndpoint = `location=${apiLocation}&page=${params.page}&sort=${params.sort}&${filters}`;
+  console.log(locationParameter);
+
+  const requestEndpoint = `${
+    locationParameter !== 'global' && `location=${locationParameter}`
+  }&page=${params.page}&sort=${params.sort}&${filters}`;
   const { response, isLoading, error } = useFetch(`animals?${requestEndpoint}`);
+
+  console.log(requestEndpoint);
 
   // allows the responsive rendering of the filters in the results page only.
   // controls the 'desktop' prop on the filter, which internally handles the styling through the addition of '.desktop' classes
@@ -108,6 +115,8 @@ function _ResultsPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  console.log(response);
+
   // rendering cards and popups here to (try to) keep the function return leaner
   const renderedCards =
     response &&
@@ -124,7 +133,7 @@ function _ResultsPage() {
           name={pet.name}
           image={photo}
           breed={pet.breeds.primary}
-          distance={pet.distance.toFixed(0)}
+          distance={pet.distance ? pet.distance.toFixed(0) : ''}
           city={pet.contact.address.city}
           state={pet.contact.address.state}
         />
@@ -135,17 +144,10 @@ function _ResultsPage() {
     <img src={loading} alt="Loading..." className={classes.placeholders} />
   );
 
-  const noResults = !isLoading && response && response.animals.length === 0 && (
+  const noResults = !isLoading && ((response && response.animals.length === 0) || error) && (
     <p className={classes.placeholders}>
       We could not find any results. Please try changing the location, or modifying the filters, and
       try again.
-    </p>
-  );
-
-  const errorReturned = error && !isLoading && (
-    <p className={classes.placeholders}>
-      An error has occurred. Please try changing the location. If the error still persists, please
-      contact the website admins. Thank you
     </p>
   );
 
@@ -168,7 +170,6 @@ function _ResultsPage() {
         {loadingPlaceholder}
         {renderedCards}
         {noResults}
-        {errorReturned}
       </section>
 
       <ResultsPagination currentPage={currentPage} totalPages={totalPages} />

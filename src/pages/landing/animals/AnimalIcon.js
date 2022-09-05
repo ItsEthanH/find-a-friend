@@ -11,7 +11,7 @@ function AnimalIcon(props) {
   }
 
   return (
-    <button className={classes.icon} onClick={buttonClickHandler}>
+    <button id={id} className={classes.icon} onClick={buttonClickHandler}>
       <img id={id} src={image} alt={animal} />
       <p id={id} className={buttonClasses.button}>
         Find a {animal}

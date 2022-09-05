@@ -12,7 +12,7 @@ import FilterTemplateCheckbox from './FilterTemplateCheckbox';
 import FilterButtonMobile from './FilterButtonMobile';
 
 import classes from './styles/Filter.module.css';
-import typeData from '../../data/typeData';
+import animalTypeData from '../../data/animalTypeData';
 import { filterActions, FILTER_PAGES } from '../../store/filter';
 import { uiActions } from '../../store/ui';
 
@@ -64,7 +64,10 @@ function Filter(props) {
     if (!response || !activeType) return;
 
     dispatch(
-      filterActions.changeAnimalType({ breeds: response.breeds, coats: typeData[activeType].coats })
+      filterActions.changeAnimalType({
+        breeds: response.breeds,
+        coats: animalTypeData[activeType].coats,
+      })
     );
   }, [response, activeType, dispatch]);
 

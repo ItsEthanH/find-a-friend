@@ -4,7 +4,7 @@ import Heading from '../../components/text/Heading';
 import Hero from '../../components/cards-and-sections/Hero';
 import SearchAnimalsSearchbar from './SearchAnimalsSearchbar';
 
-function SearchAllHero() {
+function SearchAnimalsHero() {
   return (
     <Hero page="ANIMALS">
       <div className="hero-body">
@@ -17,4 +17,4 @@ function SearchAllHero() {
   );
 }
 
-export default SearchAllHero;
+export default SearchAnimalsHero;

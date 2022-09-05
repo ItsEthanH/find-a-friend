@@ -1,6 +1,6 @@
 .card {
   display: grid;
-  grid-template-rows: 15rem auto;
+  grid-template-rows: 15rem auto min-content;
   max-width: 13rem;
   height: fit-content;
 }
@@ -19,19 +19,35 @@
 .text h4 {
   font-size: var(--fs-subheading);
   color: var(--clr-accent);
+  padding: 0.5rem 0;
+  line-height: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.text > p {
+  line-height: 1.2;
 }
 
 .location {
   display: flex;
   justify-content: center;
   font-size: var(--fs-subbody);
-  margin: 0.5rem 0;
+  margin: 0.75rem 0;
 }
 
 .location p {
   padding: 0 0.5rem;
 }
 
-.location p:first-of-type {
-  border-right: 1px solid var(--clr-grey-400);
+.divider {
+  border-right: 1px solid black;
+}
+
+.button {
+  justify-self: center;
+  margin-bottom: 1rem;
+  padding: 0.2rem 1rem;
 }

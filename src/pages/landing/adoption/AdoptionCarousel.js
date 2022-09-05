@@ -58,6 +58,7 @@ function AdoptionCarousel() {
     <>
       {response && (
         <Swiper
+          autoHeight={true}
           modules={[Navigation]}
           loop="true"
           navigation

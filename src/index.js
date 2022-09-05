@@ -12,6 +12,7 @@ import SearchOrgsPage from './pages/search-orgs/_SearchOrgsPage';
 import DogBreedsPage from './pages/dog-breeds/_DogBreedsPage';
 import CatBreedsPage from './pages/cat-breeds/_CatBreedsPage';
 import ResultsPage from './pages/results/_ResultsPage';
+import PetViewPage from './pages/pet-view/_PetViewPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -26,6 +27,7 @@ root.render(
           <Route path="/cat-breeds" element={<CatBreedsPage />} />
           <Route path="/results/:location/:page/:sort" element={<ResultsPage />} />
           <Route path="/results/:location/:page/:sort/:filters" element={<ResultsPage />} />
+          <Route path="/animal/:id" element={<PetViewPage />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Card from '../../../components/cards-and-sections/Card';
 import AdoptionInfo from './AdoptionInfo';
@@ -10,6 +11,11 @@ import pin from '../../../assets/svgs/location-pin.svg';
 
 function AdoptionCard({ pet }) {
   const location = `${pet.contact.address.city}, ${pet.contact.address.state}`;
+  const navigate = useNavigate();
+
+  function viewClickHandler() {
+    navigate(`/animal/${pet.id}`);
+  }
 
   // mobile image size - 300px
   return (
@@ -27,7 +33,9 @@ function AdoptionCard({ pet }) {
         </div>
       </div>
 
-      <AccentButton styles={classes.view}>View Profile</AccentButton>
+      <AccentButton styles={classes.view} onClick={viewClickHandler}>
+        View Profile
+      </AccentButton>
     </Card>
   );
 }

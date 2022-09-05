@@ -1,3 +1,4 @@
+import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import FilterDropdownType from './FilterDropdownType';
@@ -11,6 +12,7 @@ import classes from './styles/FilterDesktop.module.css';
 
 function FilterDesktop(props) {
   const { isLoading } = props;
+  const params = useParams();
 
   const filterList = Object.values(FILTER_PAGES);
   const pageSelected = useSelector((state) => state.filter.pageSelected);
@@ -19,7 +21,9 @@ function FilterDesktop(props) {
   );
 
   const renderedFilters = filterList.map((filter) => {
-    const isDisabled = filter !== FILTER_PAGES.TYPE && hasTypeBeenChosen;
+    const isDisabled =
+      (filter !== FILTER_PAGES.TYPE && hasTypeBeenChosen) ||
+      (filter === FILTER_PAGES.DISTANCE && params.location === 'global');
 
     function createFilter(givenFilter) {
       return (

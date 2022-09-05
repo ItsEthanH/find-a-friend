@@ -1,20 +1,21 @@
 import React from 'react';
 
-import Card from './Card';
-
 import classes from './styles/BrowseCard.module.css';
 
 function BrowseCard(props) {
+  function cardClickHandler() {
+    props.onClick(props.id);
+  }
+
   return (
-    <Card styles={classes.card}>
+    <button className={classes.card} onClick={cardClickHandler}>
       <div className={classes.image}>
         <img src={props.image} alt={props.name} />
       </div>
       <div className={classes.text}>
         <h4>{props.name}</h4>
-        <p>{props.available} Available</p>
       </div>
-    </Card>
+    </button>
   );
 }
 
