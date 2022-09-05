@@ -18,6 +18,7 @@
 
 .details {
   display: grid;
+  grid-auto-columns: 100%;
 }
 
 .loading,
