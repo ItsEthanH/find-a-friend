@@ -40,11 +40,6 @@
   padding: 1.5rem 1rem;
 }
 
-.suggestions hr {
-  border: 1px solid var(--clr-accent);
-  margin: 0 1rem;
-}
-
 .highlight {
   font-weight: bold;
 }

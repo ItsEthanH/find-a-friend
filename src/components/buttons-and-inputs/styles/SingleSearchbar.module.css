@@ -19,3 +19,32 @@
 .form img {
   width: 2rem;
 }
+
+.suggestions {
+  position: absolute;
+  width: 100%;
+  top: 90%;
+  left: 0;
+  background: white;
+  color: black;
+  z-index: 1;
+}
+
+.suggestions ul {
+  list-style: none;
+}
+
+.suggestions li {
+  font-size: var();
+}
+
+.suggestions li:hover {
+  background-color: var(--clr-grey-200);
+  cursor: pointer;
+}
+
+.suggestions button {
+  width: 100%;
+  text-align: left;
+  padding: 1.5rem 1rem;
+}

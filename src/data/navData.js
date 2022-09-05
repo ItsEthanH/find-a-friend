@@ -2,8 +2,8 @@
 const NavData = [
   { text: 'Search Animals', to: '/search' },
   { text: 'Search Organisations', to: '/organisations' },
-  { text: 'Dog Breeds', to: '/dog-breeds' },
-  { text: 'Cat Breeds', to: '/cat-breeds' },
+  { text: 'Dog Breeds', to: '/dog-breeds/1' },
+  { text: 'Cat Breeds', to: '/cat-breeds/1' },
 ];
 
 export default NavData;

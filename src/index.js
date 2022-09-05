@@ -23,8 +23,8 @@ root.render(
           <Route index element={<LandingPage />} />
           <Route path="/search" element={<SearchAnimalsPage />} />
           <Route path="/organisations" element={<SearchOrgsPage />} />
-          <Route path="/dog-breeds" element={<DogBreedsPage />} />
-          <Route path="/cat-breeds" element={<CatBreedsPage />} />
+          <Route path="/dog-breeds/:page" element={<DogBreedsPage />} />
+          <Route path="/cat-breeds/:page" element={<CatBreedsPage />} />
           <Route path="/results/:location/:page/:sort" element={<ResultsPage />} />
           <Route path="/results/:location/:page/:sort/:filters" element={<ResultsPage />} />
           <Route path="/animal/:id" element={<PetViewPage />} />
