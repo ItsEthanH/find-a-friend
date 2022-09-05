@@ -26,7 +26,7 @@ function MobileNavigationButton(props) {
 
   return (
     <>
-      {isMobileNavOpen && <Backdrop />}
+      {isMobileNavOpen && <Backdrop onClick={navClickHandler} />}
       <button className={style} onClick={navClickHandler}>
         <span className={`${classes.patty} ${classes.first}`}></span>
         <span className={`${classes.patty} ${classes.second}`}></span>

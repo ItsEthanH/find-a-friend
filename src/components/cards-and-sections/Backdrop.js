@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { uiActions } from '../../store/ui';
 
 import ReactDOM from 'react-dom';
 
@@ -8,13 +6,12 @@ import classes from './styles/Backdrop.module.css';
 
 const backdropPortal = document.getElementById('backdrop-root');
 
-function BackdropElement() {
-  const dispatch = useDispatch();
-
+function BackdropElement(props) {
   const [animate, setAnimate] = useState(false);
 
-  function backdropClickHandler() {
-    dispatch(uiActions.toggleMobileNav());
+  function backdropClickHandler(event) {
+    if (event.target.id !== 'backdrop') return;
+    props.onClick();
   }
 
   useEffect(() => {
@@ -23,11 +20,22 @@ function BackdropElement() {
 
   const styles = `${classes.backdrop} ${animate ? classes.animation : ''}`;
 
-  return <div onClick={backdropClickHandler} className={styles} />;
+  return (
+    <div id="backdrop" onClick={backdropClickHandler} className={styles}>
+      {props.children}
+    </div>
+  );
 }
 
-function Backdrop() {
-  return <>{ReactDOM.createPortal(<BackdropElement />, backdropPortal)}</>;
+function Backdrop(props) {
+  return (
+    <>
+      {ReactDOM.createPortal(
+        <BackdropElement onClick={() => props.onClick()}> {props.children}</BackdropElement>,
+        backdropPortal
+      )}
+    </>
+  );
 }
 
 export default Backdrop;
