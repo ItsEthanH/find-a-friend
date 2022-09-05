@@ -1,0 +1,12 @@
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info p {
+  font-size: var(--fs-subheading);
+  margin: 0 2rem;
+  margin-bottom: 10%;
+  text-align: center;
+}
