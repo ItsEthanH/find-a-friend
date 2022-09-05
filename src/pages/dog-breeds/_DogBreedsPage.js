@@ -29,6 +29,11 @@ function _DogBreedsPage() {
     }
   }
 
+  function cardClickHandler(id) {
+    const formattedBreed = id.toLowerCase().replaceAll(' ', '-');
+    navigate(`/results/global/1/recent/type=dog&breed=${formattedBreed}`);
+  }
+
   // the dog breeds page uses a different API to the rest of the app. since that API is only used here, all fetching logic is kept
   // in this file, and hence the useFetch hook is not used
   useEffect(() => {
@@ -81,7 +86,7 @@ function _DogBreedsPage() {
   return (
     <main>
       <DogBreedsHero />
-      {breeds && <BrowseSection heading={heading} items={breeds} />}
+      {breeds && <BrowseSection heading={heading} items={breeds} onClick={cardClickHandler} />}
       {isLoading && loadingElement}
       {error && errorElement}
       <div className={classes.pagination}>
