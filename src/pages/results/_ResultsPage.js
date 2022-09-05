@@ -144,17 +144,10 @@ function _ResultsPage() {
     <img src={loading} alt="Loading..." className={classes.placeholders} />
   );
 
-  const noResults = !isLoading && response && response.animals.length === 0 && (
+  const noResults = !isLoading && ((response && response.animals.length === 0) || error) && (
     <p className={classes.placeholders}>
       We could not find any results. Please try changing the location, or modifying the filters, and
       try again.
-    </p>
-  );
-
-  const errorReturned = error && !isLoading && (
-    <p className={classes.placeholders}>
-      An error has occurred. Please try changing the location. If the error still persists, please
-      contact the website admins. Thank you
     </p>
   );
 
@@ -177,7 +170,6 @@ function _ResultsPage() {
         {loadingPlaceholder}
         {renderedCards}
         {noResults}
-        {errorReturned}
       </section>
 
       <ResultsPagination currentPage={currentPage} totalPages={totalPages} />

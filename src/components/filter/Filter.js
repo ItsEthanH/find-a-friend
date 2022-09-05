@@ -66,7 +66,7 @@ function Filter(props) {
     dispatch(
       filterActions.changeAnimalType({
         breeds: response.breeds,
-        coats: animalTypeData[activeType],
+        coats: animalTypeData[activeType].coats,
       })
     );
   }, [response, activeType, dispatch]);

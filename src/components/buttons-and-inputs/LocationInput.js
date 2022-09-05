@@ -21,7 +21,10 @@ function LocationInput(props) {
     usePlacesAutoComplete(paramterOptions);
 
   function locationChangeHandler(event) {
-    setValue(event.target.value);
+    const input = event.target.value;
+    if (!/^[\w,.-\s]*$/g.test(input)) return;
+
+    setValue(input);
   }
 
   function locationSelectHandler(event) {
@@ -62,7 +65,7 @@ function LocationInput(props) {
   });
 
   const renderedSuggestions = suggestions.data.map((item) => {
-    const splitText = item.description.split(new RegExp(`(${value})`, 'gi'));
+    const splitText = item.description.split(new RegExp('(' + value + ')', 'gi'));
 
     const description = splitText.map((part) =>
       part.toLowerCase() === value.toLowerCase() ? (
