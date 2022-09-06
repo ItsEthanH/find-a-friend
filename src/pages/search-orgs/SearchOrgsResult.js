@@ -4,11 +4,13 @@ import classes from './styles/SearchOrgsResult.module.css';
 
 function SearchOrgsResult({ id, name, location, distance, contact, website }) {
   const shownDistance = distance ? (
-    `${distance.toFixed(0)} miles`
+    <p>{`${distance.toFixed(0)} miles`}</p>
   ) : (
     <p className={classes.none}>Please enter a location to show distance</p>
   );
-  const shownContact = contact.trim() || <p className={classes.none}>No contact available</p>;
+  const shownContact = <p>{contact.trim()}</p> || (
+    <p className={classes.none}>No contact available</p>
+  );
 
   return (
     <div className={classes.result}>

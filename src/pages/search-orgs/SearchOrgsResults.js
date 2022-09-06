@@ -25,7 +25,7 @@ function SearchOrgsResults({ results, isLoading, error, pagination, onPageChange
           contact={result.phone || result.email}
           website={result.website}
         />
-        {index < results.length && <div className={classes.divider} />}
+        {index + 1 < results.length && <div className={classes.divider} />}
       </>
     ));
 
