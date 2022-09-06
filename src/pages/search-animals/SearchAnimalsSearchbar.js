@@ -6,7 +6,6 @@ import Filter from '../../components/filter/Filter';
 import { useSelector } from 'react-redux';
 
 import classes from './styles/SearchAnimalsSearchbar.module.css';
-import locationIcon from '../../assets/svgs/location-pin.svg';
 import filterIcon from '../../assets/svgs/filter.svg';
 import AccentButton from '../../components/buttons-and-inputs/AccentButton';
 import { FILTER_PAGES } from '../../store/filter';
@@ -42,12 +41,7 @@ function SearchAnimalsSearchbar() {
 
   return (
     <form className={classes.form} onSubmit={submitHandler} aria-label="Search animals">
-      <LocationInput
-        name="Location"
-        icon={locationIcon}
-        placeholder="Enter a city, state or postal code"
-        setLocation={setLocation}
-      />
+      <LocationInput setLocation={setLocation} />
       <div className={classes.divider} />
       <div className={classes.filter}>
         <img src={filterIcon} alt="Filters" />

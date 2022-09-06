@@ -4,6 +4,7 @@ import usePlacesAutoComplete from 'use-places-autocomplete';
 import Card from '../cards-and-sections/Card';
 
 import classes from './styles/LocationInput.module.css';
+import locationIcon from '../../assets/svgs/location-pin.svg';
 
 function LocationInput(props) {
   const dropdownRef = useRef();
@@ -91,15 +92,15 @@ function LocationInput(props) {
 
   return (
     <div className={classes.input} ref={dropdownRef}>
-      <label htmlFor={props.name}>
-        <img src={props.icon} alt={props.name} />
+      <label htmlFor="Location">
+        <img src={locationIcon} alt="Location" />
       </label>
       <input
-        name={props.name}
-        id={props.name}
+        name="Location"
+        id="Location"
         value={value}
-        placeholder={props.placeholder}
-        aria-label={props.placeholder}
+        placeholder="Enter a city, state or postal code"
+        aria-label="Enter a city, state or postal code"
         onChange={locationChangeHandler}
         disabled={!ready}
       />
