@@ -30,6 +30,7 @@ function _PetViewPage() {
   const { id } = useParams();
 
   const { response, isLoading, error } = useFetch(`animals/${id}`);
+  console.log(response);
 
   const fromSearchBreadcrumbs = [
     { link: '/', text: 'Home' },
@@ -56,6 +57,13 @@ function _PetViewPage() {
 
   // if there's no photos, pass on the no image found picture. else, render received images
   let photos = [{ full: noImageFound }];
+
+  // if a pet is a mixed breed dog, include the secondary breed too
+  const breed =
+    response &&
+    `${response.animal.breeds.primary} ${
+      response.animal.breeds.secondary ? ' / ' + response.animal.breeds.secondary : ''
+    }`;
 
   if (response && response.animal.photos[0]) {
     photos = response.animal.photos;
@@ -107,7 +115,7 @@ function _PetViewPage() {
         <PetImages photos={photos} />
         <PetInformation
           name={response.animal.name}
-          breed={response.animal.breeds.primary}
+          breed={breed}
           age={response.animal.age}
           gender={response.animal.gender}
           location={`${response.animal.contact.address.city}, ${response.animal.contact.address.state}`}

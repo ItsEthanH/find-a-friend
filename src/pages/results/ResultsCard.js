@@ -1,17 +1,11 @@
-import { useNavigate, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import Card from '../../components/cards-and-sections/Card';
-import AccentButton from '../../components/buttons-and-inputs/AccentButton';
 
 import classes from './styles/ResultsCard.module.css';
 
 function ResultsCard(props) {
   const location = useLocation();
-  const navigate = useNavigate();
-
-  function buttonClickHandler() {
-    navigate(`/animal/${props.id}`, { state: { path: location.pathname } });
-  }
 
   return (
     <Card key={props.id} styles={classes.card}>
@@ -33,9 +27,13 @@ function ResultsCard(props) {
           </p>
         </div>
       </div>
-      <AccentButton styles={classes.button} onClick={buttonClickHandler}>
+      <Link
+        className={classes.button}
+        to={`/animal/${props.id}`}
+        state={{ path: location.pathname }}
+      >
         View my Profile!
-      </AccentButton>
+      </Link>
     </Card>
   );
 }

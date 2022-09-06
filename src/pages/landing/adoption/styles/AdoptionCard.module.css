@@ -20,7 +20,12 @@
 .text h4 {
   font-family: var(--ff-accent);
   font-size: var(--fs-heading);
-  line-height: 1;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .text > p {
@@ -41,6 +46,10 @@
 }
 
 .view {
+  background-color: var(--clr-accent);
   justify-self: center;
   margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  color: white;
+  border-radius: 25px;
 }
