@@ -1,0 +1,47 @@
+.form {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto;
+  gap: 1rem;
+  width: 100%;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: white;
+  border-radius: 15px;
+}
+
+.form img {
+  height: 40px;
+  width: 40px;
+  max-width: none;
+}
+
+.shelter {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.shelter input {
+  width: 100%;
+  margin: 0 0.5rem;
+  border: none;
+  outline: none;
+}
+
+.submit {
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+@media screen and (min-width: 600px) {
+  .form {
+    grid-template-columns: 1fr min-content 1fr;
+  }
+
+  .form > button {
+    margin: 0.5rem 0;
+  }
+}

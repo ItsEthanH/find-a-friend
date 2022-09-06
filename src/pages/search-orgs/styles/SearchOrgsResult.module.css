@@ -1,0 +1,38 @@
+.result {
+  padding: 1rem;
+}
+
+.name {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-nav);
+  color: var(--clr-accent);
+  text-decoration: underline;
+}
+
+.info {
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+}
+
+.info * {
+  word-wrap: break-word;
+}
+
+.info h4 {
+  font-family: var(--ff-heading);
+}
+
+.info a {
+  color: var(--clr-accent);
+  text-decoration: underline;
+}
+
+.none {
+  font-style: italic;
+}
+
+@media screen and (min-width: 500px) {
+  .info {
+    display: flex;
+  }
+}

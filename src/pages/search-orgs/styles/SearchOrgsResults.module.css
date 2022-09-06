@@ -1,7 +1,37 @@
 .results {
-  padding-bottom: 3rem;
+  margin: 1rem 3rem;
+  border: 1px solid var(--clr-grey-300);
+  border-radius: 25px;
+  overflow: hidden;
+  max-width: 800px;
 }
 
-.results p {
+.heading {
+  margin: 1rem 0;
+}
+
+.divider {
+  border-top: 1px solid var(--clr-grey-300);
+  margin: 0 1rem;
+}
+
+.loading {
+  margin: 2rem auto;
+}
+
+.info {
+  font-family: var(--ff-accent);
+  font-size: var(--fs-subheading);
+  margin: 2rem;
   text-align: center;
+}
+
+@media screen and (min-width: 900px) {
+  .heading {
+    margin: 1.5rem 0;
+  }
+
+  .results {
+    margin: 1rem auto;
+  }
 }

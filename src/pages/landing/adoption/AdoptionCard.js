@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 import Card from '../../../components/cards-and-sections/Card';
 import AdoptionInfo from './AdoptionInfo';
-import AccentButton from '../../../components/buttons-and-inputs/AccentButton';
 
 import classes from './styles/AdoptionCard.module.css';
 import age from '../../../assets/svgs/cake.svg';

@@ -1,0 +1,11 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+  grid-area: pagination;
+}
+
+.pagination button {
+  color: var(--clr-accent);
+}

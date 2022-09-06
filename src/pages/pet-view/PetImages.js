@@ -61,7 +61,7 @@ function PetImages({ photos }) {
   return (
     <>
       {isFullscreen && <Backdrop onClick={fullscreenClickHandler}>{petImagesComponent}</Backdrop>}
-      {!isFullscreen && petImagesComponent}
+      {isFullscreen ? <div className={classes.hidden} /> : petImagesComponent}
     </>
   );
 }

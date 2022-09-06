@@ -7,6 +7,7 @@ import BrowseCard from './BrowseCard';
 import classes from './styles/BrowseSection.module.css';
 import loadingSpinner from '../../assets/svgs/loading.svg';
 import noImage from '../../assets/images/pet-view/no-images-found.png';
+import Pagination from '../buttons-and-inputs/Pagination';
 
 function BreedSection(props) {
   const isDog = props.isDog;
@@ -22,15 +23,8 @@ function BreedSection(props) {
   const dogImageKey = process.env.REACT_APP_DOG_BREEDS_KEY;
   const catImageKey = process.env.REACT_APP_CAT_BREEDS_KEY;
 
-  function changePageHandler(event) {
-    if (event.target.id === 'PREV' && +page > 1) {
-      const path = `/${isDog ? 'dog' : 'cat'}-breeds/${+page - 1}`;
-      navigate(path);
-    }
-
-    if (event.target.id === 'NEXT' && +page < totalPages) {
-      navigate(`/${isDog ? 'dog' : 'cat'}-breeds/${+page + 1}`);
-    }
+  function changePageHandler(newPage) {
+    navigate(`/${isDog ? 'dog' : 'cat'}-breeds/${newPage}`);
   }
 
   function cardClickHandler(id) {
@@ -61,8 +55,6 @@ function BreedSection(props) {
       }
 
       const data = await response.json();
-
-      console.log(data);
 
       let formattedBreedArray = [];
       for (const breed of data) {
@@ -112,17 +104,7 @@ function BreedSection(props) {
         {isLoading && loadingElement}
         {error && errorElement}
       </div>
-      <div className={classes.pagination}>
-        <button id="PREV" onClick={changePageHandler}>
-          Prev
-        </button>
-        <p>
-          Page {page} of {totalPages}
-        </p>
-        <button id="NEXT" onClick={changePageHandler}>
-          Next
-        </button>
-      </div>
+      <Pagination page={page} totalPages={totalPages} onChange={changePageHandler} />
     </section>
   );
 }

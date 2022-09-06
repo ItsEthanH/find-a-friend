@@ -22,11 +22,22 @@ root.render(
         <Route path="/" element={<App />}>
           <Route index element={<LandingPage />} />
           <Route path="/search" element={<SearchAnimalsPage />} />
-          <Route path="/organisations" element={<SearchOrgsPage />} />
+
+          <Route path="/organisations/:page" element={<SearchOrgsPage />} />
+          <Route path="/organisations/location=:location/:page" element={<SearchOrgsPage />} />
+          <Route path="/organisations/shelter=:shelterName/:page" element={<SearchOrgsPage />} />
+          <Route
+            path="/organisations/location=:location/shelter=:shelterName/:page"
+            element={<SearchOrgsPage />}
+          />
+
           <Route path="/dog-breeds/:page" element={<DogBreedsPage />} />
           <Route path="/cat-breeds/:page" element={<CatBreedsPage />} />
-          <Route path="/results/:location/:page/:sort" element={<ResultsPage />} />
-          <Route path="/results/:location/:page/:sort/:filters" element={<ResultsPage />} />
+
+          <Route path="/results/:location/:page/:sort" element={<ResultsPage />}>
+            <Route path=":filters" element={<ResultsPage />} />
+          </Route>
+
           <Route path="/animal/:id" element={<PetViewPage />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />

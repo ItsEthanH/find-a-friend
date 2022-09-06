@@ -33,6 +33,12 @@
   background-image: url('../../../assets/images/breeds/cat-hero.jpg');
 }
 
+@media screen and (min-width: 600px) {
+  .hero {
+    height: 50vh;
+  }
+}
+
 @media screen and (min-width: 1000px) {
   .hero {
     text-align: left;
