@@ -9,6 +9,7 @@ import { uiActions } from '../../store/ui';
 import ResultsCard from './ResultsCard';
 import ResultsSort from './ResultsSort';
 import Filter from '../../components/filter/Filter';
+import urlToAPI from '../../util/urlToAPI';
 
 import classes from './styles/ResultsPage.module.css';
 import loading from '../../assets/svgs/loading.svg';
@@ -33,15 +34,8 @@ function _ResultsPage() {
   const [totalPages, setTotalPages] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
 
-  // the next 6 lines turn the location from the {city-state} url format to the {city, state} api format
-  // postcodes are allowed as they are
-  let locationParameter = params.location;
-  if (isNaN(params.location) && params.location !== 'global') {
-    const loc = params.location.replaceAll('-', ' ');
-    const index = loc.lastIndexOf(' ');
-    locationParameter = loc.substring(0, index) + ', ' + loc.substring(index + 1);
-  }
-
+  let locationParameter = urlToAPI(params.location);
+  console.log(locationParameter);
   let filters = params.filters || '';
 
   const requestEndpoint = `${
