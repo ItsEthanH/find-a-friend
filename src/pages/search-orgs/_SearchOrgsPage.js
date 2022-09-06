@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 import urlToAPI from '../../util/urlToAPI';
 
@@ -8,6 +8,7 @@ import SearchOrgsResults from './SearchOrgsResults';
 
 function SearchOrgsPage() {
   const params = useParams();
+  const location = useLocation();
   const navigate = useNavigate();
 
   const formattedLocation = params.location && urlToAPI(params.location);
@@ -22,20 +23,24 @@ function SearchOrgsPage() {
 
   const { response, isLoading, error } = useFetch(`organizations?${endpoint}`);
 
+  function pageChangeHandler(newPage) {
+    const pageBeginsIndex = location.pathname.lastIndexOf('/');
+    const slicedPath = location.pathname.substring(pageBeginsIndex, -location.pathname.length);
+    navigate(`${slicedPath}/${newPage}`);
+  }
+
   function searchSubmitHandler(location, shelterName) {
     let navParam = '';
 
-    if (location.length > 0) {
+    if (location.length !== 0) {
       navParam += `/location=${location.join('-')}`;
     }
+
     if (shelterName) {
       navParam += `/shelter=${shelterName}`;
     }
 
-    navParam += '/1';
-
-    console.log(navParam);
-
+    navParam += `/1`;
     navigate(`/organisations${navParam}`);
   }
 
@@ -46,6 +51,8 @@ function SearchOrgsPage() {
         results={response && response.organizations}
         isLoading={isLoading}
         error={error}
+        pagination={response && response.pagination}
+        onPageChange={pageChangeHandler}
       />
     </main>
   );

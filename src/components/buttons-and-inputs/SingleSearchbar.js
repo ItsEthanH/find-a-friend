@@ -21,7 +21,6 @@ function SingleSearchbar({ placeholder, name, icon, onSubmit }) {
 
   function inputChangeHandler(event) {
     const input = event.target.value.toLowerCase();
-    console.log(input);
     if (input.trim().length === 0) {
       setSuggestions([]);
       return;

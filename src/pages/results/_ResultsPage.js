@@ -35,7 +35,6 @@ function _ResultsPage() {
   const [totalCount, setTotalCount] = useState(0);
 
   let locationParameter = urlToAPI(params.location);
-  console.log(locationParameter);
   let filters = params.filters || '';
 
   const requestEndpoint = `${
@@ -54,14 +53,8 @@ function _ResultsPage() {
     navigate(`/results/${params.location}/1/${sortId}/${filters}`);
   }
 
-  function changePageHandler(event) {
-    let newPage = currentPage;
-
+  function changePageHandler(newPage) {
     const filterParams = params.filters ? `${params.filters}` : '';
-
-    if (event.target.id === 'NEXT' && currentPage !== totalPages) newPage += 1;
-    if (event.target.id === 'PREV' && currentPage !== 1) newPage = newPage -= 1;
-
     navigate(`/results/${params.location}/${newPage}/${params.sort}/${filterParams}`);
   }
 
@@ -171,7 +164,9 @@ function _ResultsPage() {
         {noResults}
       </section>
 
-      <Pagination page={currentPage} totalPages={totalPages} onChange={changePageHandler} />
+      {response && (
+        <Pagination page={currentPage} totalPages={totalPages} onChange={changePageHandler} />
+      )}
     </main>
   );
 }

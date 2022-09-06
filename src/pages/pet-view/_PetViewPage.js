@@ -30,7 +30,6 @@ function _PetViewPage() {
   const { id } = useParams();
 
   const { response, isLoading, error } = useFetch(`animals/${id}`);
-  console.log(response);
 
   const fromSearchBreadcrumbs = [
     { link: '/', text: 'Home' },
