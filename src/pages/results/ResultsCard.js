@@ -30,7 +30,7 @@ function ResultsCard(props) {
       <Link
         className={classes.button}
         to={`/animal/${props.id}`}
-        state={{ path: location.pathname }}
+        state={{ from: 'RESULTS', path: location.pathname }}
       >
         View my Profile!
       </Link>

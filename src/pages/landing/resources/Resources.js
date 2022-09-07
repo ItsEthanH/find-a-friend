@@ -10,7 +10,7 @@ import petfinder from '../../../assets/images/landing/petfinder.png';
 
 function Resources() {
   return (
-    <LandingSection>
+    <LandingSection id="resources">
       <Heading>Resources for New Owners</Heading>
       <div className={classes.subheading}>
         <Subheading>Courtesy of </Subheading>

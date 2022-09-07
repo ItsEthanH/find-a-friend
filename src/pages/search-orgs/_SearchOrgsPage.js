@@ -5,6 +5,7 @@ import urlToAPI from '../../util/urlToAPI';
 
 import SearchOrgsHero from './SearchOrgsHero';
 import SearchOrgsResults from './SearchOrgsResults';
+import Breadcrumbs from '../../components/text/Breadcrumbs';
 
 function SearchOrgsPage() {
   const params = useParams();

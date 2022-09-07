@@ -97,7 +97,7 @@ function BreedSection(props) {
   ));
 
   return (
-    <section className={classes.section}>
+    <section id={props.id} className={classes.section}>
       <Heading>{props.heading}</Heading>
       <div className={classes.cards}>
         {renderedCards}

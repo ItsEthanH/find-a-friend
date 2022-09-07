@@ -10,7 +10,7 @@ import Resources from './resources/Resources';
 function LandingPage() {
   return (
     <>
-      <main>
+      <main id="landing-top">
         <LandingHero />
         <Animals />
         <Adoption />

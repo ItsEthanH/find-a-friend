@@ -6,7 +6,7 @@ function LandingSection(props) {
   let styles = `${classes.section} ${props.styles ? props.styles : ''}`;
 
   return (
-    <section data-testid="landing-section" className={styles}>
+    <section id={props.id} data-testid="landing-section" className={styles}>
       {props.children}
     </section>
   );
