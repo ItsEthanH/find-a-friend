@@ -76,6 +76,11 @@
   color: var(--clr-accent);
 }
 
+.range p {
+  align-self: center;
+  text-align: center;
+}
+
 .info {
   text-align: center;
   margin: 1rem;

@@ -79,7 +79,7 @@ function Filter(props) {
       filterPage = <FilterDropdownType />;
       break;
     case FILTER_PAGES.DISTANCE:
-      filterPage = <FilterTemplateRange min={10} max={500} />;
+      filterPage = <FilterTemplateRange min={0} max={500} />;
       break;
     default:
       filterPage = <FilterTemplateCheckbox isLoading={isLoading} />;
