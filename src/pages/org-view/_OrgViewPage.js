@@ -17,7 +17,7 @@ function _OrgViewPage(props) {
 
   const breadcrumbs = [
     { link: '/', text: 'Home' },
-    { link: '/organisations', text: 'Search Organisations' },
+    { link: '/organisations/1', text: 'Search Organisations' },
     { link: location.pathname, text: 'Organisation' },
   ];
 

@@ -1,11 +1,3 @@
-.information {
-  grid-area: info;
-}
-
-.hours {
-  grid-area: hours;
-}
-
 .card {
   margin: 1rem 0;
   padding: 1rem;
@@ -39,9 +31,22 @@
   font-style: italic;
 }
 
+.information {
+  grid-area: info;
+  margin-top: 3rem;
+}
+
+.hours {
+  grid-area: hours;
+}
+
 @media screen and (min-width: 1000px) {
   .info {
     flex-direction: row;
     gap: 1rem;
+  }
+
+  .information {
+    margin-top: 1rem;
   }
 }

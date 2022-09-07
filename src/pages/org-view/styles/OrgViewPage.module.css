@@ -1,6 +1,7 @@
 .main {
   display: grid;
   grid-template-areas: 'breadcrumbs' 'map' 'info' 'hours' 'pets';
+  grid-template-rows: max-content 20rem repeat(3, max-content);
   margin: 1rem 2rem;
   max-width: 400px;
   min-height: 70vh;
@@ -31,11 +32,13 @@
   .main {
     grid-template-areas: 'breadcrumbs breadcrumbs' 'map info' 'map hours' 'pets pets';
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: none;
     max-width: 1400px;
+    margin: 1rem 2rem;
   }
 }
 
-@media screen and (min-width: 1600px) {
+@media screen and (min-width: 1450px) {
   .main {
     margin: 1rem auto;
   }
