@@ -5,6 +5,7 @@ import { Navigation } from 'swiper';
 
 import AdoptionCard from './AdoptionCard';
 
+import classes from './styles/AdoptionCarousel.module.css';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import loading from '../../../assets/svgs/loading.svg';
@@ -76,12 +77,10 @@ function AdoptionCarousel({ isOrg = false, orgUrl = '' }) {
       )}
 
       {response && response.animals.length === 0 && (
-        <p style={{ textAlign: 'center', fontSize: 'var(--fs-subheading)', margin: '2rem 0' }}>
-          {noResponseString}
-        </p>
+        <p className={classes.none}>{noResponseString}</p>
       )}
 
-      {isLoading && <img style={{ margin: 'auto' }} src={loading} alt="Loading..." />}
+      {isLoading && <img className={classes.loading} src={loading} alt="Loading..." />}
       {error && !isLoading && (
         <p style={{ textAlign: 'center', margin: '2rem' }}>
           There was an error fetching our featured pets. We apologise on behalf of all of the

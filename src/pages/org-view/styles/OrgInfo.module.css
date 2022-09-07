@@ -1,6 +1,14 @@
+.information {
+  grid-area: info;
+}
+
+.hours {
+  grid-area: hours;
+}
+
 .card {
-  margin: 2rem 0;
-  padding: 1rem;
+  margin: 1rem 0;
+  padding: 0 1rem;
 }
 
 .title {
@@ -18,10 +26,22 @@
   word-wrap: break-word;
 }
 
+.info a {
+  color: var(--clr-accent);
+  text-decoration: underline;
+}
+
 .label {
   font-family: var(--ff-heading);
 }
 
 .none {
   font-style: italic;
+}
+
+@media screen and (min-width: 1000px) {
+  .info {
+    flex-direction: row;
+    gap: 1rem;
+  }
 }

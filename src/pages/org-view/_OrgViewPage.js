@@ -69,8 +69,6 @@ const response = {
 };
 
 function _OrgViewPage(props) {
-  // const { response, isLoading, error } = useFetch('/organizations/OR248');
-
   const addressArray = [
     response.organization.address.address1,
     response.organization.address.address2,

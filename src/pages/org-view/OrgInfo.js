@@ -24,7 +24,7 @@ function OrgInfo({ name, email, phone, website, address, description }) {
   const formattedAddress = address.map((line) => <p>{line}</p>);
 
   return (
-    <Card styles={classes.card}>
+    <Card styles={`${classes.card} ${classes.information}`}>
       <h4 className={classes.title}>{name}</h4>
 
       <div className={classes['info-body']}>
@@ -42,7 +42,7 @@ function OrgInfo({ name, email, phone, website, address, description }) {
         </div>
         <div className={classes.info}>
           <p className={classes.label}>Address:</p>
-          {formattedAddress}
+          <div className={classes.address}>{formattedAddress}</div>
         </div>
         <div className={classes.description}>
           <p>{description}</p>

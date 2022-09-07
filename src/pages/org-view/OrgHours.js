@@ -12,7 +12,7 @@ function OrgHours({ hours }) {
   ));
 
   return (
-    <Card styles={classes.card}>
+    <Card styles={`${classes.card} ${classes.hours}`}>
       <h4 className={classes.title}>Opening Hours</h4>
       <div className={classes['info-body']}>{renderedSchedule}</div>
     </Card>

@@ -1,0 +1,9 @@
+.loading {
+  margin: auto;
+}
+
+.none {
+  text-align: center;
+  font-size: var(--fs-subheading);
+  margin: 1rem 0;
+}
