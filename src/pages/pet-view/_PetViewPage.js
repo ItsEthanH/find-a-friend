@@ -50,7 +50,7 @@ function _PetViewPage() {
   const addressArray = response && [
     addressSelector.address1,
     addressSelector.address2,
-    `${addressSelector.city + ','} ${addressSelector.state}`,
+    `${addressSelector.city}, ${addressSelector.state}`,
     addressSelector.postcode,
   ];
 

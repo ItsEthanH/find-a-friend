@@ -1,0 +1,27 @@
+.card {
+  margin: 2rem 0;
+  padding: 1rem;
+}
+
+.title {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-subheading);
+}
+
+.info {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.info * {
+  word-wrap: break-word;
+}
+
+.label {
+  font-family: var(--ff-heading);
+}
+
+.none {
+  font-style: italic;
+}

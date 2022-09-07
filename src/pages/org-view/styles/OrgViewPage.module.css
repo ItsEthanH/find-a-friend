@@ -1,3 +1,5 @@
 .main {
-  width: 100%;
+  display: grid;
+  grid-template-rows: 20rem;
+  margin: 1rem 2rem;
 }

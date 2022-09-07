@@ -14,7 +14,7 @@ function SearchOrgsResult({ id, name, location, distance, contact, website }) {
 
   return (
     <div className={classes.result}>
-      <Link to="/" className={classes.name}>
+      <Link id={id} to="/" className={classes.name}>
         {name}
       </Link>
       <div className={classes.info}>
