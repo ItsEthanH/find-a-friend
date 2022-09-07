@@ -11,8 +11,6 @@ import pin from '../../../assets/svgs/location-pin.svg';
 function AdoptionCard({ pet, isOrg }) {
   const location = `${pet.contact.address.city}, ${pet.contact.address.state}`;
   const { pathname } = useLocation();
-
-  console.log(isOrg);
   // mobile image size - 300px
   return (
     <Card styles={classes.card}>
