@@ -5,17 +5,20 @@ import { Navigation } from 'swiper';
 
 import AdoptionCard from './AdoptionCard';
 
+import classes from './styles/AdoptionCarousel.module.css';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import loading from '../../../assets/svgs/loading.svg';
 
-function AdoptionCarousel() {
-  const { response, isLoading, error } = useFetch('animals?limit=30');
+function AdoptionCarousel({ isOrg = false, orgUrl = '' }) {
+  const { response, isLoading, error } = useFetch(`${isOrg ? orgUrl : 'animals?limit=30'}`);
+
+  console.log(response);
 
   const renderedCards =
     response &&
     response.animals.map((pet) => {
-      if (!pet.primary_photo_cropped) return <></>;
+      if (!pet.primary_photo_cropped && !isOrg) return <></>;
 
       return (
         <SwiperSlide key={pet.id}>
@@ -54,13 +57,17 @@ function AdoptionCarousel() {
     },
   };
 
+  const noResponseString = isOrg
+    ? 'There are no animals available for this organisation. Please check back later!'
+    : 'There are no featured animals at this time. Please try again later!';
+
   return (
     <>
-      {response && (
+      {response && response.animals.length > 0 && (
         <Swiper
           autoHeight={true}
           modules={[Navigation]}
-          loop="true"
+          loop={!isOrg}
           navigation
           spaceBetween={30}
           slidesPerView={1.4}
@@ -71,7 +78,11 @@ function AdoptionCarousel() {
         </Swiper>
       )}
 
-      {isLoading && <img style={{ margin: 'auto' }} src={loading} alt="Loading..." />}
+      {response && response.animals.length === 0 && (
+        <p className={classes.none}>{noResponseString}</p>
+      )}
+
+      {isLoading && <img className={classes.loading} src={loading} alt="Loading..." />}
       {error && !isLoading && (
         <p style={{ textAlign: 'center', margin: '2rem' }}>
           There was an error fetching our featured pets. We apologise on behalf of all of the

@@ -13,6 +13,7 @@ import DogBreedsPage from './pages/dog-breeds/_DogBreedsPage';
 import CatBreedsPage from './pages/cat-breeds/_CatBreedsPage';
 import ResultsPage from './pages/results/_ResultsPage';
 import PetViewPage from './pages/pet-view/_PetViewPage';
+import OrgViewPage from './pages/org-view/_OrgViewPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -30,6 +31,8 @@ root.render(
             path="/organisations/location=:location/shelter=:shelterName/:page"
             element={<SearchOrgsPage />}
           />
+
+          <Route path="/organisation/:id" element={<OrgViewPage />} />
 
           <Route path="/dog-breeds/:page" element={<DogBreedsPage />} />
           <Route path="/cat-breeds/:page" element={<CatBreedsPage />} />

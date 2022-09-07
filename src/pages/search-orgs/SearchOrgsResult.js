@@ -8,13 +8,17 @@ function SearchOrgsResult({ id, name, location, distance, contact, website }) {
   ) : (
     <p className={classes.none}>Please enter a location to show distance</p>
   );
-  const shownContact = <p>{contact.trim()}</p> || (
+
+  console.log(contact);
+  const shownContact = contact.trim() ? (
+    <p>{contact.trim()}</p>
+  ) : (
     <p className={classes.none}>No contact available</p>
   );
 
   return (
     <div className={classes.result}>
-      <Link to="/" className={classes.name}>
+      <Link id={id} to={`/organisation/${id}`} className={classes.name}>
         {name}
       </Link>
       <div className={classes.info}>

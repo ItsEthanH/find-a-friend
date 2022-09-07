@@ -1,0 +1,12 @@
+.container {
+  grid-area: map;
+  background: var(--clr-grey-400);
+  margin: 1rem 0;
+}
+
+@media screen and (min-width: 1000px) {
+  .container {
+    margin: 1rem 2rem;
+    max-height: 35rem;
+  }
+}

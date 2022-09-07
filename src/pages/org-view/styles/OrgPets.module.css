@@ -1,0 +1,16 @@
+.section {
+  max-width: 100%;
+  margin: 2rem 0;
+  grid-area: pets;
+}
+
+.section * {
+  min-height: 0;
+  min-width: 0;
+}
+
+.title {
+  font-size: var(--fs-heading);
+  font-family: var(--ff-heading);
+  text-align: center;
+}
