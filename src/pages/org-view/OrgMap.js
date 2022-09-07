@@ -19,7 +19,7 @@ function OrgMap({ address }) {
   }, [address]);
 
   return (
-    <GoogleMap zoom={10} center={center} mapContainerClassName={classes.container}>
+    <GoogleMap zoom={15} center={center} mapContainerClassName={classes.container}>
       <Marker position={center} />
     </GoogleMap>
   );

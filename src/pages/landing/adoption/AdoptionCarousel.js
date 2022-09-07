@@ -13,6 +13,8 @@ import loading from '../../../assets/svgs/loading.svg';
 function AdoptionCarousel({ isOrg = false, orgUrl = '' }) {
   const { response, isLoading, error } = useFetch(`${isOrg ? orgUrl : 'animals?limit=30'}`);
 
+  console.log(response);
+
   const renderedCards =
     response &&
     response.animals.map((pet) => {
@@ -65,7 +67,7 @@ function AdoptionCarousel({ isOrg = false, orgUrl = '' }) {
         <Swiper
           autoHeight={true}
           modules={[Navigation]}
-          loop="true"
+          loop={!isOrg}
           navigation
           spaceBetween={30}
           slidesPerView={1.4}

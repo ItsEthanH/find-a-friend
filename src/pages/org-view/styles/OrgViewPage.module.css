@@ -1,9 +1,22 @@
 .main {
   display: grid;
   grid-template-rows: 20rem;
+  grid-template-rows: repeat(3, max-content);
   grid-template-areas: 'map' 'info' 'hours' 'pets';
   margin: 1rem 2rem;
   max-width: 400px;
+  min-height: 70vh;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info * {
+  text-align: center;
+  font-size: var(--fs-subheading);
 }
 
 @media screen and (min-width: 450px) {
@@ -14,10 +27,9 @@
 
 @media screen and (min-width: 1000px) {
   .main {
-    display: grid;
     grid-template-areas: 'map info' 'map hours' 'pets pets';
     grid-template-columns: 1fr 1fr;
-    max-width: 1500px;
+    max-width: 1400px;
     margin: 0 2rem;
   }
 }
