@@ -5,6 +5,7 @@ import OrgInfo from './OrgInfo';
 
 import classes from './styles/OrgViewPage.module.css';
 import OrgHours from './OrgHours';
+import OrgPets from './OrgPets';
 
 const response = {
   organization: {
@@ -89,6 +90,7 @@ function _OrgViewPage(props) {
         description={response.organization.mission_statement}
       />
       <OrgHours hours={response.organization.hours}></OrgHours>
+      <OrgPets link={response.organization._links.animals.href.substring(3)} />
     </main>
   );
 }

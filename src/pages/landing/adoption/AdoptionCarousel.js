@@ -9,13 +9,13 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import loading from '../../../assets/svgs/loading.svg';
 
-function AdoptionCarousel() {
-  const { response, isLoading, error } = useFetch('animals?limit=30');
+function AdoptionCarousel({ isOrg = false, orgUrl = '' }) {
+  const { response, isLoading, error } = useFetch(`${isOrg ? orgUrl : 'animals?limit=30'}`);
 
   const renderedCards =
     response &&
     response.animals.map((pet) => {
-      if (!pet.primary_photo_cropped) return <></>;
+      if (!pet.primary_photo_cropped && !isOrg) return <></>;
 
       return (
         <SwiperSlide key={pet.id}>
@@ -54,9 +54,13 @@ function AdoptionCarousel() {
     },
   };
 
+  const noResponseString = isOrg
+    ? 'There are no animals available for this organisation. Please check back later!'
+    : 'There are no featured animals at this time. Please try again later!';
+
   return (
     <>
-      {response && (
+      {response && response.animals.length > 0 && (
         <Swiper
           autoHeight={true}
           modules={[Navigation]}
@@ -69,6 +73,12 @@ function AdoptionCarousel() {
         >
           {renderedCards}
         </Swiper>
+      )}
+
+      {response && response.animals.length === 0 && (
+        <p style={{ textAlign: 'center', fontSize: 'var(--fs-subheading)', margin: '2rem 0' }}>
+          {noResponseString}
+        </p>
       )}
 
       {isLoading && <img style={{ margin: 'auto' }} src={loading} alt="Loading..." />}
