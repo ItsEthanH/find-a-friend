@@ -13,8 +13,6 @@ import loading from '../../../assets/svgs/loading.svg';
 function AdoptionCarousel({ isOrg = false, orgUrl = '' }) {
   const { response, isLoading, error } = useFetch(`${isOrg ? orgUrl : 'animals?limit=30'}`);
 
-  console.log(response);
-
   const renderedCards =
     response &&
     response.animals.map((pet) => {
