@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 import Card from '../../../components/cards-and-sections/Card';
 import AdoptionInfo from './AdoptionInfo';
@@ -8,9 +8,11 @@ import classes from './styles/AdoptionCard.module.css';
 import age from '../../../assets/svgs/cake.svg';
 import pin from '../../../assets/svgs/location-pin.svg';
 
-function AdoptionCard({ pet }) {
+function AdoptionCard({ pet, isOrg }) {
   const location = `${pet.contact.address.city}, ${pet.contact.address.state}`;
+  const { pathname } = useLocation();
 
+  console.log(isOrg);
   // mobile image size - 300px
   return (
     <Card styles={classes.card}>
@@ -27,7 +29,11 @@ function AdoptionCard({ pet }) {
         </div>
       </div>
 
-      <Link className={classes.view} to={`/animal/${pet.id}`}>
+      <Link
+        className={classes.view}
+        to={`/animal/${pet.id}`}
+        state={{ from: isOrg ? 'ORG' : 'HOME', path: pathname }}
+      >
         View my Profile!
       </Link>
     </Card>

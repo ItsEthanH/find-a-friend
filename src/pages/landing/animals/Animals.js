@@ -20,7 +20,7 @@ function Animals() {
   }
 
   return (
-    <LandingSection styles={classes.animals}>
+    <LandingSection id="animals" styles={classes.animals}>
       <div className={classes.headings}>
         <Heading alignment="center">
           From <span className="color-accent">Canines</span> to

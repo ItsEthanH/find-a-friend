@@ -15,7 +15,7 @@ function Successes() {
   const windowWidth = useSelector((state) => state.ui.windowWidth);
 
   return (
-    <LandingSection styles={classes.successes}>
+    <LandingSection id="successes" styles={classes.successes}>
       <div className={classes.headings}>
         <Heading alignment="center">Success Stories</Heading>
         <Subheading alignment="center">Read about a couple of our successful rehomings</Subheading>

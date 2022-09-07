@@ -7,9 +7,9 @@ function _CatBreedsPage() {
   const heading = 'Browse by Cat Breed';
 
   return (
-    <main>
+    <main id="cat-top">
       <CatBreedsHero />
-      <BreedSection heading={heading} />
+      <BreedSection id="cat-browse" heading={heading} />
     </main>
   );
 }

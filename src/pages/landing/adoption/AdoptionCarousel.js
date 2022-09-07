@@ -13,8 +13,6 @@ import loading from '../../../assets/svgs/loading.svg';
 function AdoptionCarousel({ isOrg = false, orgUrl = '' }) {
   const { response, isLoading, error } = useFetch(`${isOrg ? orgUrl : 'animals?limit=30'}`);
 
-  console.log(response);
-
   const renderedCards =
     response &&
     response.animals.map((pet) => {
@@ -22,7 +20,7 @@ function AdoptionCarousel({ isOrg = false, orgUrl = '' }) {
 
       return (
         <SwiperSlide key={pet.id}>
-          <AdoptionCard pet={pet} />
+          <AdoptionCard pet={pet} isOrg={isOrg} />
         </SwiperSlide>
       );
     });
@@ -57,6 +55,20 @@ function AdoptionCarousel({ isOrg = false, orgUrl = '' }) {
     },
   };
 
+  const orgBreakpoints = {
+    1000: {
+      slidesPerView: 1,
+    },
+
+    1001: {
+      slidesPerView: 4,
+    },
+
+    1500: {
+      slidesPerView: 5,
+    },
+  };
+
   const noResponseString = isOrg
     ? 'There are no animals available for this organisation. Please check back later!'
     : 'There are no featured animals at this time. Please try again later!';
@@ -72,7 +84,7 @@ function AdoptionCarousel({ isOrg = false, orgUrl = '' }) {
           spaceBetween={30}
           slidesPerView={1.4}
           centeredSlides="true"
-          breakpoints={sliderBreakpoints}
+          breakpoints={isOrg ? orgBreakpoints : sliderBreakpoints}
         >
           {renderedCards}
         </Swiper>

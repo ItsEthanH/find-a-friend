@@ -22,7 +22,6 @@ function SearchOrgsPage() {
   const endpoint = requestEndpointArray.filter((item) => item).join('&');
 
   const { response, isLoading, error } = useFetch(`organizations?${endpoint}`);
-
   function pageChangeHandler(newPage) {
     const pageBeginsIndex = location.pathname.lastIndexOf('/');
     const slicedPath = location.pathname.substring(pageBeginsIndex, -location.pathname.length);

@@ -8,7 +8,7 @@ import search from '../../assets/svgs/search.svg';
 
 function CatBreedsHero() {
   return (
-    <Hero page="CATS">
+    <Hero id="cat-search" page="CATS">
       <div className="hero-body">
         <Heading>
           Browse <span className="color-accent">Cat</span> Breeds

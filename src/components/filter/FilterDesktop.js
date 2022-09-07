@@ -39,7 +39,7 @@ function FilterDesktop(props) {
       case FILTER_PAGES.TYPE:
         return createFilter(<FilterDropdownType key={filter} isDesktop />);
       case FILTER_PAGES.DISTANCE:
-        return createFilter(<FilterTemplateRange key={filter} min={10} max={500} isDesktop />);
+        return createFilter(<FilterTemplateRange key={filter} min={0} max={500} isDesktop />);
       default:
         return createFilter(
           <FilterTemplateCheckbox

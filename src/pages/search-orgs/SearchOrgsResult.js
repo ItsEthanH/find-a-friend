@@ -9,7 +9,6 @@ function SearchOrgsResult({ id, name, location, distance, contact, website }) {
     <p className={classes.none}>Please enter a location to show distance</p>
   );
 
-  console.log(contact);
   const shownContact = contact.trim() ? (
     <p>{contact.trim()}</p>
   ) : (

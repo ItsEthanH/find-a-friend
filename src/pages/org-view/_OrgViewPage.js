@@ -1,17 +1,25 @@
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 
 import OrgMap from './OrgMap';
 import OrgInfo from './OrgInfo';
 import OrgHours from './OrgHours';
 import OrgPets from './OrgPets';
+import Breadcrumbs from '../../components/text/Breadcrumbs';
 
 import classes from './styles/OrgViewPage.module.css';
 import loadingSpinner from '../../assets/svgs/loading.svg';
 
 function _OrgViewPage(props) {
   const params = useParams();
+  const location = useLocation();
   const { response, isLoading, error } = useFetch(`/organizations/${params.id}`);
+
+  const breadcrumbs = [
+    { link: '/', text: 'Home' },
+    { link: '/organisations/1', text: 'Search Organisations' },
+    { link: location.pathname, text: 'Organisation' },
+  ];
 
   const addressArray =
     response &&
@@ -24,6 +32,7 @@ function _OrgViewPage(props) {
 
   const orgViewComponent = response && (
     <>
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
       <OrgMap address={addressArray.join(' ')} />
       <OrgInfo
         name={response.organization.name}

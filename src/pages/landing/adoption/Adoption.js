@@ -8,7 +8,7 @@ import classes from './styles/Adoption.module.css';
 
 function Adoption() {
   return (
-    <section>
+    <section id="adoption">
       <Heading styles={classes.heading} alignment="center">
         Available for Adoption
       </Heading>
