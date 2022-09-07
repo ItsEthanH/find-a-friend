@@ -160,6 +160,12 @@ svg {
   max-width: 850px;
 }
 
+.suspense {
+  width: 100%;
+  margin: 0 auto;
+  min-height: 70vh;
+}
+
 /* Media queries */
 @media screen and (min-width: 650px) {
   html {
