@@ -37,7 +37,7 @@ function PetInformation({ name, breed, age, gender, location, description, statu
       </div>
 
       <p className={classes.description}>
-        {description ||
+        {(description && description.replace('&#039;', "'")) ||
           `The owners of this pet have not provided a description. Get in touch today to find out more!`}
       </p>
 

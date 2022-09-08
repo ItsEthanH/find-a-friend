@@ -5,6 +5,10 @@
   height: fit-content;
 }
 
+.image {
+  cursor: pointer;
+}
+
 .image img {
   object-fit: cover;
   height: 100%;
