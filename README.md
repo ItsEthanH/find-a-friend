@@ -6,6 +6,10 @@ Find-a-Friend is a personal portfolio project, taking the form of a pet adoption
 Find-a-friend is currently live and available for interaction at [https://find-a-friend-53d0d.web.app/](https://find-a-friend-53d0d.web.app/)
 
 ## Technologies
+- APIs
+  - [Petfinder API](https://www.petfinder.com/developers/) (Pet and organisation search)
+  - [The Dog API](https://thedogapi.com/)/[The Cat API](https://thecatapi.com/) (Dog and cat breed images)
+  - [Google Maps Platform](https://developers.google.com/maps) (Places autocomplete and organisation mapping)
 - React
   - React Router
   - React Redux
