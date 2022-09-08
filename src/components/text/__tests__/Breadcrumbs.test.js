@@ -24,7 +24,7 @@ test('breadcrumbs render and work correctly', () => {
   expect(screen.getByText('Search Animals').closest('a')).toHaveAttribute('href', '/search');
 
   expect(screen.getByText('Results')).toBeInTheDocument();
-  expect(screen.getByText('Results').closest('a')).toHaveAttribute(
+  expect(screen.getByText('Results').closest('p')).not.toHaveAttribute(
     'href',
     '/results/new-york-ny/1/recent'
   );

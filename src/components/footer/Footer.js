@@ -18,7 +18,7 @@ function Footer() {
         <nav>
           <ul>
             {NavData.map((link) => (
-              <li>
+              <li key={link.to}>
                 <Link to={link.to}>{link.text}</Link>
               </li>
             ))}
