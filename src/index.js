@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import store from './store/store';
 
 import App from './App';
-import LoadingSpinner from './assets/svgs/loading.svg';
+import SuspenseComponent from './components/SuspenseComponent';
 
 const LandingPage = React.lazy(() => import('./pages/landing/_LandingPage'));
 const SearchAnimalsPage = React.lazy(() => import('./pages/search-animals/_SearchAnimalsPage'));
@@ -20,13 +20,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
     <BrowserRouter>
-      <Suspense
-        fallback={
-          <div className="suspense">
-            <img src={LoadingSpinner} alt="Loading..." />
-          </div>
-        }
-      >
+      <Suspense fallback={<SuspenseComponent />}>
         <Routes>
           <Route path="/" element={<App />}>
             <Route index element={<LandingPage />} />

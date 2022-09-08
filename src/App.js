@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Outlet } from 'react-router-dom';
+import useScroll from './hooks/useScroll';
+
 import { authActions } from './store/auth';
 import { uiActions } from './store/ui';
-import { Outlet } from 'react-router-dom';
-import useScroll from './hooks/useScroll';
 
 import getCookieValue from './util/getCookieValue';
 
@@ -12,7 +12,6 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 
 import './assets/global.css';
-import { useCallback } from 'react';
 
 function App() {
   useScroll();

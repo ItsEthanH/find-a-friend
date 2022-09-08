@@ -163,12 +163,14 @@ svg {
 }
 
 .suspense {
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-  margin: 0 auto;
-  justify-content: center;
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
   align-items: center;
+  height: 100vh;
+}
+
+.suspense-spinner {
+  margin: 0 auto;
 }
 
 /* Media queries */
