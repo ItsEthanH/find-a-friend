@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import Card from '../../components/cards-and-sections/Card';
 
@@ -6,10 +6,15 @@ import classes from './styles/ResultsCard.module.css';
 
 function ResultsCard(props) {
   const location = useLocation();
+  const navigate = useNavigate();
+
+  function imageClickHandler() {
+    navigate(`/animal/${props.id}`, { state: { from: 'RESULTS', path: location.pathname } });
+  }
 
   return (
     <Card key={props.id} styles={classes.card}>
-      <div className={classes.image}>
+      <div className={classes.image} onClick={imageClickHandler}>
         <img src={props.image} alt="" />
       </div>
       <div className={classes.text}>

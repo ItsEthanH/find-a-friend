@@ -1,6 +1,6 @@
 .card {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto fit-content;
   align-items: center;
   text-align: center;
   margin: 3rem auto;
@@ -25,18 +25,20 @@
 
 @media screen and (min-width: 1000px) {
   .card {
-    flex-direction: row;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1.5fr;
     max-width: 60rem;
     margin: 3rem 0;
   }
 
   .image {
     height: 100%;
-    flex: 1 1.15 auto;
   }
 
   .image img {
     height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 
   .text {

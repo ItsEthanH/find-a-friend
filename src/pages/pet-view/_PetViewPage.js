@@ -31,14 +31,14 @@ function _PetViewPage() {
 
   const { response, isLoading, error } = useFetch(`animals/${id}`);
 
-  const fromSearchBreadcrumbs = [
+  const fromSearchBreadcrumbs = location.state && [
     { link: '/', text: 'Home' },
     { link: '/search', text: 'Search Animals' },
     { link: location.state.path, text: 'Results' },
     { link: location.pathname, text: 'Pet' },
   ];
 
-  const fromOrgBreadcrumbs = [
+  const fromOrgBreadcrumbs = location.state && [
     { link: '/', text: 'Home' },
     { link: '/organisations/1', text: 'Search Organisations' },
     { link: location.state.path, text: 'Organisation' },
@@ -51,16 +51,20 @@ function _PetViewPage() {
   ];
 
   let breadcrumbs;
-  switch (location.state.from) {
-    case 'RESULTS':
-      breadcrumbs = fromSearchBreadcrumbs;
-      break;
-    case 'ORG':
-      breadcrumbs = fromOrgBreadcrumbs;
-      break;
-    default:
-      breadcrumbs = fromHomeBreadcrumbs;
-      break;
+  if (location.state) {
+    switch (location.state.from) {
+      case 'RESULTS':
+        breadcrumbs = fromSearchBreadcrumbs;
+        break;
+      case 'ORG':
+        breadcrumbs = fromOrgBreadcrumbs;
+        break;
+      default:
+        breadcrumbs = fromHomeBreadcrumbs;
+        break;
+    }
+  } else {
+    breadcrumbs = fromHomeBreadcrumbs;
   }
 
   // organises the address fields into the preferred formatted array. falsey values are filtered before being passed to the details components

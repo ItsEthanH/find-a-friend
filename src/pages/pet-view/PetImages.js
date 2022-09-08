@@ -7,14 +7,11 @@ import Backdrop from '../../components/cards-and-sections/Backdrop';
 import fullscreenIcon from '../../assets/svgs/pet-view/fullscreen.svg';
 import classes from './styles/PetImages.module.css';
 import 'swiper/css';
+import 'swiper/css/navigation';
 
 function PetImages({ photos }) {
   const [image, setImage] = useState(1);
   const [isFullscreen, setIsFullscreen] = useState(false);
-
-  function slideInitialiseHandler(event) {
-    setImage(event.activeIndex + 1);
-  }
 
   function slideChangeHandler(event) {
     setImage(event.activeIndex + 1);
@@ -44,7 +41,6 @@ function PetImages({ photos }) {
         navigation
         pagination
         slidesPerView={1}
-        onInit={slideInitialiseHandler}
         onSlideChange={slideChangeHandler}
       >
         {renderedPhotos}

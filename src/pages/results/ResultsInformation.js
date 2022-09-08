@@ -5,12 +5,12 @@ import classes from './styles/ResultsInformation.module.css';
 
 function ResultsInformation(props) {
   const { count } = props;
-  const path = useLocation();
+  const location = useLocation();
 
   const breadcrumbs = [
     { link: '/', text: 'Home' },
     { link: '/search', text: 'Search Animals' },
-    { link: path.pathname, text: 'Results' },
+    { link: location.pathname, text: 'Results' },
   ];
 
   return (
